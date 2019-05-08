@@ -42,7 +42,6 @@ var Fireworks = function(){
 		self.hueVariance = 30;
 		self.flickerDensity = 20;
 		self.showShockwave = true;
-		self.showTarget = true;
 		self.showTarget = false;
 		self.clearAlpha = 25;
 
