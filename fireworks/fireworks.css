@@ -21,11 +21,11 @@ a:hover {
 
 #canvas-container {
 	background: #000 url(https://jackrugile.com/lab/fireworks-v2/images/bg.jpg);
-  height: 400px;
-	left: 50%;
-	margin: -200px 0 0 -300px;
-	position: absolute;
-	top: 50%;
+  height: 600px;
+	left: 0;
+	margin: 0 auto;
+	position: relative;
+	top: 0px;
   width: 600px;
 	z-index: 2;
 }
@@ -33,8 +33,9 @@ a:hover {
 canvas {
 	cursor: crosshair;
 	display: block;
-	position: relative;
+	position: absolute;
 	z-index: 3;
+	top:0;
 }
 
 canvas:active {
@@ -76,4 +77,40 @@ canvas:active {
 	position: fixed;
 	top: 0;
 	z-index: 3;
+}
+#winner {
+	margin: auto;
+	position: relative;
+	top: 30%;
+	z-index: 10;
+    font:  bold 85px/80px 'Poppins', sans-serif;	color:#FF4433;
+	color:#3366FF;
+	text-align: center;
+
+}
+a:link#clicker,  a:visited#clicker {
+	margin: auto;
+	position: relative;
+	top: 40%;
+	z-index: 10;
+    font: italic bold 45px/50px Georgia, serif;	color:#FF4433;
+	text-align: center;
+	display:block;
+
+}
+.throbber {
+    -webkit-animation: throbber 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.5;
+}
+@-webkit-keyframes throbber {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.2;
+    }
 }
