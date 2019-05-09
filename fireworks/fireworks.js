@@ -39,7 +39,7 @@ var Fireworks = function(){
 		self.hueMax = 200;
 		self.fworkSpeed = 2;
 		self.fworkAccel = 4;
-		self.hueVariance = 30;
+		self.hueVariance = 127;
 		self.flickerDensity = 20;
 		self.showShockwave = true;
 		self.showTarget = false;
@@ -390,7 +390,7 @@ var Fireworks = function(){
 	self.init();
 
   var initialLaunchCount = 10;
-  var delay = 4000;
+  var delay = 2800;
   var init = false;
 
   while(initialLaunchCount--){
