@@ -1,12 +1,14 @@
 html, body {
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
+	overflow: hidden;
 }
 
 body {
 	background: #171717;
-	color: #999;
-	font: 100%/18px helvetica, arial, sans-serif;
+	position:relative;
+	margin: 0 auto;
+
 }
 
 a {
