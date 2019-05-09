@@ -20,7 +20,7 @@ a:hover {
 }
 
 #canvas-container {
-	background: #000 url(https://jackrugile.com/lab/fireworks-v2/images/bg.jpg);
+	background: #000 url(images/bg.jpg);
   height: 600px;
 	left: 0;
 	margin: 0 auto;
@@ -43,7 +43,7 @@ canvas:active {
 }
 
 #skyline {
-	background: url(https://jackrugile.com/lab/fireworks-v2/images/skyline.png) repeat-x 50% 0;
+	background: url(images/skyline.png) repeat-x 50% 0;
 	bottom: 0;
 	height: 135px;
 	left: 0;
@@ -53,7 +53,7 @@ canvas:active {
 }
 
 #mountains1 {
-	background: url(https://jackrugile.com/lab/fireworks-v2/images/mountains1.png) repeat-x 40% 0;
+	background: url(images/mountains1.png) repeat-x 40% 0;
 	bottom: 0;
 	height: 200px;
 	left: 0;
@@ -63,7 +63,7 @@ canvas:active {
 }
 
 #mountains2 {
-	background: url(https://jackrugile.com/lab/fireworks-v2/images/mountains2.png) repeat-x 30% 0;
+	background: url(images/mountains2.png) repeat-x 30% 0;
 	bottom: 0;
 	height: 250px;
 	left: 0;
