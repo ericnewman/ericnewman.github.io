@@ -350,6 +350,30 @@ var Fireworks = function(){
 			self.showTarget = false;
 		});
 
+
+		$(self.canvas).on('touchstart', function(e){
+			var randLaunch = rand(0, 5);
+			self.mx = e.pageX - self.canvasContainer.offset().left;
+			self.my = e.pageY - self.canvasContainer.offset().top;
+			self.currentHue = rand(self.hueMin, self.hueMax);
+			self.createFireworks(self.cw/2, self.ch, self.mx, self.my);
+			self.showTarget = true;
+
+			$(self.canvas).on('mousemove.fireworks', function(e){
+				var randLaunch = rand(0, 5);
+				self.mx = e.pageX - self.canvasContainer.offset().left;
+				self.my = e.pageY - self.canvasContainer.offset().top;
+				self.currentHue = rand(self.hueMin, self.hueMax);
+				self.createFireworks(self.cw/2, self.ch, self.mx, self.my);
+			});
+
+		});
+
+		$(self.canvas).on('ontouchend', function(e){
+			$(self.canvas).off('mousemove.fireworks');
+			self.showTarget = false;
+		});
+
 	}
 
 	/*=============================================================================*/
