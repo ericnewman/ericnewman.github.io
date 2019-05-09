@@ -350,28 +350,29 @@ var Fireworks = function(){
 			self.showTarget = false;
 		});
 
-        var canvas = $(self.canvas);
-        canvas.addEventListener("touchstart", function (e) {
-                mousePos = getTouchPos(canvas, e);
-          var touch = e.touches[0];
-          var mouseEvent = new MouseEvent("mousedown", {
-            clientX: touch.clientX,
-            clientY: touch.clientY
-          });
-          canvas.dispatchEvent(mouseEvent);
-        }, false);
-        canvas.addEventListener("touchend", function (e) {
-          var mouseEvent = new MouseEvent("mouseup", {});
-          canvas.dispatchEvent(mouseEvent);
-        }, false);
-        canvas.addEventListener("touchmove", function (e) {
-          var touch = e.touches[0];
-          var mouseEvent = new MouseEvent("mousemove", {
-            clientX: touch.clientX,
-            clientY: touch.clientY
-          });
-          canvas.dispatchEvent(mouseEvent);
-        }, false);
+		$(self.canvas).on('touchstart', function(e){
+			var randLaunch = rand(0, 5);
+			self.mx = e.pageX - self.canvasContainer.offset().left;
+			self.my = e.pageY - self.canvasContainer.offset().top;
+			self.currentHue = rand(self.hueMin, self.hueMax);
+			self.createFireworks(self.cw/2, self.ch, self.mx, self.my);
+			self.showTarget = true;
+
+			$(self.canvas).on('touchmove.fireworks', function(e){
+				var randLaunch = rand(0, 5);
+				self.mx = e.pageX - self.canvasContainer.offset().left;
+				self.my = e.pageY - self.canvasContainer.offset().top;
+				self.currentHue = rand(self.hueMin, self.hueMax);
+				self.createFireworks(self.cw/2, self.ch, self.mx, self.my);
+			});
+
+		});
+
+		$(self.canvas).on('touchend', function(e){
+			$(self.canvas).off('touchmove.fireworks');
+			self.showTarget = false;
+		});
+    }
 
 	/*=============================================================================*/
 	/* Clear Canvas
