@@ -608,8 +608,8 @@ var gui = new dat.GUI({
 	//preset: 'Default'
 	preset: 'Eric'
 });
-var customContainer = document.getElementById('gui');
-customContainer.appendChild(gui.domElement);
+// var customContainer = document.getElementById('gui');
+// customContainer.appendChild(gui.domElement);
 
 var guiFireworks = gui.addFolder('Fireworks');
 guiFireworks.add(fworks, 'fworkSpeed').min(1).max(10).step(1);
