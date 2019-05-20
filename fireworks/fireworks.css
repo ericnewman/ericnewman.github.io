@@ -2,11 +2,12 @@ html, body {
 	margin: 0 auto;
 	padding: 0;
 	overflow: hidden;
+	overflow-x:hidden
 }
 @font-face {
   font-family: 'Arvo';
   font-display: auto;
-  src: local('Arvo'), url(https://fonts.gstatic.com/s/arvo/v9/rC7kKhY-eUDY-ucISTIf5PesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+  src: url(https://fonts.gstatic.com/s/arvo/v9/rC7kKhY-eUDY-ucISTIf5PesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
 }
 
 body {
@@ -90,7 +91,7 @@ canvas:active {
 	position: relative;
 	top: 30%;
 	z-index: 10;
-    font:  bold 85px/80px 'Poppins', sans-serif;	color:#FF4433;
+    font:  bold 85px/80px 'Avro', sans-serif;	color:#FF4433;
 	color:#3366FF;
 	text-align: center;
 
