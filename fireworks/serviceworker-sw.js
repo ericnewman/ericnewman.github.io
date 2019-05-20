@@ -1,12 +1,12 @@
 //This is the service worker with the Advanced caching
 
-const CACHE = "pwabuilder-adv-cache";
+const CACHE = "ejnfireworks-adv-cache";
 const precacheFiles = [
   /* Add an array of files to precache for your app */
 ];
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "ToDo-replace-this-name.html";
+const offlineFallbackPage = "fireworks.html";
 
 const networkFirstPaths = [
   /* Add an array of regex of paths that should go network first */
