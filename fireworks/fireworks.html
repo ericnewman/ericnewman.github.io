@@ -49,6 +49,12 @@
 	      });
 	  }
 	}
+  addEventListener(document, "touchstart", function(e) {
+    console.log(e.defaultPrevented);  // will be false
+    e.preventDefault();   // does nothing since the listener is passive
+    console.log(e.defaultPrevented);  // still false
+  },{passive: true});
+
 </script>
 <script src="fireworks.js" defer>
 </script>
