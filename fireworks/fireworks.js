@@ -33,8 +33,8 @@ var Fireworks = function(){
 			return false;
 		};
 
-		self.canvas.width = self.cw = 600;
-		self.canvas.height = self.ch = 600;
+		self.canvas.width = self.cw = innerWidth;
+		self.canvas.height = self.ch = innerHeight;
 
 		self.particles = [];
 		self.partCount = 120;
