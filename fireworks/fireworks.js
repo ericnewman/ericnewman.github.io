@@ -1,9 +1,21 @@
-
 var Fireworks = function(){
 	/*=============================================================================*/
 	/* Utility
 	/*=============================================================================*/
 	var self = this;
+        /*=============================================================================*/
+        /* Fix Listeners
+        /*=============================================================================*/
+	    $.event.special.touchstart = {
+      setup: function( _, ns, handle ){
+        if ( ns.includes("noPreventDefault") ) {
+          this.addEventListener("touchstart", handle, { passive: false });
+        } else {
+          this.addEventListener("touchstart", handle, { passive: true });
+        }
+      }
+    };
+
 	var rand = function(rMi, rMa){return ~~((Math.random()*(rMa-rMi+1))+rMi);}
 	window.requestAnimFrame=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(a){window.setTimeout(a,1E3/60)}}();
 
@@ -425,7 +437,6 @@ var Fireworks = function(){
                 }
             }, initialLaunchCount*200);
         }, init?0:delay);
-
   }
 
 }
