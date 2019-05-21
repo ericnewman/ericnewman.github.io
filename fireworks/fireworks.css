@@ -28,13 +28,15 @@ a:hover {
 }
 
 #canvas-container {
-	background: #000 url(images/bg.jpg);
-  height: 600px;
+	background: #000 url(images/bg.jpg)  left top;;
+  /* height: 600px; */
+    width:99vw;
+     height:99vh;
 	left: 0;
 	margin: 0 auto;
 	position: relative;
 	top: 0px;
-  width: 600px;
+    /* width: 600px; */
 	z-index: 2;
 }
 
