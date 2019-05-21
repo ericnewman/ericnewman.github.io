@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous">
+	</script>
 <!-- script src="dat.gui.min.js"></script -->
-    <link href="fireworks.css" rel="stylesheet" type="text/css" media="all">
-    <link rel="manifest" href="./manifest.json">
-    <title>Animation Demo</title>
-
+	<link href="fireworks.css" rel="stylesheet" type="text/css" media="all">
+	<link rel="manifest" href="./manifest.json">
+	<title>Animation Demo</title>
 </head>
-
 <body>
 <!-- div id="gui"></div -->
-<div id="canvas-container">
-  <div id="winner" class="throbber">You Won!</div>
-  <a href="https://slash.frvr.com/?s=website" id="clicker">Click here to see your score!</a>
-  <div id="mountains2"></div>
-  <div id="mountains1"></div>
-  <div id="skyline"></div>
-</div>
-<script src="fireworks.js"></script>
+<main>
+<header>
+	<div id="canvas-container">
+		<div id="winner" class="throbber">
+			You Won!
+		</div>
+		<a href="https://slash.frvr.com/?s=website" id="clicker">Click here to see your score!</a>
+		<div id="mountains2">
+		</div>
+		<div id="mountains1">
+		</div>
+		<div id="skyline">
+		</div>
+	</div>
+</header>
+</main>
 <script>
-// This is the service worker with the Advanced caching
+	// This is the service worker with the Advanced caching
 
-// Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+	// Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
 
-// Check compatibility for the browser we're running this in
-if ("serviceWorker" in navigator) {
-  if (navigator.serviceWorker.controller) {
-    console.log("[EJN] active service worker found, no need to register");
-  } else {
-    // Register the service worker
-    navigator.serviceWorker
-      .register("serviceworker-sw.js", {
-        scope: "./"
-      })
-      .then(function (reg) {
-        console.log("[EJN] Service worker has been registered for scope: " + reg.scope);
-      });
-  }
-}
+	// Check compatibility for the browser we're running this in
+	if ("serviceWorker" in navigator) {
+	  if (navigator.serviceWorker.controller) {
+	    console.log("[EJN] active service worker found, no need to register");
+	  } else {
+	    // Register the service worker
+	    navigator.serviceWorker
+	      .register("serviceworker-sw.js", {
+	        scope: "./"
+	      })
+	      .then(function (reg) {
+	        console.log("[EJN] Service worker has been registered for scope: " + reg.scope);
+	      });
+	  }
+	}
+</script>
+<script src="fireworks.js">
 </script>
 </body>
 </html>
