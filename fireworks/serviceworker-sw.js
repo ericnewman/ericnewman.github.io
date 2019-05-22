@@ -46,7 +46,7 @@ self.addEventListener("install", function (event) {
       console.log("[EJN] Caching pages during install");
 
       return cache.addAll(precacheFiles).then(function () {
-        if (offlineFallbackPage === "ToDo-replace-this-name.html") {
+        if (offlineFallbackPage === "fireworks.html") {
           return cache.add(new Response("TODO: Update the value of the offlineFallbackPage constant in the serviceworker."));
         }
 
