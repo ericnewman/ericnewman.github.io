@@ -21,3 +21,9 @@
 .header {
     padding:3px;
 }
+.achievement {
+    background:#F33;
+    display:inline-block;
+    padding:16px;
+    border:5px solid black;
+}

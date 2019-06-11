@@ -55,6 +55,10 @@ export default class Snooze extends Component {
 					<p />
 				</p>
 				</div>
+				<div>
+				    {}
+                </div>
+
 			</Card>
 		</div>);
 	}

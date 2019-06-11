@@ -1,3 +1,4 @@
+/*
 export default (config, env, helpers) => {
      config.output.publicPath = '/games_poc/build/';
 
@@ -8,3 +9,4 @@ export default (config, env, helpers) => {
       })
     );
   };
+*/

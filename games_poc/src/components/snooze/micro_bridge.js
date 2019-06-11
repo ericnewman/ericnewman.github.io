@@ -1,6 +1,27 @@
     var  MobilePosse = {
         state: {version: "Micro Bridge 1.0"},
 
+   updateScheduleList: function () {
+         var str = "No Bridge";
+//         if(window.MP && window.MP.getAllScheduledLocalNotifications) {
+//             var items = MP.getAllScheduledLocalNotifications();
+//         if(window.MP && window.MP.getAllScheduledBannerExecutors) {
+//             var items = MP.getAllScheduledBannerExecutors();
+//             items = JSON.parse(items);
+//
+//             str = "<table><tr><th>ID</th><th>URL</th><th>TIME</th><th>DIS</th></tr>";
+//             for(var z = 0; z < items.length; z++) {
+//                 var o = items[z];
+//
+//                 str += "<tr><td>" + o.id + "</td><td>" + o.url + "</td><td>" + o.scheduledTimes + "</td><td>" + o.disabled + "</td></tr>";
+//             }
+//              str += "</table>";
+//
+//         } else {
+//             return(str);
+//         }
+    },
+
      addScheduledContent: function (id, url, scheduledTime, enable){
 
         var mtime = new Date(scheduledTime);
@@ -10,7 +31,7 @@
             window.MP.addScheduledLocalNotification(id, url, otime, enable);
         }
 
-        //updateScheduleList();
+        updateScheduleList();
     },
       versionInfo:function () {
         return this.state.version;
@@ -20,22 +41,6 @@
 //
 //
 //
-//   function updateScheduleList () {
-//
-//         var items = MP.getAllScheduledLocalNotifications();
-//         items = JSON.parse(items);
-//
-//         var str = "<table><tr><th>ID</th><th>URL</th><th>TIME</th><th>DIS</th></tr>";
-//         var q;
-//         for(var z = 0; z < items.length; z++) {
-//             var o = items[z];
-//
-//             str += "<tr><td>" + o.id + "</td><td>" + o.url + "</td><td>" + o.scheduledTimes + "</td><td>" + o.disabled + "</td></tr>";
-//         }
-//          str += "</table>";
-//
-// //         $('#results').html(str);
-//     }
 //
 //
 //
