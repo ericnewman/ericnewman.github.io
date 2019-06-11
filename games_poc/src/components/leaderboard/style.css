@@ -21,3 +21,14 @@
 .header {
     padding:3px;
 }
+.person {
+    width:100px;
+    text-align:left;
+    display:inline-block;
+
+}
+.score {
+    width:150px;
+    text-align:left;
+    display:inline-block;
+}

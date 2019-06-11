@@ -5,7 +5,7 @@
 	<key>EmbeddedEditorHidden:ericnewman</key>
 	<false/>
 	<key>ExpandedEditorWidth:ericnewman:displays([(0, 0), (3008, 1692)]:[(-1920, 1245), (1920, 1200)]:[(3008, 0), (3008, 1692)])</key>
-	<integer>2453</integer>
+	<integer>2197</integer>
 	<key>ExpandedItems:ericnewman</key>
 	<array>
 		<string>294C1032-127B-4C7F-8006-A199765CDA0B</string>
@@ -75,6 +75,43 @@
 			</data>
 			<key>FileURL</key>
 			<string>file:///Users/ericnewman/Dropbox/Private%20Files/ericnewman.github.io/games_poc/src/components/achievements/</string>
+			<key>HasSecurityScope</key>
+			<true/>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>BookmarkData</key>
+			<data>
+			Ym9va5wDAAAAAAQQMAAAAJAB3vFrPE/rfvhUNCjD0OgUve68kzWt
+			17os7q+8twr3mAIAAAQAAAADAwAAAAgAKAUAAAABAQAAVXNlcnMA
+			AAAKAAAAAQEAAGVyaWNuZXdtYW4AAAcAAAABAQAARHJvcGJveAAN
+			AAAAAQEAAFByaXZhdGUgRmlsZXMAAAAUAAAAAQEAAGVyaWNuZXdt
+			YW4uZ2l0aHViLmlvCQAAAAEBAABnYW1lc19wb2MAAAADAAAAAQEA
+			AHNyYwAKAAAAAQEAAGNvbXBvbmVudHMAAAsAAAABAQAAbGVhZGVy
+			Ym9hcmQAJAAAAAEGAAAQAAAAIAAAADQAAABEAAAAXAAAAHgAAACM
+			AAAAmAAAAKwAAAAIAAAABAMAAM5gBgAAAAAACAAAAAQDAACrdl0A
+			AAAAAAgAAAAEAwAAxpNoAAAAAAAIAAAABAMAANoXKgMCAAAACAAA
+			AAQDAACEINADAgAAAAgAAAAEAwAApLP7AwIAAAAIAAAABAMAAKqz
+			+wMCAAAACAAAAAQDAAC0s/sDAgAAAAgAAAAEAwAAJ5f8AwIAAAAk
+			AAAAAQYAAOwAAAD8AAAADAEAABwBAAAsAQAAPAEAAEwBAABcAQAA
+			bAEAAAgAAAAABAAAQcFXXGsRCpwYAAAAAQIAAAIAAAAAAAAADwAA
+			AAAAAAAAAAAAAAAAAAgAAAAEAwAABwAAAAAAAAAEAAAAAwMAAPYB
+			AAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNpbnRvc2ggSEQI
+			AAAABAMAAACgQ7zoAAAACAAAAAAEAABBvc3EaQAAACQAAAABAQAA
+			NDc1Q0Y0QUMtNzk5My0zOUIxLUE0QjctMEM1MDZBMUM3REFFGAAA
+			AAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAAAAABAAAAAQEAAC8A
+			AAAAAAAAAQUAAMwAAAD+////AQAAAAAAAAAQAAAABBAAAMAAAAAA
+			AAAABRAAAHwBAAAAAAAAEBAAALgBAAAAAAAAQBAAAKgBAAAAAAAA
+			AiAAAIQCAAAAAAAABSAAAPQBAAAAAAAAECAAAAQCAAAAAAAAESAA
+			ADgCAAAAAAAAEiAAABgCAAAAAAAAEyAAACgCAAAAAAAAICAAAGQC
+			AAAAAAAAMCAAAJACAAAAAAAAAcAAANgBAAAAAAAAEcAAACAAAAAA
+			AAAAEsAAAOgBAAAAAAAAENAAAAQAAAAAAAAA
+			</data>
+			<key>FileURL</key>
+			<string>file:///Users/ericnewman/Dropbox/Private%20Files/ericnewman.github.io/games_poc/src/components/leaderboard/</string>
 			<key>HasSecurityScope</key>
 			<true/>
 			<key>TypeID</key>
@@ -254,6 +291,48 @@
 		<dict>
 			<key>BookmarkData</key>
 			<data>
+			Ym9vawAEAAAAAAQQMAAAAJ/IjUniK5mr5NO32gRiZQmpSOu5m6n6
+			5du/8QxoBQoH8AIAAAQAAAADAwAAAAgAKAUAAAABAQAAVXNlcnMA
+			AAAKAAAAAQEAAGVyaWNuZXdtYW4AAAcAAAABAQAARHJvcGJveAAN
+			AAAAAQEAAFByaXZhdGUgRmlsZXMAAAAUAAAAAQEAAGVyaWNuZXdt
+			YW4uZ2l0aHViLmlvCQAAAAEBAABnYW1lc19wb2MAAAADAAAAAQEA
+			AHNyYwAKAAAAAQEAAGNvbXBvbmVudHMAAAsAAAABAQAAbGVhZGVy
+			Ym9hcmQACAAAAAEBAABpbmRleC5qcygAAAABBgAAEAAAACAAAAA0
+			AAAARAAAAFwAAAB4AAAAjAAAAJgAAACsAAAAwAAAAAgAAAAEAwAA
+			zmAGAAAAAAAIAAAABAMAAKt2XQAAAAAACAAAAAQDAADGk2gAAAAA
+			AAgAAAAEAwAA2hcqAwIAAAAIAAAABAMAAIQg0AMCAAAACAAAAAQD
+			AACks/sDAgAAAAgAAAAEAwAAqrP7AwIAAAAIAAAABAMAALSz+wMC
+			AAAACAAAAAQDAAAnl/wDAgAAAAgAAAAEAwAAKpf8AwIAAAAoAAAA
+			AQYAAAABAAAQAQAAIAEAADABAABAAQAAUAEAAGABAABwAQAAgAEA
+			AJABAAAIAAAAAAQAAEHBV1x56OF9GAAAAAECAAABAAAAAAAAAA8A
+			AAAAAAAAAAAAAAAAAAAIAAAABAMAAAgAAAAAAAAABAAAAAMDAAD2
+			AQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAATWFjaW50b3NoIEhE
+			CAAAAAQDAAAAoEO86AAAAAgAAAAABAAAQb3NxGkAAAAkAAAAAQEA
+			ADQ3NUNGNEFDLTc5OTMtMzlCMS1BNEI3LTBDNTA2QTFDN0RBRRgA
+			AAABAgAAgQAAAAEAAADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAv
+			AAAAAAAAAAEFAAAaAAAAAQEAAE5TVVJMRG9jdW1lbnRJZGVudGlm
+			aWVyS2V5AAAEAAAAAwMAAIzBEgDYAAAA/v///wEAAAAAAAAAEQAA
+			AAQQAADQAAAAAAAAAAUQAACgAQAAAAAAABAQAADgAQAAAAAAAEAQ
+			AADQAQAAAAAAAAIgAACsAgAAAAAAAAUgAAAcAgAAAAAAABAgAAAs
+			AgAAAAAAABEgAABgAgAAAAAAABIgAABAAgAAAAAAABMgAABQAgAA
+			AAAAACAgAACMAgAAAAAAADAgAAC4AgAAAAAAAAHAAAAAAgAAAAAA
+			ABHAAAAgAAAAAAAAABLAAAAQAgAAAAAAABDQAAAEAAAAAAAAAMAC
+			AIDkAgAAAAAAAA==
+			</data>
+			<key>FileURL</key>
+			<string>file:///Users/ericnewman/Dropbox/Private%20Files/ericnewman.github.io/games_poc/src/components/leaderboard/index.js</string>
+			<key>HasSecurityScope</key>
+			<true/>
+			<key>RelativePath</key>
+			<string>./src/components/leaderboard/index.js</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>BookmarkData</key>
+			<data>
 			Ym9va/wDAAAAAAQQMAAAAKniRS+z8YvlK2kkwBNl2uXptNlulsHj
 			1xCZKxH4Vdzo7AIAAAQAAAADAwAAAAgAKAUAAAABAQAAVXNlcnMA
 			AAAKAAAAAQEAAGVyaWNuZXdtYW4AAAcAAAABAQAARHJvcGJveAAN
@@ -296,40 +375,38 @@
 		<dict>
 			<key>BookmarkData</key>
 			<data>
-			Ym9vawAEAAAAAAQQMAAAAJ/IjUniK5mr5NO32gRiZQmpSOu5m6n6
-			5du/8QxoBQoH8AIAAAQAAAADAwAAAAgAKAUAAAABAQAAVXNlcnMA
+			Ym9va8wDAAAAAAQQMAAAAMDn7Yw12Z/lu14HMGeVlqCUDu1mIBdN
+			n3Oi7h5GHiBoyAIAAAQAAAADAwAAAAgAKAUAAAABAQAAVXNlcnMA
 			AAAKAAAAAQEAAGVyaWNuZXdtYW4AAAcAAAABAQAARHJvcGJveAAN
 			AAAAAQEAAFByaXZhdGUgRmlsZXMAAAAUAAAAAQEAAGVyaWNuZXdt
 			YW4uZ2l0aHViLmlvCQAAAAEBAABnYW1lc19wb2MAAAADAAAAAQEA
-			AHNyYwAKAAAAAQEAAGNvbXBvbmVudHMAAAsAAAABAQAAbGVhZGVy
-			Ym9hcmQACAAAAAEBAABpbmRleC5qcygAAAABBgAAEAAAACAAAAA0
-			AAAARAAAAFwAAAB4AAAAjAAAAJgAAACsAAAAwAAAAAgAAAAEAwAA
-			zmAGAAAAAAAIAAAABAMAAKt2XQAAAAAACAAAAAQDAADGk2gAAAAA
-			AAgAAAAEAwAA2hcqAwIAAAAIAAAABAMAAIQg0AMCAAAACAAAAAQD
-			AACks/sDAgAAAAgAAAAEAwAAqrP7AwIAAAAIAAAABAMAALSz+wMC
-			AAAACAAAAAQDAAAnl/wDAgAAAAgAAAAEAwAAKpf8AwIAAAAoAAAA
-			AQYAAAABAAAQAQAAIAEAADABAABAAQAAUAEAAGABAABwAQAAgAEA
-			AJABAAAIAAAAAAQAAEHBV1x56OF9GAAAAAECAAABAAAAAAAAAA8A
-			AAAAAAAAAAAAAAAAAAAIAAAABAMAAAgAAAAAAAAABAAAAAMDAAD2
-			AQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAATWFjaW50b3NoIEhE
-			CAAAAAQDAAAAoEO86AAAAAgAAAAABAAAQb3NxGkAAAAkAAAAAQEA
-			ADQ3NUNGNEFDLTc5OTMtMzlCMS1BNEI3LTBDNTA2QTFDN0RBRRgA
-			AAABAgAAgQAAAAEAAADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAv
-			AAAAAAAAAAEFAAAaAAAAAQEAAE5TVVJMRG9jdW1lbnRJZGVudGlm
-			aWVyS2V5AAAEAAAAAwMAAIzBEgDYAAAA/v///wEAAAAAAAAAEQAA
-			AAQQAADQAAAAAAAAAAUQAACgAQAAAAAAABAQAADgAQAAAAAAAEAQ
-			AADQAQAAAAAAAAIgAACsAgAAAAAAAAUgAAAcAgAAAAAAABAgAAAs
-			AgAAAAAAABEgAABgAgAAAAAAABIgAABAAgAAAAAAABMgAABQAgAA
-			AAAAACAgAACMAgAAAAAAADAgAAC4AgAAAAAAAAHAAAAAAgAAAAAA
-			ABHAAAAgAAAAAAAAABLAAAAQAgAAAAAAABDQAAAEAAAAAAAAAMAC
-			AIDkAgAAAAAAAA==
+			AHNyYwAKAAAAAQEAAGNvbXBvbmVudHMAAAYAAAABAQAAc25vb3pl
+			AAATAAAAAQEAAGJyaWRnZV9pbnRlcmZhY2UuanMAKAAAAAEGAAAQ
+			AAAAIAAAADQAAABEAAAAXAAAAHgAAACMAAAAmAAAAKwAAAC8AAAA
+			CAAAAAQDAADOYAYAAAAAAAgAAAAEAwAAq3ZdAAAAAAAIAAAABAMA
+			AMaTaAAAAAAACAAAAAQDAADaFyoDAgAAAAgAAAAEAwAAhCDQAwIA
+			AAAIAAAABAMAAKSz+wMCAAAACAAAAAQDAACqs/sDAgAAAAgAAAAE
+			AwAAtLP7AwIAAAAIAAAABAMAAP0+/AMCAAAACAAAAAQDAADMpPwD
+			AgAAACgAAAABBgAACAEAABgBAAAoAQAAOAEAAEgBAABYAQAAaAEA
+			AHgBAACIAQAAmAEAAAgAAAAABAAAQcC14GGfEA8YAAAAAQIAAAEA
+			AAAAAAAADwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAACAAAAAAAAAAE
+			AAAAAwMAAPYBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNp
+			bnRvc2ggSEQIAAAABAMAAACgQ7zoAAAACAAAAAAEAABBvc3EaQAA
+			ACQAAAABAQAANDc1Q0Y0QUMtNzk5My0zOUIxLUE0QjctMEM1MDZB
+			MUM3REFFGAAAAAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAAAAAB
+			AAAAAQEAAC8AAAAAAAAAAQUAAMwAAAD+////AQAAAAAAAAAQAAAA
+			BBAAANgAAAAAAAAABRAAAKgBAAAAAAAAEBAAAOgBAAAAAAAAQBAA
+			ANgBAAAAAAAAAiAAALQCAAAAAAAABSAAACQCAAAAAAAAECAAADQC
+			AAAAAAAAESAAAGgCAAAAAAAAEiAAAEgCAAAAAAAAEyAAAFgCAAAA
+			AAAAICAAAJQCAAAAAAAAMCAAAMACAAAAAAAAAcAAAAgCAAAAAAAA
+			EcAAACAAAAAAAAAAEsAAABgCAAAAAAAAENAAAAQAAAAAAAAA
 			</data>
 			<key>FileURL</key>
-			<string>file:///Users/ericnewman/Dropbox/Private%20Files/ericnewman.github.io/games_poc/src/components/leaderboard/index.js</string>
+			<string>file:///Users/ericnewman/Dropbox/Private%20Files/ericnewman.github.io/games_poc/src/components/snooze/bridge_interface.js</string>
 			<key>HasSecurityScope</key>
 			<true/>
 			<key>RelativePath</key>
-			<string>./src/components/leaderboard/index.js</string>
+			<string>./src/components/snooze/bridge_interface.js</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -567,46 +644,6 @@
 			<true/>
 			<key>RelativePath</key>
 			<string>./src/components/app.js</string>
-			<key>TypeID</key>
-			<string>_CFileLocator</string>
-			<key>Version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>BookmarkData</key>
-			<data>
-			Ym9va8wDAAAAAAQQMAAAAMDn7Yw12Z/lu14HMGeVlqCUDu1mIBdN
-			n3Oi7h5GHiBoyAIAAAQAAAADAwAAAAgAKAUAAAABAQAAVXNlcnMA
-			AAAKAAAAAQEAAGVyaWNuZXdtYW4AAAcAAAABAQAARHJvcGJveAAN
-			AAAAAQEAAFByaXZhdGUgRmlsZXMAAAAUAAAAAQEAAGVyaWNuZXdt
-			YW4uZ2l0aHViLmlvCQAAAAEBAABnYW1lc19wb2MAAAADAAAAAQEA
-			AHNyYwAKAAAAAQEAAGNvbXBvbmVudHMAAAYAAAABAQAAc25vb3pl
-			AAATAAAAAQEAAGJyaWRnZV9pbnRlcmZhY2UuanMAKAAAAAEGAAAQ
-			AAAAIAAAADQAAABEAAAAXAAAAHgAAACMAAAAmAAAAKwAAAC8AAAA
-			CAAAAAQDAADOYAYAAAAAAAgAAAAEAwAAq3ZdAAAAAAAIAAAABAMA
-			AMaTaAAAAAAACAAAAAQDAADaFyoDAgAAAAgAAAAEAwAAhCDQAwIA
-			AAAIAAAABAMAAKSz+wMCAAAACAAAAAQDAACqs/sDAgAAAAgAAAAE
-			AwAAtLP7AwIAAAAIAAAABAMAAP0+/AMCAAAACAAAAAQDAADMpPwD
-			AgAAACgAAAABBgAACAEAABgBAAAoAQAAOAEAAEgBAABYAQAAaAEA
-			AHgBAACIAQAAmAEAAAgAAAAABAAAQcC14GGfEA8YAAAAAQIAAAEA
-			AAAAAAAADwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAACAAAAAAAAAAE
-			AAAAAwMAAPYBAAAIAAAAAQkAAGZpbGU6Ly8vDAAAAAEBAABNYWNp
-			bnRvc2ggSEQIAAAABAMAAACgQ7zoAAAACAAAAAAEAABBvc3EaQAA
-			ACQAAAABAQAANDc1Q0Y0QUMtNzk5My0zOUIxLUE0QjctMEM1MDZB
-			MUM3REFFGAAAAAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAAAAAB
-			AAAAAQEAAC8AAAAAAAAAAQUAAMwAAAD+////AQAAAAAAAAAQAAAA
-			BBAAANgAAAAAAAAABRAAAKgBAAAAAAAAEBAAAOgBAAAAAAAAQBAA
-			ANgBAAAAAAAAAiAAALQCAAAAAAAABSAAACQCAAAAAAAAECAAADQC
-			AAAAAAAAESAAAGgCAAAAAAAAEiAAAEgCAAAAAAAAEyAAAFgCAAAA
-			AAAAICAAAJQCAAAAAAAAMCAAAMACAAAAAAAAAcAAAAgCAAAAAAAA
-			EcAAACAAAAAAAAAAEsAAABgCAAAAAAAAENAAAAQAAAAAAAAA
-			</data>
-			<key>FileURL</key>
-			<string>file:///Users/ericnewman/Dropbox/Private%20Files/ericnewman.github.io/games_poc/src/components/snooze/bridge_interface.js</string>
-			<key>HasSecurityScope</key>
-			<true/>
-			<key>RelativePath</key>
-			<string>./src/components/snooze/bridge_interface.js</string>
 			<key>TypeID</key>
 			<string>_CFileLocator</string>
 			<key>Version</key>
@@ -1402,7 +1439,7 @@
 	<key>OpenDocumentsExpanded</key>
 	<true/>
 	<key>OpenDocumentsSplitterProportion</key>
-	<real>0.70531710442024342</real>
+	<real>0.72190784155214227</real>
 	<key>ProjectItemsExpanded</key>
 	<true/>
 	<key>ProjectViewVisible</key>
@@ -1411,7 +1448,7 @@
 	<array>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1459,7 +1496,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1504,7 +1541,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1551,7 +1588,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1601,7 +1638,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1649,7 +1686,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1697,7 +1734,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1746,7 +1783,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1792,7 +1829,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1839,7 +1876,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1884,7 +1921,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1931,7 +1968,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -1978,7 +2015,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -2022,7 +2059,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -2068,7 +2105,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2019-06-11T17:11:17Z</date>
+			<date>2019-06-11T18:27:21Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -2121,8 +2158,8 @@
 	<key>ToolbarVisible:ericnewman</key>
 	<false/>
 	<key>ViewSplitterPosition:ericnewman</key>
-	<real>0.076430723071098328</real>
+	<real>0.084583334624767303</real>
 	<key>WindowFrame:ericnewman:displays([(0, 0), (3008, 1692)]:[(-1920, 1245), (1920, 1200)]:[(3008, 0), (3008, 1692)])</key>
-	<string>rect(66,107,1627,2763)</string>
+	<string>rect(309,134,1546,2534)</string>
 </dict>
 </plist>
