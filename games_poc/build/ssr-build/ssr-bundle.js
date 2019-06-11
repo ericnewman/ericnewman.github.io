@@ -3473,6 +3473,399 @@ var Card_style_default = /*#__PURE__*/__webpack_require__.n(Card_style);
 var Button_style = __webpack_require__("aqQ4");
 var Button_style_default = /*#__PURE__*/__webpack_require__.n(Button_style);
 
+// EXTERNAL MODULE: ./components/snooze/style.css
+var snooze_style = __webpack_require__("KKVh");
+var snooze_style_default = /*#__PURE__*/__webpack_require__.n(snooze_style);
+
+// EXTERNAL MODULE: ../node_modules/preact-material-components/Button/index.js
+var Button = __webpack_require__("7/cg");
+var Button_default = /*#__PURE__*/__webpack_require__.n(Button);
+
+// CONCATENATED MODULE: ./components/snooze/micro_bridge.js
+var MobilePosse = {
+    state: { version: "Micro Bridge 1.0" },
+
+    addScheduledContent: function addScheduledContent(id, url, scheduledTime, enable) {
+
+        var mtime = new Date(scheduledTime);
+        var otime = mtime.getHours() + ":" + mtime.getMinutes() + ":" + mtime.getSeconds();
+
+        if (window.MP && window.MP.addScheduledLocalNotification) {
+            window.MP.addScheduledLocalNotification(id, url, otime, enable);
+        }
+
+        //updateScheduleList();
+    },
+    versionInfo: function versionInfo() {
+        return this.state.version;
+    }
+    //
+    //
+    //
+    //   function updateScheduleList () {
+    //
+    //         var items = MP.getAllScheduledLocalNotifications();
+    //         items = JSON.parse(items);
+    //
+    //         var str = "<table><tr><th>ID</th><th>URL</th><th>TIME</th><th>DIS</th></tr>";
+    //         var q;
+    //         for(var z = 0; z < items.length; z++) {
+    //             var o = items[z];
+    //
+    //             str += "<tr><td>" + o.id + "</td><td>" + o.url + "</td><td>" + o.scheduledTimes + "</td><td>" + o.disabled + "</td></tr>";
+    //         }
+    //          str += "</table>";
+    //
+    // //         $('#results').html(str);
+    //     }
+    //
+    //
+    //
+    //      function deleteScheduledLocalNotification(name) {
+    //         if(window.MP && window.MP.deleteScheduledLocalNotification) {
+    //             window.MP.deleteScheduledLocalNotification(name);
+    //         }
+    //         //updateScheduleList();
+    //     }
+    //      function toggleNotification(aname) {
+    //         if(window.MP) {
+    //             var item = MP.getScheduledLocalNotification(aname);
+    //             item = JSON.parse(item);
+    //             // Function inherently toggles value of disabled
+    //             window.MP.enableScheduledLocalNotification(aname, item.disabled);
+    //             //updateScheduleList();
+    //         }
+    //     }
+    // }
+};/* harmony default export */ var micro_bridge = (MobilePosse);
+// CONCATENATED MODULE: ./components/snooze/index.js
+
+
+function snooze__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function snooze__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function snooze__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+
+var snooze__ref3 = Object(preact_min["h"])(
+	'div',
+	{ 'class': 'mdc-typography--caption' },
+	'Snooze the content to re-show after the following interval:'
+);
+
+var snooze__ref4 = Object(preact_min["h"])('p', null);
+
+var snooze__ref5 = Object(preact_min["h"])('p', null);
+
+var snooze_Snooze = function (_Component) {
+	snooze__inherits(Snooze, _Component);
+
+	function Snooze() {
+		var _temp, _this, _ret;
+
+		snooze__classCallCheck(this, Snooze);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = snooze__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+			time: Date.now(),
+			interval: 0
+		}, _this.updateTime = function () {
+			_this.setState({ time: Date.now() });
+		}, _this.do_snooze = function (interval) {
+			_this.interval = interval;
+			alert(_this.interval);
+			console.log(interval);
+		}, _temp), snooze__possibleConstructorReturn(_this, _ret);
+	}
+
+	//gets called when this route is navigated to
+	Snooze.prototype.componentDidMount = function componentDidMount() {
+		//start a timer for the clock:
+		//var mp = new MobilePosse();
+		console.log(micro_bridge.versionInfo());
+		//console.log(mp.versionInfo());
+		// 		console.log(MobilePosse.versionInfo());
+	};
+
+	//gets called just before navigating away from the route
+
+
+	Snooze.prototype.componentWillUnmount = function componentWillUnmount() {};
+
+	//update the current time
+
+
+	//Note: `user` comes from the URL, courtesy of our router
+	Snooze.prototype.render = function render(_ref, _ref2) {
+		var _this2 = this;
+
+		var user = _ref.user;
+		var time = _ref2.time,
+		    count = _ref2.count;
+
+		return Object(preact_min["h"])(
+			'div',
+			{ 'class': snooze_style_default.a.newpage },
+			Object(preact_min["h"])(
+				Card_default.a,
+				null,
+				Object(preact_min["h"])(
+					'div',
+					{ 'class': snooze_style_default.a.cardBody },
+					Object(preact_min["h"])(
+						'div',
+						{ 'class': snooze_style_default.a.mylabel },
+						'Snooze:'
+					),
+					snooze__ref3,
+					Object(preact_min["h"])(
+						'p',
+						null,
+						Object(preact_min["h"])(
+							Button_default.a,
+							{ raised: true, ripple: true, onClick: function onClick(e) {
+									return _this2.do_snooze(10);
+								} },
+							'10 Min'
+						),
+						Object(preact_min["h"])(
+							Button_default.a,
+							{ raised: true, ripple: true, onClick: function onClick(e) {
+									return _this2.do_snooze(30);
+								} },
+							'30 Min'
+						),
+						Object(preact_min["h"])(
+							Button_default.a,
+							{ raised: true, ripple: true, onClick: function onClick(e) {
+									return _this2.do_snooze(60);
+								} },
+							'1 Hr'
+						),
+						snooze__ref4,
+						Object(preact_min["h"])(
+							Button_default.a,
+							{ raised: true, ripple: true, onClick: function onClick(e) {
+									return _this2.do_snooze(120);
+								} },
+							'2 Hrs'
+						),
+						Object(preact_min["h"])(
+							Button_default.a,
+							{ raised: true, ripple: true, onClick: function onClick(e) {
+									return _this2.do_snooze(480);
+								} },
+							'4 Hrs'
+						),
+						Object(preact_min["h"])(
+							Button_default.a,
+							{ raised: true, ripple: true, onClick: function onClick(e) {
+									return _this2.do_snooze(3600);
+								} },
+							'1 Day'
+						),
+						snooze__ref5
+					)
+				)
+			)
+		);
+	};
+
+	return Snooze;
+}(preact_min["Component"]);
+
+
+// EXTERNAL MODULE: ./components/achievements/style.css
+var achievements_style = __webpack_require__("ubDm");
+var achievements_style_default = /*#__PURE__*/__webpack_require__.n(achievements_style);
+
+// CONCATENATED MODULE: ./components/achievements/index.js
+
+
+function achievements__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function achievements__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function achievements__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+var achievements__ref3 = Object(preact_min["h"])(
+	'div',
+	{ 'class': 'mdc-typography--caption' },
+	'The follow list of achievements were found for this user:'
+);
+
+var achievements__ref4 = Object(preact_min["h"])(
+	'p',
+	null,
+	Object(preact_min["h"])('p', null)
+);
+
+var achievements_Achievements = function (_Component) {
+	achievements__inherits(Achievements, _Component);
+
+	function Achievements() {
+		var _temp, _this, _ret;
+
+		achievements__classCallCheck(this, Achievements);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = achievements__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _temp), achievements__possibleConstructorReturn(_this, _ret);
+	}
+
+	//gets called when this route is navigated to
+	Achievements.prototype.componentDidMount = function componentDidMount() {}
+	//start a timer for the clock:
+
+
+	//gets called just before navigating away from the route
+	;
+
+	Achievements.prototype.componentWillUnmount = function componentWillUnmount() {};
+
+	//Note: `user` comes from the URL, courtesy of our router
+
+
+	Achievements.prototype.render = function render(_ref, _ref2) {
+		var user = _ref.user;
+		var time = _ref2.time,
+		    count = _ref2.count;
+
+		return Object(preact_min["h"])(
+			'div',
+			{ 'class': achievements_style_default.a.newpage },
+			Object(preact_min["h"])(
+				Card_default.a,
+				null,
+				Object(preact_min["h"])(
+					'div',
+					{ 'class': achievements_style_default.a.cardBody },
+					Object(preact_min["h"])(
+						'div',
+						{ 'class': achievements_style_default.a.mylabel },
+						'Achievements:'
+					),
+					achievements__ref3,
+					achievements__ref4
+				)
+			)
+		);
+	};
+
+	return Achievements;
+}(preact_min["Component"]);
+
+
+// EXTERNAL MODULE: ./components/leaderboard/style.css
+var leaderboard_style = __webpack_require__("bRUt");
+var leaderboard_style_default = /*#__PURE__*/__webpack_require__.n(leaderboard_style);
+
+// CONCATENATED MODULE: ./components/leaderboard/index.js
+
+
+function leaderboard__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function leaderboard__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function leaderboard__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+
+
+var leaderboard__ref3 = Object(preact_min["h"])(
+	'div',
+	{ 'class': 'mdc-typography--caption' },
+	'The current top rankings are as follows:'
+);
+
+var leaderboard__ref4 = Object(preact_min["h"])(
+	'p',
+	null,
+	Object(preact_min["h"])('p', null)
+);
+
+var leaderboard_Leaderboard = function (_Component) {
+	leaderboard__inherits(Leaderboard, _Component);
+
+	function Leaderboard() {
+		var _temp, _this, _ret;
+
+		leaderboard__classCallCheck(this, Leaderboard);
+
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
+
+		return _ret = (_temp = (_this = leaderboard__possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _temp), leaderboard__possibleConstructorReturn(_this, _ret);
+	}
+
+	//gets called when this route is navigated to
+	Leaderboard.prototype.componentDidMount = function componentDidMount() {}
+	//start a timer for the clock:
+
+
+	//gets called just before navigating away from the route
+	;
+
+	Leaderboard.prototype.componentWillUnmount = function componentWillUnmount() {};
+
+	//Note: `user` comes from the URL, courtesy of our router
+
+
+	Leaderboard.prototype.render = function render(_ref, _ref2) {
+		var user = _ref.user;
+		var time = _ref2.time,
+		    count = _ref2.count;
+
+		return Object(preact_min["h"])(
+			'div',
+			{ 'class': leaderboard_style_default.a.newpage },
+			Object(preact_min["h"])(
+				Card_default.a,
+				null,
+				Object(preact_min["h"])(
+					'div',
+					{ 'class': leaderboard_style_default.a.cardBody },
+					Object(preact_min["h"])(
+						'div',
+						{ 'class': leaderboard_style_default.a.mylabel },
+						'Leaderboard:'
+					),
+					leaderboard__ref3,
+					leaderboard__ref4
+				)
+			)
+		);
+	};
+
+	return Leaderboard;
+}(preact_min["Component"]);
+
+
 // EXTERNAL MODULE: ./routes/home/style.css
 var home_style = __webpack_require__("ZAL5");
 var home_style_default = /*#__PURE__*/__webpack_require__.n(home_style);
@@ -3492,25 +3885,22 @@ function home__inherits(subClass, superClass) { if (typeof superClass !== "funct
 
 
 
+
+
+
 var home__ref = Object(preact_min["h"])(
-	'h1',
-	null,
-	'Home route'
+	'h2',
+	{ 'class': ' mdc-typography--title' },
+	'Game FSD Demo'
 );
 
 var home__ref2 = Object(preact_min["h"])(
-	'h2',
-	{ 'class': ' mdc-typography--title' },
-	'Home card'
+	'div',
+	{ 'class': 'mdc-typography--caption' },
+	'Concepts for FSD Integration:'
 );
 
 var home__ref3 = Object(preact_min["h"])(
-	'div',
-	{ 'class': ' mdc-typography--caption' },
-	'Welcome to home route'
-);
-
-var home__ref4 = Object(preact_min["h"])(
 	Card_default.a.Actions,
 	null,
 	Object(preact_min["h"])(
@@ -3519,6 +3909,12 @@ var home__ref4 = Object(preact_min["h"])(
 		'OKAY'
 	)
 );
+
+var home__ref4 = Object(preact_min["h"])(snooze_Snooze, null);
+
+var home__ref5 = Object(preact_min["h"])(achievements_Achievements, null);
+
+var home__ref6 = Object(preact_min["h"])(leaderboard_Leaderboard, null);
 
 var home_Home = function (_Component) {
 	home__inherits(Home, _Component);
@@ -3540,26 +3936,24 @@ var home_Home = function (_Component) {
 				Object(preact_min["h"])(
 					'div',
 					{ 'class': home_style_default.a.cardHeader },
-					home__ref2,
-					home__ref3
+					home__ref2
 				),
 				Object(preact_min["h"])(
 					'div',
 					{ 'class': home_style_default.a.cardBody },
-					'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.'
+					'Below expect to find various functions to test Games, Scoreboards, Leaderboards, and other calls to action that might be present on a Games-centric FSD.'
 				),
-				home__ref4
-			)
+				home__ref3
+			),
+			home__ref4,
+			home__ref5,
+			home__ref6
 		);
 	};
 
 	return Home;
 }(preact_min["Component"]);
 
-
-// EXTERNAL MODULE: ../node_modules/preact-material-components/Button/index.js
-var Button = __webpack_require__("7/cg");
-var Button_default = /*#__PURE__*/__webpack_require__.n(Button);
 
 // EXTERNAL MODULE: ./routes/profile/style.css
 var profile_style = __webpack_require__("Tv6c");
@@ -4085,6 +4479,14 @@ function extend() {
 
     return target;
 }
+
+/***/ }),
+
+/***/ "KKVh":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"snooze":"snooze__yeB_I","cardHeader":"cardHeader__OaLth","cardBody":"cardBody__OZo26","newpage":"newpage__1E3Zp","mylabel":"mylabel__1nFBC","header":"header__2c0_5"};
 
 /***/ }),
 
@@ -6053,6 +6455,14 @@ module.exports = _typeof;
 
 /***/ }),
 
+/***/ "bRUt":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"snooze":"snooze__2K4i_","cardHeader":"cardHeader__3oXI7","cardBody":"cardBody__1dfhX","newpage":"newpage__2eMh4","mylabel":"mylabel__u3Kju","header":"header__3WnVj"};
+
+/***/ }),
+
 /***/ "d4H2":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7483,6 +7893,14 @@ var MDCFoundation = function () {
 }();
 
 /* harmony default export */ __webpack_exports__["a"] = (MDCFoundation);
+
+/***/ }),
+
+/***/ "ubDm":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"snooze":"snooze__3JTiC","cardHeader":"cardHeader__30ACX","cardBody":"cardBody__Vkigf","newpage":"newpage__5cJ9y","mylabel":"mylabel__21mPF","header":"header__3aojy"};
 
 /***/ }),
 
