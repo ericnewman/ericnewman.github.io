@@ -13,7 +13,7 @@
 }
 
 .newpage {
-  padding-top: 26px;
+  padding-top: 23px;
 }
 .mylabel {
   font:  bold 16px Avenir, serif;
@@ -22,5 +22,6 @@
     padding:3px;
 }
 button {
-    margin:0px 3px;;
+    margin:0px 2px;
+    width:90px;
 }

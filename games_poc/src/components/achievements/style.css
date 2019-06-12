@@ -1,15 +1,15 @@
 .snooze {
-	padding: 20px;
+	padding: 15px;
 	min-height: 100%;
 	width: 100%;
 }
 
 .cardHeader {
-  padding: 16px;
+  padding: 13px;
 }
 
 .cardBody {
-  padding: 16px;
+  padding: 13px;
 }
 
 .newpage {
@@ -24,8 +24,12 @@
 .achievement {
     background:#F33;
     display:inline-block;
-    padding:16px;
-    border:2px solid black;
+    padding:6px;
+    border:1px solid black;
+    border-radius: 3px;
+    margin:2px;
+    min-width:45px;
+    text-align: center;
 }
 .achievement.green {
     background:#3F3;

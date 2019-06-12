@@ -13,8 +13,7 @@ export default class Achievements extends Component {
             blue:2,
             silver:9,
             gold:20,
-            magic:99,
-            v:"ABC"
+            magic:99
 	    }
 	};
 

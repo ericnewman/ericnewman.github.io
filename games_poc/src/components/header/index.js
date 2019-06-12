@@ -34,6 +34,14 @@ export default class Header extends Component {
 
 	goHome = this.linkTo('/');
 	goToMyProfile = this.linkTo('/profile');
+	goToSignUp = this.linkTo('/signup');
+	goToSignIn = this.linkTo('/signin');
+	goToSignOut = this.linkTo('/signout');
+	goToAccount = this.linkTo('/account');
+	goToMyProfile = this.linkTo('/profile');
+	goToPasswordChange = this.linkTo('/passwordchange');
+	goToPasswordForgot = this.linkTo('/passwordforgot');
+	goToMyProfile = this.linkTo('/profile');
 
 	toggleDarkTheme = () => {
 		this.setState(
@@ -77,6 +85,30 @@ export default class Header extends Component {
 						<Drawer.DrawerItem selected={props.selectedRoute === '/profile'} onClick={this.goToMyProfile}>
 							<List.ItemGraphic>account_circle</List.ItemGraphic>
 							Profile
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/signup'} onClick={this.goToSignUp}>
+							<List.ItemGraphic>account_circle</List.ItemGraphic>
+							Sign-Up
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/signin'} onClick={this.goToSignIn}>
+							<List.ItemGraphic>account_circle</List.ItemGraphic>
+							Sign-In
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/account'} onClick={this.goToAccount}>
+							<List.ItemGraphic>account_circle</List.ItemGraphic>
+							Account
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/passwordchange'} onClick={this.goToPasswordChange}>
+							<List.ItemGraphic>account_circle</List.ItemGraphic>
+							Password Change
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/passwordforgot'} onClick={this.goToPasswordForgot}>
+							<List.ItemGraphic>account_circle</List.ItemGraphic>
+							Password Forgot
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/signout'} onClick={this.goToSignOut}>
+							<List.ItemGraphic>account_circle</List.ItemGraphic>
+							Sign-Out
 						</Drawer.DrawerItem>
 					</Drawer.DrawerContent>
 				</Drawer>
