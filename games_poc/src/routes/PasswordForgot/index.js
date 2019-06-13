@@ -8,7 +8,7 @@ export default class PasswordForgot extends Component {
 
 	render() {
 		return (
-			<div class={`${style.home} page`}>
+			<div class={style.forgot}>
 				<h2 class=" mdc-typography--title">Forgot Password</h2>
 				<Card>
 					<div class={style.cardHeader}>

@@ -11,14 +11,20 @@ import Account from '../routes/account';
 import PasswordChange from '../routes/passwordchange';
 import PasswordForgot from '../routes/passwordforgot';
 import NotFound from '../routes/404';
-// import Home from 'async!../routes/home';
-// import Profile from 'async!../routes/profile';
+import { auth, googleAuthProvider } from '../firebase';
+// import LogRocket from 'logrocket';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
 	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
 	 *	@param {string} event.url	The newly routed URL
 	 */
+
+//     constructor() {
+//         super();
+//         LogRocket.init('qzrlzf/gamestest');
+//
+//     }
 	handleRoute = e => {
 		this.setState({
 			currentUrl: e.url

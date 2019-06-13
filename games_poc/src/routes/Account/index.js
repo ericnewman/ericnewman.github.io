@@ -9,7 +9,7 @@ export default class Account extends Component {
 	render() {
 		return (
 			<div class={`${style.home} page`}>
-				<h2 class=" mdc-typography--title">Account Info</h2>
+				<h2 class="mdc-typography--title">Account Info</h2>
 				<Card>
 					<div class={style.cardHeader}>
 						<div class="mdc-typography--caption">Firebase Account</div>

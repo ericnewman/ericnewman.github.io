@@ -3,22 +3,26 @@ import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
+import Button from 'preact-material-components/Button';
+import { auth, googleAuthProvider } from '../../firebase';
 
 export default class SignOut extends Component {
 
 	render() {
 		return (
-			<div class={`${style.home} page`}>
-				<h2 class=" mdc-typography--title">Sign Out</h2>
+			<div class={`${style.signout} page`}>
+				<h2 class="mdc-typography--title">Sign Out</h2>
 				<Card>
 					<div class={style.cardHeader}>
-						<div class="mdc-typography--caption">Sign in to Firebase</div>
+						<div class="mdc-typography--caption">Sign Out of Firebase</div>
 					</div>
 					<div class={style.cardBody}>
-						Below expect to find form to register for Firebase.
+						Click below expect to end Firebase session.
 					</div>
 					<Card.Actions>
-						<Card.ActionButton>OKAY</Card.ActionButton>
+                    <Button  onClick={() => auth.signOut()}>
+                        Sign Out
+                    </Button>
 					</Card.Actions>
 				</Card>
 			</div>

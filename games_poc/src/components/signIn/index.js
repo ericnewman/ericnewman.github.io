@@ -8,6 +8,9 @@ import { auth, googleAuthProvider } from '../../firebase';
 
 
 export default class SignIn extends Component {
+    constructor () {
+    		super();
+    }
 
 	render() {
 		return (
@@ -22,8 +25,8 @@ export default class SignIn extends Component {
                             <Button
                                 raised ripple
                                 onClick={() => auth.signInWithRedirect(googleAuthProvider)}
-                            >
-                            Sign In
+                                >
+                                Sign In
 				            </Button>
 			            </div>
 					</div>
