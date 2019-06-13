@@ -8,11 +8,12 @@ import SignUp from '../routes/signup';
 import SignIn from '../routes/signin';
 import SignOut from '../routes/signout';
 import Account from '../routes/account';
+import Dark from '../routes/dark';
 import PasswordChange from '../routes/passwordchange';
 import PasswordForgot from '../routes/passwordforgot';
 import NotFound from '../routes/404';
 import { auth, googleAuthProvider } from '../firebase';
-// import LogRocket from 'logrocket';
+import LogRocket from 'logrocket';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -20,11 +21,11 @@ export default class App extends Component {
 	 *	@param {string} event.url	The newly routed URL
 	 */
 
-//     constructor() {
-//         super();
-//         LogRocket.init('qzrlzf/gamestest');
-//
-//     }
+    constructor() {
+        super();
+        LogRocket.init('qzrlzf/gamestest');
+
+    }
 	handleRoute = e => {
 		this.setState({
 			currentUrl: e.url
@@ -34,7 +35,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div id="app">
-				<Header selectedRoute={this.state.currentUrl} />
+				{this.state.currentUrl != "/dark" && <Header selectedRoute={this.state.currentUrl} />}
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
 					<Profile path="/profile/" user="me" />
@@ -45,6 +46,7 @@ export default class App extends Component {
 					<SignOut path="/signout" />
 					<PasswordChange path="/passwordchange" />
 					<PasswordForgot path="/passwordforgot" />
+					<Dark path="/dark" />
 					<NotFound default />
 				</Router>
 			</div>

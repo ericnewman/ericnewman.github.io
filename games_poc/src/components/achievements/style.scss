@@ -10,10 +10,11 @@
 
 .cardBody {
   padding: 13px;
+  background:#EEF;
 }
 
 .newpage {
-  padding-top: 26px;
+  padding-top: 11px;
 }
 .mylabel {
   font:  bold 16px Avenir, serif;
@@ -22,7 +23,6 @@
     padding:3px;
 }
 .achievement {
-    background:#F33;
     display:inline-block;
     padding:6px;
     border:1px solid black;
@@ -31,9 +31,27 @@
     min-width:45px;
     text-align: center;
 }
-.achievement.green {
+
+.red  {
+    background:#F33;
+}
+
+.green {
     background:#3F3;
-    display:inline-block;
-    padding:16px;
-    border:2px solid black;
+}
+.blue {
+    background:#33F;
+    color:white;
+}
+.silver {
+    background:#ccc;
+    color:black;
+}
+.gold {
+    background:#FC3;
+    color:black;
+}
+.magic {
+    background:#3EF;
+    color:black;
 }

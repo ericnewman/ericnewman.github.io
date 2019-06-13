@@ -1,4 +1,6 @@
 import { h, Component } from 'preact';
+import { route } from 'preact-router';
+
 import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
@@ -32,8 +34,9 @@ export default class Snooze extends Component {
 
 	do_snooze = (interval) => {
         this.interval = interval;
-	    alert(this.interval);
+	    alert("See you soon! Be back in " + this.interval + " Minutes...");
 	    console.log(interval);
+	    route('/dark');
 	};
 
 	//Note: `user` comes from the URL, courtesy of our router

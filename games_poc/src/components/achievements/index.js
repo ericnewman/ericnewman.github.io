@@ -37,12 +37,12 @@ export default class Achievements extends Component {
                     <div class="mdc-typography--caption">The follow list of achievements were found for this user:</div>
                     <p />
                     <div>
-                        <span class={style.achievement}>{this.state.achievement.red}</span>
-                        <span class={style.achievement}>{this.state.achievement.green}</span>
-                        <span class={style.achievement}>{this.state.achievement.blue}</span>
-                        <span class={style.achievement}>{this.state.achievement.silver}</span>
-                        <span class={style.achievement}>{this.state.achievement.gold}</span>
-                        <span class={style.achievement}>{this.state.achievement.magic}</span>
+                        <span class={`${style.achievement} ${style.red}`}>{this.state.achievement.red}</span>
+                        <span class={`${style.achievement} ${style.green}`}>{this.state.achievement.green}</span>
+                        <span class={`${style.achievement} ${style.blue}`}>{this.state.achievement.blue}</span>
+                        <span class={`${style.achievement} ${style.silver}`}>{this.state.achievement.silver}</span>
+                        <span class={`${style.achievement} ${style.gold}`}>{this.state.achievement.gold}</span>
+                        <span class={`${style.achievement} ${style.magic}`}>{this.state.achievement.magic}</span>
                     </div>
                     <p />
                     <div class="mdc-typography--caption">Add the following Achievements</div>

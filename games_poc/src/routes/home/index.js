@@ -20,10 +20,11 @@ export default class Home extends Component {
   }
   	componentDidMount() {
 
-// 		auth.onAuthStateChanged(currentUser => {
-//             this.setState({
-//               currentUser: auth.currentUser
-//             });
+		auth.onAuthStateChanged(currentUser => {
+            this.setState({
+              currentUser: auth.currentUser
+            });
+		});
 
 // 			const exercisesRef = database.ref(
 // 				'/' + this.state.currentUser.uid + '/exercises'
@@ -32,12 +33,25 @@ export default class Home extends Component {
 // 			exercisesRef.on('value', snapshot => {
 // 				this.setState({ exercises: snapshot.val() });
 // 			});
-// 		});
+
 	}
 
 
 	render() {
-        const currentUser = this.state.currentUser;
+        var currentUser, username = "Not Logged In";
+// 	    if(auth.currentUser.displayName) {
+// 	        this.setState(auth.currentUser);
+// 	        currentUser = auth.currentUser;
+// 	    } else {
+// 	        currentUser = this.state.currentUser;
+// 	    }
+
+        if(auth && auth.currentUser && auth.currentUser.displayName) {
+            username = auth.currentUser.displayName;
+            currentUser = auth.currentUser;
+        } else {
+            username = "Not Logged In";
+        }
 
 		return (
 			<div class={`${style.home} page`}>
@@ -53,8 +67,7 @@ export default class Home extends Component {
 						<Card.ActionButton>OKAY</Card.ActionButton>
 					</Card.Actions>
 				</Card>
-				 {!currentUser && <div>Not Signed In</div>}
-// 				 {currentUser && <CurrentUser user={currentUser} />}
+				 {currentUser && <CurrentUser user={currentUser} />}
 				 {currentUser && <Snooze />}
 				 {currentUser && <Achievements />}
 				 {currentUser && <Leaderboard />}

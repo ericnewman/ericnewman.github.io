@@ -8,7 +8,7 @@ export default class PasswordChange extends Component {
 
 	render() {
 		return (
-			<div class={`${style.home} page`}>
+			<div class={`${style.password} page`}>
 				<h2 class=" mdc-typography--title">Password Change</h2>
 				<Card>
 					<div class={style.cardHeader}>
