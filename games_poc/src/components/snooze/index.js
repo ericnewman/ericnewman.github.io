@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
+import { route } from 'preact-router';
 
 import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';

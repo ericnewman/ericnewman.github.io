@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
+import { auth, googleAuthProvider } from '../firebase';
 
 import Header from './header';
 import Home from '../routes/home';
@@ -12,7 +13,6 @@ import Dark from '../routes/dark';
 import PasswordChange from '../routes/passwordchange';
 import PasswordForgot from '../routes/passwordforgot';
 import NotFound from '../routes/404';
-import { auth, googleAuthProvider } from '../firebase';
 import LogRocket from 'logrocket';
 
 export default class App extends Component {

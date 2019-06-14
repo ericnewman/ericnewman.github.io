@@ -11,31 +11,46 @@ import { auth, googleAuthProvider } from '../../firebase';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
+import firebase from 'firebase/app';
 
 export default class Home extends Component {
-  constructor() {
-    super();
+      constructor() {
+        super();
 
-    this.state = {
-      currentUser: null,
-    };
-  }
+        this.state = {
+          currentUser: null,
+        };
+      }
+
+    writeUserData(userId, name, email, imageUrl) {
+          firebase.database().ref('users/' + userId.replace(/[,@).]/gi, '_')).set({
+            username: name,
+            email: email,
+            profile_picture : imageUrl
+          });
+        }
+
   	componentDidMount() {
 
 		auth.onAuthStateChanged(currentUser => {
             this.setState({
               currentUser: auth.currentUser
             });
+            this.writeUserData(auth.currentUser.email,
+                               auth.currentUser.displayName,
+                               auth.currentUser.email,
+                               auth.currentUser.photoURL);
 		});
 
-        LogRocket.identify(auth.currentUser.displayName, {
-          name: auth.currentUser.displayName,
-          email: auth.currentUser.email,
+        if(auth && auth.currentUser && auth.currentUser.displayName) {
+            LogRocket.identify(auth.currentUser.displayName, {
+              name: auth.currentUser.displayName,
+              email: auth.currentUser.email,
 
-          // Add your own custom user variables here, ie:
-          subscriptionType: 'demo'
-        });
-
+              // Add your own custom user variables here, ie:
+              subscriptionType: 'demo'
+            });
+        }
 
 // 			const exercisesRef = database.ref(
 // 				'/' + this.state.currentUser.uid + '/exercises'
@@ -72,6 +87,7 @@ export default class Home extends Component {
 						<Card.ActionButton>OKAY</Card.ActionButton>
 					</Card.Actions>
 				</Card>
+				 {!currentUser && <SignIn />}
 				 {currentUser && <CurrentUser user={currentUser} />}
 				 {currentUser && <Snooze />}
 				 {currentUser && <Achievements />}
