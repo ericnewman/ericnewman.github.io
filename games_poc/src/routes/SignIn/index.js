@@ -5,7 +5,7 @@ import 'preact-material-components/Button/style.css';
 import style from './style';
 import Button from 'preact-material-components/Button';
 import { auth, googleAuthProvider } from '../../firebase';
-import { Router } from 'preact-router';
+import { route } from 'preact-router';
 
 
 export default class SignIn extends Component {
@@ -22,7 +22,7 @@ export default class SignIn extends Component {
                         <div class={style.signIn}>
                             <Button
                                 raised ripple
-                                onClick={() => route('/')}
+                                onClick={() => auth.signInWithRedirect(googleAuthProvider)}
                             >
                             Sign In
 				            </Button>

@@ -5,6 +5,7 @@ import 'preact-material-components/Button/style.css';
 import style from './style';
 import Button from 'preact-material-components/Button';
 import { auth, googleAuthProvider } from '../../firebase';
+import { route } from 'preact-router';
 
 
 export default class SignIn extends Component {

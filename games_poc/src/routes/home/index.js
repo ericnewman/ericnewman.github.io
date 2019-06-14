@@ -4,10 +4,12 @@ import Snooze from '../../components/snooze';
 import Achievements from '../../components/achievements';
 import Leaderboard from '../../components/leaderboard';
 import CurrentUser from '../../components/currentuser';
+import LogRocket from 'logrocket';
 import Card from 'preact-material-components/Card';
+import { auth, googleAuthProvider } from '../../firebase';
+
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
-import { auth, googleAuthProvider } from '../../firebase';
 import style from './style';
 
 export default class Home extends Component {
@@ -26,6 +28,15 @@ export default class Home extends Component {
             });
 		});
 
+        LogRocket.identify(auth.currentUser.displayName, {
+          name: auth.currentUser.displayName,
+          email: auth.currentUser.email,
+
+          // Add your own custom user variables here, ie:
+          subscriptionType: 'demo'
+        });
+
+
 // 			const exercisesRef = database.ref(
 // 				'/' + this.state.currentUser.uid + '/exercises'
 // 			);
@@ -39,12 +50,6 @@ export default class Home extends Component {
 
 	render() {
         var currentUser, username = "Not Logged In";
-// 	    if(auth.currentUser.displayName) {
-// 	        this.setState(auth.currentUser);
-// 	        currentUser = auth.currentUser;
-// 	    } else {
-// 	        currentUser = this.state.currentUser;
-// 	    }
 
         if(auth && auth.currentUser && auth.currentUser.displayName) {
             username = auth.currentUser.displayName;
