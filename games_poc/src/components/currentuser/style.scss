@@ -3,7 +3,7 @@
   align-self: stretch;
   display: flex;
   justify-content: center;
-  padding-top: 16px;
+  padding: 8px;
 }
 
 .avatar {
@@ -14,5 +14,5 @@
 }
 
 .userLabel {
-    font:16px Roboto Bold;
+    font:16px Roboto, sans-serif Bold;
 }

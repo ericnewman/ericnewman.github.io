@@ -60,7 +60,7 @@ export default class Header extends Component {
 	}
 
 	render(props) {
-		console.log(props.selectedRoute);
+
 		return (
 			<div>
 				<TopAppBar className="topappbar">

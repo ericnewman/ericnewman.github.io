@@ -12,10 +12,14 @@ const firebaseConfig = {
   messagingSenderId: "948162458323",
   appId: "1:948162458323:web:bc126f0bb10b7807"
 };
+var db, a_auth, gAP;
 
-
-firebase.initializeApp(firebaseConfig);
-
-export const database = firebase.database();
-export const auth = firebase.auth();
-export const googleAuthProvider =  new firebase.auth.GoogleAuthProvider();;
+if (typeof window !== "undefined") {
+    firebase.initializeApp(firebaseConfig);
+    db =  firebase.database();
+    a_auth = firebase.auth();
+    gAP = new firebase.auth.GoogleAuthProvider();
+}
+export const database = db;
+export const auth = a_auth;
+export const googleAuthProvider =  gAP;

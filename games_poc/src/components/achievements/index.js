@@ -47,26 +47,7 @@ export default class Achievements extends Component {
         var val;
         var user = auth.currentUser.email;
 
-        switch(achievement) {
-            case "red":
-                val = this.state.achievement.red++;
-                break;
-            case "green":
-                val = this.state.achievement.green++;
-                break;
-            case "blue":
-                val = this.state.achievement.blue++;
-                break;
-            case "silver":
-                val = this.state.achievement.silver++;
-                break;
-            case "gold":
-                val = this.state.achievement.gold++;
-                break;
-            case "magic":
-                val = this.state.achievement.magic++;
-                break;
-        }
+        this.state.achievement[achievement]++;
         this.writeUserAchievement(user, this.state.achievement);
         this.setState(this.state);
     }

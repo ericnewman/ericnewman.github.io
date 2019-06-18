@@ -1,7 +1,7 @@
 {
   "name": "games_poc",
   "short_name": "games_poc",
-  "start_url": "/",
+  "start_url": "/games_poc",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",

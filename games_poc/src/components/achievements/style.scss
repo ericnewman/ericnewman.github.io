@@ -30,28 +30,28 @@
     margin:2px;
     min-width:45px;
     text-align: center;
-}
-
-.red  {
-    background:#F33;
-}
-
-.green {
+    &.red {
+        background:#F33;
+    }
+    &.green {
     background:#3F3;
-}
-.blue {
+    }
+    &.blue {
     background:#33F;
     color:white;
-}
-.silver {
+    }
+    &.silver {
     background:#ccc;
     color:black;
+    }
+    &.gold {
+        background:#FC3;
+        color:black;
+    }
+    &.magic {
+        background:#3EF;
+        color:black;
+    }
+
 }
-.gold {
-    background:#FC3;
-    color:black;
-}
-.magic {
-    background:#3EF;
-    color:black;
-}
+

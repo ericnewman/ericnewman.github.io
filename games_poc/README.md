@@ -19,3 +19,7 @@ npm run serve
 ```
 
 For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
+
+
+Deploy
+aws s3 sync build/ s3://spages.mobileposse.com/games_poc/
