@@ -19,7 +19,6 @@ const urls = ["https://thegametrove.com/UBT/#/gamedetail/6259ba10-5c25-47b4-8f18
 "https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b","https://thegametrove.com/UBT/#/gamedetail/6259ba10-5c25-47b4-8f18-1691788ee297", "https://thegametrove.com/UBT/#/gamedetail/fb6e5d9c-85a7-4f35-90f2-c99a993e4560",
 "https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b"];
 
-
 export default class GamesCarousel extends Component {
 
    constructor() {
@@ -32,11 +31,13 @@ export default class GamesCarousel extends Component {
           favoritegameURL : "",
           timesPlayed : [0,0,0,0,0,0,0,0,0,0]
         };
-        let s = JSON.parse(localStorage.getItem("savedFavorite"));
-        if(s.favoriteGameIndex != -1) {
-            this.setState(s);
-            console.log(JSON.stringify(s));
+        if (typeof window !== "undefined") {
+            let s = JSON.parse(localStorage.getItem("savedFavorite"));
+            if(s && s.favoriteGameIndex != -1) {
+                this.setState(s);
+                console.log(JSON.stringify(s));
 
+            }
         }
       }
 
@@ -51,7 +52,9 @@ export default class GamesCarousel extends Component {
 
     newFave() {
         this.setState({favoriteGameIndex: -1});
-        localStorage.setItem("savedFavorite", JSON.stringify(this.state));
+        if (typeof window !== "undefined") {
+            localStorage.setItem("savedFavorite", JSON.stringify(this.state));
+        }
     }
 
     playGame(index) {
