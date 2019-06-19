@@ -13,7 +13,7 @@
 }
 
 .newpage {
-  padding-top: 23px;
+  padding-top: 10px;
 }
 .mylabel {
   font:  bold 16px Avenir, serif;
@@ -24,4 +24,9 @@
 button {
     margin:0px 2px;
     width:90px;
+}
+.bgroup {
+    margin:5px auto;
+    width:100%;
+    text-align:center;
 }

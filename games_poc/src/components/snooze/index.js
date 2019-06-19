@@ -47,22 +47,18 @@ export default class Snooze extends Component {
 			<Card>
 				<div class={style.cardBody}>
 				    <div class={style.mylabel}>Snooze:</div>
-                    <div class="mdc-typography--caption">Snooze the content to re-show after the following interval:</div>
-                    <p>
-                        <Button raised ripple onClick={(e) => this.do_snooze(10)}>10 Min</Button>
-                        <Button raised ripple onClick={(e) => this.do_snooze(30)}>30 Min</Button>
-                        <Button raised ripple onClick={(e) => this.do_snooze(60)}>1 Hr</Button>
-                        <p />
-                        <Button raised ripple onClick={(e) => this.do_snooze(120)}>2 Hrs</Button>
-                        <Button raised ripple onClick={(e) => this.do_snooze(480)}>4 Hrs</Button>
-                        <Button raised ripple onClick={(e) => this.do_snooze(3600)}>1 Day</Button>
-					<p />
-				</p>
+                    <div class="mdc-typography--caption">Snooze the content to re-appear after the following interval:</div>
+                    <div class={style.bgroup}>
+                        <Button raised ripple dense onClick={(e) => this.do_snooze(10)}>10 Min</Button>
+                        <Button raised ripple dense onClick={(e) => this.do_snooze(30)}>30 Min</Button>
+                        <Button raised ripple dense onClick={(e) => this.do_snooze(60)}>1 Hr</Button>
+                    </div>
+                    <div class={style.bgroup}>
+                        <Button raised ripple dense onClick={(e) => this.do_snooze(120)}>2 Hrs</Button>
+                        <Button raised ripple dense onClick={(e) => this.do_snooze(480)}>4 Hrs</Button>
+                        <Button raised ripple dense onClick={(e) => this.do_snooze(3600)}>1 Day</Button>
+					</div>
 				</div>
-				<div>
-				    {}
-                </div>
-
 			</Card>
 		</div>);
 	}

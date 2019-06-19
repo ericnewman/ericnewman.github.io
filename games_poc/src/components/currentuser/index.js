@@ -18,19 +18,23 @@ export default class CurrentUser extends Component {
 		const user = this.props.user;
 
 		return (
-			<article class={style.currentUser}>
-			<div class={style.userLabel}>Current User:</div>
-				<img
-					alt={user.displayName}
-					class={style.avatar}
-					src={user.photoURL}
-					width="40"
-				/>
-				<div>{user.displayName}</div>
-				<Button  onClick={() => auth.signOut()}>
-          Sign Out
-				</Button>
-			</article>
+            <div class={style.newpage}>
+			<Card>
+                <article class={style.currentUser}>
+                    <div class={style.userLabel}>Current Player:</div>
+                    <img
+                        alt={user.displayName}
+                        class={style.avatar}
+                        src={user.photoURL}
+                        width="40"
+                    />
+                    <div>{user.displayName}</div>
+                    <Button  onClick={() => auth.signOut()}>
+                        Sign Out
+                    </Button>
+                </article>
+			</Card>
+			</div>
 		);
 	}
 }

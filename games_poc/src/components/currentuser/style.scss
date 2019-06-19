@@ -3,7 +3,7 @@
   align-self: stretch;
   display: flex;
   justify-content: center;
-  padding: 8px;
+  padding: 4px;
 }
 
 .avatar {
@@ -14,5 +14,12 @@
 }
 
 .userLabel {
-    font:16px Roboto, sans-serif Bold;
+  font:  bold 14px Avenir, serif;
+}
+.newpage {
+  padding: 10px 0;
+}
+.cardBody {
+  padding: 10px;
+  background:#EEF;
 }

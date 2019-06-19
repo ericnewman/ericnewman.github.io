@@ -42,7 +42,6 @@ export default class Achievements extends Component {
       });
     }
 
-
     bumpAchievement(achievement) {
         var val;
         var user = auth.currentUser.email;
@@ -59,9 +58,9 @@ export default class Achievements extends Component {
 			<Card>
 				<div class={style.cardBody}>
 				    <div class={style.mylabel}>Achievements:</div>
-                    <div class="mdc-typography--caption">The follow list of achievements were found for this user:</div>
+                    <div class="mdc-typography--caption">These achievements were found for this user:</div>
                     <p />
-                    <div>
+                    <div class={style.bgroup}>
                         <span class={`${style.achievement} ${style.red}`}>{this.state.achievement.red}</span>
                         <span class={`${style.achievement} ${style.green}`}>{this.state.achievement.green}</span>
                         <span class={`${style.achievement} ${style.blue}`}>{this.state.achievement.blue}</span>
@@ -70,14 +69,16 @@ export default class Achievements extends Component {
                         <span class={`${style.achievement} ${style.magic}`}>{this.state.achievement.magic}</span>
                     </div>
                     <p />
-                    <div class="mdc-typography--caption">Add the following Achievements</div>
-                    <Button raised ripple onClick={(e) => this.bumpAchievement("red")}>Add Red</Button>
-                    <Button raised ripple onClick={(e) => this.bumpAchievement("green")}>Add Green</Button>
-                    <Button raised ripple onClick={(e) => this.bumpAchievement("blue")}>Add Blue</Button>
-                    <p />
-                    <Button raised ripple onClick={(e) =>  this.bumpAchievement("silver")}>Add Silver</Button>
-                    <Button raised ripple onClick={(e) =>  this.bumpAchievement("gold")}>Add Gold</Button>
-                    <Button raised ripple onClick={(e) => this.bumpAchievement("magic")}>Add Magic</Button>
+                    <div class={style.mylabel}>Add an achievement</div>
+                    <div class={style.bgroup}>
+                        <Button raised ripple onClick={(e) => this.bumpAchievement("red")}>Add Red</Button>
+                        <Button raised ripple onClick={(e) => this.bumpAchievement("green")}>Add Green</Button>
+                        <Button raised ripple onClick={(e) => this.bumpAchievement("blue")}>Add Blue</Button>
+                        <p />
+                        <Button raised ripple onClick={(e) =>  this.bumpAchievement("silver")}>Add Silver</Button>
+                        <Button raised ripple onClick={(e) =>  this.bumpAchievement("gold")}>Add Gold</Button>
+                        <Button raised ripple onClick={(e) => this.bumpAchievement("magic")}>Add Magic</Button>
+                    </div>
                     <p />
 				</div>
 			</Card>

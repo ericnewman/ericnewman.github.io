@@ -93,7 +93,6 @@ export default class Home extends Component {
 
 		return (
 			<div class={`${style.home} page`}>
-				<h3 class="mdc-typography--title">Game FSD Demo</h3>
 				 {!currentUser && <SignIn />}
 				 {currentUser && <CurrentUser user={currentUser} />}
                   <GamesCarousel  />
