@@ -7,7 +7,8 @@ export default class AccountInfo extends Component {
 	    var user = this.props.user;
         if(!user) return (<div> No User Logged In </div>);
             else
-		return  (<div class={style.account}>
+		return  (
+		    <div class={style.account}>
                 <img src={this.props.user.photoURL} />
                 <div>{this.props.user.displayName}</div>
                 <div>{this.props.user.email}</div>

@@ -13,11 +13,18 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import style from './style';
 
-const images = ["../../assets/img/monstersUp.jpg", "../../assets/img/ninjaAction.jpg", "../../assets/img/flowMania.jpg","../../assets/img/monstersUp.jpg", "../../assets/img/ninjaAction.jpg", "../../assets/img/flowMania.jpg"];
-const names = ["Monsters Up", "Ninja Action", "Flow Mania", "Monsters Up", "Ninja Action", "Flow Mania"];
+const images = ["../../assets/img/monstersUp.jpg",
+"../../assets/img/ninjaAction.jpg",
+"../../assets/img/flowMania.jpg",
+"../../assets/img/lightRays.jpg",
+"../../assets/img/robotion.jpg",
+"../../assets/img/swingRobber.jpg"];
+
+const names = ["Monsters Up", "Ninja Action", "Flow Mania", "Light Rays", "Robotion", "Swing Robber"];
 const urls = ["https://thegametrove.com/UBT/#/gamedetail/6259ba10-5c25-47b4-8f18-1691788ee297", "https://thegametrove.com/UBT/#/gamedetail/fb6e5d9c-85a7-4f35-90f2-c99a993e4560",
-"https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b","https://thegametrove.com/UBT/#/gamedetail/6259ba10-5c25-47b4-8f18-1691788ee297", "https://thegametrove.com/UBT/#/gamedetail/fb6e5d9c-85a7-4f35-90f2-c99a993e4560",
-"https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b"];
+"https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b",
+"https://thegametrove.com/UBT/#/gamedetail/0ba97a81-7c6f-4b74-a3e6-b4f2c017af87", "https://thegametrove.com/UBT/#/gamedetail/c83f2ec0846022246f3ba55f6b49ca31",
+"https://thegametrove.com/UBT/#/gamedetail/c7445989-e955-40d1-8ae2-ad0581ed8a97"];
 
 export default class GamesCarousel extends Component {
 
@@ -35,8 +42,6 @@ export default class GamesCarousel extends Component {
             let s = JSON.parse(localStorage.getItem("savedFavorite"));
             if(s && s.favoriteGameIndex != -1) {
                 this.setState(s);
-                console.log(JSON.stringify(s));
-
             }
         }
       }
@@ -74,7 +79,10 @@ export default class GamesCarousel extends Component {
         localStorage.setItem("savedFavorite", JSON.stringify(this.state));
 
         if(confirm("You've selected " + names[index] + "as your favorite game...Would you like to play it now?")) {
-            this.setState({timesPlayed: this.state.timesPlayed[index]++});
+            let tp = this.state.timesPlayed;
+            tp[index]++;
+            this.setState({timesPlayed: tp});
+            localStorage.setItem("savedFavorite", JSON.stringify(this.state));
             document.location = urls[index];
         }
          else {
@@ -92,7 +100,7 @@ export default class GamesCarousel extends Component {
                 {!hasFave && <div class={style.header}>Select your favorite game below...:</div>}
                 {hasFave && <div class={style.faves}>
                                 <div class={style.header}>Your favorite game is currently "{this.state.favoriteGameName}"</div>
-                                <div onClick={() => this.playGame(index)}><img height="250" src={images[index]} /></div><p/>
+                                <div onClick={() => this.playGame(index)}><img height="250" src={images[index]} alt={names[index]}/></div><p/>
                                 <div class={style.header}>You have played "{this.state.favoriteGameName}"
                                 <span> {this.state.timesPlayed[index]}</span> times.</div>
                                 {this.state.timesPlayed[index] < 5 &&
@@ -105,7 +113,7 @@ export default class GamesCarousel extends Component {
                 {!hasFave && <div class={style.space}><Carousel height="90px"
                 transitionTime={800}
                 centerMode
-                centerSlidePercentage={30}
+                centerSlidePercentage={40}
                 showArrows={false}
                 infiniteLoop
                 emulateTouch
@@ -113,28 +121,28 @@ export default class GamesCarousel extends Component {
                 showThumbs={false}
                 onClickItem={(index, element) => this.click_item(index, element)}>
                     <div>
-                        <img src={images[0]} />
+                        <img src={images[0]} alt={names[0]} />
                         <p className="legend">{names[0]}</p>
                     </div>
                     <div>
-                        <img src={images[1]} />
+                        <img src={images[1]} alt={names[1]} />
                         <p className="legend">{names[1]}</p>
                     </div>
                     <div>
-                        <img src={images[2]} />
+                        <img src={images[2]} alt={names[2]} />
                         <p className="legend">{names[2]}</p>
                     </div>
                     <div>
-                        <img src={images[0]} />
-                        <p className="legend">{names[0]}</p>
+                        <img src={images[3]} alt={names[3]} />
+                        <p className="legend">{names[3]}</p>
                     </div>
                     <div>
-                        <img src={images[1]} />
-                        <p className="legend">{names[1]}</p>
+                        <img src={images[4]} alt={names[4]} />
+                        <p className="legend">{names[4]}</p>
                     </div>
                     <div>
-                        <img src={images[2]} />
-                        <p className="legend">{names[2]}</p>
+                        <img src={images[5]} alt={names[5]} />
+                        <p className="legend">{names[5]}</p>
                     </div>
                 </Carousel> </div>}
             </Card>

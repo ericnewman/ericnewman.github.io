@@ -38,10 +38,8 @@ export default class Header extends Component {
 	goToSignIn = this.linkTo('/signin');
 	goToSignOut = this.linkTo('/signout');
 	goToAccount = this.linkTo('/account');
-	goToMyProfile = this.linkTo('/profile');
 	goToPasswordChange = this.linkTo('/passwordchange');
 	goToPasswordForgot = this.linkTo('/passwordforgot');
-	goToMyProfile = this.linkTo('/profile');
 
 	toggleDarkTheme = () => {
 		this.setState(

@@ -19,12 +19,9 @@ export default class Dark extends Component {
 		return (
 			<div class={`${style.home}`}>
 					<div class={style.hint}>
-				          <Button
-                                href="/"
-                                >
+				          <Button href="/" >
                             FSD
 				            </Button>
-
 					</div>
 			</div>
 		);

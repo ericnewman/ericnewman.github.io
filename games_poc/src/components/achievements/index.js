@@ -28,7 +28,6 @@ export default class Achievements extends Component {
        this.myDB.on('value', snapshot => {
             const state = snapshot.val();
             this.setState(state);
-
         });
 	}
 

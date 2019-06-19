@@ -99,7 +99,6 @@ export default class Home extends Component {
 				 {<Snooze />}
 				 {currentUser && <Achievements />}
 				 {currentUser && <Leaderboard />}
-
 			</div>
 		);
 	}

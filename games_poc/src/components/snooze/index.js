@@ -46,7 +46,7 @@ export default class Snooze extends Component {
 		<div class={style.newpage}>
 			<Card>
 				<div class={style.cardBody}>
-				    <div class={style.mylabel}>Snooze:</div>
+				    <div class={style.mylabel}> Snooze:</div>
                     <div class="mdc-typography--caption">Snooze the content to re-appear after the following interval:</div>
                     <div class={style.bgroup}>
                         <Button raised ripple dense onClick={(e) => this.do_snooze(10)}>10 Min</Button>

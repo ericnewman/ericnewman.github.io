@@ -20,7 +20,7 @@ export default class Leaderboard extends Component {
 
 
 	//Note: `user` comes from the URL, courtesy of our router
-	render({ user }, { time, count }) {
+	render() {
 		return (
 		<div class={style.newpage}>
 			<Card>
