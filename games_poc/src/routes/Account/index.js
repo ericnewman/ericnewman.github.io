@@ -4,7 +4,7 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
 import AccountInfo from '../../components/accountinfo';
-import { auth, googleAuthProvider } from '../../firebase';
+import { auth } from '../../firebase';
 
 export default class Account extends Component {
 
@@ -29,4 +29,4 @@ export default class Account extends Component {
 	}
 }
 
-2
+2;

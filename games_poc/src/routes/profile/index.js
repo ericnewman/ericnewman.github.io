@@ -35,9 +35,7 @@ export default class Profile extends Component {
 			<div class={`${style.profile} page`}>
 				<h1>Profile: {user}</h1>
 				<p>This is the user profile for a user named { user }.</p>
-
 				<div>Current time: {new Date(time).toLocaleString()}</div>
-
 				<p>
 					<Button raised ripple onClick={this.increment}>Click Me</Button>
 					{' '}

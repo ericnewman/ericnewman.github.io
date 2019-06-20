@@ -1,43 +1,47 @@
-    var  MobilePosse = {
-        state: {version: "Micro Bridge 1.0"},
+let  MobilePosse = {
+	state: { version: 'Micro Bridge 1.0' },
 
-   updateScheduleList: function () {
-         var str = "No Bridge";
-//         if(window.MP && window.MP.getAllScheduledLocalNotifications) {
-//             var items = MP.getAllScheduledLocalNotifications();
-        if(window.MP && window.MP.getAllScheduledBannerExecutors) {
-            var items = MP.getAllScheduledBannerExecutors();
-            items = JSON.parse(items);
 
-            str = "<table><tr><th>ID</th><th>URL</th><th>TIME</th><th>DIS</th></tr>";
-            for(var z = 0; z < items.length; z++) {
-                var o = items[z];
+	updateScheduleList () {
+		let str = 'No Bridge';
+		//         if(window.MP && window.MP.getAllScheduledLocalNotifications) {
+		//             var items = MP.getAllScheduledLocalNotifications();
+		let MP = window.MP || '';
 
-                str += "<tr><td>" + o.id + "</td><td>" + o.url + "</td><td>" + o.scheduledTimes + "</td><td>" + o.disabled + "</td></tr>";
-            }
-             str += "</table>";
+		if (MP && window.MP.getAllScheduledBannerExecutors) {
+			let items = MP.getAllScheduledBannerExecutors();
+			items = JSON.parse(items);
 
-        } else {
-            return(str);
-        }
-    },
+			str = '<table><tr><th>ID</th><th>URL</th><th>TIME</th><th>DIS</th></tr>';
+			for (let z = 0; z < items.length; z++) {
+				let o = items[z];
 
-     addScheduledContent: function (id, url, scheduledTime, enable){
+				str += '<tr><td>' + o.id + '</td><td>' + o.url + '</td><td>' + o.scheduledTimes + '</td><td>' + o.disabled + '</td></tr>';
+			}
+			str += '</table>';
 
-        var mtime = new Date(scheduledTime);
-        var otime = mtime.getHours() + ":" + mtime.getMinutes() + ":" + mtime.getSeconds();
+		}
+		else {
+			return (str);
+		}
+	},
 
-        if(window.MP && window.MP.addScheduledLocalNotification) {
-            window.MP.addScheduledLocalNotification(id, url, otime, enable);
-        }
+	addScheduledContent (id, url, scheduledTime, enable){
 
-        updateScheduleList();
-    },
-      versionInfo:function () {
-        return this.state.version;
-    }
+		let mtime = new Date(scheduledTime);
+		let otime = mtime.getHours() + ':' + mtime.getMinutes() + ':' + mtime.getSeconds();
 
-}
+		if (window.MP && window.MP.addScheduledLocalNotification) {
+			window.MP.addScheduledLocalNotification(id, url, otime, enable);
+		}
+
+		this.updateScheduleList();
+	},
+	versionInfo () {
+		return this.state.version;
+	}
+
+};
 //
 //
 //

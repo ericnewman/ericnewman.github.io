@@ -4,7 +4,7 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
 import Button from 'preact-material-components/Button';
-import { auth, googleAuthProvider } from '../../firebase';
+import { auth } from '../../firebase';
 
 export default class SignOut extends Component {
 
@@ -20,9 +20,9 @@ export default class SignOut extends Component {
 						Click below expect to end Firebase session.
 					</div>
 					<Card.Actions>
-                    <Button  onClick={() => auth.signOut()}>
+						<Button  onClick={() => auth.signOut()}>
                         Sign Out
-                    </Button>
+						</Button>
 					</Card.Actions>
 				</Card>
 			</div>

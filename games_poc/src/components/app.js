@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-import { auth, googleAuthProvider } from '../firebase';
 
 import Header from './header';
 import Home from '../routes/home';
@@ -21,11 +20,11 @@ export default class App extends Component {
 	 *	@param {string} event.url	The newly routed URL
 	 */
 
-    constructor() {
-        super();
-        LogRocket.init('qzrlzf/gamestest');
+	constructor() {
+		super();
+		LogRocket.init('qzrlzf/gamestest');
 
-    }
+	}
 	handleRoute = e => {
 		this.setState({
 			currentUrl: e.url
@@ -35,7 +34,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<div id="app">
-				{this.state.currentUrl != "/dark" && <Header selectedRoute={this.state.currentUrl} />}
+				{this.state.currentUrl !== '/dark' && <Header selectedRoute={this.state.currentUrl} />}
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
 					<Profile path="/profile/" user="me" />

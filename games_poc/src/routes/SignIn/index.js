@@ -5,7 +5,6 @@ import 'preact-material-components/Button/style.css';
 import style from './style';
 import Button from 'preact-material-components/Button';
 import { auth, googleAuthProvider } from '../../firebase';
-import { route } from 'preact-router';
 
 
 export default class SignIn extends Component {
@@ -19,11 +18,11 @@ export default class SignIn extends Component {
 						<div class="mdc-typography--caption">Firebase!</div>
 					</div>
 					<div class={style.cardBody}>
-                        <div class={style.signIn}>
-                            <Button
-                                raised ripple
-                                onClick={() => auth.signInWithRedirect(googleAuthProvider)}
-                            >
+						<div class={style.signIn}>
+							<Button
+								raised ripple
+								onClick={() => auth.signInWithRedirect(googleAuthProvider)}
+							>
                             Sign In
 				            </Button>
 			            </div>
