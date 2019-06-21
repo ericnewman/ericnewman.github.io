@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import {auth, database} from '../../firebase';
 
 import Card from 'preact-material-components/Card';
 import Button from 'preact-material-components/Button';
@@ -31,6 +32,14 @@ export default class GamesCarousel extends Component {
 				this.setState(s);
 			}
 		}
+		games_list.map((game) => {
+
+			database.ref('games/' + game.name).update({
+				thumbnail: game.image,
+				url: game.url
+			});
+		});
+
 
 	}
 	showToast(msg) {
@@ -52,11 +61,15 @@ export default class GamesCarousel extends Component {
 	componentWillUnmount() {
 	}
 
-	newFave() {
+	newFave(index) {
 		this.setState({ favoriteGameIndex: -1 });
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 		}
+		database.ref('users/' + auth.currentUser.uid).update({
+			fave_game: games_list[index].name
+		});
+
 	}
 
 	playGame(index) {
@@ -64,23 +77,42 @@ export default class GamesCarousel extends Component {
 		tp[index]++;
 		this.setState({ timesPlayed: tp });
 		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
-		document.location = urls[index];
+
+
+		let ref1 = database.ref('users/' + auth.currentUser.uid + '/games_played/' + games_list[index].name + '/times_played');
+		console.log(ref);
+		ref1.transaction(function(numberOfTimesPlayed) {
+		// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			console.log('Num Times:' + numberOfTimesPlayed);
+			return (numberOfTimesPlayed || 0) + 1;
+		});
+
+		let ref = database.ref('games/' + games_list[index].name + '/times_played');
+
+		ref.transaction(function(numberOfTimesPlayed) {
+			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			console.log('Num Times:' + numberOfTimesPlayed);
+			return (numberOfTimesPlayed || 0) + 1;
+		});
+
+
+		document.location = games_list[index].url;
 	}
 
 	clickItem(index, element) {
 
 		this.setState({ favoriteGameIndex: index });
-		this.setState({ favoriteGameName: names[index] });
-		this.setState({ favoritegameURL: urls[index] });
+		this.setState({ favoriteGameName: games_list[index].name });
+		this.setState({ favoritegameURL: games_list[index].url});
 
 		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
-		if (confirm("You've selected " + names[index] + 'as your favorite game...Would you like to play it now?')) {
+		if (confirm("You've selected " + games_list[index].name + ' as your favorite game...Would you like to play it now?')) {
 			let tp = this.state.timesPlayed;
 			tp[index]++;
 			this.setState({ timesPlayed: tp });
 			localStorage.setItem('savedFavorite', JSON.stringify(this.state));
-			document.location = urls[index];
+			this.playGame(index);
 		}
 		else {
 			this.showToast("We'll try later...");
@@ -90,7 +122,6 @@ export default class GamesCarousel extends Component {
 	render() {
 		let hasFave = (this.state.favoriteGameIndex !== -1);
 		let index = this.state.favoriteGameIndex;
-		console.log(games_list);
 
 		return (
 
@@ -104,7 +135,7 @@ export default class GamesCarousel extends Component {
 					{this.state.timesPlayed[index] < 5 &&
                                 <div class={style.header}>Play {5-this.state.timesPlayed[index]} more time(s) to unlock a secret level.</div>
 					}
-					<Button raised ripple onClick={() => this.newFave()}><strong>Pick another</strong></Button><p />
+					<Button raised ripple onClick={() => this.newFave(index)}><strong>Pick another</strong></Button><p />
 				</div>
 
 				}

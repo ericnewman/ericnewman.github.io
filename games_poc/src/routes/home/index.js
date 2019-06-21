@@ -9,7 +9,9 @@ import Leaderboard from '../../components/leaderboard';
 import CurrentUser from '../../components/currentuser';
 import LogRocket from 'logrocket';
 import { auth } from '../../firebase';
-import firebase from 'firebase/app';
+import { database } from '../../firebase';
+
+import games_list from '../../games_list';
 
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
@@ -28,7 +30,7 @@ export default class Home extends Component {
 	}
 
 	static writeUserData(userId, name, email, imageUrl) {
-		firebase.database().ref('users/' + userId.replace(/[,@).]/gi, '_')).set({
+		database.ref('users/' + userId).update({
 			username: name,
 			email,
 			profile_picture: imageUrl
@@ -42,7 +44,7 @@ export default class Home extends Component {
 				currentUser: auth.currentUser
 			});
 			if (auth && auth.currentUser) {
-				Home.writeUserData(auth.currentUser.email,
+				Home.writeUserData(auth.currentUser.uid,
 					auth.currentUser.displayName,
 					auth.currentUser.email,
 					auth.currentUser.photoURL);
@@ -58,14 +60,6 @@ export default class Home extends Component {
 				subscriptionType: 'demo'
 			});
 		}
-
-		// 			const exercisesRef = database.ref(
-		// 				'/' + this.state.currentUser.uid + '/exercises'
-		// 			);
-		//
-		// 			exercisesRef.on('value', snapshot => {
-		// 				this.setState({ exercises: snapshot.val() });
-		// 			});
 
 	}
 
