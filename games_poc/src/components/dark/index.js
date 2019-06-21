@@ -4,7 +4,10 @@ import 'preact-material-components/Card/style.css';
 import style from './style';
 
 export default class Dark extends Component {
+
+
 	render() {
+
 		return (
 			<div class={`${style.home} page`}>
 				<Card>

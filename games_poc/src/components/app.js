@@ -45,7 +45,8 @@ export default class App extends Component {
 					<SignOut path="/signout" />
 					<PasswordChange path="/passwordchange" />
 					<PasswordForgot path="/passwordforgot" />
-					<Dark path="/dark" />
+					<Dark path="/dark/" delay="3600" />
+					<Dark path="/dark/:delay"/>
 					<NotFound default />
 				</Router>
 			</div>

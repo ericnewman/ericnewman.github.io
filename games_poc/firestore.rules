@@ -5,3 +5,10 @@ service cloud.firestore {
     }
   }
 }
+service cloud.firestore {
+  match /databases/{database}/users {
+    match /{users=**} {
+      allow read, write;
+    }
+  }
+}

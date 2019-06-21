@@ -36,7 +36,7 @@ export default class Snooze extends Component {
 
 	doSnooze = (interval) => {
 		this.interval = interval;
-		let timeout=4000;
+		let timeout=3000;
 
 		let color = { background: '#58F', text: '#FFFFFF' };
 
@@ -46,7 +46,7 @@ export default class Snooze extends Component {
 			color);
 
 		setTimeout(() => {
-			route('/dark');
+			route('/dark/' + (interval*3600));
 		}, timeout);
 
 	};

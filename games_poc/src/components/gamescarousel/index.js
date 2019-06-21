@@ -10,21 +10,8 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { Carousel } from 'react-responsive-carousel';
 import  { notify } from 'react-notify-toast';
-
+import games_list from '../../games_list';
 import style from './style';
-
-const images = ['../../assets/img/monstersUp.jpg',
-	'../../assets/img/ninjaAction.jpg',
-	'../../assets/img/flowMania.jpg',
-	'../../assets/img/lightRays.jpg',
-	'../../assets/img/robotion.jpg',
-	'../../assets/img/swingRobber.jpg'];
-
-const names = ['Monsters Up', 'Ninja Action', 'Flow Mania', 'Light Rays', 'Robotion', 'Swing Robber'];
-const urls = ['https://thegametrove.com/UBT/#/gamedetail/6259ba10-5c25-47b4-8f18-1691788ee297', 'https://thegametrove.com/UBT/#/gamedetail/fb6e5d9c-85a7-4f35-90f2-c99a993e4560',
-	'https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b',
-	'https://thegametrove.com/UBT/#/gamedetail/0ba97a81-7c6f-4b74-a3e6-b4f2c017af87', 'https://thegametrove.com/UBT/#/gamedetail/c83f2ec0846022246f3ba55f6b49ca31',
-	'https://thegametrove.com/UBT/#/gamedetail/c7445989-e955-40d1-8ae2-ad0581ed8a97'];
 
 export default class GamesCarousel extends Component {
 
@@ -44,6 +31,7 @@ export default class GamesCarousel extends Component {
 				this.setState(s);
 			}
 		}
+
 	}
 	showToast(msg) {
 		let color = { background: '#5A3', text: '#FFFFFF' };
@@ -102,6 +90,7 @@ export default class GamesCarousel extends Component {
 	render() {
 		let hasFave = (this.state.favoriteGameIndex !== -1);
 		let index = this.state.favoriteGameIndex;
+		console.log(games_list);
 
 		return (
 
@@ -109,7 +98,7 @@ export default class GamesCarousel extends Component {
 				{!hasFave && <div class={style.header}>Select your favorite game below...:</div>}
 				{hasFave && <div class={style.faves}>
 					<div class={style.header}>Your favorite game is currently "{this.state.favoriteGameName}"</div>
-					<div onClick={() => this.playGame(index)}><img height="250" src={images[index]} alt={names[index]} /></div><p />
+					<div onClick={() => this.playGame(index)}><img height="250" src={games_list[index].image} alt={games_list[index].name} /></div><p />
 					<div class={style.header}>You have played "{this.state.favoriteGameName}"
 						<span> {this.state.timesPlayed[index]}</span> times.</div>
 					{this.state.timesPlayed[index] < 5 &&
@@ -131,28 +120,28 @@ export default class GamesCarousel extends Component {
 					onClickItem={(index, element) => this.clickItem(index, element)}
 				                                      >
 					<div>
-						<img src={images[0]} alt={names[0]} />
-						<p className="legend">{names[0]}</p>
+						<img src={games_list[0].image} alt={games_list[0].name} />
+						<p className="legend">{games_list[0].name}</p>
 					</div>
 					<div>
-						<img src={images[1]} alt={names[1]} />
-						<p className="legend">{names[1]}</p>
+						<img src={games_list[1].image} alt={games_list[1].name} />
+						<p className="legend">{games_list[1].names}</p>
 					</div>
 					<div>
-						<img src={images[2]} alt={names[2]} />
-						<p className="legend">{names[2]}</p>
+						<img src={games_list[2].image} alt={games_list[2].name} />
+						<p className="legend">{games_list[2].name}</p>
 					</div>
 					<div>
-						<img src={images[3]} alt={names[3]} />
-						<p className="legend">{names[3]}</p>
+						<img src={games_list[3].image} alt={games_list[3].name} />
+						<p className="legend">{games_list[3].name}</p>
 					</div>
 					<div>
-						<img src={images[4]} alt={names[4]} />
-						<p className="legend">{names[4]}</p>
+						<img src={games_list[4].image} alt={games_list[4].name} />
+						<p className="legend">{games_list[4].name[4]}</p>
 					</div>
 					<div>
-						<img src={images[5]} alt={names[5]} />
-						<p className="legend">{names[5]}</p>
+						<img src={games_list[5].image} alt={games_list[5].name} />
+						<p className="legend">{games_list[5].name}</p>
 					</div>
 				</Carousel> </div>}
 			</Card>
