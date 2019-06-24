@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import { auth } from '../../firebase';
+import { auth, database } from '../../firebase';
 
 import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
@@ -7,42 +7,59 @@ import 'preact-material-components/Button/style.css';
 import style from './style';
 import Button from 'preact-material-components/Button';
 import firebase from 'firebase/app';
+import games_list from '../../games_list';
 
 export default class Achievements extends Component {
-	myDB = firebase.database().ref('users/' + auth.currentUser.email.replace(/[,@).]/gi, '_'));
 
-	state = {
-		achievement: { red: 0, green: 1, blue: 2, silver: 9, gold: 20, magic: 99 }
-	};
+	constructor() {
+		super();
+
+		let myDB = database.ref('users/' + auth.currentUser.uid + '/achievements');
+
+		this.state = {
+			achievements: { }
+		};
+
+
+		myDB.on('value', (snapshot) => {
+			let foo = {};
+
+			snapshot.forEach((childSnapshot) => {
+
+				let childKey = childSnapshot.key;
+				let childData = childSnapshot.val();
+
+				// Crazy new syntax for computed property names []
+
+				foo[childKey] = childData;
+			});
+			this.setState({achievements : foo});
+		});
+
+	}
 
 	//gets	called	when	this	route	is	navigated	to
 	componentDidMount() {
-		this.myDB.on('value', snapshot => {
-			const state = snapshot.val();
-			this.setState(state);
-		});
 	}
 
 	//gets	called	just before	navigating	away	from	the	route
 	componentWillUnmount() {
 	}
 
-	writeUserAchievement(userId, achievement) {
-		this.myDB.set({
-			achievement
-		});
-	}
 
 	bumpAchievement(achievement) {
-		let user = auth.currentUser.email;
+		let user = auth.currentUser.uid;
 
-		this.state.achievement[achievement]++;
-		this.writeUserAchievement(user, this.state.achievement);
-		this.setState(this.state);
+		let ref = database.ref('users/' + user + '/achievements/' + achievement);
+		ref.transaction((numberOfTimesPlayed) =>
+			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			(numberOfTimesPlayed || 0) + 1
+		);
 	}
 
 	//Note:	`user`	comes	from	the	URL,	courtesy	of	our	router
 	render() {
+		let achs = this.state.achievements;
 		return (
 			<div class={style.newpage}>
 				<Card>
@@ -51,14 +68,13 @@ export default class Achievements extends Component {
 						<div class="mdc-typography--caption">These achievements were found for this user:</div>
 						<p/>
 						<div class={style.bgroup}>
-							<span class={`${style.achievement}	${style.red}`}>{this.state.achievement.red}</span>
-							<span class={`${style.achievement}	${style.green}`}>{this.state.achievement.green}</span>
-							<span class={`${style.achievement}	${style.blue}`}>{this.state.achievement.blue}</span>
+							<span class={`${style.achievement}	${style.red}`}>{achs.red}</span>
+							<span class={`${style.achievement}	${style.green}`}>{achs.green}</span>
+							<span class={`${style.achievement}	${style.blue}`}>{achs.blue}</span>
 							<span
-								class={`${style.achievement}	${style.silver}`}
-							>{this.state.achievement.silver}</span>
-							<span class={`${style.achievement}	${style.gold}`}>{this.state.achievement.gold}</span>
-							<span class={`${style.achievement}	${style.magic}`}>{this.state.achievement.magic}</span>
+								class={`${style.achievement}	${style.silver}`}>{achs.silver}</span>
+							<span class={`${style.achievement}	${style.gold}`}>{achs.gold}</span>
+							<span class={`${style.achievement}	${style.magic}`}>{achs.magic}</span>
 						</div>
 						<p/>
 						<div class={style.mylabel}>Add an achievement</div>

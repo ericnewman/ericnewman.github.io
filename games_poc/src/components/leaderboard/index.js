@@ -1,25 +1,37 @@
 import { Component } from 'preact';
-import { auth, database } from '../../firebase';
+import { database } from '../../firebase';
 
 import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 
 import style from './style';
+import WebFont from 'webfontloader';
 
+WebFont.load({
+	google: {
+		families: ['Orbitron:300,400,700', 'sans-serif']
+	}
+});
 
 export default class Leaderboard extends Component {
 
 	constructor() {
 		super();
-		this.state = {};
-		this.users = {};
-
+		this.state = {
+			games: {},
+			people: []
+		};
+		this.tempG = {};
+		this.tempP = [];
+	}
+	componentDidMount() {
 		const query = database.ref('games')
 			.orderByChild('times_played')
 			.limitToLast(5);
 
-		query.once('value', (snapshot) => {
+		query.on('value', (snapshot) => {
+			this.tempG = {};
 			snapshot.forEach((childSnapshot) => {
 
 				let childKey = childSnapshot.key;
@@ -27,26 +39,33 @@ export default class Leaderboard extends Component {
 
 				// Crazy new syntax for computed property names []
 
-				this.setState({ [childKey]: childData });
+				this.tempG[childKey] = childData;
 			});
+			this.setState({ games: this.tempG, people: this.tempP });
+
 		});
 		const query2 = database.ref('users')
 			.limitToLast(5);
 
-		query2.once('value', (snapshot) => {
+
+		query2.on('value', (snapshot) => {
+			this.tempP = [];
 			snapshot.forEach((childSnapshot) => {
 
-				let childKey = childSnapshot.key;
+				//let childKey = childSnapshot.key;
 				let childData = childSnapshot.val();
-				console.log(childData);
+				this.tempP.push(childData);
 			});
+			this.setState({ games: this.tempG, people: this.tempP });
+
 		});
 
 	}
 
 	//Note: `user` comes from the URL, courtesy of our router
 	render() {
-		let games = Object.entries(this.state);
+		let games = Object.entries(this.state.games);
+		let people = this.state.people;
 
 		return (
 			<div class={style.newpage}>
@@ -59,46 +78,37 @@ export default class Leaderboard extends Component {
 								games.reverse().map((name, index) => (
 									name[1].times_played > 0 &&
 									<div>
-										<span class={style.gamen}>{name}</span>
-										<span class={style.tplay}>{name[1].times_played}</span>
+										<span class={style.game}>{name[1].name}</span>
+										<span class={style.score}>{name[1].times_played}</span>
 									</div>
-									)
+								)
 								)
 							}
 						</div>
 						<div className={style.grid}>
-						<div className={style.ranks}>The current top rankings are as follows:</div>
-						<div class={style.person}>Aly L</div>
-					:
-						<div class={style.score}>1200</div>
-						<br />
-						<div class={style.person}>Tim S</div>
-					:
-						<div class={style.score}>1000</div>
-						<br />
-						<div class={style.person}>Joe B</div>
-					:
-						<div class={style.score}>780</div>
-						<br />
-						<div class={style.person}>Sue T</div>
-					:
-						<div class={style.score}>640</div>
-						<br />
-						<div class={style.person}>Ann F</div>
-					:
-						<div class={style.score}>520</div>
-						<br />
-						<div class={style.person}>Jan C</div>
-					:
-						<div class={style.score}>480</div>
-						<br />
-						<div class={style.person}>Ken L</div>
-					:
-						<div class={style.score}>450</div>
-						<br />
-						<div class={style.person}>Zoe P</div>
-					:
-						<div class={style.score}>200</div>
+							<div className={style.ranks}>The current top players are as follows:</div>
+							<div>
+								{
+									people.reverse().map((name, index) => (
+									name.email != "" &&
+									<div>
+										<span className={style.player}>{name.username}</span>
+										{name.achievements &&  name .achievements.green> 0 &&
+										<span className={`${style.ach} ${style.green}`}>{name.achievements.green}</span>
+										}
+										{name.achievements && name.achievements.red > 0&&
+											<span className={`${style.ach} ${style.red}`}>{name.achievements.red}</span>
+										}
+										{name.achievements &&  name .achievements.blue > 0 &&
+											<span className={`${style.ach} ${style.blue}`}>{name.achievements.blue}</span>
+										}
+
+										{/*<span className={`${style.player} email`}>{name.email}</span>*/}
+									</div>
+									)
+									)
+								}
+							</div>
 						</div>
 					</div>
 				</Card>

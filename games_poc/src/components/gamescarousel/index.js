@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import {auth, database} from '../../firebase';
+import { auth, database } from '../../firebase';
 
 import Card from 'preact-material-components/Card';
 import Button from 'preact-material-components/Button';
@@ -31,15 +31,15 @@ export default class GamesCarousel extends Component {
 			if (s && s.favoriteGameIndex !== -1) {
 				this.setState(s);
 			}
-		}
-		games_list.map((game) => {
+			games_list.map((game) => {
 
-			database.ref('games/' + game.name).update({
-				thumbnail: game.image,
-				url: game.url,
-				name: game.name
+				database.ref('games/' + game.name).update({
+					thumbnail: game.image,
+					url: game.url,
+					name: game.name
+				});
 			});
-		});
+		}
 
 
 	}
@@ -82,22 +82,22 @@ export default class GamesCarousel extends Component {
 
 
 		let ref = database.ref('users/' + auth.currentUser.uid + '/games_played/' + games_list[index].name + '/times_played');
-		ref.transaction(function(numberOfTimesPlayed) {
+		ref.transaction((numberOfTimesPlayed) =>
 		// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			return (numberOfTimesPlayed || 0) + 1;
-		});
+			 (numberOfTimesPlayed || 0) + 1
+		);
 
 		ref = database.ref('games/' + games_list[index].name + '/times_played');
-		ref.transaction(function(numberOfTimesPlayed) {
+		ref.transaction((numberOfTimesPlayed) =>
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			return (numberOfTimesPlayed || 0) + 1;
-		});
+			 (numberOfTimesPlayed || 0) + 1
+		);
 
 		ref = database.ref('users/' + auth.currentUser.uid + '/total_plays');
-		ref.transaction(function(total_plays) {
+		ref.transaction((total_plays) =>
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			return (total_plays || 0) + 1;
-		});
+			 (total_plays || 0) + 1
+		);
 
 
 		document.location = games_list[index].url;
@@ -105,9 +105,9 @@ export default class GamesCarousel extends Component {
 
 	clickItem(index, element) {
 
-		this.setState({ favoriteGameIndex: index });
-		this.setState({ favoriteGameName: games_list[index].name });
-		this.setState({ favoritegameURL: games_list[index].url});
+		let foo = { favoriteGameIndex: index , favoriteGameName: games_list[index].name, favoritegameURL: games_list[index].url };
+
+		this.setState(foo);
 
 		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
