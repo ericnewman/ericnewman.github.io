@@ -17,7 +17,10 @@
   padding-top: 10px;
 }
 .mylabel {
-    font:  Bold 16px 'Roboto', sans-serif;
+  font:  Bold 16px 'Roboto', sans-serif;
+}
+.ranks {
+  font:  Bold 12px 'Roboto', sans-serif;
 }
 .header {
     padding:3px;
@@ -33,4 +36,20 @@
     text-align:left;
     display:inline-block;
     padding-left:20px;
+}
+.gamen {
+  width:50%;
+  font:  Bold 16px 'Roboto', sans-serif;
+  display:inline-block;
+  padding:1px 5px;
+}
+.tplay {
+  width:50%;
+  display:inline-block;
+}
+.grid {
+  border:1px solid #9e9e9e;
+  background:#ccccff;
+  margin:10px;
+
 }

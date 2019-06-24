@@ -36,7 +36,8 @@ export default class GamesCarousel extends Component {
 
 			database.ref('games/' + game.name).update({
 				thumbnail: game.image,
-				url: game.url
+				url: game.url,
+				name: game.name
 			});
 		});
 
@@ -73,26 +74,29 @@ export default class GamesCarousel extends Component {
 	}
 
 	playGame(index) {
+
 		let tp = this.state.timesPlayed;
 		tp[index]++;
 		this.setState({ timesPlayed: tp });
 		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
 
-		let ref1 = database.ref('users/' + auth.currentUser.uid + '/games_played/' + games_list[index].name + '/times_played');
-		console.log(ref);
-		ref1.transaction(function(numberOfTimesPlayed) {
+		let ref = database.ref('users/' + auth.currentUser.uid + '/games_played/' + games_list[index].name + '/times_played');
+		ref.transaction(function(numberOfTimesPlayed) {
 		// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			console.log('Num Times:' + numberOfTimesPlayed);
 			return (numberOfTimesPlayed || 0) + 1;
 		});
 
-		let ref = database.ref('games/' + games_list[index].name + '/times_played');
-
+		ref = database.ref('games/' + games_list[index].name + '/times_played');
 		ref.transaction(function(numberOfTimesPlayed) {
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			console.log('Num Times:' + numberOfTimesPlayed);
 			return (numberOfTimesPlayed || 0) + 1;
+		});
+
+		ref = database.ref('users/' + auth.currentUser.uid + '/total_plays');
+		ref.transaction(function(total_plays) {
+			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			return (total_plays || 0) + 1;
 		});
 
 
