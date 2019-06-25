@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { Component } from 'preact';
 import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
@@ -12,11 +12,8 @@ export default class SignIn extends Component {
 	render() {
 		return (
 			<div class={`${style.home} page`}>
-				<h2 class=" mdc-typography--title">Sign In to Firebase</h2>
 				<Card>
-					<div class={style.cardHeader}>
-						<div class="mdc-typography--caption">Firebase!</div>
-					</div>
+					<h2 className=" mdc-typography--title">Sign In to Firebase</h2>
 					<div class={style.cardBody}>
 						<div class={style.signIn}>
 							<Button

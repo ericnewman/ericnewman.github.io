@@ -5,7 +5,6 @@ import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import Button from 'preact-material-components/Button';
-import MobilePosse from './micro_bridge.js';
 import { notify } from 'react-notify-toast';
 
 import style from './style';

@@ -6,13 +6,6 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 
 import style from './style';
-import WebFont from 'webfontloader';
-
-WebFont.load({
-	google: {
-		families: ['Orbitron:300,400,700', 'sans-serif']
-	}
-});
 
 export default class Leaderboard extends Component {
 
@@ -45,6 +38,7 @@ export default class Leaderboard extends Component {
 
 		});
 		const query2 = database.ref('users')
+			.orderByChild('total_achievements')
 			.limitToLast(5);
 
 
@@ -55,12 +49,31 @@ export default class Leaderboard extends Component {
 				//let childKey = childSnapshot.key;
 				let childData = childSnapshot.val();
 				this.tempP.push(childData);
+				this.tempP.sort((a, b) =>
+					 b.total_achievements - a.total_achievements  //this will sort according to .id descending
+				);
 			});
 			this.setState({ games: this.tempG, people: this.tempP });
 
 		});
 
 	}
+	// sums(...args) {
+	// 	let total = 0;
+	// 	args.forEach(arg => {
+	// 		let ach = Object.entries(arg);
+	// 		ach.forEach(arg => {
+	// 			let ans = arg[1].achievements;
+	// 		// 	var total = 0;
+	// 			for (let key in ans) {
+	// 				total += ans[key];
+	// 			}
+	//
+	// 		});
+	// 	});
+	// 	console.log(total);
+	// 	return total;
+	// }
 
 	//Note: `user` comes from the URL, courtesy of our router
 	render() {
@@ -89,21 +102,29 @@ export default class Leaderboard extends Component {
 							<div className={style.ranks}>The current top players are as follows:</div>
 							<div>
 								{
-									people.reverse().map((name, index) => (
-									name.email != "" &&
+
+									people.map((name, index) => (
+										name.email !== '' &&
 									<div>
 										<span className={style.player}>{name.username}</span>
-										{name.achievements &&  name .achievements.green> 0 &&
-										<span className={`${style.ach} ${style.green}`}>{name.achievements.green}</span>
-										}
-										{name.achievements && name.achievements.red > 0&&
-											<span className={`${style.ach} ${style.red}`}>{name.achievements.red}</span>
-										}
-										{name.achievements &&  name .achievements.blue > 0 &&
-											<span className={`${style.ach} ${style.blue}`}>{name.achievements.blue}</span>
-										}
-
-										{/*<span className={`${style.player} email`}>{name.email}</span>*/}
+										<span className={`${style.ach} ${style.green}`}>
+											{name.achievements && name.achievements.green > 0 && <span>{name.achievements.green}</span>}
+										</span>
+										<span className={`${style.ach} ${style.red}`}>
+											{name.achievements && name.achievements.red > 0 && <span>{name.achievements.red}</span>}
+										</span>
+										<span className={`${style.ach} ${style.blue}`}>
+											{name.achievements && name.achievements.blue > 0 && <span>{name.achievements.blue}</span>}
+										</span>
+										<span className={`${style.ach} ${style.silver}`}>
+											{name.achievements && name.achievements.silver > 0 && <span>{name.achievements.silver}</span>}
+										</span>
+										<span className={`${style.ach} ${style.gold}`}>
+											{name.achievements && name.achievements.gold > 0 && <span>{name.achievements.gold}</span>}
+										</span>
+										<span className={`${style.ach} ${style.magic}`}>
+											{name.achievements && name.achievements.magic > 0 && <span>{name.achievements.magic}</span>}
+										</span>
 									</div>
 									)
 									)

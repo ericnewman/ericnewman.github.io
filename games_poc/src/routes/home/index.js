@@ -7,11 +7,8 @@ import GamesCarousel from '../../components/gamescarousel';
 import Achievements from '../../components/achievements';
 import Leaderboard from '../../components/leaderboard';
 import CurrentUser from '../../components/currentuser';
-import LogRocket from 'logrocket';
 import { auth } from '../../firebase';
 import { database } from '../../firebase';
-
-import games_list from '../../games_list';
 
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
@@ -50,17 +47,6 @@ export default class Home extends Component {
 					auth.currentUser.photoURL);
 			}
 		});
-
-		if (auth && auth.currentUser && auth.currentUser.displayName) {
-			LogRocket.identify(auth.currentUser.displayName, {
-				name: auth.currentUser.displayName,
-				email: auth.currentUser.email,
-
-				// Add your own custom user variables here, ie:
-				subscriptionType: 'demo'
-			});
-		}
-
 	}
 
 

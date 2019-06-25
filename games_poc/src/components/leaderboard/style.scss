@@ -1,4 +1,4 @@
-
+@import url('//fonts.googleapis.com/css?family=Orbitron');
 .snooze {
 	padding: 10px;
 	min-height: 100%;
@@ -37,9 +37,14 @@
 .player {
   text-align:left;
   display:inline-block;
-  width:35%;
-  font:  13px 'Roboto', sans-serif;
-  padding:1px 5px;
+  width:32%;
+  height:28px;
+  font:  Bold 11px 'Orbitron', sans-serif;
+  line-height:18pt;
+  padding-top: 6px;
+  position:relative;
+  top:0px;
+  vertical-align: top;
   .email {
     font:  10px 'Roboto', sans-serif;
     color:#eee;
@@ -50,8 +55,7 @@
     width:35px;
     text-align:center;
     display:inline-block;
-    font-family: "Orbitron", sans-serif;
-  font-face:bold;
+  font:  Bold 10px 'Orbitron', sans-serif;
   padding:3px;
   margin:3px;
   background:white;
@@ -70,28 +74,39 @@
 }
 
 .ach {
-  width: 35px;
+  width: 28px;
+  height:28px;
   text-align: center;
   display: inline-block;
-  font-family: "Orbitron", sans-serif;
-  font-face: bold;
-  font-size: 12pt;
-  line-height: 14pt;
-  padding-top: 4px;
-  margin: 5px 1px;
-  background: #33F;
-  border: 1px solid black;
-  border-radius: 5px;
+  font:  Bold 15px 'Orbitron', sans-serif;
+  text-shadow: 2px 2px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  line-height:18pt;
+  padding-top: 3px;
+  margin:2px 2px;
+  border:1px solid #333;
+  border-radius:5px;
+  background-image:  url("../../assets/img/diamond.jpg");
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-color:  #363;
   color: white;
 
-    &.blue {
-    background: #33F;
+  &.blue {
+    background-color: #66c;
   }
-    &.red {
-      background: #F33;
-    }
-    &.green {
-      background: #3F3;
-      color:black;
-    }
+  &.red {
+    background-color: #c66;
+  }
+  &.green {
+    background-color:  #6a6;
+  }
+  &.silver {
+    background-color: #888;
+  }
+  &.gold {
+    background-color: #cc3;
+  }
+  &.magic {
+    background-color: #c0c;
+  }
 }

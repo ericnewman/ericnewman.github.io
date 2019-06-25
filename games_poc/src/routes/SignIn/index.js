@@ -12,8 +12,8 @@ export default class SignIn extends Component {
 	render() {
 		return (
 			<div class={`${style.home} page`}>
-				<h2 class=" mdc-typography--title">Sign In to Firebase</h2>
 				<Card>
+					<h2 className=" mdc-typography--title">Sign In to Firebase</h2>
 					<div class={style.cardHeader}>
 						<div class="mdc-typography--caption">Firebase!</div>
 					</div>

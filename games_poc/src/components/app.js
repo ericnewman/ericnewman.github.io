@@ -12,7 +12,6 @@ import Dark from '../routes/dark';
 import PasswordChange from '../routes/passwordchange';
 import PasswordForgot from '../routes/passwordforgot';
 import NotFound from '../routes/404';
-import LogRocket from 'logrocket';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -22,13 +21,12 @@ export default class App extends Component {
 
 	constructor() {
 		super();
-		LogRocket.init('qzrlzf/gamestest');
 
 	}
 	handleRoute = e => {
-		this.setState({
-			currentUrl: e.url
-		});
+		// this.setState({
+		// 	currentUrl: e.url
+		// });
 	};
 
 	render() {

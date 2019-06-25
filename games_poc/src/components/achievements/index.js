@@ -17,12 +17,13 @@ export default class Achievements extends Component {
 		let myDB = database.ref('users/' + auth.currentUser.uid + '/achievements');
 
 		this.state = {
+			total_achievements: 0,
 			achievements: { }
 		};
 
-
 		myDB.on('value', (snapshot) => {
 			let foo = {};
+			let tot = 0;
 
 			snapshot.forEach((childSnapshot) => {
 
@@ -32,10 +33,10 @@ export default class Achievements extends Component {
 				// Crazy new syntax for computed property names []
 
 				foo[childKey] = childData;
+				tot += childData;
 			});
-			this.setState({achievements : foo});
+			this.setState({ achievements: foo, total_achievements: tot });
 		});
-
 	}
 
 	//gets	called	when	this	route	is	navigated	to
@@ -55,9 +56,14 @@ export default class Achievements extends Component {
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
 			(numberOfTimesPlayed || 0) + 1
 		);
+
+		database.ref('users/' + user).update({
+			total_achievements: this.state.total_achievements
+		});
+
 	}
 
-	//Note:	`user`	comes	from	the	URL,	courtesy	of	our	router
+	//Note:	`user` comes from the URL, courtesy	of our router
 	render() {
 		let achs = this.state.achievements;
 		return (
@@ -65,29 +71,30 @@ export default class Achievements extends Component {
 				<Card>
 					<div class={style.cardBody}>
 						<div class={style.mylabel}>Achievements:</div>
-						<div class="mdc-typography--caption">These achievements were found for this user:</div>
-						<p/>
+						<div class="mdc-typography--caption">You have a total of {this.state.total_achievements} achievements.</div>
+						<p />
 						<div class={style.bgroup}>
 							<span class={`${style.achievement}	${style.red}`}>{achs.red}</span>
 							<span class={`${style.achievement}	${style.green}`}>{achs.green}</span>
 							<span class={`${style.achievement}	${style.blue}`}>{achs.blue}</span>
 							<span
-								class={`${style.achievement}	${style.silver}`}>{achs.silver}</span>
+								class={`${style.achievement}	${style.silver}`}
+							>{achs.silver}</span>
 							<span class={`${style.achievement}	${style.gold}`}>{achs.gold}</span>
 							<span class={`${style.achievement}	${style.magic}`}>{achs.magic}</span>
 						</div>
-						<p/>
+						<p />
 						<div class={style.mylabel}>Add an achievement</div>
 						<div class={style.bgroup}>
 							<Button raised ripple onClick={(e) => this.bumpAchievement('red')}>Add Red</Button>
 							<Button raised ripple onClick={(e) => this.bumpAchievement('green')}>Add Green</Button>
 							<Button raised ripple onClick={(e) => this.bumpAchievement('blue')}>Add Blue</Button>
-							<p/>
+							<p />
 							<Button raised ripple onClick={(e) => this.bumpAchievement('silver')}>Add Silver</Button>
 							<Button raised ripple onClick={(e) => this.bumpAchievement('gold')}>Add Gold</Button>
 							<Button raised ripple onClick={(e) => this.bumpAchievement('magic')}>Add Magic</Button>
 						</div>
-						<p/>
+						<p />
 					</div>
 				</Card>
 			</div>);
