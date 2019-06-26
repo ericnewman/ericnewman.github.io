@@ -13,7 +13,7 @@ export default class SignIn extends Component {
 		return (
 			<div class={`${style.home} page`}>
 				<Card>
-					<h2 className=" mdc-typography--title">Sign In to Firebase</h2>
+					<div className=" mdc-typography--title">Sign In to Firebase</div>
 					<div class={style.cardBody}>
 						<div class={style.signIn}>
 							<Button
