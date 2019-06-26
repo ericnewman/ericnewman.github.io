@@ -38,8 +38,7 @@ export default class Header extends Component {
 	goToSignIn = this.linkTo('/signin');
 	goToSignOut = this.linkTo('/signout');
 	goToAccount = this.linkTo('/account');
-	goToPasswordChange = this.linkTo('/passwordchange');
-	goToPasswordForgot = this.linkTo('/passwordforgot');
+	goToDash = this.linkTo('/dash');
 
 	toggleDarkTheme = () => {
 		this.setState(
@@ -80,13 +79,13 @@ export default class Header extends Component {
 							<List.ItemGraphic>home</List.ItemGraphic>
 							Home
 						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash'} onClick={this.goToDash}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							FSD 1
+						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/profile'} onClick={this.goToMyProfile}>
 							<List.ItemGraphic>account_circle</List.ItemGraphic>
 							Profile
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/signup'} onClick={this.goToSignUp}>
-							<List.ItemGraphic>account_circle</List.ItemGraphic>
-							Sign-Up
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/signin'} onClick={this.goToSignIn}>
 							<List.ItemGraphic>account_circle</List.ItemGraphic>
@@ -95,14 +94,6 @@ export default class Header extends Component {
 						<Drawer.DrawerItem selected={props.selectedRoute === '/account'} onClick={this.goToAccount}>
 							<List.ItemGraphic>account_circle</List.ItemGraphic>
 							Account
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/passwordchange'} onClick={this.goToPasswordChange}>
-							<List.ItemGraphic>account_circle</List.ItemGraphic>
-							Password Change
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/passwordforgot'} onClick={this.goToPasswordForgot}>
-							<List.ItemGraphic>account_circle</List.ItemGraphic>
-							Password Forgot
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/signout'} onClick={this.goToSignOut}>
 							<List.ItemGraphic>account_circle</List.ItemGraphic>

@@ -4,13 +4,11 @@ import { Router } from 'preact-router';
 import Header from './header';
 import Home from '../routes/home';
 import Profile from '../routes/profile';
-import SignUp from '../routes/signup';
 import SignIn from '../routes/signin';
 import SignOut from '../routes/signout';
 import Account from '../routes/account';
+import Dash from '../routes/dash';
 import Dark from '../routes/dark';
-import PasswordChange from '../routes/passwordchange';
-import PasswordForgot from '../routes/passwordforgot';
 import NotFound from '../routes/404';
 
 export default class App extends Component {
@@ -24,9 +22,9 @@ export default class App extends Component {
 
 	}
 	handleRoute = e => {
-		// this.setState({
-		// 	currentUrl: e.url
-		// });
+		this.setState({
+			currentUrl: e.url
+		});
 	};
 
 	render() {
@@ -38,13 +36,12 @@ export default class App extends Component {
 					<Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" />
 					<Account path="/account" />
-					<SignUp path="/signup" />
 					<SignIn path="/signin" />
 					<SignOut path="/signout" />
-					<PasswordChange path="/passwordchange" />
-					<PasswordForgot path="/passwordforgot" />
 					<Dark path="/dark/" delay="3600" />
 					<Dark path="/dark/:delay"/>
+					<Dash path="/dash" selectedGame="default" />
+					<Dash path="/dash:selectedGame" />
 					<NotFound default />
 				</Router>
 			</div>
