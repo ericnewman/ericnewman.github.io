@@ -62,9 +62,9 @@ export default class Home extends Component {
 				 {!currentUser && <SignIn />}
 				 {currentUser && <CurrentUser user={currentUser} />}
 				<GamesCarousel  />
-				 {<Snooze />}
-				 {currentUser && <Achievements />}
-				 {currentUser && <Leaderboard />}
+				{currentUser && <Leaderboard />}
+				{currentUser && <Achievements />}
+				{<Snooze />}
 				<Notifications options={{ zIndex: 200, top: '180px' }} />
 			</div>
 		);
