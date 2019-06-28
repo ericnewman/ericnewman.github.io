@@ -19,11 +19,17 @@ import style from './style';
 export default class Home extends Component {
 
 	constructor() {
+
 		super();
 
 		this.state = {
 			currentUser: null
 		};
+		this.props = {
+			currentUser: 'No User',
+		};
+
+
 	}
 
 	static writeUserData(userId, name, email, imageUrl) {
@@ -40,6 +46,8 @@ export default class Home extends Component {
 			this.setState({
 				currentUser: auth.currentUser
 			});
+			this.props.currentUser = auth.currentUser;
+
 			if (auth && auth.currentUser) {
 				Home.writeUserData(auth.currentUser.uid,
 					auth.currentUser.displayName,
@@ -61,7 +69,7 @@ export default class Home extends Component {
 			<div class={`${style.home} page`}>
 				 {!currentUser && <SignIn />}
 				 {currentUser && <CurrentUser user={currentUser} />}
-				<GamesCarousel  />
+				<GamesCarousel   />
 				{currentUser && <Leaderboard />}
 				{currentUser && <Achievements />}
 				{<Snooze />}

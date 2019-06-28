@@ -12,36 +12,37 @@ import Dark from '../routes/dark';
 import NotFound from '../routes/404';
 
 export default class App extends Component {
-	/** Gets fired when the route changes.
-	 *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
-	 *	@param {string} event.url	The newly routed URL
-	 */
 
-	constructor() {
-		super();
 
+
+	componentDidMount() {
+		console.log('Mounted App...');
 	}
+
 	handleRoute = e => {
-		this.setState({
-			currentUrl: e.url
-		});
+		setTimeout(() => {
+			this.setState({
+				currentUrl: e.url
+			});
+		}, 0);
 	};
+
 
 	render() {
 		return (
 			<div id="app">
 				{this.state.currentUrl !== '/dark' && <Header selectedRoute={this.state.currentUrl} />}
 				<Router onChange={this.handleRoute}>
-					<Home path="/" />
+					<Home path="/"  />
 					<Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" />
 					<Account path="/account" />
 					<SignIn path="/signin" />
 					<SignOut path="/signout" />
 					<Dark path="/dark/" delay="3600" />
-					<Dark path="/dark/:delay"/>
-					<Dash path="/dash" selectedGame="default" />
-					<Dash path="/dash:selectedGame" />
+					<Dark path="/dark/:delay" />
+					<Dash path="/dash" selectedGame="default"  />
+					<Dash path="/dash:selectedGame"  />
 					<NotFound default />
 				</Router>
 			</div>

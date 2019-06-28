@@ -7,9 +7,9 @@ import style from './style';
 
 export default class PFooter extends Component {
 
-	render(props) {
+	render({props}) {
 		return (
-			<Card>
+			<Card class={style.footer}>
 				Properties: {props}
 			</Card>
 		);

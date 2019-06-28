@@ -6,7 +6,7 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
 import Button from 'preact-material-components/Button';
-import firebase from 'firebase/app';
+
 import games_list from '../../games_list';
 
 export default class Achievements extends Component {

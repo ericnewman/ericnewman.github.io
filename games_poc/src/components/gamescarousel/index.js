@@ -20,12 +20,14 @@ export default class GamesCarousel extends Component {
 
 		super();
 
+
 		this.state = {
 			favoriteGameIndex: -1,
 			favoriteGameName: '',
 			favoritegameURL: '',
 			timesPlayed: [0,0,0,0,0,0,0,0,0,0]
 		};
+
 		if (typeof window !== 'undefined') {
 			let s = JSON.parse(localStorage.getItem('savedFavorite'));
 			if (s && s.favoriteGameIndex !== -1) {
@@ -52,15 +54,6 @@ export default class GamesCarousel extends Component {
 			timeout,
 			color);
 	}
-	//gets called when this route is navigated to
-	componentDidMount() {
-	   // console.log(this.state)
-
-	}
-
-	//gets called just before navigating away from the route
-	componentWillUnmount() {
-	}
 
 	newFave(index) {
 		this.setState({ favoriteGameIndex: -1 });
@@ -70,6 +63,7 @@ export default class GamesCarousel extends Component {
 		database.ref('users/' + auth.currentUser.uid).update({
 			fave_game: games_list[index].name
 		});
+		this.props.params.favoriteGameName = games_list[index].name;
 
 	}
 
@@ -144,12 +138,11 @@ export default class GamesCarousel extends Component {
 
 				}
 				{!hasFave && <div class={style.space}><Carousel height="90px"
-					transitionTime={800}
+					transitionTime={750}
 					centerMode
 					centerSlidePercentage={40}
 					showArrows={false}
 					infiniteLoop
-					emulateTouch
 					autoPlay
 					showThumbs={false}
 					onClickItem={(index, element) => this.clickItem(index, element)}

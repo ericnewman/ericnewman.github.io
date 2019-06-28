@@ -4,16 +4,23 @@
     <list default="true" id="5d88d9ec-0002-46a1-b804-f3426629659e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/android-chrome-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/android-chrome-192x192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/android-chrome-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/android-chrome-512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/mstile-150x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/mstile-150x150.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/achievements/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/achievements/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/aframe/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/aframe/style.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/PasswordChange/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/PasswordChange/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/PasswordForgot/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/PasswordForgot/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/SignUp/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/SignUp/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gamescarousel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gamescarousel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pfooter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pfooter/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pframe/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pframe/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/games_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/games_list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/dash/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/dash/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,26 +36,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            <state relative-caret-position="544">
+              <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/src/components/pframe/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+            <state relative-caret-position="209">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/pframe/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/gameplaypage/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="475">
+              <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/home/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/achievements/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/gamescarousel/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="377">
+              <caret line="34" column="13" lean-forward="true" selection-start-line="31" selection-end-line="34" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -63,47 +97,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pframe/style.scss">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/aframe/style.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/dash/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="43" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/dash/style.scss">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/dark/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/aframe/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="114">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -119,8 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find />
-      <find>Database</find>
       <find>images</find>
       <find>games_list</find>
       <find>.se</find>
@@ -149,6 +144,8 @@
       <find>material-icons</find>
       <find>SignUp</find>
       <find>hasFocusAcquired</find>
+      <find>toast</find>
+      <find>localStorage</find>
     </findStrings>
     <replaceStrings>
       <replace>games_list[index].</replace>
@@ -175,20 +172,16 @@
         <option value="$PROJECT_DIR$/src/components/snooze/micro_bridge.js" />
         <option value="$PROJECT_DIR$/src/components/dark/index.js" />
         <option value="$PROJECT_DIR$/src/routes/dark/index.js" />
-        <option value="$PROJECT_DIR$/src/games_list.js" />
         <option value="$PROJECT_DIR$/database.rules.json" />
         <option value="$PROJECT_DIR$/firestore.rules" />
-        <option value="$PROJECT_DIR$/src/components/gamescarousel/index.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/snooze/index.js" />
         <option value="$PROJECT_DIR$/preact.config.js" />
         <option value="$PROJECT_DIR$/src/components/leaderboard/index.js" />
-        <option value="$PROJECT_DIR$/src/components/achievements/index.js" />
         <option value="$PROJECT_DIR$/src/components/signIn/style.css" />
         <option value="$PROJECT_DIR$/src/routes/SignIn/index.js" />
         <option value="$PROJECT_DIR$/src/style/index.css" />
         <option value="$PROJECT_DIR$/src/components/signIn/index.js" />
-        <option value="$PROJECT_DIR$/src/routes/home/index.js" />
         <option value="$PROJECT_DIR$/src/components/signIn/style.scss" />
         <option value="$PROJECT_DIR$/src/routes/404/style.scss" />
         <option value="$PROJECT_DIR$/src/routes/dark/style.scss" />
@@ -199,16 +192,22 @@
         <option value="$PROJECT_DIR$/src/components/dark/style.scss" />
         <option value="$PROJECT_DIR$/src/routes/home/style.scss" />
         <option value="$PROJECT_DIR$/src/components/leaderboard/style.scss" />
-        <option value="$PROJECT_DIR$/src/routes/dash/index.js" />
         <option value="$PROJECT_DIR$/src/components/header/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/components/app.js" />
         <option value="$PROJECT_DIR$/src/components/pframe/style.scss" />
         <option value="$PROJECT_DIR$/src/components/aframe/style.scss" />
-        <option value="$PROJECT_DIR$/src/routes/dash/style.scss" />
-        <option value="$PROJECT_DIR$/src/components/pfooter/index.js" />
-        <option value="$PROJECT_DIR$/src/components/aframe/index.js" />
+        <option value="$PROJECT_DIR$/src/components/achievements/index.js" />
         <option value="$PROJECT_DIR$/src/components/pframe/index.js" />
+        <option value="$PROJECT_DIR$/src/components/aframe/index.js" />
+        <option value="$PROJECT_DIR$/src/routes/dash/style.scss" />
+        <option value="$PROJECT_DIR$/src/components/pfooter/style.scss" />
+        <option value="$PROJECT_DIR$/src/components/pfooter/index.js" />
+        <option value="$PROJECT_DIR$/src/games_list.js" />
+        <option value="$PROJECT_DIR$/src/components/app.js" />
+        <option value="$PROJECT_DIR$/src/components/gamescarousel/index.js" />
+        <option value="$PROJECT_DIR$/src/routes/dash/index.js" />
+        <option value="$PROJECT_DIR$/src/routes/home/index.js" />
+        <option value="$PROJECT_DIR$/src/components/gameplaypage/index.js" />
       </list>
     </option>
   </component>
@@ -216,10 +215,10 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="312" />
-    <option name="y" value="264" />
-    <option name="width" value="1920" />
-    <option name="height" value="1001" />
+    <option name="x" value="428" />
+    <option name="y" value="23" />
+    <option name="width" value="1422" />
+    <option name="height" value="1124" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -238,11 +237,6 @@
             <path>
               <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
               <item name="games_poc" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="games_poc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -256,14 +250,14 @@
               <item name="games_poc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="aframe" type="462c0819:PsiDirectoryNode" />
+              <item name="achievements" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
               <item name="games_poc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="dark" type="462c0819:PsiDirectoryNode" />
+              <item name="gameplaypage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
@@ -271,20 +265,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="gamescarousel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="games_poc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="games_poc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="leaderboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
@@ -299,20 +279,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pframe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="games_poc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="signIn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="games_poc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="snooze" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
@@ -333,13 +299,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="games_poc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="games_poc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -398,23 +357,27 @@
       <workItem from="1561475035223" duration="13164000" />
       <workItem from="1561496698504" duration="818000" />
       <workItem from="1561557054607" duration="842000" />
-      <workItem from="1561560089305" duration="15436000" />
+      <workItem from="1561560089305" duration="16054000" />
+      <workItem from="1561654877908" duration="566000" />
+      <workItem from="1561722054453" duration="1000" />
+      <workItem from="1561723587315" duration="4434000" />
+      <workItem from="1561737272904" duration="11074000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84579000" />
+    <option name="totallyTimeSpent" value="101272000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="312" y="264" width="1920" height="1001" extended-state="0" />
+    <frame x="428" y="23" width="1422" height="1124" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22064245" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21912919" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.0952381" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.40497193" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3295711" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -430,20 +393,20 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17382243" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21912919" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.40497193" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3295711" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="TypeScript" order="9" visible="true" weight="0.3295562" />
+      <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32919255" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.075542964" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -455,28 +418,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/routes/PasswordForgot/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#294#749#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/PasswordChange/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#294#766#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/Admin/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -565,13 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/games_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/firebase.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -624,13 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/gamescarousel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="865">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage.rules">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -639,13 +566,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/signIn/style.css" />
-    <entry file="file://$PROJECT_DIR$/src/components/leaderboard/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2052">
-          <caret line="108" column="40" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/SignIn/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -657,20 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/leaderboard/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/achievements/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1862">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
         </state>
       </provider>
     </entry>
@@ -699,13 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
@@ -744,10 +643,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
+        <state relative-caret-position="950">
           <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pframe/style.scss">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/dark/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -756,15 +658,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/app.js">
+    <entry file="file://$PROJECT_DIR$/src/components/leaderboard/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="1286">
+          <caret line="95" column="10" lean-forward="true" selection-start-line="95" selection-start-column="2" selection-end-line="95" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pframe/style.scss">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/components/leaderboard/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2052">
+          <caret line="108" column="70" lean-forward="true" selection-start-line="108" selection-start-column="57" selection-end-line="108" selection-end-column="70" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/aframe/style.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -773,15 +679,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/dash/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/aframe/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="43" />
+        <state relative-caret-position="190">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/dash/style.scss">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/games_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pfooter/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/achievements/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pfooter/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -790,17 +721,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/aframe/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="544">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/dash/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pframe/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="209">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/gamescarousel/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="31" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/gameplaypage/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
         </state>
       </provider>
     </entry>
