@@ -5,7 +5,7 @@ import { notify } from 'react-notify-toast';
 
 import style from './style';
 
-const OPTS = { passive: false, capture: true };
+const OPTS = { passive: false, capture: false };
 
 export default class PFrame extends Component {
 

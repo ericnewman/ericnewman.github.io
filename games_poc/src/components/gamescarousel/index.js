@@ -19,22 +19,25 @@ export default class GamesCarousel extends Component {
 	constructor() {
 
 		super();
+		this.games= [];
 
 		this.state = {
-			favoriteGameIndex: -1,
+			favoriteGameID: -1,
 			favoriteGameName: '',
 			favoritegameURL: '',
-			timesPlayed: [0,0,0,0,0,0,0,0,0,0]
+			timesPlayed: {}
 		};
 
 		if (typeof window !== 'undefined') {
 			let s = JSON.parse(localStorage.getItem('savedFavorite'));
-			if (s && s.favoriteGameIndex !== -1) {
+			if (s && s.favoriteGameID !== -1) {
 				this.setState(s);
 			}
-			games_list.map((game) => {
 
+			games_list.map((game) => {
+				this.games[game.id] = game;
 				database.ref('games/' + game.name).update({
+					id: game.id,
 					thumbnail: game.image,
 					url: game.url,
 					name: game.name
@@ -53,33 +56,37 @@ export default class GamesCarousel extends Component {
 			color);
 	}
 
-	newFave(index) {
-		this.setState({ favoriteGameIndex: -1 });
-		if (typeof window !== 'undefined') {
-			localStorage.setItem('savedFavorite', JSON.stringify(this.state));
-		}
-		database.ref('users/' + auth.currentUser.uid).update({
-			fave_game: games_list[index].name
-		});
-		this.props.params.favoriteGameName = games_list[index].name;
+	newFave(id) {
+		let s = this.state;
+
+		s.favoriteGameID = -1;
+		this.setState(s);
 
 	}
 
-	playGame(index) {
+	playGame(id) {
+		let name = this.games[id].name;
+		let tp = 0;
 
-		let tp = this.state.timesPlayed;
-		tp[index]++;
-		this.setState({ timesPlayed: tp });
+		if (this.state.timesPlayed[id]) {
+			tp =  this.state.timesPlayed[id]++;
+		}
+		else {
+			tp = 1;
+		}
+		this.state.timesPlayed[id] = tp;
+
+		this.setState( this.state);
 		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
 
-		let ref = database.ref('users/' + auth.currentUser.uid + '/games_played/' + games_list[index].name + '/times_played');
+		let ref = database.ref('users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played');
 		ref.transaction((numberOfTimesPlayed) =>
 		// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
 			 (numberOfTimesPlayed || 0) + 1
 		);
 
-		ref = database.ref('games/' + games_list[index].name + '/times_played');
+		ref = database.ref('games/' + name + '/times_played');
 		ref.transaction((numberOfTimesPlayed) =>
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
 			 (numberOfTimesPlayed || 0) + 1
@@ -92,23 +99,24 @@ export default class GamesCarousel extends Component {
 		);
 
 
-		document.location = games_list[index].url;
+		// document.location = games_list[index].url;
 	}
 
 	clickItem(index, element) {
 
-		let foo = { favoriteGameIndex: index , favoriteGameName: games_list[index].name, favoritegameURL: games_list[index].url };
+		let foo = {
+			favoriteGameID: games_list[index].id,
+			favoriteGameName: games_list[index].name,
+			favoriteGameURL: games_list[index].url,
+			favoriteGameImage: games_list[index].image
+		};
 
 		this.setState(foo);
 
 		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
 		if (confirm("You've selected " + games_list[index].name + ' as your favorite game...Would you like to play it now?')) {
-			let tp = this.state.timesPlayed;
-			tp[index]++;
-			this.setState({ timesPlayed: tp });
-			localStorage.setItem('savedFavorite', JSON.stringify(this.state));
-			this.playGame(index);
+			this.playGame(games_list[index].id);
 		}
 		else {
 			this.showToast("We'll try later...");
@@ -116,8 +124,9 @@ export default class GamesCarousel extends Component {
 	}
 
 	render() {
-		let hasFave = (this.state.favoriteGameIndex !== -1);
-		let index = this.state.favoriteGameIndex;
+		let id = this.state.favoriteGameID;
+		let hasFave = (id !== -1);
+		let tp = 0;
 
 		return (
 
@@ -125,13 +134,13 @@ export default class GamesCarousel extends Component {
 				{!hasFave && <div class={style.header}>Select your favorite game below...:</div>}
 				{hasFave && <div class={style.faves}>
 					<div class={style.header}>Your favorite game is currently "{this.state.favoriteGameName}"</div>
-					<div onClick={() => this.playGame(index)}><img height="250" src={games_list[index].image} alt={games_list[index].name} /></div><p />
+					<div onClick={() => this.playGame(id)}><img height="250" src={this.state.favoriteGameImage} alt={this.state.favoriteGameName} /></div><p />
 					<div class={style.header}>You have played "{this.state.favoriteGameName}"
-						<span> {this.state.timesPlayed[index]}</span> times.</div>
-					{this.state.timesPlayed[index] < 5 &&
-                                <div class={style.header}>Play {5-this.state.timesPlayed[index]} more time(s) to unlock a secret level.</div>
+						<span> {tp}</span> times.</div>
+					{tp < 5 &&
+                                <div class={style.header}>Play {5-tp} more time(s) to unlock a secret level.</div>
 					}
-					<Button raised ripple onClick={() => this.newFave(index)}><strong>Pick another</strong></Button><p />
+					<Button raised ripple onClick={() => this.newFave(id)}><strong>Pick another</strong></Button><p />
 				</div>
 
 				}
