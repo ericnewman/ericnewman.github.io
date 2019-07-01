@@ -19,7 +19,6 @@ export default class GamePlayPage extends Component {
 	}
 
 	render() {
-		console.log(this.state);
 
 		return (
 			<div>
@@ -32,7 +31,7 @@ export default class GamePlayPage extends Component {
 					display="initial"
 					position="relative"
 				/>
-				<PFooter hovering="false" clicked="false" />
+				<PFooter name={this.state.favoriteGameName} />
 				<Notifications options={{ zIndex: 200, top: '180px' }} />
 			</div>
 		);

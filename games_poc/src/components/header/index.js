@@ -54,7 +54,7 @@ export default class Header extends Component {
 				}
 			}
 		);
-	}
+	};
 
 	render(props) {
 

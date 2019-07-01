@@ -20,7 +20,6 @@ export default class GamesCarousel extends Component {
 
 		super();
 
-
 		this.state = {
 			favoriteGameIndex: -1,
 			favoriteGameName: '',
@@ -42,9 +41,8 @@ export default class GamesCarousel extends Component {
 				});
 			});
 		}
-
-
 	}
+
 	showToast(msg) {
 		let color = { background: '#5A3', text: '#FFFFFF' };
 		let timeout = 2000;
