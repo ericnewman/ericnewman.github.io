@@ -9,7 +9,6 @@ import LayoutGrid from 'preact-material-components/LayoutGrid';
 import 'preact-material-components/LayoutGrid/style.css';
 
 import style from './style';
-import { auth, googleAuthProvider } from '../../firebase';
 
 
 export default class PFooter extends Component {
@@ -25,7 +24,7 @@ export default class PFooter extends Component {
 							<LayoutGrid.Cell cols="1">
 								<Button
 									raised ripple
-									onClick={() => props.snoozer(props.snooze)}
+									onClick={() => props.snoozer()}
 								>
 									Snooze
 								</Button>
@@ -33,9 +32,9 @@ export default class PFooter extends Component {
 							<LayoutGrid.Cell cols="2">
 								<Button
 									raised ripple
-									onClick={() => auth.signInWithRedirect(googleAuthProvider)}
+									onClick={() => props.leaderboard()}
 								>
-									Another?
+									Leaders
 								</Button>
 							</LayoutGrid.Cell>
 							<LayoutGrid.Cell cols="1">

@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 
+import AlmostHere from '../routes/almosthere';
 import Header from './header';
 import Home from '../routes/home';
 import Profile from '../routes/profile';
@@ -43,6 +44,7 @@ export default class App extends Component {
 					<Dark path="/dark/:delay" />
 					<Dash path="/dash" selectedGame="default"  />
 					<Dash path="/dash:selectedGame"  />
+					<AlmostHere path="/almosthere"  />
 					<NotFound default />
 				</Router>
 			</div>

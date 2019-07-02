@@ -1,0 +1,35 @@
+.home {
+	padding: 16px;
+	min-height: 100%;
+	width: 100%;
+}
+
+.cardHeader {
+  padding: 8px;
+}
+
+.cardBody {
+  padding: 8px;
+}
+
+.currentUser {
+    padding:0;
+}
+.smaller {
+  font:  bold 18px Roboto, serif;
+  margin:0 auto;
+  width:100%;
+}
+.beta {
+  font:  bold 24px Roboto, serif;
+  margin:0 auto;
+  width:100%;
+
+}
+.betaRot {
+  font:  bold 26px Roboto, serif;
+  margin:0 auto;
+  transform: rotate(-10deg);
+  width:100%;
+
+}

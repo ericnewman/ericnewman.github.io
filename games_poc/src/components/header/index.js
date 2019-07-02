@@ -10,7 +10,8 @@ import 'preact-material-components/Dialog/style.css';
 import 'preact-material-components/Drawer/style.css';
 import 'preact-material-components/List/style.css';
 import 'preact-material-components/TopAppBar/style.css';
-// import style from './style';
+
+import style from './style';
 
 export default class Header extends Component {
 	closeDrawer() {
@@ -39,6 +40,7 @@ export default class Header extends Component {
 	goToSignOut = this.linkTo('/signout');
 	goToAccount = this.linkTo('/account');
 	goToDash = this.linkTo('/dash');
+	goToAlmostHere = this.linkTo('/almosthere');
 
 	toggleDarkTheme = () => {
 		this.setState(
@@ -66,7 +68,7 @@ export default class Header extends Component {
 							<TopAppBar.Icon menu onClick={this.openDrawer}>
 								menu
 							</TopAppBar.Icon>
-							<TopAppBar.Title>Games POC</TopAppBar.Title>
+							<TopAppBar.Title>DraftCards</TopAppBar.Title>
 						</TopAppBar.Section>
 						<TopAppBar.Section align-end shrink-to-fit onClick={this.openSettings}>
 							<TopAppBar.Icon>settings</TopAppBar.Icon>
@@ -78,6 +80,10 @@ export default class Header extends Component {
 						<Drawer.DrawerItem selected={props.selectedRoute === '/'} onClick={this.goHome}>
 							<List.ItemGraphic>home</List.ItemGraphic>
 							Home
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/almosthere'} onClick={this.goToAlmostHere}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Almost Here
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash'} onClick={this.goToDash}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>

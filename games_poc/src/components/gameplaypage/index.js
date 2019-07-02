@@ -5,6 +5,7 @@ import 'preact-material-components/Button/style.css';
 import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
 import Snooze from '../../components/snooze';
+import Leaderboard from '../../components/leaderboard';
 import Notifications from 'react-notify-toast';
 
 import style from './style';
@@ -15,15 +16,23 @@ export default class GamePlayPage extends Component {
 	constructor() {
 		super();
 		this.state = {
-			snooze: false
+			snooze: false,
+			leaderboard: false
 		};
 
 		this.startSnooze = this.startSnooze.bind(this);
+		this.startLeaderboard = this.startLeaderboard.bind(this);
 	}
 
 	startSnooze() {
-		console.log(this);
 		this.state.snooze = !this.state.snooze;
+		this.state.leaderboard = false;
+		this.setState(this.state);
+	}
+
+	startLeaderboard() {
+		this.state.leaderboard = !this.state.leaderboard;
+		this.state.snooze = false;
 		this.setState(this.state);
 	}
 
@@ -39,20 +48,21 @@ export default class GamePlayPage extends Component {
 	render() {
 
 		return (<div >
-				{this.state.snooze && <Snooze/>}
-				{!this.state.snooze && <Pframe src={this.state.favoritegameURL}
-											   width="100%"
-											   height="450px"
-											   name="gameFrame"
-											   id="gameFrame"
-											   className={style.framey}
-											   display="initial"
-											   position="relative"
-				/>}
-				<PFooter name={this.state.favoriteGameName} snoozer={this.startSnooze}  />
-				<Notifications options={{ zIndex: 200, top: '180px' }}/>
-			</div>
+				{this.state.snooze && <Snooze />}
+				{this.state.leaderboard && <Leaderboard />}
+			{!this.state.snooze && !this.state.leaderboard && <Pframe src={this.state.favoritegameURL}
+				width="100%"
+				height="450px"
+				name="gameFrame"
+				id="gameFrame"
+				className={style.framey}
+				display="initial"
+				position="relative"
+			                       />}
+			<PFooter name={this.state.favoriteGameName} snoozer={this.startSnooze} leaderboard={this.startLeaderboard} />
+			<Notifications options={{ zIndex: 200, top: '180px' }} />
+		</div>
 		)
-			;
+		;
 	}
 }

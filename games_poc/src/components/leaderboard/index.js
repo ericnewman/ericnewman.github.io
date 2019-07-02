@@ -18,7 +18,9 @@ export default class Leaderboard extends Component {
 		this.tempG = {};
 		this.tempP = [];
 	}
+
 	componentDidMount() {
+
 		const query = database.ref('games')
 			.orderByChild('times_played')
 			.limitToLast(5);
@@ -56,24 +58,7 @@ export default class Leaderboard extends Component {
 			this.setState({ games: this.tempG, people: this.tempP });
 
 		});
-
 	}
-	// sums(...args) {
-	// 	let total = 0;
-	// 	args.forEach(arg => {
-	// 		let ach = Object.entries(arg);
-	// 		ach.forEach(arg => {
-	// 			let ans = arg[1].achievements;
-	// 		// 	var total = 0;
-	// 			for (let key in ans) {
-	// 				total += ans[key];
-	// 			}
-	//
-	// 		});
-	// 	});
-	// 	console.log(total);
-	// 	return total;
-	// }
 
 	//Note: `user` comes from the URL, courtesy of our router
 	render() {
