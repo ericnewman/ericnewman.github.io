@@ -7,8 +7,6 @@ import 'preact-material-components/Button/style.css';
 import style from './style';
 import Button from 'preact-material-components/Button';
 
-import games_list from '../../games_list';
-
 export default class Achievements extends Component {
 
 	constructor() {

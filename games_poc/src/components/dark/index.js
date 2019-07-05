@@ -5,7 +5,6 @@ import style from './style';
 
 export default class Dark extends Component {
 
-
 	render() {
 
 		return (
