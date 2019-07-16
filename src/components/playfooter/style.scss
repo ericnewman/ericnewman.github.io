@@ -1,0 +1,25 @@
+.footer {
+	padding: 4px 0px !important;
+	margin-top:5px;
+	width: 100%;
+	height:100px;
+	position:absolute;
+	bottom:0;
+	background:#ccc;
+}
+.mdc-button--raised {
+	padding:1px;
+}
+.mdc-layout-grid {
+	padding:0px;
+
+}
+@media (max-width: 479px) {
+	.mdc-layout-grid {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		margin: 0 auto;
+		padding: 4px !important;;
+		padding: var(--mdc-layout-grid-margin-phone, 4px) !important;
+	}
+}

@@ -1,0 +1,43 @@
+.newpage {
+  height: 50px;
+  padding: 0 0;
+}
+
+.mdc-theme--dark .mdc-card {
+  color: white !important;;
+
+}
+
+.warn {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: colorz;
+  color: black;
+  font: Bold 16px/0px 'Orbitron', sans-serif;
+  left: 10px;
+  position: relative;
+  text-shadow: 1px 1px 5px white, 1px 1px 5px white, 1px 1px 5px white;
+  top: 18px;
+  z-index: 1;
+}
+
+.loader {
+  animation-duration: 2s;
+
+  animation-iteration-count: infinite;
+  animation-name: colorz;
+  background-color: #000;
+
+}
+
+@keyframes colorz {
+  0% {
+	background-color: #500;
+  }
+  50% {
+	background-color: #000;
+  }
+  100% {
+	background-color: #500;
+  }
+}

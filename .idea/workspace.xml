@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5d88d9ec-0002-46a1-b804-f3426629659e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../draftcards copy.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/playfooter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playfooter/index.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>images</find>
+      <find>games_list</find>
+      <find>.se</find>
+      <find>.set</find>
+      <find>games_list.</find>
+      <find>names</find>
+      <find>console.log(</find>
+      <find>times_played</find>
+      <find>games</find>
+      <find>{</find>
+      <find>newFave</find>
+      <find>score</find>
+      <find>conso</find>
+      <find>this.set</find>
+      <find>myDB</find>
+      <find>on</find>
+      <find>preact</find>
+      <find>logro</find>
+      <find>name.achievement</find>
+      <find>achs</find>
+      <find>name.achievements</find>
+      <find>style.name.achievements</find>
+      <find>#app</find>
+      <find>cardbody</find>
+      <find>props</find>
+      <find>material-icons</find>
+      <find>SignUp</find>
+      <find>hasFocusAcquired</find>
+      <find>toast</find>
+      <find>localStorage</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>games_list[index].</replace>
+      <replace>ach</replace>
+      <replace>style.ach</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src/components/header</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="CountDown" />
+      </map>
+    </option>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="1Nk4pDEeKqu5tRPJkPBeNzZCAtl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.introduce.parameter.generate.optional" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="$PROJECT_DIR$/node_modules/standard" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/functions/node_modules/typescript/lib" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d88d9ec-0002-46a1-b804-f3426629659e" name="Default Changelist" comment="" />
+      <created>1560965229311</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560965229311</updated>
+      <workItem from="1560965233030" duration="234000" />
+      <workItem from="1560969724057" duration="51000" />
+      <workItem from="1560969789521" duration="47000" />
+      <workItem from="1560969848354" duration="7524000" />
+      <workItem from="1561125514610" duration="23174000" />
+      <workItem from="1561380793261" duration="19890000" />
+      <workItem from="1561470128289" duration="2999000" />
+      <workItem from="1561474594462" duration="400000" />
+      <workItem from="1561475035223" duration="13164000" />
+      <workItem from="1561496698504" duration="818000" />
+      <workItem from="1561557054607" duration="842000" />
+      <workItem from="1561560089305" duration="16054000" />
+      <workItem from="1561654877908" duration="566000" />
+      <workItem from="1561722054453" duration="1000" />
+      <workItem from="1561723587315" duration="4434000" />
+      <workItem from="1561737272904" duration="12226000" />
+      <workItem from="1561987263677" duration="132000" />
+      <workItem from="1562611073759" duration="193000" />
+      <workItem from="1562611419425" duration="238000" />
+      <workItem from="1562611843087" duration="72000" />
+      <workItem from="1562611947280" duration="5000" />
+      <workItem from="1562948524388" duration="99000" />
+      <workItem from="1563213327625" duration="1203000" />
+      <workItem from="1563215751074" duration="2251000" />
+      <workItem from="1563218335572" duration="1226000" />
+      <workItem from="1563220130428" duration="377000" />
+      <workItem from="1563220727913" duration="1573000" />
+      <workItem from="1563287307981" duration="376000" />
+      <workItem from="1563287696428" duration="196000" />
+      <workItem from="1563287910727" duration="220000" />
+      <workItem from="1563288134930" duration="29000" />
+      <workItem from="1563288179371" duration="4352000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

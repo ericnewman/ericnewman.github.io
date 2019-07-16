@@ -1,0 +1,119 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100vh;
+	width: 100vw;
+	padding: 0;
+	margin: 0;
+	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-weight: 400;
+	color: #444;
+	min-height: 640px;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v29/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+
+#app {
+	min-height: 640px;
+}
+
+.scoreBox {
+  height:24px;
+  width: 38px;
+  font: Bold 17px 'Orbitron', sans-serif;
+    text-align:center;
+    display:inline-block;
+  padding:3px;
+  margin:3px;
+  background:white;
+  border:1px solid black;
+  border-radius: 5px;
+}
+
+.mdc-theme--dark {
+	background-color: #333;
+	color: #fff;
+}
+
+.mdc-theme--dark .mdc-card {
+  color: #444;
+}
+
+#app .page {
+  padding-top: 56px;
+}
+.mdc-top-app-bar {
+background: #B51C7E !important;
+}
+
+.mdc-theme--dark {
+    background: black;
+}
+/*.mdc-theme--dark .mdc-button {*/
+/*    color: white !important;;*/
+/*    font:  Bold 13px 'Orbitron', sans-serif;*/
+
+/*}*/
+.mdc-theme--dark .mdc-card {
+    color:white !important;;
+    background: #222 !important;
+
+}
+.mdc-card .grid {
+	color:black;
+	background: #74FBFD;
+	border:1px solid #777;
+
+}
+
+.mdc-theme--dark .mdc-card .grid {
+    background: #14ABAD;
+    color:black !important;
+
+}
+.mdc-theme--dark .mdc-card .scoreBox {
+  background:white;
+  border:1px solid #888;
+  color:black;
+
+  }
+.mdc-theme--dark .mdc-typography--caption {
+	color:black;
+
+}
+.caption {
+	font:  Bold 12px 'Roboto', sans-serif;
+	color: #333;
+}
+.mdc-theme--dark .caption {
+	font:  Bold 16px 'Roboto', sans-serif;
+	color: #eee;
+}

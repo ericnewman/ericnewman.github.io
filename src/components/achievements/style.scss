@@ -1,0 +1,54 @@
+.newpage {
+  padding-top: 5px;
+}
+.ranks {
+    font:  Bold 12px 'Roboto', sans-serif;
+}
+.header {
+    padding:3px;
+}
+.achievement {
+    display:inline-block;
+    padding:4px;
+    border:2px solid #888;
+    border-radius: 9px;
+    margin:3px;
+    min-width:45px;
+    text-align: center;
+    height:32px;
+    color: white;
+    font: Normal 16px/22px 'Orbitron', sans-serif;
+    text-shadow: 1px 1px 1px white, 1px 1px 1px #333, 1px 1px 5px black;
+    top: 5px;
+    z-index: 199999;
+
+    &.red {
+        background:#F33;
+    }
+    &.green {
+    background:#3F3;
+    }
+    &.blue {
+    background:#33F;
+    color:white;
+    }
+    &.silver {
+    background:#ccc;
+    color:black;
+    }
+    &.gold {
+        background:#FC3;
+        color:black;
+    }
+    &.magic {
+        background:#3EF;
+        color:black;
+    }
+}
+
+.bgroup {
+    margin:0 auto;
+    width:100%;
+    text-align:center;
+    padding:3px;
+}
