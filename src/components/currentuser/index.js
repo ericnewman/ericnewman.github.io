@@ -10,7 +10,7 @@ export default class CurrentUser extends Component {
 	constructor(currentUser) {
 		super();
 		this.state = {
-			currentUser: currentUser
+			currentUser
 		};
 	}
 
@@ -19,7 +19,7 @@ export default class CurrentUser extends Component {
 
 		return (
 			<div class={style.newpage}>
-				<Card>npm insta;;
+				<Card>
 					<article class={style.currentUser}>
 						<div class={style.userLabel}>Player</div>
 						<img

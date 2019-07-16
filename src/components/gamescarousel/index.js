@@ -18,40 +18,6 @@ import style from './style';
 
 export default class GamesCarousel extends Component {
 
-	constructor() {
-
-		super();
-		this.games= [];
-		this.props = {
-		    showHeader:true,
-			showFavorite:true
-		    }
-
-		this.state = {
-			favoriteGameID: -1,
-			favoriteGameName: '',
-			favoriteGameURL: '',
-			timesPlayed: {}
-		};
-
-		if (typeof window !== 'undefined') {
-			let s = JSON.parse(localStorage.getItem('savedFavorite'));
-			if (s && s.favoriteGameID !== -1) {
-				this.setState(s);
-			}
-
-			gamesList.map((game) => {
-				this.games[game.id] = game;
-				database.ref('games/' + game.name).update({
-					id: game.id,
-					thumbnail: game.image,
-					url: game.url,
-					name: game.name
-				});
-			});
-		}
-	}
-
 	showToast(msg) {
 		let color = { background: '#5A3', text: '#FFFFFF' };
 		let timeout = 2000;
@@ -88,20 +54,20 @@ export default class GamesCarousel extends Component {
 
 		let ref = database.ref('users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played');
 		ref.transaction((numberOfTimesPlayed) =>
-		// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			 (numberOfTimesPlayed || 0) + 1
+			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			(numberOfTimesPlayed || 0) + 1
 		);
 
 		ref = database.ref('games/' + name + '/times_played');
 		ref.transaction((numberOfTimesPlayed) =>
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			 (numberOfTimesPlayed || 0) + 1
+			(numberOfTimesPlayed || 0) + 1
 		);
 
 		ref = database.ref('users/' + auth.currentUser.uid + '/totalPlays');
 		ref.transaction((totalPlays) =>
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			 (totalPlays || 0) + 1
+			(totalPlays || 0) + 1
 		);
 
 
@@ -129,6 +95,41 @@ export default class GamesCarousel extends Component {
 			this.showToast("We'll try later...");
 		}
 	}
+
+	constructor() {
+
+		super();
+		this.games= [];
+		this.props = {
+		    showHeader: true,
+			showFavorite: true
+		    };
+
+		this.state = {
+			favoriteGameID: -1,
+			favoriteGameName: '',
+			favoriteGameURL: '',
+			timesPlayed: {}
+		};
+
+		if (typeof window !== 'undefined') {
+			let s = JSON.parse(localStorage.getItem('savedFavorite'));
+			if (s && s.favoriteGameID !== -1) {
+				this.setState(s);
+			}
+
+			gamesList.map((game) => {
+				this.games[game.id] = game;
+				database.ref('games/' + game.name).update({
+					id: game.id,
+					thumbnail: game.image,
+					url: game.url,
+					name: game.name
+				});
+			});
+		}
+	}
+
 
 	render(props) {
 		let id = this.state.favoriteGameID;

@@ -17,10 +17,6 @@ import NotFound from '../routes/404';
 
 export default class App extends Component {
 
-	componentDidMount() {
-		console.log('Mounted App...');
-	}
-
 	handleRoute = e => {
 		setTimeout(() => {
 			this.setState({
@@ -29,25 +25,29 @@ export default class App extends Component {
 		}, 0);
 	};
 
+	componentDidMount() {
+		console.log('Mounted App...');
+	}
+
 	render() {
 		return (
 			<div id="app">
-				{this.state.currentUrl !== '/dark' && <Header selectedRoute={this.state.currentUrl}/>}
+				{this.state.currentUrl !== '/dark' && <Header selectedRoute={this.state.currentUrl} />}
 				<Router onChange={this.handleRoute}>
-					<Home path="/"/>
-					<Profile path="/profile/" user="me"/>
-					<Profile path="/profile/:user"/>
-					<Account path="/account"/>
-					<SignIn path="/signin"/>
-					<SignOut path="/signout"/>
-					<Dark path="/dark/" delay="3600"/>
-					<Dark path="/dark/:delay"/>
-					<Dash path="/dash" selectedGame="default"/>
-					<Dash path="/dash:selectedGame"/>
-					<AlmostHere path="/almosthere"/>
-					<MoreInfo path="/moreinfo"/>
-					<Boards path="/boards"/>
-					<NotFound default/>
+					<Home path="/" />
+					<Profile path="/profile/" user="me" />
+					<Profile path="/profile/:user" />
+					<Account path="/account" />
+					<SignIn path="/signin" />
+					<SignOut path="/signout" />
+					<Dark path="/dark/" delay="3600" />
+					<Dark path="/dark/:delay" />
+					<Dash path="/dash" selectedGame="default" />
+					<Dash path="/dash:selectedGame" />
+					<AlmostHere path="/almosthere" />
+					<MoreInfo path="/moreinfo" />
+					<Boards path="/boards" />
+					<NotFound default />
 				</Router>
 			</div>
 		);

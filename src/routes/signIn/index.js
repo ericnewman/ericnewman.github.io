@@ -10,6 +10,10 @@ import style from './style';
 
 export default class SignIn extends Component {
 
+	signIn () {
+		auth.signInWithRedirect(googleAuthProvider);
+	}
+
 	render() {
 		return (
 			<div class={`${style.home} page`}>
@@ -22,7 +26,7 @@ export default class SignIn extends Component {
 						<div class={style.signIn}>
 							<Button
 								raised ripple
-								onClick={() => auth.signInWithRedirect(googleAuthProvider)}
+								onClick={this.signIn}
 							>
 								Sign In
 							</Button>

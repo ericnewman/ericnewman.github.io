@@ -14,20 +14,6 @@ export default class Snooze extends Component {
 		time: Date.now(),
 		interval: 0
 	};
-
-	//gets called when this route is navigated to
-	componentDidMount() {
-		//start a timer for the clock:
-		//let mp = new MobilePosse();
-		//console.log(MobilePosse.versionInfo());
-		//console.log(mp.versionInfo());
-		// 		console.log(MobilePosse.versionInfo());
-	}
-
-	//gets called just before navigating away from the route
-	componentWillUnmount() {
-	}
-
 	//update the current time
 	updateTime = () => {
 		this.setState({ time: Date.now() });
@@ -47,7 +33,6 @@ export default class Snooze extends Component {
 		setTimeout(() => {
 			route('/dark/' + (interval*3600));
 		}, timeout);
-
 	};
 
 	//Note: `user` comes from the URL, courtesy of our router

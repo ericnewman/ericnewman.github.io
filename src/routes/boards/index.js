@@ -2,26 +2,22 @@ import { h, Component } from 'preact';
 import Leaderboard from '../../components/leaderboard';
 import 'preact-material-components/Card/style.css';
 import style from './style';
-import TopPlayers from "../../components/topplayers";
-import Button from "preact-material-components/Button";
-import {route} from "preact-router";
+import TopPlayers from '../../components/topplayers';
+import Button from 'preact-material-components/Button';
+import { route } from 'preact-router';
 
 
+const Play = (props) => (
 
-const Play = (props) => {
-
-	return (
-
-		<div class={style.butn}>
-			<Button
-				raised ripple
-				onClick={() => route('/dash')}
-			>
+	<div class={style.butn}>
+		<Button
+			raised ripple
+			onClick={() => route('/dash')}
+		>
 				Play Again
-			</Button>
-		</div>
-	);
-}
+		</Button>
+	</div>
+);
 
 export default class Boards extends Component {
 
@@ -31,11 +27,11 @@ export default class Boards extends Component {
 		return (
 			<div className={`${style.home} page`}>
 				<div className={style.main}>
-				<Leaderboard />
-				<TopPlayers />
-				<div class={style.footer}>
-					<Play />
-				</div>
+					<Leaderboard />
+					<TopPlayers />
+					<div class={style.footer}>
+						<Play />
+					</div>
 				</div>
 			</div>
 		);

@@ -62,7 +62,7 @@ export default class TopPlayers extends Component {
 
 	//Note: `user` comes from the URL, courtesy of our router
 	render() {
-		let games = Object.entries(this.state.games);
+		// let games = Object.entries(this.state.games);
 		let people = this.state.people;
 
 		return (

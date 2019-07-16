@@ -12,27 +12,22 @@ import 'preact-material-components/List/style.css';
 import 'preact-material-components/TopAppBar/style.css';
 
 export default class Header extends Component {
-    constructor() {
-        super();
-        this.state = {
-			darkThemeEnabled: true
-		},
-        () => {
-            if (this.state.darkThemeEnabled) {
-                if (typeof window !== "undefined") {
-                    document.body.classList.add('mdc-theme--dark');
-                }
-            }
-            else {
-                if (typeof window !== "undefined") {
-                    document.body.classList.remove('mdc-theme--dark');
-                }
-            }
-        }
-        if (typeof window !== "undefined") {
-		    document.body.classList.add('mdc-theme--dark');
-		}
-    }
+
+	toggleDarkTheme = () => {
+		this.setState(
+			{
+				darkThemeEnabled: !this.state.darkThemeEnabled
+			},
+			() => {
+				if (this.state.darkThemeEnabled) {
+					document.body.classList.add('mdc-theme--dark');
+				}
+				else {
+					document.body.classList.remove('mdc-theme--dark');
+				}
+			}
+		);
+	};
 
 	closeDrawer() {
 		this.drawer.MDComponent.open = false;
@@ -59,21 +54,27 @@ export default class Header extends Component {
 	goToDash = this.linkTo('/dash');
 	goToAlmostHere = this.linkTo('/almosthere');
 
-	toggleDarkTheme = () => {
-		this.setState(
-			{
-				darkThemeEnabled: !this.state.darkThemeEnabled
-			},
-			() => {
-				if (this.state.darkThemeEnabled) {
+
+	constructor() {
+		super();
+		this.state = {
+			darkThemeEnabled: true
+		},
+		() => {
+			if (this.state.darkThemeEnabled) {
+				if (typeof window !== 'undefined') {
 					document.body.classList.add('mdc-theme--dark');
 				}
-				else {
-					document.body.classList.remove('mdc-theme--dark');
-				}
 			}
-		);
-	};
+			else if (typeof window !== 'undefined') {
+				document.body.classList.remove('mdc-theme--dark');
+			}
+		};
+		if (typeof window !== 'undefined') {
+		    document.body.classList.add('mdc-theme--dark');
+		}
+	}
+
 
 	render(props) {
 

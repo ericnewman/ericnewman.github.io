@@ -9,6 +9,20 @@ import style from './style';
 
 export default class Achievements extends Component {
 
+	bumpAchievement(achievement) {
+		let user = auth.currentUser.uid;
+
+		let ref = database.ref('users/' + user + '/achievements/' + achievement);
+		ref.transaction((numberOfTimesPlayed) =>
+			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			(numberOfTimesPlayed || 0) + 1
+		);
+
+		database.ref('users/' + user).update({
+			total_achievements: this.state.total_achievements
+		});
+	}
+
 	constructor() {
 		super();
 
@@ -45,22 +59,6 @@ export default class Achievements extends Component {
 	componentWillUnmount() {
 	}
 
-
-	bumpAchievement(achievement) {
-		let user = auth.currentUser.uid;
-
-		let ref = database.ref('users/' + user + '/achievements/' + achievement);
-		ref.transaction((numberOfTimesPlayed) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(numberOfTimesPlayed || 0) + 1
-		);
-
-		database.ref('users/' + user).update({
-			total_achievements: this.state.total_achievements
-		});
-
-	}
-
 	//Note:	`user` comes from the URL, courtesy	of our router
 	render() {
 		let achs = this.state.achievements;
@@ -87,13 +85,13 @@ export default class Achievements extends Component {
 								<Button raised ripple onClick={() => this.bumpAchievement('red')}>Add Red</Button>
 								<Button raised ripple onClick={() => this.bumpAchievement('green')}>Add Green</Button>
 								<Button raised ripple onClick={() => this.bumpAchievement('blue')}>Add Blue</Button>
-								<p/>
+								<p />
 								<Button raised ripple onClick={() => this.bumpAchievement('silver')}>Add
 									Silver</Button>
 								<Button raised ripple onClick={() => this.bumpAchievement('gold')}>Add Gold</Button>
 								<Button raised ripple onClick={() => this.bumpAchievement('magic')}>Add Magic</Button>
 							</div>
-							<p/>
+							<p />
 						</div>
 					</div>
 				</Card>

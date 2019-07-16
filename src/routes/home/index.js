@@ -22,6 +22,14 @@ import style from './style';
 
 export default class Home extends Component {
 
+	static writeUserData(userId, name, email, imageUrl) {
+		database.ref('users/' + userId).update({
+			username: name,
+			email,
+			profile_picture: imageUrl
+		});
+	}
+
 	constructor() {
 
 		super();
@@ -34,14 +42,6 @@ export default class Home extends Component {
 		};
 	}
 
-
-	static writeUserData(userId, name, email, imageUrl) {
-		database.ref('users/' + userId).update({
-			username: name,
-			email,
-			profile_picture: imageUrl
-		});
-	}
 
 	componentDidMount() {
 
@@ -70,18 +70,18 @@ export default class Home extends Component {
 		return (
 			<div class={`${style.home} page`}>
 				{!currentUser && <SignIn />}
-				{currentUser && <CurrentUser user={currentUser}/>}
-				<CountDown/>
+				{currentUser && <CurrentUser user={currentUser} />}
+				<CountDown />
 
-				<GamesCarousel showHeader={true} showFavorite={true}/>
-				<CoinBar title="HUSTLE" progress={50}/>
-				<CoinBar title="SNOOZE" progress={40}/>
-				<CoinBar title="FLOW" progress={30}/>
-				{currentUser && <Leaderboard/>}
-				{currentUser && <Achievements/>}
-				{currentUser && <TopPlayers/>}
-				{<Snooze/>}
-				<Notifications options={{ zIndex: 200, top: '180px' }}/>
+				<GamesCarousel showHeader showFavorite />
+				<CoinBar title="HUSTLE" progress={50} />
+				<CoinBar title="SNOOZE" progress={40} />
+				<CoinBar title="FLOW" progress={30} />
+				{currentUser && <Leaderboard />}
+				{currentUser && <Achievements />}
+				{currentUser && <TopPlayers />}
+				{<Snooze />}
+				<Notifications options={{ zIndex: 200, top: '180px' }} />
 			</div>
 		);
 	}

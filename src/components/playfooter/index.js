@@ -14,7 +14,7 @@ import style from './style';
 
 export default class PlayFooter extends Component {
 
-	state {
+	state = {
 		showSnooze: false,
 		showIcons: false,
 		showCheck: false
@@ -28,8 +28,8 @@ export default class PlayFooter extends Component {
 				<div className={style.cardBody}>
 					{state.showSnooze && <Button
 						raised ripple
-						onClick={() => props.snoozer()}
-					>
+						onClick={props.snoozer}
+					                     >
 						Snooze
 					</Button>}
 					<StarRatingComponent

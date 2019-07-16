@@ -5,8 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d88d9ec-0002-46a1-b804-f3426629659e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../draftcards copy.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountinfo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountinfo/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/achievements/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/achievements/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/coinbar copy/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/coinbar copy/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/coinbar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/coinbar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/countdown/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/countdown/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/currentuser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/currentuser/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameplaypage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameplaypage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gamescarousel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gamescarousel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/leaderboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/leaderboard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pframe/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pframe/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/playfooter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/playfooter/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/snooze/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/snooze/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/topplayers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/topplayers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/almosthere/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/almosthere/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/boards/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/boards/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/moreinfo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/moreinfo/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/profile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/profile/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/signIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/signIn/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/signout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/signout/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,55 +49,13 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>images</find>
-      <find>games_list</find>
-      <find>.se</find>
-      <find>.set</find>
-      <find>games_list.</find>
-      <find>names</find>
-      <find>console.log(</find>
-      <find>times_played</find>
-      <find>games</find>
-      <find>{</find>
-      <find>newFave</find>
-      <find>score</find>
-      <find>conso</find>
-      <find>this.set</find>
-      <find>myDB</find>
-      <find>on</find>
-      <find>preact</find>
-      <find>logro</find>
-      <find>name.achievement</find>
-      <find>achs</find>
-      <find>name.achievements</find>
-      <find>style.name.achievements</find>
-      <find>#app</find>
-      <find>cardbody</find>
-      <find>props</find>
-      <find>material-icons</find>
-      <find>SignUp</find>
-      <find>hasFocusAcquired</find>
-      <find>toast</find>
-      <find>localStorage</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>games_list[index].</replace>
-      <replace>ach</replace>
-      <replace>style.ach</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/src/components/header</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="CountDown" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -152,7 +138,8 @@
       <workItem from="1563287696428" duration="196000" />
       <workItem from="1563287910727" duration="220000" />
       <workItem from="1563288134930" duration="29000" />
-      <workItem from="1563288179371" duration="4352000" />
+      <workItem from="1563288179371" duration="4663000" />
+      <workItem from="1563309873498" duration="2772000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,14 @@ export default class Profile extends Component {
 		time: Date.now(),
 		count: 10
 	};
+	// update the current time
+	updateTime = () => {
+		this.setState({ time: Date.now() });
+	};
+
+	increment = () => {
+		this.setState({ count: this.state.count+1 });
+	};
 
 	// gets called when this route is navigated to
 	componentDidMount() {
@@ -20,14 +28,6 @@ export default class Profile extends Component {
 		clearInterval(this.timer);
 	}
 
-	// update the current time
-	updateTime = () => {
-		this.setState({ time: Date.now() });
-	};
-
-	increment = () => {
-		this.setState({ count: this.state.count+1 });
-	};
 
 	// Note: `user` comes from the URL, courtesy of our router
 	render({ user }, { time, count }) {

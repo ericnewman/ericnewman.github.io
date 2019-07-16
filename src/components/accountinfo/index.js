@@ -8,7 +8,7 @@ export default class AccountInfo extends Component {
 		if (!user) return (<div> No User Logged In </div>);
 		return (
 			<div class={style.account}>
-				<img src={this.props.user.photoURL}/>
+				<img src={this.props.user.photoURL} />
 				<div>{this.props.user.displayName}</div>
 				<div>{this.props.user.email}</div>
 				<div class={style.dates}>Created:{this.props.user.metadata.creationTime}</div>

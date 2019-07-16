@@ -21,7 +21,7 @@ export default class SignOut extends Component {
 						Click below expect to end Firebase session.
 					</div>
 					<Card.Actions>
-						<Button  onClick={() => auth.signOut()}>
+						<Button  onClick={auth.signOut}>
                         Sign Out
 						</Button>
 					</Card.Actions>

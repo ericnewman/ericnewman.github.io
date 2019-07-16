@@ -2,7 +2,6 @@ import { Component } from 'preact';
 import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
 import Snooze from '../../components/snooze';
-import Leaderboard from '../../components/leaderboard';
 import Notifications from 'react-notify-toast';
 import { route } from 'preact-router';
 
@@ -11,16 +10,6 @@ import style from './style';
 
 export default class GamePlayPage extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			snooze: false,
-			leaderboard: false
-		};
-
-		this.startSnooze = this.startSnooze.bind(this);
-		this.startLeaderboard = this.startLeaderboard.bind(this);
-	}
 
 	startSnooze() {
 		this.state.snooze = !this.state.snooze;
@@ -34,7 +23,20 @@ export default class GamePlayPage extends Component {
 		this.setState(this.state);
 		route('boards');
 	}
-	componentDidMount() {
+
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			snooze: false,
+			leaderboard: false
+		};
+
+		this.startSnooze = this.startSnooze.bind(this);
+		this.startLeaderboard = this.startLeaderboard.bind(this);
+	}
+
+	componentWillMount() {
 		let s = JSON.parse(localStorage.getItem('savedFavorite'));
 
 		if (s && s.favoriteGameIndex !== -1) {

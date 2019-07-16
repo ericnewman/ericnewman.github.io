@@ -5,33 +5,6 @@ import Progress from 'preact-progress';
 import style from './style';
 
 export default class CountDown extends Component {
-	constructor() {
-		super();
-		this.props = {
-			color: '#0F0',
-			message: 'ss'
-
-		};
-
-		this.state = {
-			progress: 1
-		};
-
-		this.onChange.bind(this);
-		this.onComplete.bind(this);
-	}
-
-	componentWillUnmount() {
-		// stop when not renderable
-		clearInterval(this.timer);
-	}
-
-	componentDidMount() {
-
-		this.timer = setInterval(() => {
-			this.setState({ progress: (this.state.progress + 1) % 100 });
-		}, 300);
-	}
 
 	onChange = (ctx, val) => {
 
@@ -63,6 +36,33 @@ export default class CountDown extends Component {
 	onComplete = ctx => {
 		clearInterval(this.timer);
 	};
+
+	constructor() {
+		super();
+		this.props = {
+			color: '#0F0',
+			message: 'ss'
+
+		};
+
+		this.state = {
+			progress: 1
+		};
+
+		this.onChange.bind(this);
+		this.onComplete.bind(this);
+	}
+
+	componentDidMount() {
+
+		this.timer = setInterval(() => {
+			this.setState({ progress: (this.state.progress + 1) % 100 });
+		}, 300);
+	}
+	componentWillUnmount() {
+		// stop when not renderable
+		clearInterval(this.timer);
+	}
 
 	render() {
 		return (
