@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import { auth, database } from '../../firebase';
+import { database } from '../../firebase';
 import Card from 'preact-material-components/Card';
 import Button from 'preact-material-components/Button';
 
@@ -23,15 +23,19 @@ export default class Achievements extends Component {
 		});
 	}
 
-	constructor() {
-		super();
-
-		let myDB = database.ref('users/' + auth.currentUser.uid + '/achievements');
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			total_achievements: 0,
 			achievements: {}
 		};
+	}
+
+	//gets	called	when	this	route	is	navigated	to
+	componentDidMount() {
+
+		let myDB = database.ref('users/' + auth.currentUser.uid + '/achievements');
 
 		myDB.on('value', (snapshot) => {
 			let foo = {};
@@ -49,10 +53,6 @@ export default class Achievements extends Component {
 			});
 			this.setState({ achievements: foo, total_achievements: tot });
 		});
-	}
-
-	//gets	called	when	this	route	is	navigated	to
-	componentDidMount() {
 	}
 
 	//gets	called	just before	navigating	away	from	the	route

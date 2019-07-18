@@ -1,11 +1,13 @@
 import { Component } from 'preact';
 import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
+import Countdown from '../../components/countdown';
 import Snooze from '../../components/snooze';
 import Notifications from 'react-notify-toast';
 import { route } from 'preact-router';
 
 import style from './style';
+import CountDown from '../countdown';
 
 
 export default class GamePlayPage extends Component {
@@ -49,21 +51,23 @@ export default class GamePlayPage extends Component {
 		const kFooterBarHeight = 100;
 		let hgt = (window.innerHeight - kTopBarHeight - kFooterBarHeight - 20);
 
-		return (<div >
-			{this.state.snooze && <Snooze />}
-			{!this.state.snooze && !this.state.leaderboard && <Pframe src={this.state.favoriteGameURL}
-				width="100%"
-				height={hgt}
-				name="gameFrame"
-				id="gameFrame"
-				className={style.framey}
-				display="initial"
-				position="relative"
-			                                                  />}
-			<PFooter name={this.state.favoriteGameName} snoozer={this.startSnooze} leaderboard={this.startLeaderboard} />
-			<Notifications options={{ zIndex: 200, top: '180px' }} />
-		</div>
+		return (
+			<div>
+				<Pframe src={this.state.favoriteGameURL}
+						width="100%"
+						height={hgt}
+						name="gameFrame"
+						id="gameFrame"
+						className={style.framey}
+						display="initial"
+						position="relative"
+				/>
+				<Countdown/>
+				<PFooter name={this.state.favoriteGameName} snoozer={this.startSnooze}
+						 leaderboard={this.startLeaderboard}/>
+				<Notifications options={{ zIndex: 200, top: '180px' }}/>
+			</div>
 		)
-		;
+			;
 	}
 }

@@ -53,6 +53,7 @@ export default class Header extends Component {
 	goToBoards = this.linkTo('/boards');
 	goToDash = this.linkTo('/dash');
 	goToAlmostHere = this.linkTo('/almosthere');
+	goToStep1 = this.linkTo('/step1');
 
 
 	constructor() {
@@ -98,6 +99,10 @@ export default class Header extends Component {
 						<Drawer.DrawerItem selected={props.selectedRoute === '/'} onClick={this.goHome}>
 							<List.ItemGraphic>home</List.ItemGraphic>
 							Home
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/step1'} onClick={this.goToStep1}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Step 1
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/almosthere'} onClick={this.goToAlmostHere}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>

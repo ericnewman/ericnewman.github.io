@@ -1,0 +1,58 @@
+$icon_size: 40px;
+
+.newpage {
+  height: 20px;
+  padding: 0 0;
+  width:100%;
+}
+
+.mdc-theme--dark .mdc-card {
+  color: white !important;;
+}
+
+
+.bar {
+  display:block;
+  height: 36px;
+  margin: 12px 0;
+  position: relative;
+  top: 0px;
+  z-index: 2;
+  width:100%;
+
+}
+
+.vote {
+  background: #66aa66;
+
+  border-radius: $icon_size/2;
+  display: inline-block;
+  height: $icon_size;
+  opacity: 1;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+  width: $icon_size;
+  margin: 0 10px;
+  color:white !important;
+  font-weight: bold;
+  padding-top:10px;
+  &.YES {
+    background: #aa6666;
+  }
+  &.NO {
+    background: #66aa66;
+
+  }
+}
+
+.num {
+  color: white;
+  font: Bold 16px/14px 'Orbitron', sans-serif;
+  padding-top: 15px;
+}
+.tiny {
+  color: #444;
+  font: Bold 10px/14px 'Orbitron', sans-serif;
+  padding-top: 15px;
+}

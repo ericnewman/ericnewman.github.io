@@ -30,15 +30,13 @@ export default class Home extends Component {
 		});
 	}
 
+
 	constructor() {
 
 		super();
 
 		this.state = {
 			currentUser: null
-		};
-		this.props = {
-			currentUser: 'No User'
 		};
 	}
 
@@ -49,37 +47,27 @@ export default class Home extends Component {
 			this.setState({
 				currentUser: auth.currentUser
 			});
-			this.props.currentUser = auth.currentUser;
+			// this.props.currentUser = auth.currentUser;
 
-			if (auth && auth.currentUser) {
-				Home.writeUserData(auth.currentUser.uid,
-					auth.currentUser.displayName,
-					auth.currentUser.email,
-					auth.currentUser.photoURL);
-			}
+			// if (auth && auth.currentUser) {
+			// 	Home.writeUserData(auth.currentUser.uid,
+			// 		auth.currentUser.displayName,
+			// 		auth.currentUser.email,
+			// 		auth.currentUser.photoURL);
+			// }
 		});
 	}
 
 	render() {
-		let currentUser;
-
-		if (auth && auth.currentUser && auth.currentUser.displayName) {
-			currentUser = auth.currentUser;
-		}
 
 		return (
 			<div class={`${style.home} page`}>
-				{!currentUser && <SignIn />}
-				{currentUser && <CurrentUser user={currentUser} />}
 				<CountDown />
 
-				<GamesCarousel showHeader showFavorite />
+				<GamesCarousel showHeader showFavorite clickable={true}/>
 				<CoinBar title="HUSTLE" progress={50} />
 				<CoinBar title="SNOOZE" progress={40} />
 				<CoinBar title="FLOW" progress={30} />
-				{currentUser && <Leaderboard />}
-				{currentUser && <Achievements />}
-				{currentUser && <TopPlayers />}
 				{<Snooze />}
 				<Notifications options={{ zIndex: 200, top: '180px' }} />
 			</div>

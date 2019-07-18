@@ -1,0 +1,71 @@
+
+
+.home {
+	padding: 16px;
+	min-height: 100%;
+	width: 100%;
+    color: white;
+    background: black !important;
+}
+
+.cardHeader {
+  padding: 8px;
+  background: black;
+}
+
+.mini {
+     background: black;
+ }
+
+.cardBody {
+  padding: 8px;
+}
+
+.header {
+    background:black !important;
+}
+.currentUser {
+    padding:0;
+}
+.smaller {
+  font:  16px Roboto, sans-serif;
+  text-align: center;
+  margin: 5px 40px;
+}
+
+.beta {
+  font:  bold 20px Roboto, sans-serif;
+  text-align: center;
+}
+
+.cent {
+    margin:20px auto;
+    text-align: center;
+}
+
+button  {
+    color: white ;
+
+}
+.green {
+    background:#519428 !important;
+    width: 120px;;
+}
+@media only screen and (max-width: 360px) {
+    .beta {
+        font:  bold 32px Roboto, sans-serif;
+    }
+    .smaller {
+      font:  normal 14px Roboto, sans-serif;
+      margin: 5px 5px;
+    }
+    .shape {
+      font:  bolder 20px Roboto, sans-serif;
+        margin: 2px 24px 0;
+    }
+    .cent {
+        margin:10px auto;
+        text-align: center;
+    }
+
+}

@@ -36,8 +36,17 @@ export default class GamesCarousel extends Component {
 
 	}
 
+	getGame(id) {
+		let items = gamesList.filter(item => (item.id === id));
+
+		return items[0];
+	}
+
 	playGame(id) {
-		let name = this.games[id].name;
+		console.log(id);
+
+		let game = this.getGame(id);
+		let name = game.name;
 		let tp = 0;
 
 		if (this.state.timesPlayed[id]) {
@@ -76,6 +85,10 @@ export default class GamesCarousel extends Component {
 	}
 
 	clickItem(index, element) {
+		if(!this.props.clickable) {
+			return;
+		}
+
 
 		let foo = {
 			favoriteGameID: gamesList[index].id,
@@ -96,38 +109,51 @@ export default class GamesCarousel extends Component {
 		}
 	}
 
-	constructor() {
+	constructor(props) {
 
-		super();
+		super(props);
 		this.games= [];
 		this.props = {
 		    showHeader: true,
-			showFavorite: true
+			showFavorite: true,
+			clickable: true
 		    };
 
-		this.state = {
-			favoriteGameID: -1,
-			favoriteGameName: '',
-			favoriteGameURL: '',
-			timesPlayed: {}
-		};
+		// this.state = {
+		// 	favoriteGameID: -1,
+		// 	favoriteGameName: '',
+		// 	favoriteGameURL: '',
+		// 	timesPlayed: {}
+		// };
 
 		if (typeof window !== 'undefined') {
 			let s = JSON.parse(localStorage.getItem('savedFavorite'));
 			if (s && s.favoriteGameID !== -1) {
-				this.setState(s);
+				this.state = { ...s };
 			}
-
-			gamesList.map((game) => {
-				this.games[game.id] = game;
-				database.ref('games/' + game.name).update({
-					id: game.id,
-					thumbnail: game.image,
-					url: game.url,
-					name: game.name
-				});
-			});
 		}
+
+
+		auth.signInAnonymously().catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// ...
+		});
+
+		auth.onAuthStateChanged(function (user) {
+			if (user) {
+				// User is signed in.
+				var isAnonymous = user.isAnonymous;
+				var uid = user.uid;
+				// ...
+			}
+			else {
+				// User is signed out.
+				// ...
+			}
+		});
+
 	}
 
 
@@ -168,7 +194,7 @@ export default class GamesCarousel extends Component {
 					</div>
 					<div>
 						<img src={gamesList[1].image} alt={gamesList[1].name} />
-						<p className="legend">{gamesList[1].names}</p>
+						<p className="legend">{gamesList[1].name}</p>
 					</div>
 					<div>
 						<img src={gamesList[2].image} alt={gamesList[2].name} />
@@ -180,7 +206,7 @@ export default class GamesCarousel extends Component {
 					</div>
 					<div>
 						<img src={gamesList[4].image} alt={gamesList[4].name} />
-						<p className="legend">{gamesList[4].name[4]}</p>
+						<p className="legend">{gamesList[4].name}</p>
 					</div>
 					<div>
 						<img src={gamesList[5].image} alt={gamesList[5].name} />
