@@ -63,7 +63,6 @@ export default class Home extends Component {
 		return (
 			<div class={`${style.home} page`}>
 				<CountDown />
-
 				<GamesCarousel showHeader showFavorite clickable={true}/>
 				<CoinBar title="HUSTLE" progress={50} />
 				<CoinBar title="SNOOZE" progress={40} />

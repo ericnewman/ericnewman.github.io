@@ -102,32 +102,48 @@ export default class Header extends Component {
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/step1'} onClick={this.goToStep1}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Step 1
+							Day 1 - Onboarding
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/almosthere'} onClick={this.goToAlmostHere}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							On Board
+							Alternate On Board
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash'} onClick={this.goToDash}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							FSD 1
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/profile'} onClick={this.goToMyProfile}>
-							<List.ItemGraphic>account_circle</List.ItemGraphic>
-							Profile
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/2'} onClick={this.goToDash}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							FSD 2
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/signin'} onClick={this.goToSignIn}>
-							<List.ItemGraphic>account_circle</List.ItemGraphic>
-							Sign-In
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/3'} onClick={this.goToDash}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							FSD 3
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/boards'} onClick={this.goToBoards}>
-							<List.ItemGraphic>account_circle</List.ItemGraphic>
-							Leaderboard
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/4'} onClick={this.goToDash}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							FSD 4
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/signout'} onClick={this.goToSignOut}>
-							<List.ItemGraphic>account_circle</List.ItemGraphic>
-							Sign-Out
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/5'} onClick={this.goToDash}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							FSD 5
 						</Drawer.DrawerItem>
+						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/profile'} onClick={this.goToMyProfile}>*/}
+						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}
+						{/*	Profile*/}
+						{/*</Drawer.DrawerItem>*/}
+						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/signin'} onClick={this.goToSignIn}>*/}
+						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}
+						{/*	Sign-In*/}
+						{/*</Drawer.DrawerItem>*/}
+						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/boards'} onClick={this.goToBoards}>*/}
+						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}
+						{/*	Leaderboard*/}
+						{/*</Drawer.DrawerItem>*/}
+						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/signout'} onClick={this.goToSignOut}>*/}
+						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}
+						{/*	Sign-Out*/}
+						{/*</Drawer.DrawerItem>*/}
 					</Drawer.DrawerContent>
 				</Drawer>
 				<Dialog ref={this.dialogRef}>

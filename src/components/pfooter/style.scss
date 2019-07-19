@@ -1,8 +1,10 @@
+$icon_size: 40px;
+
 .footer {
 	padding: 4px 0px !important;
-	margin-top:5px;
+	margin-top:0px;
 	width: 100%;
-	height:100px;
+	height:70px;
 	position:absolute;
 	bottom:0;
 	background:#ccc;
@@ -12,7 +14,66 @@
 }
 .mdc-layout-grid {
 	padding:0px;
+}
+.cent {
+	margin:10px auto;
+	text-align: center;
+}
 
+button  {
+	color: white ;
+
+}
+.green {
+	background:#519428 !important;
+	width: 120px;;
+}
+
+
+.bar {
+	display:block;
+	height: 36px;
+	margin: 8px auto;
+	position: relative;
+	top: 0px;
+	z-index: 2;
+	width:100%;
+	text-align:center;
+}
+
+.vote {
+	background: #66aa66;
+
+	border-radius: $icon_size/2;
+	display: inline-block;
+	height: $icon_size;
+	opacity: 1;
+	position: relative;
+	text-align: center;
+	vertical-align: top;
+	width: $icon_size;
+	margin: 0 8px;
+	color:white !important;
+	font-weight: bold;
+	padding-top:10px;
+	&.YES {
+		background: #aa6666;
+	}
+	&.NO {
+		background: #66aa66;
+
+	}
+}
+
+.num {
+	color: white;
+	font: Bold 16px/14px 'Orbitron', sans-serif;
+	padding-top: 15px;
+}
+.tiny {
+	color: #777;
+	font: Bold 10px 'Orbitron', sans-serif;
+	padding-top: 0px;
 }
 @media (max-width: 479px) {
 	.mdc-layout-grid {

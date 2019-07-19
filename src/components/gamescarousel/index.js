@@ -43,7 +43,6 @@ export default class GamesCarousel extends Component {
 	}
 
 	playGame(id) {
-		console.log(id);
 
 		let game = this.getGame(id);
 		let name = game.name;
@@ -119,47 +118,46 @@ export default class GamesCarousel extends Component {
 			clickable: true
 		    };
 
-		// this.state = {
-		// 	favoriteGameID: -1,
-		// 	favoriteGameName: '',
-		// 	favoriteGameURL: '',
-		// 	timesPlayed: {}
-		// };
+		this.state = {
+			favoriteGameID: -1,
+			favoriteGameName: '',
+			favoriteGameURL: '',
+			timesPlayed: {}
+		};
 
 		if (typeof window !== 'undefined') {
 			let s = JSON.parse(localStorage.getItem('savedFavorite'));
 			if (s && s.favoriteGameID !== -1) {
 				this.state = { ...s };
 			}
+
+			auth.signInAnonymously().catch(function (error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				// ...
+			});
+
+			auth.onAuthStateChanged(function (user) {
+				if (user) {
+					// User is signed in.
+					var isAnonymous = user.isAnonymous;
+					var uid = user.uid;
+					// ...
+				}
+				else {
+					// User is signed out.
+					// ...
+				}
+			});
 		}
-
-
-		auth.signInAnonymously().catch(function (error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			// ...
-		});
-
-		auth.onAuthStateChanged(function (user) {
-			if (user) {
-				// User is signed in.
-				var isAnonymous = user.isAnonymous;
-				var uid = user.uid;
-				// ...
-			}
-			else {
-				// User is signed out.
-				// ...
-			}
-		});
-
 	}
 
 
 	render(props) {
 		let id = this.state.favoriteGameID;
 		let hasFave = (id !== -1) && props.showFavorite;
+
 		let tp = 0;
 
 		return (

@@ -103,7 +103,6 @@ export default class Survey1 extends Component {
 						}
 					}
 
-					console.log(foo);
 				}
 				else if (childKey === 'vote_count') {
 					tot = childData;

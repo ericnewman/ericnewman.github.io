@@ -17,8 +17,7 @@ export default class Quest extends Component {
 		this.state = {
 			finished1 : false,
 			finished2 : false
-
-	}
+		}
 	}
 
 
@@ -58,7 +57,7 @@ export default class Quest extends Component {
 					}
 					<div className={style.cent}>
 						<Button  raised ripple dense class={style.green}
-								onClick={() => route('/')}
+								onClick={() => route('/dash/1')}
 						>
 							Quest Forth
 						</Button>

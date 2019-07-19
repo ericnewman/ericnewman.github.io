@@ -43,6 +43,7 @@ html, body {
 
 #app {
 	min-height: 640px;
+    height:100vh;
 }
 
 .scoreBox {

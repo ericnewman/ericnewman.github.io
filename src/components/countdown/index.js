@@ -12,7 +12,7 @@ export default class CountDown extends Component {
 			case 100:
 			case 99:
 			case 0:
-				this.props.message = 'Play a game before it\'s too late!!!';
+				this.props.message = 'Start the game before it\'s too late!!!';
 				this.props.color = '#0F0';
 				break;
 			case 95:
@@ -34,16 +34,19 @@ export default class CountDown extends Component {
 	};
 
 	onComplete = ctx => {
-		clearInterval(this.timer);
+		if (this.timer) {
+			clearInterval(this.timer);
+			if(this.props.afterAction) {
+				this.props.afterAction();
+			}
+			this.timer= null;
+			console.log('complete');
+
+		}
 	};
 
-	constructor() {
-		super();
-		this.props = {
-			color: '#0F0',
-			message: 'ss'
-
-		};
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			progress: 1
@@ -57,22 +60,22 @@ export default class CountDown extends Component {
 
 		this.timer = setInterval(() => {
 			this.setState({ progress: (this.state.progress + 1) % 100 });
-		}, 300);
+		}, 200);
 	}
 	componentWillUnmount() {
 		// stop when not renderable
 		clearInterval(this.timer);
 	}
 
-	render() {
+	render(props) {
 		return (
 			<div class={style.loader}>
 				<div class={style.warn}>
-					{this.props.message}
+					{props.message}
 				</div>
 				<Progress
 					id="loader" class={style.loader}
-					value={100 - this.state.progress} height="30px" color={this.props.color}
+					value={100 - this.state.progress} height="30px" color={props.color}
 					onChange={this.onChange}
 					onComplete={this.onComplete}
 				/>

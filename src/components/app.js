@@ -15,6 +15,7 @@ import Dark from '../routes/dark';
 import Boards from '../routes/boards';
 import Step1 from '../routes/step1';
 import Quest from '../routes/quest';
+import Outcome from '../routes/outcome';
 import Thanks from '../routes/thanks';
 import NotFound from '../routes/404';
 // import gamesList from '../gamesList';
@@ -26,7 +27,7 @@ export default class App extends Component {
 			this.setState({
 				currentUrl: e.url
 			});
-		}, 0);
+		}, 100);
 	};
 
 	constructor(props) {
@@ -37,22 +38,6 @@ export default class App extends Component {
 
 	componentDidMount() {
 		console.log('Mounted App...');
-		// if (typeof window !== 'undefined') {
-		// 	let s = JSON.parse(localStorage.getItem('savedFavorite'));
-		// 	if (s && s.favoriteGameID !== -1) {
-		// 		this.setState(s);
-		// 	}
-		//
-		// 	gamesList.map((game) => {
-		// 		this.games[game.id] = game;
-		// 		database.ref('games/' + game.name).update({
-		// 			id: game.id,
-		// 			thumbnail: game.image,
-		// 			url: game.url,
-		// 			name: game.name
-		// 		});
-		// 	});
-		// }
 	}
 
 	render() {
@@ -68,13 +53,14 @@ export default class App extends Component {
 					<SignOut path="/signout" />
 					<Dark path="/dark/" delay="3600" />
 					<Dark path="/dark/:delay" />
-					<Dash path="/dash" selectedGame="default" />
-					<Dash path="/dash:selectedGame" />
+					<Dash path="/dash" selectedGame="1" />
+					<Dash path="/dash/:selectedGame" />
 					<AlmostHere path="/almosthere" />
 					<MoreInfo path="/moreinfo" />
 					<Boards path="/boards" />
 					<Step1 path="/step1" />
 					<Quest path="/quest" />
+					<Outcome path="/outcome" />
 					<Thanks path="/thanks" />
 					<NotFound default />
 				</Router>
