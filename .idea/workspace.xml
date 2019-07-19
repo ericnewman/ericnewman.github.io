@@ -6,89 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5d88d9ec-0002-46a1-b804-f3426629659e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../draftcards.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/install" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/PyYAML-3.13.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/PyYAML-5.1.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/argparse-1.2.1.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/awscli-1.16.199.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/botocore-1.12.189.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/colorama-0.3.9.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/docutils-0.14.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/futures-3.3.0.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/jmespath-0.9.4.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/ordereddict-1.1.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/pyasn1-0.4.5.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/python-dateutil-2.6.1.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/python-dateutil-2.8.0.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/rsa-3.4.2.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/s3transfer-0.2.1.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/setup/setuptools_scm-1.15.7.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/simplejson-3.3.0.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/six-1.12.0.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/urllib3-1.22.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/urllib3-1.25.3.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/awscli-bundle/packages/virtualenv-15.1.0.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bundle.62d48.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bundle.62d48.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/polyfills.c8b03.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/polyfills.c8b03.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/push-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/push-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-404.chunk.fc85b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-404.chunk.fc85b.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-account.chunk.5f705.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-account.chunk.5f705.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-almosthere.chunk.0b10f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-almosthere.chunk.0b10f.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-boards.chunk.8e543.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-boards.chunk.8e543.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-dark.chunk.72465.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-dark.chunk.72465.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-dash.chunk.632ee.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-dash.chunk.632ee.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-home.chunk.27545.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-home.chunk.27545.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-moreinfo.chunk.7a7d2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-moreinfo.chunk.7a7d2.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-profile.chunk.65446.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-profile.chunk.65446.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-signin.chunk.db11c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-signin.chunk.db11c.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-signout.chunk.05657.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-signout.chunk.05657.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-step1.chunk.a6fb3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-step1.chunk.a6fb3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bundle.f813f.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/bundle.f813f.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/polyfills.e8068.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/polyfills.e8068.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/style.06ebf.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/style.06ebf.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/style.06ebf.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/style.06ebf.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/countdown/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/countdown/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/countdown/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/countdown/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gameplaypage/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gameplaypage/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gamescarousel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gamescarousel/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pfooter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pfooter/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pframe/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pframe/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playfooter/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/playfooter/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/survey1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/survey1/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/almosthere/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/almosthere/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/almosthere/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/almosthere/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/dash/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/dash/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/home/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/quest/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/quest/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../games_poc.zip" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/pfooter/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="583">
-              <caret line="118" column="34" lean-forward="true" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="34" />
+              <caret line="118" column="34" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="34" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -126,16 +47,16 @@
         <entry file="file://$PROJECT_DIR$/src/components/pfooter/style.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
-              <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+              <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/header/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="108" column="38" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+            <state relative-caret-position="422">
+              <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -155,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/outcome/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="103">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -171,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/src/routes/almosthere/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="718">
-              <caret line="89" column="22" lean-forward="true" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
+              <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -192,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/src/routes/dash/style.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -284,10 +205,10 @@
         <option value="$PROJECT_DIR$/src/routes/dash/style.scss" />
         <option value="$PROJECT_DIR$/src/components/pfooter/index.js" />
         <option value="$PROJECT_DIR$/src/components/pfooter/style.scss" />
-        <option value="$PROJECT_DIR$/src/components/header/index.js" />
         <option value="$PROJECT_DIR$/src/routes/almosthere/index.js" />
         <option value="$PROJECT_DIR$/src/routes/almosthere/style.scss" />
         <option value="$PROJECT_DIR$/src/routes/outcome/index.js" />
+        <option value="$PROJECT_DIR$/src/components/header/index.js" />
       </list>
     </option>
   </component>
@@ -505,18 +426,17 @@
       <workItem from="1563396992769" duration="378000" />
       <workItem from="1563398352421" duration="10877000" />
       <workItem from="1563460909896" duration="10680000" />
-      <workItem from="1563478702580" duration="13714000" />
+      <workItem from="1563478702580" duration="14208000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47676000" />
+    <option name="totallyTimeSpent" value="48170000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="252" y="23" width="1660" height="1336" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.147651" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.147651" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -529,7 +449,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="GraphQL" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2403537" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2403537" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -852,14 +772,14 @@
     <entry file="file://$PROJECT_DIR$/src/routes/dash/style.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pfooter/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="583">
-          <caret line="118" column="34" lean-forward="true" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="34" />
+          <caret line="118" column="34" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="34" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -869,24 +789,14 @@
     <entry file="file://$PROJECT_DIR$/src/components/pfooter/style.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/header/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="108" column="38" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
+          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/almosthere/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="718">
-          <caret line="89" column="22" lean-forward="true" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
+          <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -912,10 +822,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/outcome/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="103">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/header/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

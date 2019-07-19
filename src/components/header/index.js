@@ -51,7 +51,13 @@ export default class Header extends Component {
 	goToSignIn = this.linkTo('/signin');
 	goToSignOut = this.linkTo('/signout');
 	goToBoards = this.linkTo('/boards');
-	goToDash = this.linkTo('/dash');
+	goToDash1 = this.linkTo('/dash/1');
+	goToDash2 = this.linkTo('/dash/2');
+	goToDash3 = this.linkTo('/dash/3');
+	goToDash4 = this.linkTo('/dash/4');
+	goToDash5 = this.linkTo('/dash/5');
+	goToDash6= this.linkTo('/dash/6');
+	goToDash7 = this.linkTo('/dash/7');
 	goToAlmostHere = this.linkTo('/almosthere');
 	goToStep1 = this.linkTo('/step1');
 
@@ -108,23 +114,23 @@ export default class Header extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Alternate On Board
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash1}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							FSD 1
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/2'} onClick={this.goToDash}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/2'} onClick={this.goToDash2}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							FSD 2
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/3'} onClick={this.goToDash}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/3'} onClick={this.goToDash3}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							FSD 3
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/4'} onClick={this.goToDash}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/4'} onClick={this.goToDash4}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							FSD 4
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/5'} onClick={this.goToDash}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/5'} onClick={this.goToDash5}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							FSD 5
 						</Drawer.DrawerItem>
