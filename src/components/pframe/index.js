@@ -21,25 +21,25 @@ export default class PFrame extends Component {
 
 	onBlur(e) {
 
-		this.showToast('Game Start Detected');
+		// this.showToast('Game Start Detected');
 		this.playGame();
 	}
 
-	onHover(e) {
-		// this.showToast('Hover');
-		// this.state.hovering = true;
-		// this.setState(this.state);
-	}
-
-	onHoverExit(e) {
-		// this.showToast('HoverExit');
-		// this.state.hovering = false;
-		// this.setState(this.state);
-	}
-
-	onCancel(e) {
-		// this.showToast('onCancel');
-	}
+	// onHover(e) {
+	// 	// this.showToast('Hover');
+	// 	// this.state.hovering = true;
+	// 	// this.setState(this.state);
+	// }
+	//
+	// onHoverExit(e) {
+	// 	// this.showToast('HoverExit');
+	// 	// this.state.hovering = false;
+	// 	// this.setState(this.state);
+	// }
+	//
+	// onCancel(e) {
+	// 	// this.showToast('onCancel');
+	// }
 
 	showToast(msg) {
 		let color = { background: '#F83', text: '#FFFFFF' };
@@ -98,15 +98,15 @@ export default class PFrame extends Component {
 
 		this.state = {
 			blurred: false,
-			currentPlays:0,
-			gameName: ""
-		}
+			currentPlays: 0,
+			gameName: ''
+		};
 
 		this.onBlur = this.onBlur.bind(this);
-		this.onHover = this.onHover.bind(this);
-		this.onHoverExit = this.onHoverExit.bind(this);
+		// this.onHover = this.onHover.bind(this);
+		// this.onHoverExit = this.onHoverExit.bind(this);
 		// this.onClick = this.onClick.bind(this);
-		this.onCancel = this.onCancel.bind(this);
+		// this.onCancel = this.onCancel.bind(this);
 		this.playGame = this.playGame.bind(this);
 
 	}
@@ -120,10 +120,10 @@ export default class PFrame extends Component {
 		addEventListener('touchstart', this.onClick);
 		addEventListener('touchcancel', this.onCancel);
 
-		auth.signInAnonymously().catch(function (error) {
+		auth.signInAnonymously().catch((error) => {
 			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
+			// let errorCode = error.code;
+			// let errorMessage = error.message;
 		});
 
 		auth.onAuthStateChanged(user => {
@@ -135,7 +135,7 @@ export default class PFrame extends Component {
 				let playsRef = database.ref(p);
 
 				playsRef.on('value', snapshot => {
-					this.setState({currentPlays: snapshot.val(), gameName: name});
+					this.setState({ currentPlays: snapshot.val(), gameName: name });
 				});
 			}
 			else {
@@ -150,8 +150,8 @@ export default class PFrame extends Component {
 
 		return (
 			<div>
-				<iframe {...props} class={style.framey}/>
-				<div class={style.plays}> You have played: {state.gameName} {state.currentPlays} Times</div>
+				<iframe {...props} class={style.framey} />
+				<div class={style.plays}> You have played {state.gameName} {state.currentPlays} Times</div>
 			</div>
 
 		);

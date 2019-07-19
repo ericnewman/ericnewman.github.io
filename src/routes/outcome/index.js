@@ -1,5 +1,4 @@
 import { Component } from 'preact';
-import Notifications from 'react-notify-toast';
 import { route } from 'preact-router';
 
 import 'preact-material-components/Card/style.css';
@@ -27,10 +26,10 @@ export default class Outcome extends Component {
 		return (
 			<div class={`${style.home} page`}>
 				<div>
-					<div><p/></div>
+					<div><p /></div>
 					<div className={style.beta}>DRAFTCARDS</div>
 					<div class={style.smaller}>Thank you fearless adventurer.</div>
-					<div><p/></div>
+					<div><p /></div>
 					{!state.finished1 && <div>
 						<div className={style.smaller}>We'll see you again soon for your next mission in THE QUEST.
 						</div>
@@ -45,7 +44,7 @@ export default class Outcome extends Component {
 						</div>
 						<div className={style.cent}>
 							<Button raised ripple dense class={style.green}
-									onClick={() => this.setState({ finished1: true })}
+								onClick={() => this.setState({ finished1: true })}
 							>
 								How'd I do?
 							</Button>
@@ -55,21 +54,20 @@ export default class Outcome extends Component {
 					}
 					{state.finished1 && <div className={style.cent}>
 
-						<CoinBar title="HUSTLE" progress={50}/>
-						<CoinBar title="SNOOZE" progress={40}/>
-						<CoinBar title="FLOW" progress={30}/>
+						<CoinBar title="Opportunities" progress={50} color={'#800'} randomize />
+						<CoinBar title="Game Plays" progress={40} color={'#080'}  randomize />
+						<CoinBar title="Snoozes" progress={30} color={'#808'}  randomize />
 					</div>
 					}
 					<div className={style.cent}>
 						<Button raised ripple dense class={style.green}
-								onClick={() => route('/dash/1')}
+							onClick={() => route('/dash/1')}
 						>
 							Play Again
 						</Button>
 					</div>
 
 				</div>
-				< Notifications options={{ zIndex: 200, top: '180px' }}/>
 			</div>
 		);
 	}

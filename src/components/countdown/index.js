@@ -36,11 +36,10 @@ export default class CountDown extends Component {
 	onComplete = ctx => {
 		if (this.timer) {
 			clearInterval(this.timer);
-			if(this.props.afterAction) {
+			if (this.props.afterAction) {
 				this.props.afterAction();
 			}
 			this.timer= null;
-			console.log('complete');
 
 		}
 	};

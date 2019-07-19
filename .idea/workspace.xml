@@ -6,101 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="5d88d9ec-0002-46a1-b804-f3426629659e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/49f4f0a9f1745511efb241c7e4de88de.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/721683cbaffe8bcab0d58cb0d4547dde.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/919941dd4a4ea1712140d093617d00f8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/icons/AppIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/icons/android-chrome-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/icons/android-chrome-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/icons/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/icons/favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/icons/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/icons/mstile-150x150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/brassmedal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/diamond.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/flowMania.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/goldmedal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/images-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/images-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/images.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/lightRays.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/medal.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/medal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/monstersUp.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/ninjaAction.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/nomedal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/robotion.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/shiny-golden-coin-vector_23-2147498657.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/silvermedal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-game-coin-with-crown-game-interface-gold-vector-cartoon-style-isolated-1070637374.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-game-coins-set-rank-medals-for-game-user-interface-award-vector-illustration-512739874.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-game-gold-silver-bronze-coins-set-vector-with-star-realistic-achievement-icon-illustration-rank-665497426.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-gold-silver-and-bronze-medal-152970482.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-silver-medal-on-a-white-background-metallic-winner-award-vector-illustration-673894639.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-star-coins-180257690.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/stopper.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/stopper.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/assets/img/swingRobber.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bundle.c33c4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bundle.c33c4.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/dbdf57f1d55a0087254798bdc21e3f89.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/f121889856821146a7329d6b4defdf1e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/polyfills.e8068.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/polyfills.e8068.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/push-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-404.chunk.4101c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-404.chunk.4101c.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-account.chunk.a4a14.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-account.chunk.a4a14.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-almosthere.chunk.7a04f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-almosthere.chunk.7a04f.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-boards.chunk.650b3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-boards.chunk.650b3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-dark.chunk.dbf9a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-dark.chunk.dbf9a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-dash.chunk.6e09d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-dash.chunk.6e09d.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-home.chunk.46291.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-home.chunk.46291.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-moreinfo.chunk.cdc0c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-moreinfo.chunk.cdc0c.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-outcome.chunk.e64a5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-outcome.chunk.e64a5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-profile.chunk.d90d0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-profile.chunk.d90d0.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-quest.chunk.c1961.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-quest.chunk.c1961.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-signin.chunk.bc2b3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-signin.chunk.bc2b3.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-signout.chunk.5e164.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-signout.chunk.5e164.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-step1.chunk.b35a2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-step1.chunk.b35a2.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-thanks.chunk.3f0e1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/route-thanks.chunk.3f0e1.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/49f4f0a9f1745511efb241c7e4de88de.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/721683cbaffe8bcab0d58cb0d4547dde.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/919941dd4a4ea1712140d093617d00f8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/dbdf57f1d55a0087254798bdc21e3f89.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/f121889856821146a7329d6b4defdf1e.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/style.af36f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ssr-build/style.af36f.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/style.af36f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/style.af36f.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/achievements/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/achievements/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dark/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dark/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/coinbar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/coinbar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/coinbar/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/coinbar/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/countdown/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/countdown/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gamescarousel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gamescarousel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pfooter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pfooter/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pframe/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pframe/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/survey1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/survey1/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/almosthere/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/almosthere/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/almosthere/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/almosthere/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/boards/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/boards/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/catalog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/catalog/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/dash/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/dash/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/moreinfo/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/moreinfo/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/moreinfo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/moreinfo/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/outcome/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/outcome/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/outcome/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/outcome/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/quest/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/quest/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/quest/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/quest/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/step1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/step1/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/step1/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/step1/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/thanks/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/thanks/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/thanks/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/thanks/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,12 +59,6 @@
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="252" />
-    <option name="y" value="23" />
-    <option name="width" value="1660" />
-    <option name="height" value="1336" />
   </component>
   <component name="ProjectId" id="1Nk4pDEeKqu5tRPJkPBeNzZCAtl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

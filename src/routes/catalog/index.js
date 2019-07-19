@@ -65,19 +65,19 @@ export default class Catalog extends Component {
 		return (
 			<div class={`${style.home} page`}>
 				<CountDown />
-				<GamesCarousel showHeader showFavorite clickable={true}/>
+				<GamesCarousel showHeader showFavorite clickable />
 				<CoinBar title="HUSTLE" progress={50} />
 				<CoinBar title="SNOOZE" progress={40} />
 				<CoinBar title="FLOW" progress={30} />
 				{<Snooze />}
 				{<AccountInfo />}
 				{<Achievements />}
-				{<CurrentUser user={"Demo"}/>}
+				{<CurrentUser user={'Demo'} />}
 				{<Leaderboard />}
 				{<SignIn />}
 				{<Snooze />}
 				{<TopPlayers />}
-				{<PFooter game_id={5}/>}
+				{<PFooter game_id={5} />}
 				<Notifications options={{ zIndex: 200, top: '180px' }} />
 			</div>
 		);

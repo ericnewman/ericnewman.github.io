@@ -44,8 +44,13 @@ html, body {
 #app {
 	min-height: 640px;
     height:100vh;
+    max-width: 500px;
+    margin: 0 auto;
 }
+header {
+    max-width: 500px;
 
+}
 .scoreBox {
   height:24px;
   width: 38px;
@@ -117,4 +122,7 @@ background: #B51C7E !important;
 .mdc-theme--dark .caption {
 	font:  Bold 16px 'Roboto', sans-serif;
 	color: #eee;
+}
+.dim {
+    opacity: .4;
 }

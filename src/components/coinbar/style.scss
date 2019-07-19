@@ -18,6 +18,7 @@ $icon_size: 46px;
   text-shadow: 1px 1px 1px white, 1px 1px 1px red, 1px 1px 5px black;
   top: -20px;
   z-index: 199999;
+  text-align:left;
 
 }
 
@@ -59,12 +60,12 @@ $icon_size: 46px;
 
 .brass {
   background-image: url("../../assets/img/brassmedal.png");
-  left: 90px;
+  left: 80px;
 
 }
 .silver {
   background-image: url("../../assets/img/silvermedal.png");
-  margin-left: 56%;
+  left: 52%;
 }
 
 .gold {

@@ -8,6 +8,7 @@ $icon_size: 40px;
 	position:absolute;
 	bottom:0;
 	background:#ccc;
+	max-width: 500px;
 }
 .mdc-button--raised {
 	padding:1px;
@@ -26,7 +27,8 @@ button  {
 }
 .green {
 	background:#519428 !important;
-	width: 120px;;
+	width: 120px;
+	line-height: 13px;
 }
 
 

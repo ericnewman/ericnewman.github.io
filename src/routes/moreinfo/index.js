@@ -1,18 +1,15 @@
 import { Component } from 'preact';
-import Notifications from 'react-notify-toast';
 import GamesCarousel from '../../components/gamescarousel';
 import { route } from 'preact-router';
+import Button from 'preact-material-components/Button';
 
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
-
-import Button from 'preact-material-components/Button';
 
 import style from './style';
 import './customcar.css';
 
 export default class MoreInfo extends Component {
-
 
 	render() {
 
@@ -48,7 +45,6 @@ export default class MoreInfo extends Component {
 						</Button>
 					</div>
 				</div>
-				<Notifications options={{ zIndex: 200, top: '180px' }} />
 			</div>
 		);
 	}

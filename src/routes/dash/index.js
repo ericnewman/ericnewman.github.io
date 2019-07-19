@@ -3,14 +3,12 @@ import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
 import Countdown from '../../components/countdown';
 import Snooze from '../../components/snooze';
-import Notifications from 'react-notify-toast';
 
 import style from './style';
 import 'preact-material-components/Card/style.css';
 
 import gamesList from '../../gamesList';
 import Button from 'preact-material-components/Button';
-import { route } from 'preact-router';
 
 
 export default class Dash extends Component {
@@ -29,9 +27,8 @@ export default class Dash extends Component {
 	}
 	timedOut() {
 		this.setState({ tooLate: true });
-		console.log('Too Late');
-
 	}
+
 	constructor(props) {
 		super(props);
 
@@ -57,7 +54,7 @@ export default class Dash extends Component {
 		let url = gamesList[selectedGame].url;
 
 		return (
-			<div className={`${style.home} page`}>
+			<div id="home" className={`${style.home} page`}>
 				{!state.gameStarted &&  !state.snooze && <Countdown afterAction={this.timedOut} />}
 				<div>
 					{!state.tooLate && !state.snooze && <Pframe src={url}
@@ -76,7 +73,7 @@ export default class Dash extends Component {
 						Sorry friend, you snooze, you lose! Better luck next time...
 							<div className={style.cent}>
 								<Button  raised ripple dense class={style.green}
-									onClick={() => route('/dash/1')}
+									onClick={() => this.cancelSnooze()}
 								>
 								Try Again...
 								</Button>
@@ -98,7 +95,6 @@ export default class Dash extends Component {
 					{!state.tooLate && <PFooter name={gamesList[selectedGame].name} showStars={state.gameStarted}
 						snoozer={this.startSnooze} game_id={selectedGame}
 					                   />}
-					<Notifications options={{ zIndex: 200, top: '180px' }} />
 				</div>
 			</div>
 

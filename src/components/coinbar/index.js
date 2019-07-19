@@ -90,15 +90,14 @@ export default class CoinBar extends Component {
 	}
 
 
-	componentWillMount(props) {
+	componentWillMount() {
 		// stop when not renderable
-		this.props.color = '#FF3';
-		this.props.title = 'Level';
 
-		this.timer = setInterval(() => {
-			this.randomize();
-		}, 800);
-
+		if (this.props.randomize) {
+			this.timer = setInterval(() => {
+				this.randomize();
+			}, 800);
+		}
 	}
 
 	componentDidMount() {
@@ -107,7 +106,10 @@ export default class CoinBar extends Component {
 
 	componentWillUnmount() {
 		// stop when not renderable
-		clearInterval(this.timer);
+		if (this.timer) {
+			clearInterval(this.timer);
+			this.timer = null;
+		}
 	}
 
 

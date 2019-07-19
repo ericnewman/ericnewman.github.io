@@ -1,7 +1,5 @@
 import { Component } from 'preact';
-import SignIn from '../../components/signin';
-import { auth, database } from '../../firebase';
-import Notifications from 'react-notify-toast';
+import { database } from '../../firebase';
 import GamesCarousel from '../../components/gamescarousel';
 import { route } from 'preact-router';
 
@@ -34,37 +32,10 @@ export default class AlmostHere extends Component {
 		};
 	}
 
-	componentDidMount() {
-
-		// auth.onAuthStateChanged(currentUser => {
-		// 	this.setState({
-		// 		currentUser: auth.currentUser
-		// 	});
-		// 	this.props.currentUser = auth.currentUser;
-		//
-		// 	if (auth && auth.currentUser) {
-		// 		AlmostHere.writeUserData(auth.currentUser.uid,
-		// 			auth.currentUser.displayName,
-		// 			auth.currentUser.email,
-		// 			auth.currentUser.photoURL);
-		// 	}
-		// });
-	}
-
 	render() {
-		// let currentUser;
-		//
-		// if (auth && auth.currentUser && auth.currentUser.displayName) {
-		// 	currentUser = auth.currentUser;
-		// }
-
 		return (
 			<div class={`${style.home} page`}>
-				{/*{!currentUser && <SignIn />}*/}
-				{/*/!*{currentUser && <CurrentUser user={currentUser} />}*!/*/}
-				{/*{currentUser && <div>*/}
-					{/*{currentUser && <CurrentUser user={currentUser} />}*/}
-					<div>
+				<div>
 					<div class={style.smaller}>ITS ALMOST HERE!</div>
 					<div class={style.beta}>DRAFTCARDS</div>
 					<div class={style.betaRot}>BETA!</div>
@@ -88,7 +59,6 @@ export default class AlmostHere extends Component {
 						</Button>
 					</div>
 				</div>
-				<Notifications options={{ zIndex: 200, top: '180px' }} />
 			</div>
 		);
 	}

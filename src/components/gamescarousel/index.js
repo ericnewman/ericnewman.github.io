@@ -84,7 +84,7 @@ export default class GamesCarousel extends Component {
 	}
 
 	clickItem(index, element) {
-		if(!this.props.clickable) {
+		if (!this.props.clickable) {
 			return;
 		}
 
@@ -100,12 +100,12 @@ export default class GamesCarousel extends Component {
 
 		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
-		if (confirm("You've selected " + gamesList[index].name + ' as your favorite game...Would you like to play it now?')) {
-			this.playGame(gamesList[index].id);
-		}
-		else {
-			this.showToast("We'll try later...");
-		}
+		// if (confirm("You've selected " + gamesList[index].name + ' as your favorite game...Would you like to play it now?')) {
+		this.playGame(gamesList[index].id);
+		// }
+		// else {
+		// 	this.showToast("We'll try later...");
+		// }
 	}
 
 	constructor(props) {
@@ -131,18 +131,18 @@ export default class GamesCarousel extends Component {
 				this.state = { ...s };
 			}
 
-			auth.signInAnonymously().catch(function (error) {
+			auth.signInAnonymously().catch((error) => {
 				// Handle Errors here.
-				var errorCode = error.code;
-				var errorMessage = error.message;
+				// let errorCode = error.code;
+				// let errorMessage = error.message;
 				// ...
 			});
 
-			auth.onAuthStateChanged(function (user) {
+			auth.onAuthStateChanged((user) => {
 				if (user) {
 					// User is signed in.
-					var isAnonymous = user.isAnonymous;
-					var uid = user.uid;
+					// let isAnonymous = user.isAnonymous;
+					// let uid = user.uid;
 					// ...
 				}
 				else {

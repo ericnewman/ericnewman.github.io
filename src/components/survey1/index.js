@@ -1,21 +1,20 @@
 import { Component } from 'preact';
 import Stars from 'react-star-rating-component';
 import { route } from 'preact-router';
-
+import { auth, database } from '../../firebase';
+import { notify } from 'react-notify-toast';
 
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
-import { auth, database } from '../../firebase';
-import { notify } from 'react-notify-toast';
 
 export default class Survey1 extends Component {
 
 	waitAndGo(path) {
-		setTimeout(function () {
+		setTimeout(() => {
+			document.getElementById('home').classList.remove('dim');
 			route(path);
 		}, 3000);
-
 	}
 
 	onStarClick(nextValue, prevValue, name) {
@@ -37,7 +36,8 @@ export default class Survey1 extends Component {
 		if (nextValue < 3) {
 			this.showToast('Your vote has been recorded.');
 			this.waitAndGo('/thanks');
-		} else {
+		}
+		else {
 			this.showToast('Your vote has been recorded. Let\'s begin our quest');
 			this.waitAndGo('/quest');
 		}
@@ -47,11 +47,14 @@ export default class Survey1 extends Component {
 	showToast(msg) {
 		let color = { background: '#583', text: '#FFFFFF' };
 		let timeout = 2000;
-
+		// document.body.classList.add('mdc-theme--dark');
+		// document.body.classList.remove('mdc-theme--dark');
+		document.getElementById('home').classList.add('dim');
 		notify.show(msg,
 			'custom',
 			timeout,
 			color);
+
 	}
 
 
@@ -62,62 +65,64 @@ export default class Survey1 extends Component {
 			average: 0,
 			count: 0
 		};
-
-		auth.signInAnonymously().catch(function (error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			// ...
-		});
-
-		auth.onAuthStateChanged(function (user) {
-			if (user) {
-				// User is signed in.
-				var isAnonymous = user.isAnonymous;
-				var uid = user.uid;
+		if (typeof window !== 'undefined') {
+			auth.signInAnonymously().catch((error) => {
+				// Handle Errors here.
+				// let errorCode = error.code;
+				// let errorMessage = error.message;
 				// ...
-			}
-			else {
-				// User is signed out.
-				// ...
-			}
-		});
+			});
+
+			auth.onAuthStateChanged((user) => {
+				if (user) {
+					// User is signed in.
+					// let isAnonymous = user.isAnonymous;
+					// let uid = user.uid;
+					// ...
+				}
+				else {
+					// User is signed out.
+					// ...
+				}
+			});
+		}
 	}
 
 	componentWillMount() {
-		let myDB = database.ref('likesplay');
 
-		myDB.on('value', (snapshot) => {
-			let foo = 0;
-			let tot = 0;
+		if (typeof window !== 'undefined') {
+			let myDB = database.ref('likesplay');
 
-			snapshot.forEach((childSnapshot) => {
+			myDB.on('value', (snapshot) => {
+				let foo = 0;
+				let tot = 0;
 
-				let childKey = childSnapshot.key;
-				let childData = childSnapshot.val();
+				snapshot.forEach((childSnapshot) => {
 
-				if (childKey === 'ratings') {
-					for (let i = 1; i <= childData.length; i++) {
-						if (childData[i]) {
-							foo += (parseInt(childData[i].toString().match(/(\d+)/)) * i);
+					let childKey = childSnapshot.key;
+					let childData = childSnapshot.val();
+
+					if (childKey === 'ratings') {
+						for (let i = 1; i <= childData.length; i++) {
+							if (childData[i]) {
+								foo += (parseInt(childData[i].toString().match(/(\d+)/), 10) * i);
+							}
 						}
+
+					}
+					else if (childKey === 'vote_count') {
+						tot = childData;
 					}
 
-				}
-				else if (childKey === 'vote_count') {
-					tot = childData;
-				}
 
+				});
 
+				this.setState({ count: tot, average: Math.round(foo / tot * 100) / 100 });
 			});
-
-			this.setState({ count: tot, average: Math.round(foo / tot * 100) / 100 });
-		});
-
+		}
 	}
 
 	render(props, state) {
-		let s = 1;
 		return (
 
 			<div class={style.bar}>
@@ -125,7 +130,7 @@ export default class Survey1 extends Component {
 					name="rate1"
 					starCount={5}
 					value={props.rating}
-					editing={true}
+					editing
 					emptyStarColor={'#393'}
 					starColor={'#933'}
 					renderStarIcon={(index, value) => {
@@ -134,17 +139,17 @@ export default class Survey1 extends Component {
 								<span class={`${style.vote} ${style.YES}`}>{index}</span>
 							);
 						}
-						else {
-							return (
-								<span className={`${style.vote} ${style.NO}`}>{index}</span>
-							);
-						}
+
+						return (
+							<span className={`${style.vote} ${style.NO}`}>{index}</span>
+						);
+
 					}
 					}
-					onStarClick={this.onStarClick.bind(this)}/>
+					onStarClick={this.onStarClick.bind(this)}
+				/>
 				<div class={style.tiny}>Votes: {state.count} - Avg: {state.average}</div>
 			</div>
 		);
-		s = 0;
 	}
 }
