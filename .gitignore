@@ -58,6 +58,8 @@ typings/
 .env
 
 .DS_Store
+.babelrc
+build/*
 
 # lock files
 yarn.lock

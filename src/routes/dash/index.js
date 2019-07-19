@@ -2,6 +2,7 @@ import { Component } from 'preact';
 import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
 import Countdown from '../../components/countdown';
+import Snooze from '../../components/snooze';
 import Notifications from 'react-notify-toast';
 
 import style from './style';
@@ -17,6 +18,7 @@ export default class Dash extends Component {
 
 	startSnooze() {
 		this.setState({ snooze: true });
+		console.log('snooze');
 	}
 
 	doGameStarted() {
@@ -53,37 +55,39 @@ export default class Dash extends Component {
 
 		return (
 			<div className={`${style.home} page`}>
-				{!state.gameStarted && <Countdown afterAction={this.timedOut}/>}
+				{!state.gameStarted && <Countdown afterAction={this.timedOut} />}
 				<div>
-					{!state.tooLate &&<Pframe src={url}
-							width="100%"
-							height={hgt}
-							name="gameFrame"
-							id="gameFrame"
-							className={style.framey}
-							display="initial"
-							position="relative"
-							game_id={selectedGame}
-							doGameStarted={this.doGameStarted}
-					/>}
+					{!state.tooLate && !state.snooze && <Pframe src={url}
+						width="100%"
+						height={hgt}
+						name="gameFrame"
+						id="gameFrame"
+						className={style.framey}
+						display="initial"
+						position="relative"
+						game_id={selectedGame}
+						doGameStarted={this.doGameStarted}
+					                  />}
 					{state.tooLate && <div class={style.smaller}>
 						Sorry friend, you snooze, you lose! Better luck next time...
 						<div className={style.cent}>
 							<Button  raised ripple dense class={style.green}
-									 onClick={() => route('/dash/1')}
+								onClick={() => route('/dash/1')}
 							>
 								Try Again...
 							</Button>
 						</div>
-
 					</div>}
-					{!state.tooLate && <PFooter name={gamesList[selectedGame].name} showStars={state.gameStarted}
-							 snoozer={this.startSnooze} game_id={selectedGame}/>}
-					<Notifications options={{ zIndex: 200, top: '180px' }}/>
+					{!state.tooLate && state.snooze && <Snooze />}
+
+						{!state.tooLate && <PFooter name={gamesList[selectedGame].name} showStars={state.gameStarted}
+						snoozer={this.startSnooze} game_id={selectedGame}
+					                   />}
+					<Notifications options={{ zIndex: 200, top: '180px' }} />
 				</div>
 			</div>
 
 		)
-			;
+		;
 	}
 }

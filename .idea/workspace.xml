@@ -6,131 +6,221 @@
   <component name="ChangeListManager">
     <list default="true" id="5d88d9ec-0002-46a1-b804-f3426629659e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bundle.f813f.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/bundle.f813f.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebaserc" beforeDir="false" afterPath="$PROJECT_DIR$/.firebaserc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/games_poc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/games_poc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/49f4f0a9f1745511efb241c7e4de88de.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/49f4f0a9f1745511efb241c7e4de88de.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/721683cbaffe8bcab0d58cb0d4547dde.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/721683cbaffe8bcab0d58cb0d4547dde.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/919941dd4a4ea1712140d093617d00f8.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/919941dd4a4ea1712140d093617d00f8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/icons/AppIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/icons/AppIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/icons/android-chrome-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/icons/android-chrome-192x192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/icons/android-chrome-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/icons/android-chrome-512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/icons/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/icons/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/icons/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/icons/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/icons/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/icons/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/icons/mstile-150x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/icons/mstile-150x150.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/brassmedal.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/brassmedal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/diamond.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/diamond.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/flowMania.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/flowMania.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/goldmedal.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/goldmedal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/images-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/images-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/images-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/images-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/images.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/images.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/lightRays.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/lightRays.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/medal.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/medal.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/medal.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/medal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/monstersUp.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/monstersUp.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/ninjaAction.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/ninjaAction.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/nomedal.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/nomedal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/robotion.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/robotion.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/shiny-golden-coin-vector_23-2147498657.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/shiny-golden-coin-vector_23-2147498657.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/silvermedal.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/silvermedal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-game-coin-with-crown-game-interface-gold-vector-cartoon-style-isolated-1070637374.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/stock-vector-game-coin-with-crown-game-interface-gold-vector-cartoon-style-isolated-1070637374.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-game-coins-set-rank-medals-for-game-user-interface-award-vector-illustration-512739874.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/stock-vector-game-coins-set-rank-medals-for-game-user-interface-award-vector-illustration-512739874.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-game-gold-silver-bronze-coins-set-vector-with-star-realistic-achievement-icon-illustration-rank-665497426.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/stock-vector-game-gold-silver-bronze-coins-set-vector-with-star-realistic-achievement-icon-illustration-rank-665497426.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-gold-silver-and-bronze-medal-152970482.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/stock-vector-gold-silver-and-bronze-medal-152970482.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-silver-medal-on-a-white-background-metallic-winner-award-vector-illustration-673894639.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/stock-vector-silver-medal-on-a-white-background-metallic-winner-award-vector-illustration-673894639.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/stock-vector-star-coins-180257690.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/stock-vector-star-coins-180257690.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/stopper.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/stopper.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/stopper.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/stopper.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/assets/img/swingRobber.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/assets/img/swingRobber.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bundle.60cd7.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/bundle.60cd7.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bundle.60cd7.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/bundle.60cd7.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/dbdf57f1d55a0087254798bdc21e3f89.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/dbdf57f1d55a0087254798bdc21e3f89.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/f121889856821146a7329d6b4defdf1e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/f121889856821146a7329d6b4defdf1e.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/build/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/polyfills.e8068.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/polyfills.e8068.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/polyfills.e8068.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/polyfills.e8068.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/push-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/push-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-404.chunk.4101c.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-404.chunk.4101c.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-404.chunk.4101c.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-404.chunk.4101c.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-account.chunk.a4a14.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-account.chunk.a4a14.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-account.chunk.a4a14.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-account.chunk.a4a14.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-almosthere.chunk.7a04f.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-almosthere.chunk.7a04f.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-almosthere.chunk.7a04f.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-almosthere.chunk.7a04f.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-boards.chunk.650b3.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-boards.chunk.650b3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-boards.chunk.650b3.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-boards.chunk.650b3.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-dark.chunk.33457.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-dark.chunk.33457.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-dark.chunk.33457.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-dark.chunk.33457.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-dash.chunk.58e22.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-dash.chunk.58e22.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-dash.chunk.58e22.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-dash.chunk.58e22.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-home.chunk.cc7ed.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-home.chunk.cc7ed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-home.chunk.cc7ed.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-home.chunk.cc7ed.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-moreinfo.chunk.cdc0c.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-moreinfo.chunk.cdc0c.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-moreinfo.chunk.cdc0c.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-moreinfo.chunk.cdc0c.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-outcome.chunk.fa9e6.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-outcome.chunk.fa9e6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-outcome.chunk.fa9e6.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-outcome.chunk.fa9e6.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-profile.chunk.d90d0.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-profile.chunk.d90d0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-profile.chunk.d90d0.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-profile.chunk.d90d0.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-quest.chunk.c1961.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-quest.chunk.c1961.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-quest.chunk.c1961.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-quest.chunk.c1961.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-signin.chunk.bc2b3.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-signin.chunk.bc2b3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-signin.chunk.bc2b3.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-signin.chunk.bc2b3.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-signout.chunk.5e164.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-signout.chunk.5e164.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-signout.chunk.5e164.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-signout.chunk.5e164.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-step1.chunk.b35a2.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-step1.chunk.b35a2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-step1.chunk.b35a2.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-step1.chunk.b35a2.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-thanks.chunk.3f0e1.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-thanks.chunk.3f0e1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/route-thanks.chunk.3f0e1.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/route-thanks.chunk.3f0e1.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/49f4f0a9f1745511efb241c7e4de88de.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/49f4f0a9f1745511efb241c7e4de88de.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/721683cbaffe8bcab0d58cb0d4547dde.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/721683cbaffe8bcab0d58cb0d4547dde.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/919941dd4a4ea1712140d093617d00f8.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/919941dd4a4ea1712140d093617d00f8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/dbdf57f1d55a0087254798bdc21e3f89.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/dbdf57f1d55a0087254798bdc21e3f89.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/f121889856821146a7329d6b4defdf1e.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/f121889856821146a7329d6b4defdf1e.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/ssr-bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/style.61a33.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/style.61a33.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/ssr-build/style.61a33.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/ssr-build/style.61a33.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/style.61a33.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/style.61a33.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/style.61a33.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/style.61a33.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/sw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.rules.json" beforeDir="false" afterPath="$PROJECT_DIR$/database.rules.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draftcards.bbprojectd/Scratchpad.txt" beforeDir="false" afterPath="$PROJECT_DIR$/draftcards.bbprojectd/Scratchpad.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draftcards.bbprojectd/Unix Worksheet.worksheet" beforeDir="false" afterPath="$PROJECT_DIR$/draftcards.bbprojectd/Unix Worksheet.worksheet" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draftcards.bbprojectd/project.bbprojectdata" beforeDir="false" afterPath="$PROJECT_DIR$/draftcards.bbprojectd/project.bbprojectdata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firestore.indexes.json" beforeDir="false" afterPath="$PROJECT_DIR$/firestore.indexes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firestore.rules" beforeDir="false" afterPath="$PROJECT_DIR$/firestore.rules" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/functions/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/functions/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/functions/tslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preact.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/preact.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/AppIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/AppIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/android-chrome-192x192.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/android-chrome-192x192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/android-chrome-512x512.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/android-chrome-512x512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/apple-touch-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/mstile-150x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/mstile-150x150.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/brassmedal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/brassmedal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/diamond.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/diamond.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/flowMania.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/flowMania.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/goldmedal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/goldmedal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/images-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/images-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/images-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/images-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/images.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/images.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/lightRays.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/lightRays.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/medal.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/medal.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/medal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/medal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/monstersUp.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/monstersUp.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/ninjaAction.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/ninjaAction.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/nomedal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/nomedal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/robotion.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/robotion.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/shiny-golden-coin-vector_23-2147498657.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/shiny-golden-coin-vector_23-2147498657.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/silvermedal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/silvermedal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/stock-vector-game-coin-with-crown-game-interface-gold-vector-cartoon-style-isolated-1070637374.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/stock-vector-game-coin-with-crown-game-interface-gold-vector-cartoon-style-isolated-1070637374.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/stock-vector-game-coins-set-rank-medals-for-game-user-interface-award-vector-illustration-512739874.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/stock-vector-game-coins-set-rank-medals-for-game-user-interface-award-vector-illustration-512739874.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/stock-vector-game-gold-silver-bronze-coins-set-vector-with-star-realistic-achievement-icon-illustration-rank-665497426.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/stock-vector-game-gold-silver-bronze-coins-set-vector-with-star-realistic-achievement-icon-illustration-rank-665497426.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/stock-vector-gold-silver-and-bronze-medal-152970482.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/stock-vector-gold-silver-and-bronze-medal-152970482.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/stock-vector-silver-medal-on-a-white-background-metallic-winner-award-vector-illustration-673894639.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/stock-vector-silver-medal-on-a-white-background-metallic-winner-award-vector-illustration-673894639.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/stock-vector-star-coins-180257690.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/stock-vector-star-coins-180257690.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/stopper.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/stopper.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/stopper.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/stopper.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/img/swingRobber.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/img/swingRobber.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountinfo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountinfo/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/accountinfo/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accountinfo/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/achievements/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/achievements/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/achievements/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/achievements/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dark/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dark/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dark/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dark/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gamescarousel/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gamescarousel/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gamescarousel/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gamescarousel/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/leaderboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/leaderboard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/leaderboard/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/leaderboard/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pfooter/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pframe/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pframe/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/signIn/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/signIn/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/snooze/bridge_interface.js.orig" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/snooze/bridge_interface.js.orig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/snooze/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/snooze/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/snooze/micro_bridge.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/snooze/micro_bridge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/snooze/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/snooze/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/topplayers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/topplayers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/topplayers/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/topplayers/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamesList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/404/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/404/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/404/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/404/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/account/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/account/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/almosthere/customcar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/almosthere/customcar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/almosthere/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/almosthere/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/almosthere/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/almosthere/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/boards/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/boards/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/boards/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/boards/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/dark/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dark/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/dark/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dark/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/dash/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/dash/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/home/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/home/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/moreinfo/customcar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/moreinfo/customcar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/moreinfo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/moreinfo/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/moreinfo/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/moreinfo/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/outcome/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/outcome/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/outcome/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/outcome/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/profile/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/profile/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/profile/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/profile/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/quest/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/quest/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/quest/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/quest/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/signIn/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/signIn/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/signout/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/signout/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/step1/customcar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/step1/customcar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/step1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/step1/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/step1/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/step1/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/thanks/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/thanks/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/thanks/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/thanks/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage.rules" beforeDir="false" afterPath="$PROJECT_DIR$/storage.rules" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/survey1/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="105" selection-start-line="105" selection-end-line="105" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pfooter/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="118" column="34" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pfooter/style.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/header/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/home/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="69" selection-start-line="66" selection-end-line="69" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/outcome/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/almosthere/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/almosthere/style.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="70" column="43" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/dash/style.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/dash/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -177,41 +267,6 @@
       </map>
     </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/routes/step1/style.scss" />
-        <option value="$PROJECT_DIR$/database.rules.json" />
-        <option value="$PROJECT_DIR$/src/components/achievements/index.js" />
-        <option value="$PROJECT_DIR$/src/components/survey1/style.scss" />
-        <option value="$PROJECT_DIR$/src/routes/thanks/style.scss" />
-        <option value="$PROJECT_DIR$/src/routes/thanks/index.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/routes/quest/style.scss" />
-        <option value="$PROJECT_DIR$/src/routes/step1/index.js" />
-        <option value="$PROJECT_DIR$/src/routes/quest/index.js" />
-        <option value="$PROJECT_DIR$/src/components/gameplaypage/index.js" />
-        <option value="$PROJECT_DIR$/src/components/countdown/style.scss" />
-        <option value="$PROJECT_DIR$/src/components/playfooter/index.js" />
-        <option value="$PROJECT_DIR$/src/routes/home/index.js" />
-        <option value="$PROJECT_DIR$/src/components/gamescarousel/index.js" />
-        <option value="$PROJECT_DIR$/src/style/index.css" />
-        <option value="$PROJECT_DIR$/src/routes/home/style.scss" />
-        <option value="$PROJECT_DIR$/src/components/survey1/index.js" />
-        <option value="$PROJECT_DIR$/src/components/pframe/index.js" />
-        <option value="$PROJECT_DIR$/src/components/app.js" />
-        <option value="$PROJECT_DIR$/src/components/countdown/index.js" />
-        <option value="$PROJECT_DIR$/src/routes/dash/index.js" />
-        <option value="$PROJECT_DIR$/src/routes/dash/style.scss" />
-        <option value="$PROJECT_DIR$/src/components/pfooter/index.js" />
-        <option value="$PROJECT_DIR$/src/components/pfooter/style.scss" />
-        <option value="$PROJECT_DIR$/src/routes/almosthere/index.js" />
-        <option value="$PROJECT_DIR$/src/routes/almosthere/style.scss" />
-        <option value="$PROJECT_DIR$/src/routes/outcome/index.js" />
-        <option value="$PROJECT_DIR$/src/components/header/index.js" />
-      </list>
-    </option>
-  </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
@@ -224,125 +279,6 @@
   <component name="ProjectId" id="1Nk4pDEeKqu5tRPJkPBeNzZCAtl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="countdown" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pfooter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pframe" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="survey1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="almosthere" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="boards" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="dash" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="outcome" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-              <item name="quest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="draftcards" type="b2602c69:ProjectViewProjectNode" />
-              <item name="draftcards" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -375,6 +311,16 @@
           <option name="name" value="StatusDashboardGroupingRule" />
         </RuleState>
       </list>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -430,32 +376,6 @@
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48170000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="252" y="23" width="1660" height="1336" extended-state="0" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.147651" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="GraphQL" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2403537" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -465,12 +385,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -491,354 +405,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5841">
-          <caret line="4607" column="7" selection-start-line="4607" selection-start-column="7" selection-end-line="4607" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/achievements/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.eslintrc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database.rules.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/firebase.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/firestore.indexes.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/firestore.rules">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preact.config.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/manifest.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/achievements/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="55" selection-start-line="37" selection-end-line="55" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/thanks/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="70" column="43" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/thanks/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="87" column="53" selection-start-line="87" selection-start-column="53" selection-end-line="87" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/step1/customcar.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gamesList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/gameplaypage/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/gameplaypage/style.scss" />
-    <entry file="file://$PROJECT_DIR$/src/routes/profile/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/countdown/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="3" lean-forward="true" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/moreinfo/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" selection-start-line="34" selection-end-line="41" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/ssr-build/ssr-bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="6520" column="26" selection-start-line="6520" selection-start-column="26" selection-end-line="6520" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/step1/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/gamescarousel/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="80" selection-start-line="69" selection-end-line="80" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/firebase.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pframe/style.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/playfooter/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="20" selection-start-line="2" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/survey1/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="57" column="1" selection-start-line="11" selection-end-line="57" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pframe/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="144" column="11" selection-start-line="144" selection-start-column="11" selection-end-line="144" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/countdown/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="61" column="73" lean-forward="true" selection-start-line="61" selection-start-column="73" selection-end-line="61" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/home/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/boards/style.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/quest/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="44" selection-start-line="29" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/quest/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="64" selection-start-line="57" selection-end-line="64" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/step1/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="60" selection-start-line="57" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/dash/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/survey1/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="105" selection-start-line="105" selection-end-line="105" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/dash/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pfooter/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="118" column="34" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pfooter/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/almosthere/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="89" column="22" selection-start-line="89" selection-start-column="22" selection-end-line="89" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/almosthere/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="70" column="43" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="69" selection-start-line="66" selection-end-line="69" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/outcome/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/header/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>

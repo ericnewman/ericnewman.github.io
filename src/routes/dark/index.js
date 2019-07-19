@@ -7,13 +7,13 @@ import { route } from 'preact-router';
 export default class Dark extends Component {
 
 	goHome() {
-		route('/');
+		route('/dash/1');
 	}
 
 	render() {
 
 		setTimeout(() => {
-			route('/');
+			route('/dash/1');
 		}, this.props.delay);
 
 

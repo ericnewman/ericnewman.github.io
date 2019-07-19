@@ -47,8 +47,8 @@ export default class Outcome extends Component {
 							<Button raised ripple dense class={style.green}
 									onClick={() => this.setState({ finished1: true })}
 							>
-								How'd you do?
-							</Button>c
+								How'd I do?
+							</Button>
 						</div>
 
 					</div>
