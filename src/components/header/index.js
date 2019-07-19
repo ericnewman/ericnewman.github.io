@@ -60,6 +60,7 @@ export default class Header extends Component {
 	goToDash7 = this.linkTo('/dash/7');
 	goToAlmostHere = this.linkTo('/almosthere');
 	goToStep1 = this.linkTo('/step1');
+	goToCat = this.linkTo('/cat');
 
 
 	constructor() {
@@ -133,6 +134,10 @@ export default class Header extends Component {
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/5'} onClick={this.goToDash5}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							FSD 5
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/cat'} onClick={this.goToCat}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Catalog
 						</Drawer.DrawerItem>
 						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/profile'} onClick={this.goToMyProfile}>*/}
 						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}

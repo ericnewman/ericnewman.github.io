@@ -17,6 +17,7 @@ import Step1 from '../routes/step1';
 import Quest from '../routes/quest';
 import Outcome from '../routes/outcome';
 import Thanks from '../routes/thanks';
+import Catalog from '../routes/catalog';
 import NotFound from '../routes/404';
 // import gamesList from '../gamesList';
 // import { database } from '../firebase';
@@ -45,7 +46,7 @@ export default class App extends Component {
 			<div id="app">
 				{this.state.currentUrl !== '/dark' && <Header selectedRoute={this.state.currentUrl} />}
 				<Router onChange={this.handleRoute}>
-					<Home path="/" />
+					<Home path="/step1" />
 					<Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" />
 					<Account path="/account" />
@@ -58,10 +59,12 @@ export default class App extends Component {
 					<AlmostHere path="/almosthere" />
 					<MoreInfo path="/moreinfo" />
 					<Boards path="/boards" />
+					<Step1 path="/" />
 					<Step1 path="/step1" />
 					<Quest path="/quest" />
 					<Outcome path="/outcome" />
 					<Thanks path="/thanks" />
+					<Catalog path="/cat" />
 					<NotFound default />
 				</Router>
 			</div>

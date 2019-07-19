@@ -18,7 +18,10 @@ export default class Dash extends Component {
 
 	startSnooze() {
 		this.setState({ snooze: true });
-		console.log('snooze');
+	}
+
+	cancelSnooze() {
+		this.setState({ snooze: false, gameStarted: false, tooLate: false });
 	}
 
 	doGameStarted() {
@@ -55,7 +58,7 @@ export default class Dash extends Component {
 
 		return (
 			<div className={`${style.home} page`}>
-				{!state.gameStarted && <Countdown afterAction={this.timedOut} />}
+				{!state.gameStarted &&  !state.snooze && <Countdown afterAction={this.timedOut} />}
 				<div>
 					{!state.tooLate && !state.snooze && <Pframe src={url}
 						width="100%"
@@ -67,20 +70,32 @@ export default class Dash extends Component {
 						position="relative"
 						game_id={selectedGame}
 						doGameStarted={this.doGameStarted}
-					                  />}
-					{state.tooLate && <div class={style.smaller}>
+					                                    />}
+					{state.tooLate && <div class={style.info}>
+						<div class={style.smaller}>
 						Sorry friend, you snooze, you lose! Better luck next time...
-						<div className={style.cent}>
-							<Button  raised ripple dense class={style.green}
-								onClick={() => route('/dash/1')}
-							>
+							<div className={style.cent}>
+								<Button  raised ripple dense class={style.green}
+									onClick={() => route('/dash/1')}
+								>
 								Try Again...
-							</Button>
+								</Button>
+							</div>
 						</div>
 					</div>}
-					{!state.tooLate && state.snooze && <Snooze />}
+					{!state.tooLate && state.snooze && <div class={style.info}>
+						<Snooze />
+						<div className={style.cent}>
+							<Button  raised ripple dense class={style.green}
+								onClick={() => this.cancelSnooze()}
+							>
+								Go Back
+							</Button>
+						</div>
+					</div>
+					}
 
-						{!state.tooLate && <PFooter name={gamesList[selectedGame].name} showStars={state.gameStarted}
+					{!state.tooLate && <PFooter name={gamesList[selectedGame].name} showStars={state.gameStarted}
 						snoozer={this.startSnooze} game_id={selectedGame}
 					                   />}
 					<Notifications options={{ zIndex: 200, top: '180px' }} />
