@@ -7,16 +7,6 @@
     <list default="true" id="5d88d9ec-0002-46a1-b804-f3426629659e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/countdown/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/countdown/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pfooter/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pfooter/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pfooter/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pframe/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pframe/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/dash/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/dash/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/dash/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +143,7 @@
       <workItem from="1563975388762" duration="3538000" />
       <workItem from="1563986324596" duration="11000" />
       <workItem from="1563986369420" duration="19212000" />
-      <workItem from="1564069408091" duration="13990000" />
+      <workItem from="1564069408091" duration="14484000" />
     </task>
     <servers />
   </component>
