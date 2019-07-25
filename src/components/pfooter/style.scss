@@ -14,6 +14,7 @@ $icon_size: 40px;
 	background:white;
 	font:  bold 20px/24px Comfortaa, sans-serif;
 	color:#000;
+	padding: 0px 4px;
 }
 .lefty {
 	text-align:left;
@@ -21,7 +22,16 @@ $icon_size: 40px;
 	width: 100px;
 	left:10px;
 	top:-8px;
-	font:  bold 20px/24px Comfortaa, sans-serif;
+	font:  bold 21px/24px Comfortaa, sans-serif;
+
+}
+.rateIt {
+	text-align:left;
+	position:relative;
+	width: 100px;
+	left:10px;
+	top:3px;
+	font:  bold 21px/24px Comfortaa, sans-serif;
 
 }
 
@@ -33,37 +43,52 @@ $icon_size: 40px;
 }
 .buts {
 	display:inline-block;
-	margin:8px 30px 0px 30px ;
+	margin:7px 0px 0px 18px;;
 }
-.vote {
-	background: #66aa66;
-
-	border-radius: $icon_size/2;
+.orangeButton {
+	background: #EF7D16 !important;
 	display: inline-block;
-	height: $icon_size;
-	opacity: 1;
-	position: relative;
-	text-align: center;
-	vertical-align: top;
-	width: $icon_size;
-	margin: 0 8px;
-	color:white !important;
-	font-weight: bold;
-	padding-top:10px;
-	&.YES {
-		background: #aa6666;
-	}
-	&.NO {
-		background: #66aa66;
+	border-radius: 32px;
+	height: 32px;
+	color: white !important;
+	font:  bold 16px Comfortaa, sans-serif;
+	text-transform: lowercase;
+	margin-left:20px;
 
-	}
+}
+.dkBlueButton {
+	background: #073763 !important;
+	display: inline-block;
+	border-radius: 32px;
+	height: 32px;
+	color: white !important;
+	font:  bold 16px Comfortaa, sans-serif;
+	text-transform: lowercase;
+	margin-left:20px;
+
+}
+.yellowButton {
+	background: #FFB600 !important;
+	display: inline-block;
+	border-radius: 32px;
+	height: 32px;
+	color: white !important;
+	font:  bold 16px Comfortaa, sans-serif;
+	text-transform: lowercase;
+	margin-left:20px;
+
+}
+.pinkButton {
+	background: #FF008C !important;
+	display: inline-block;
+	border-radius: 32px;
+	height: 35px;
+	color: white !important;
+	font:  bold 12px Comfortaa, sans-serif;
+	text-transform: lowercase;
+	margin-left:20px;
 }
 
-.num {
-	color: white;
-	font: Bold 16px/14px 'Orbitron', sans-serif;
-	padding-top: 15px;
-}
 .tiny {
 	color: #777;
 	font: Bold 10px 'Orbitron', sans-serif;

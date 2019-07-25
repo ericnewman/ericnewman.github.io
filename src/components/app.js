@@ -31,18 +31,13 @@ export default class App extends Component {
 		}, 100);
 	};
 
-	componentDidMount() {
-
-
-	}
-
 	constructor(props) {
 
 		super(props);
 		this.games = [];
 		this.visitCounted = false;
 
-		if (typeof window !== "undefined") {
+		if (typeof window !== 'undefined') {
 			auth.signInAnonymously().catch((error) => {
 				// Handle Errors here.
 				// let errorCode = error.code;

@@ -1,3 +1,6 @@
+$boxh: 100px;
+$boxw: 125px;
+
 .dash {
   padding-top:56px;
   background:black;
@@ -6,4 +9,40 @@
 .info {
     height:250px;
     margin:20px;
+}
+.framey {
+  border:none;
+ }
+.bonusMsg {
+  left: 50%;
+  position: absolute;
+  width: $boxw;
+  height: $boxh;
+  top: 50%;
+  background: #FF008c;
+  color:white;
+  z-index:10000;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font: Bold 16px/20px 'Comfortaa', sans-serif;
+  text-align:center;
+  padding:10px;
+  animation: pulse 4s infinite
+
+}
+@keyframes pulse
+{
+  0%, 100% {
+  transform: translate(-50%, -50%) scale(0.85) rotate(-10deg);
+
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15) rotate(10deg);
+  }
+
+}
+
+.bonusPts {
+  font: Bold 28px/42px 'Comfortaa', sans-serif;
+  display:block;
 }

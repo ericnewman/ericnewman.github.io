@@ -52,6 +52,10 @@ html, body {
     max-width: 500px;
     margin: 0 auto;
 }
+#notification-wrapper {
+    font: Bold 17px 'Comfortaa', sans-serif;
+
+}
 header {
     max-width: 500px;
 
@@ -125,7 +129,20 @@ header {
     display: inline-block;
     height: 63px;
     width:63px;
+    animation: roto 5s infinite
+
 }
+@keyframes roto
+{
+    0%, 100% {
+        transform: rotate(-10deg);
+
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
 .cent {
     margin:20px auto;
     text-align: center;

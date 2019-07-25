@@ -11,9 +11,11 @@ export default class CountDown extends Component {
 		switch (val) {
 			case 100:
 			case 99:
-			case 0:
 				this.props.message = 'Start the game before it\'s too late!!!';
 				this.props.color = '#0F0';
+				if(this.props.changeBonus) {
+					this.props.changeBonus(1);
+				}
 				break;
 			case 95:
 				this.props.color = '#0B0';
@@ -21,15 +23,24 @@ export default class CountDown extends Component {
 			case 45:
 				this.props.color = '#FC0';
 				this.props.message = 'Time\'s almost up!';
+				if(this.props.changeBonus) {
+					this.props.changeBonus(2);
+				}
 				break;
 			case 20:
 				this.props.color = '#F00';
+				if(this.props.changeBonus) {
+					this.props.changeBonus(3);
+				}
 				break;
 			case 1:
+			case 0:
 				this.props.message = 'Too Late, better luck next time.';
+				if(this.props.changeBonus) {
+					this.props.changeBonus(0);
+				}
 				break;
 		}
-
 
 	};
 
@@ -59,7 +70,7 @@ export default class CountDown extends Component {
 
 		this.timer = setInterval(() => {
 			this.setState({ progress: (this.state.progress + 1) % 100 });
-		}, 20000); //200
+		}, 300); //200
 	}
 	componentWillUnmount() {
 		// stop when not renderable

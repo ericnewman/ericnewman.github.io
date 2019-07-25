@@ -15,19 +15,19 @@ export default class PFrame extends Component {
 
 
 	onClick(e) {
-		this.state.click = !this.state.click;
-		this.setState(this.state);
+		//this.state.click = !this.state.click;
+		//this.setState(this.state);
 		//this.showToast('Click');
 		//this.props.gameClick();
-		//console.log(e);
+		console.log('CLICK',e);
 	}
 
 	onBlur(e) {
-		console.log(e);
-		//this.playGame();
+		console.log('BLUR', e);
+		this.playGame();
 	}
 	onCancel(e) {
-
+		console.log('CANCEL', e);
 	}
 
 	// onHover(e) {
@@ -47,8 +47,8 @@ export default class PFrame extends Component {
 	// }
 
 	showToast(msg) {
-		let color = { background: '#F83', text: '#FFFFFF' };
-		let timeout = 2000;
+		let color = { background: '#EF7D16', text: '#FFFFFF' };
+		let timeout = 200000;
 
 		notify.show(msg,
 			'custom',
@@ -81,21 +81,26 @@ export default class PFrame extends Component {
 			(totalPlays || 0) + 1
 		);
 
-
+		this.removeListeners();
 		if (this.props.doGameStarted) {
 			this.props.doGameStarted();
 		}
 	}
 
-	componentDidUnmount() {
-		removeEventListener('click', this.onClick);
+	removeListeners() {
+		//removeEventListener('click', this.onClick);
 		removeEventListener('blur', this.onBlur);
-		removeEventListener('mouseover', this.onHover);
-		removeEventListener('mouseout', this.onHoverExit);
-		removeEventListener('touchend', this.onCancel);
-		removeEventListener('touchstart', this.onClick);
-		removeEventListener('touchcancel', this.onCancel);
+		// removeEventListener('mouseover', this.onHover);
+		// removeEventListener('mouseout', this.onHoverExit);
+		// removeEventListener('touchend', this.onCancel);
+		// removeEventListener('touchstart', this.onClick);
+		// removeEventListener('touchcancel', this.onCancel);
 	}
+
+	componentDidUnmount() {
+		this.removeListeners();
+	}
+		
 
 	constructor(props) {
 
@@ -111,7 +116,7 @@ export default class PFrame extends Component {
 		// this.onHover = this.onHover.bind(this);
 		// this.onHoverExit = this.onHoverExit.bind(this);
 		this.onClick = this.onClick.bind(this);
-		this.onCancel = this.onCancel.bind(this);
+		//this.onCancel = this.onCancel.bind(this);
 		this.playGame = this.playGame.bind(this);
 
 	}
@@ -119,11 +124,11 @@ export default class PFrame extends Component {
 	componentDidMount() {
 		// addEventListener('click', this.onClick);
 		addEventListener('blur', this.onBlur);
-		addEventListener('mouseover', this.onHover);
-		addEventListener('mouseout', this.onHoverExit);
-		addEventListener('touchend', this.onCancel);
+		// addEventListener('mouseover', this.onHover);
+		// addEventListener('mouseout', this.onHoverExit);
+		//addEventListener('touchend', this.onCancel);
 		addEventListener('touchstart', this.onClick);
-		addEventListener('touchcancel', this.onCancel);
+		//addEventListener('touchcancel', this.onCancel);
 
 		auth.signInAnonymously().catch((error) => {
 			// Handle Errors here.
@@ -153,7 +158,7 @@ export default class PFrame extends Component {
 
 		return (
 			<div>
-				<iframe {...props} />
+				{<iframe {...props} />}
 			</div>
 
 		);

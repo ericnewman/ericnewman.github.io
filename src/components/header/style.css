@@ -2,10 +2,10 @@
 .logo {
     background-image: url("../../assets/img/metrologo.png");
     background-repeat: no-repeat;
-    background-size: 143px 17px;
+    background-size: 143px 20px;
     background-position: center; /* Center the image */
-    height:17px;
+    height:20px;
     width: 100%;
-    left: -24px;
+    left: -28px;
     position:relative;
 }

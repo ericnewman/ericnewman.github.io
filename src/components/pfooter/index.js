@@ -3,10 +3,12 @@ import { route } from 'preact-router';
 import Stars from 'react-star-rating-component';
 import { notify } from 'react-notify-toast';
 import Button from 'preact-material-components/Button';
+import ParticleEffectButton from 'react-particle-effect-button';
 
 import {  database } from '../../firebase';
 import gamesList from '../../gamesList';
-import ParticleEffectButton from 'react-particle-effect-button';
+
+import 'preact-material-components/Button/style.css';
 
 import style from './style';
 
@@ -40,7 +42,7 @@ export default class PFooter extends Component {
 			document.getElementById('home').classList.remove('dim');
 
 			route('/dark/' + (interval*3600));
-		}, timeout);
+		}, timeout-500);
 	};
 
 
@@ -63,12 +65,14 @@ export default class PFooter extends Component {
 
 	_onAnimationComplete = () => {
 		this.setState({
+			hidden: false,
 			animating: false
 		});
 		this.doSnooze(5);
 	}
 	_onAnimationComplete2 = () => {
 		this.setState({
+			hidden2: false,
 			animating2: false
 		});
 		this.doSnooze(30);
@@ -85,16 +89,27 @@ export default class PFooter extends Component {
 			color);
 	}
 
-
-	waitAndGo(path) {
+	waitAndNext() {
 		setTimeout(() => {
 			document.getElementById('home').classList.remove('dim');
-			route(path);
-		}, timeout/2);
+			this.setState({voted:true});
+		}, timeout-500);
 
 	}
+	close() {
+		document.location.href= 'http://google.com';
+	}
 
-	onStarClick(nextValue) {
+	medals() {
+		route('/outcome');
+	}
+
+	more() {
+		document.location.href= 'https://games-metropcs.arkadiumarena.com/?arkpromo=metrozone_discover';
+	}
+
+	vote(nextValue) {
+		console.log("vote");
 
 		if (this.state.voted) {
 			return;
@@ -117,7 +132,7 @@ export default class PFooter extends Component {
 		}
 		);
 		this.showToast('Thanks for your review - you will be rewarded!');
-		this.waitAndGo('/outcome');
+		this.waitAndNext();
 	}
 
 	constructor(props) {
@@ -126,7 +141,6 @@ export default class PFooter extends Component {
 		this.state = {
 			voted: false
 		};
-		this.onStarClick = this.onStarClick.bind(this);
 	}
 
 	componentWillMount() {
@@ -146,20 +160,26 @@ export default class PFooter extends Component {
 			text,
 			buttonStyles,
 			buttonOptions = {
-				color: '#EF7D15',
+				color: '#007CE2',
 				duration: 600,
 				easing: 'easeOutQuad',
 				speed: 0.2,
-				particlesAmountCoefficient: 10,
-				oscillationCoefficient: 80
+				particlesAmountCoefficient: 20,
+				oscillationCoefficient: 100,
+				direction: 'top',
+				type: 'triangle'
 			},
 			buttonOptions2 = {
 				color: '#073763',
 				duration: 600,
 				easing: 'easeOutQuad',
 				speed: 0.2,
-				particlesAmountCoefficient: 10,
-				oscillationCoefficient: 80
+				particlesAmountCoefficient: 20,
+				oscillationCoefficient: 100,
+				direction: 'top',
+				type: 'triangle'
+
+
 			}
 		} = this.props;
 
@@ -170,31 +190,14 @@ export default class PFooter extends Component {
 			animating2
 		} = this.state;
 
-		{/*<div className={style.cent}>*/}
-		{/*	{!props.showStars && <div>*/}
-		{/*		SNOOZE <Button*/}
-		{/*			raised ripple*/}
-		{/*			onClick={() => props.snoozer(5)}*/}
-		{/*		>*/}
-		{/*			5 min*/}
-		{/*		</Button>*/}
-		{/*		<Button*/}
-		{/*			raised ripple*/}
-		{/*			onClick={() => props.snoozer(30)}*/}
-		{/*		>*/}
-		{/*			30 min*/}
-		{/*		</Button>*/}
-		{/*		*/}
-		{/*</div>*/}
-
 		return (
 
 			<div class={style.footer}>
-				<div className={style.playsc}> Tap to Play now!</div>
+				<div class={style.playsc}>{props.gameMsg}</div>
 				{!props.showStars &&
-				<div className="bots">
-					<span className={style.lefty}>SNOOZE:</span>
-					<div className={style.buts}>
+				<div class="bots">
+					<span class={style.lefty}>SNOOZE:</span>
+					<div class={style.buts}>
 						<ParticleEffectButton
 							hidden={hidden}
 							onComplete={this._onAnimationComplete}
@@ -239,34 +242,39 @@ export default class PFooter extends Component {
 				</div>
 				}
 
-				{props.showStars && <div className={style.bar}>
-
-					<Stars
-						name="rate1"
-						starCount={5}
-						value={props.rating}
-						editing
-						emptyStarColor={'#393'}
-						starColor={'#933'}
-						renderStarIcon={(index, value) => {
-							if (index === value) {
-								return (
-									<span className={`${style.vote} ${style.YES}`}>{index}</span>
-								);
-							}
-
-							return (
-								<span className={`${style.vote} ${style.NO}`}>{index}</span>
-							);
-
-						}
-						}
-						onStarClick={this.onStarClick.bind(this)}
-					/>
-					<div class={style.tiny}>Running at an average rating of: {state.rating}</div>
+				{props.showStars && !state.voted &&
+					<div class="bots" >
+						<span class={style.rateIt}>RATE IT</span>
+						<div class={style.buts}>
+							<Button class={style.orangeButton} onClick={() => this.vote(1)} >
+							MEH
+							</Button>
+							<Button class={style.orangeButton} onClick={() => this.vote(5)} >
+							Like It
+							</Button>
+							<Button class={style.orangeButton} onClick={() => this.vote(10)} >
+							Love It
+							</Button>
+						</div>
+						<div class={style.tiny}>Running at an average rating of: {state.rating}</div>
+					</div>
+				}
+				{state.voted &&
+				<div class="bots">
+					<span className={style.rateIt}>NEXT</span>
+					<div className={style.buts}>
+						<Button class={style.dkBlueButton} onClick={() => this.close()}>
+							close
+						</Button>
+						<Button class={style.yellowButton} onClick={() => this.medals()}>
+							medals
+						</Button>
+						<Button class={style.pinkButton} onClick={() => this.more()}>
+							More Games
+						</Button>
+					</div>
 				</div>
 				}
-
 			</div>
 		);
 	}
