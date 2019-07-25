@@ -24,6 +24,7 @@ export default class Snooze extends Component {
 		let timeout=3000;
 
 		let color = { background: '#58F', text: '#FFFFFF' };
+		document.getElementById('home2').classList.add('dim');
 
 		notify.show('See you soon! Be back in ' + this.interval + ' Minutes...',
 			'custom',
@@ -31,6 +32,8 @@ export default class Snooze extends Component {
 			color);
 
 		setTimeout(() => {
+			document.getElementById('home2').classList.remove('dim');
+
 			route('/dark/' + (interval*3600));
 		}, timeout);
 	};
@@ -38,7 +41,7 @@ export default class Snooze extends Component {
 	//Note: `user` comes from the URL, courtesy of our router
 	render() {
 		return (
-			<div class={style.newpage}>
+			<div id="home2" class={style.newpage}>
 				<Card>
 					<div className="caption"> Snooze:</div>
 					<div class={style.cardBody}>

@@ -1,15 +1,9 @@
-$icon_size: 40px;
 
 .newpage {
   height: 20px;
   padding: 0 0;
   width:100%;
 }
-
-.mdc-theme--dark .mdc-card {
-  color: white !important;;
-}
-
 
 .bar {
   display:block;
@@ -23,36 +17,39 @@ $icon_size: 40px;
 }
 
 .vote {
-  background: #66aa66;
+  background: #FF008C;
 
-  border-radius: $icon_size/2;
+  border-radius: 20px;
   display: inline-block;
-  height: $icon_size;
+  height: 40px;
   opacity: 1;
   position: relative;
   text-align: center;
-  vertical-align: top;
-  width: $icon_size;
+  vertical-align: middle;
+  width: 40px;
   margin: 0 10px;
   color:white !important;
   font-weight: bold;
   padding-top:10px;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+
   &.YES {
-    background: #aa6666;
+    opacity:.6;
   }
   &.NO {
-    background: #66aa66;
+    background: #FF008C;
 
   }
 }
 
 .num {
   color: white;
-  font: Bold 16px/14px 'Orbitron', sans-serif;
-  padding-top: 15px;
+  font: Bold 23px 'Comfortaa', sans-serif;
 }
 .tiny {
   color: #444;
-  font: Bold 10px/14px 'Orbitron', sans-serif;
-  padding-top: 15px;
+  font: Bold 10px/14px 'Comfortaa', sans-serif;
 }
+

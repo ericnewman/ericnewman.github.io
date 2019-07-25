@@ -45,7 +45,7 @@ export default class AlmostHere extends Component {
 					<div class={style.smaller}>Shape the Future of</div>
 					<div class={style.beta}>DRAFTCARDS</div>
 					<div class={style.cent}>
-						<Button raised ripple dense class={style.green}
+						<Button raised ripple dense class={style.rose}
 							onClick={() => route('/')}
 						>
 							BRING&nbsp;IT&nbsp;ON

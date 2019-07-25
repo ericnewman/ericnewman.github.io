@@ -19,13 +19,14 @@ const Coin = (props) => {
 			stylex = style.gold;
 			break;
 	}
+	if (!props.earned) {
+		stylex += (' ' + style.unearned);
+	}
 
 	return (
 
 		<div class={`${style.coin} ${stylex}`}>
-			<div class={style.num}>{props.progress}
-				{props.percent && '%'}
-			</div>
+			<div class={style.num}>{props.progress}</div>
 		</div>
 	);
 };
@@ -34,29 +35,45 @@ export default class CoinBar extends Component {
 
 	recalcColors() {
 		let val = this.props.progress;
-		console.log(this.props);
+
 		if (val > 80) {
-			// this.props.color = '#0F0';
-			this.props.metal = 'gold';
+			this.props.color = '#0F0';
+			this.props.earnedBrass = true;
+			this.props.earnedSilver = true;
+			this.props.earnedGold = true;
 
 		}
 		else if (val > 40) {
-			// this.props.color = '#FC0';
-			this.props.metal = 'silver';
-
+			this.props.color = '#FC0';
+			this.props.earnedBrass = true;
+			this.props.earnedSilver = true;
+			this.props.earnedGold = false;
 		}
 		else if (val > 30) {
-			// this.props.color = '#F00';
-			this.props.metal = 'brass';
-
+			this.props.color = '#F00';
+			this.props.earnedBrass = true;
+			this.props.earnedSilver = false;
+			this.props.earnedGold = false;
 		}
 		else if (val > 0) {
-			// this.props.color = '#800';
-			this.props.metal = 'brass';
-
+			this.props.color = '#800';
+			this.props.earnedBrass = false;
+			this.props.earnedSilver = false;
+			this.props.earnedGold = false;
 		}
 	}
 
+	randomize() {
+		let r = Math.floor(Math.random() * Math.floor(100));
+		this.props.progress = r;
+		this.props.brassPts = r % 30;
+		this.props.silverPts = r % 60;
+		this.props.goldPts = r % 90;
+		this.recalcColors();
+
+		this.setState(this.props);
+
+	}
 
 	onChange = (ctx, val) => {
 
@@ -70,15 +87,17 @@ export default class CoinBar extends Component {
 
 		this.onChange.bind(this);
 		this.onComplete.bind(this);
-
-		this.recalcColors();
 	}
 
 
 	componentWillMount() {
 		// stop when not renderable
-		this.setState(this.props);
 
+		if (this.props.randomize) {
+			this.timer = setInterval(() => {
+				this.randomize();
+			}, 800);
+		}
 	}
 
 	componentDidMount() {
@@ -87,6 +106,10 @@ export default class CoinBar extends Component {
 
 	componentWillUnmount() {
 		// stop when not renderable
+		if (this.timer) {
+			clearInterval(this.timer);
+			this.timer = null;
+		}
 	}
 
 
@@ -102,7 +125,9 @@ export default class CoinBar extends Component {
 				<div className={style.title}>
 					{props.title}
 				</div>
-				<Coin metal={props.metal} progress={props.progress} percent={props.percent} />
+				<Coin metal="brass" earned={props.earnedBrass} progress={props.brassPts} />
+				<Coin metal="silver" earned={props.earnedSilver} progress={props.silverPts} />
+				<Coin metal="gold" earned={props.earnedGold} progress={props.goldPts} />
 			</div>
 		);
 	}

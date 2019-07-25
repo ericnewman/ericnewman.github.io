@@ -1,3 +1,5 @@
+$header_color: #FF008c;
+$toast_color: #FF008c;
 
 
 .home {
@@ -5,76 +7,21 @@
 	min-height: 100%;
 	width: 100%;
     color: white;
-    background: black !important;
+    border:1px solid #777;
+
 }
 
-.cardHeader {
-  padding: 5px;
-  background: black;
+.mdc-card {
+  margin:50px 0;
 }
 
-.mini {
-     background: black;
- }
 
-.cardBody {
-  padding: 5px;
-}
-
-.header {
-    background:black !important;
-}
-.currentUser {
-    padding:0;
-}
-.smaller {
-  font:  bold 20px Roboto, sans-serif;
-  text-align: center;
-  margin: 5px 40px;
-}
-
-.beta {
-  font:  bold 26px Roboto, sans-serif;
-  text-align: center;
-}
-
-.betaRot {
-  font:  bold 30px Roboto, sans-serif;
-  text-align: center;
-  transform: rotate(-10deg);
-  position: relative;
-  top: -22px;
-  text-shadow: 0px 0px 12px white, 0 0 1em blue, 0 0 0.2em red;
-}
 .cent {
     margin:20px auto;
     text-align: center;
 }
-
-button  {
-    color: white ;
-
-}
-.green {
-    background:#519428 !important;
+.rose {
+    background:$header_color !important;
     width: 120px;
   line-height: 13px;
-}
-@media only screen and (max-width: 360px) {
-    .beta {
-        font:  bold 32px Roboto, serif;
-    }
-    .smaller {
-      font:  normal 14px Roboto, serif;
-      margin: 5px 5px;
-    }
-    .shape {
-      font:  bolder 20px Roboto, serif;
-        margin: 2px 24px 0;
-    }
-    .cent {
-        margin:10px auto;
-        text-align: center;
-    }
-
 }

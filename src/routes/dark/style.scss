@@ -1,28 +1,13 @@
 .home {
 	min-height: 100%;
 	min-width: 100%;
-	background:#000;
+    background:black;
+  position: absolute;
+  z-index: 10;
 }
 
-.cardHeader {
-  padding: 8px;
-  	background:#000;
-
-}
-
-.cardBody {
-  padding: 8px;
-  background:#000;
-
-}
-.page {
-	padding: 0px;
-	min-height: 100%;
-	width: 100%;
-	background:#000;
-}
 .hint {
-  color:#222;;
+  color:#336 !important;
 min-height: 100%;
 min-width: 100%;
   left:50vw;
@@ -31,4 +16,10 @@ min-width: 100%;
 .cloak {
     color:#666;
     background:#222;
+}
+.darkbutton {
+  color:#33c !important;
+}
+header {
+  display:none;
 }

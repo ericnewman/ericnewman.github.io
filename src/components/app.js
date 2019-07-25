@@ -21,8 +21,6 @@ import Catalog from '../routes/catalog';
 import NotFound from '../routes/404';
 import Notifications from 'react-notify-toast';
 import { auth, database } from '../firebase';
-// import gamesList from '../gamesList';
-// import { database } from '../firebase';
 
 export default class App extends Component {
 	handleRoute = e => {
@@ -33,7 +31,7 @@ export default class App extends Component {
 		}, 100);
 	};
 
-	componentWillMount() {
+	componentDidMount() {
 
 
 	}
@@ -42,40 +40,52 @@ export default class App extends Component {
 
 		super(props);
 		this.games = [];
+		this.visitCounted = false;
 
-		auth.signInAnonymously().catch((error) => {
-			// Handle Errors here.
-			// let errorCode = error.code;
-			// let errorMessage = error.message;
-			// ...
-		});
-
-		auth.onAuthStateChanged((user) => {
-			if (user) {
-				// User is signed in.
-				// let isAnonymous = user.isAnonymous;
-				// let uid = user.uid;
-				let myDB = database.ref('users/' + auth.currentUser.uid +'/latest_date');
-				let new_d = new Date().toLocaleString('en-US').split(',')[0];
-				let sameDay = true;
-
-				myDB.once('value', (snapshot) => {
-
-					if (new_d !== snapshot.val()) {
-						let ref = database.ref('users/' + auth.currentUser.uid + '/unique_day_count');
-						ref.transaction((uniqueDays) => (uniqueDays || 0) + 1);
-					}
-				});
-
-				// myDB.set({latest_visit:d });
-				let ref = database.ref('users/' + auth.currentUser.uid + '/latest_visit');
-				ref.transaction((latest_visit) => (new_d));
-			}
-			else {
-				// User is signed out.
+		if (typeof window !== "undefined") {
+			auth.signInAnonymously().catch((error) => {
+				// Handle Errors here.
+				// let errorCode = error.code;
+				// let errorMessage = error.message;
 				// ...
-			}
-		});
+			});
+
+			auth.onAuthStateChanged((user) => {
+				if (user) {
+					// User is signed in.
+					// let isAnonymous = user.isAnonymous;
+					// let uid = user.uid;
+					let myDB = database.ref('users/' + auth.currentUser.uid + '/latest_date');
+					let new_d = new Date().toLocaleString('en-US').split(',')[0];
+					let sameDay = true;
+
+					myDB.once('value', (snapshot) => {
+
+						if (new_d !== snapshot.val()) {
+							let ref = database.ref('users/' + auth.currentUser.uid + '/unique_day_count');
+							ref.transaction((uniqueDays) => (uniqueDays || 0) + 1);
+						}
+					});
+
+					// myDB.set({latest_visit:d });
+					let ref = database.ref('users/' + auth.currentUser.uid + '/latest_visit');
+					ref.transaction((latest_visit) => (new_d));
+
+					if (!this.visitCounted) {
+						let ref = database.ref('users/' + auth.currentUser.uid + '/totalVisits');
+						ref.transaction((totalPlays) =>
+							(totalPlays || 0) + 1
+						);
+						this.visitCounted = true;
+					}
+
+				}
+				else {
+					// User is signed out.
+					// ...
+				}
+			});
+		}
 
 	}
 

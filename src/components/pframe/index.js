@@ -3,26 +3,31 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import { notify } from 'react-notify-toast';
 
-import style from './style';
 import { auth, database } from '../../firebase';
 
 import gamesList from '../../gamesList';
 
+
+import style from './style';
+
+
 export default class PFrame extends Component {
 
 
-	// onClick(e) {
-	// 	this.state.click = !this.state.click;
-	// 	this.setState(this.state);
-	// 	this.showToast('Click');
-	// 	//this.props.gameClick();
-	//
-	// }
+	onClick(e) {
+		this.state.click = !this.state.click;
+		this.setState(this.state);
+		//this.showToast('Click');
+		//this.props.gameClick();
+		//console.log(e);
+	}
 
 	onBlur(e) {
+		console.log(e);
+		//this.playGame();
+	}
+	onCancel(e) {
 
-		// this.showToast('Game Start Detected');
-		this.playGame();
 	}
 
 	// onHover(e) {
@@ -83,12 +88,12 @@ export default class PFrame extends Component {
 	}
 
 	componentDidUnmount() {
-		// removeEventListener('click', this.onClick);
+		removeEventListener('click', this.onClick);
 		removeEventListener('blur', this.onBlur);
 		removeEventListener('mouseover', this.onHover);
 		removeEventListener('mouseout', this.onHoverExit);
 		removeEventListener('touchend', this.onCancel);
-		// removeEventListener('touchstart', this.onClick);
+		removeEventListener('touchstart', this.onClick);
 		removeEventListener('touchcancel', this.onCancel);
 	}
 
@@ -105,8 +110,8 @@ export default class PFrame extends Component {
 		this.onBlur = this.onBlur.bind(this);
 		// this.onHover = this.onHover.bind(this);
 		// this.onHoverExit = this.onHoverExit.bind(this);
-		// this.onClick = this.onClick.bind(this);
-		// this.onCancel = this.onCancel.bind(this);
+		this.onClick = this.onClick.bind(this);
+		this.onCancel = this.onCancel.bind(this);
 		this.playGame = this.playGame.bind(this);
 
 	}
@@ -130,9 +135,7 @@ export default class PFrame extends Component {
 			if (user) {
 				// User is signed in.
 				let name = gamesList[this.props.game_id].name;
-				let p = 'users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played';
-
-				let playsRef = database.ref(p);
+				let playsRef =  database.ref('users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played');
 
 				playsRef.on('value', snapshot => {
 					this.setState({ currentPlays: snapshot.val(), gameName: name });
@@ -146,12 +149,11 @@ export default class PFrame extends Component {
 	}
 
 
-	render(props,state) {
+	render(props) {
 
 		return (
 			<div>
-				<iframe {...props} class={style.framey} />
-				<div class={style.plays}> You have played {state.gameName} {state.currentPlays} Times</div>
+				<iframe {...props} />
 			</div>
 
 		);

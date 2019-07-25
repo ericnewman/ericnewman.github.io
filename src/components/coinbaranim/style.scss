@@ -12,10 +12,10 @@ $icon_size: 46px;
 
 .title {
   color: white;
-  font: Normal 16px/18px 'Orbitron', sans-serif;
-  left: 1px;
+  font: Bold 16px/18px 'Orbitron', sans-serif;
+  left: 5px;
   position: relative;
-  text-shadow: 1px 1px 1px #888, 1px 1px 1px #333, 1px 1px 5px black;
+  text-shadow: 1px 1px 1px white, 1px 1px 1px red, 1px 1px 5px black;
   top: -20px;
   z-index: 199999;
   text-align:left;
@@ -34,7 +34,7 @@ $icon_size: 46px;
   background: #006;
   display:block;
   height: 36px;
-  margin: 4px 0px;
+  margin: 12px 0;
   position: relative;
   top: 0px;
   z-index: 2;
@@ -43,7 +43,6 @@ $icon_size: 46px;
 }
 
 .coin {
-  font: Normal 16px/18px 'Orbitron', sans-serif;
   background-image: url("../../assets/img/nomedal.png");
   background-repeat: no-repeat;
   background-size: $icon_size $icon_size;
@@ -57,26 +56,29 @@ $icon_size: 46px;
   vertical-align: top;
   width: $icon_size;
   z-index: 199999;
-  right:0;
 }
 
 .brass {
   background-image: url("../../assets/img/brassmedal.png");
+  left: 80px;
 
 }
 .silver {
   background-image: url("../../assets/img/silvermedal.png");
+  left: 52%;
 }
 
 .gold {
   background-image: url("../../assets/img/goldmedal.png");
+  right: 0px;
 }
 
+.unearned {
+  opacity: .5;
+}
 .num {
   color: white;
-  font: Bold 16px/12px 'Roboto', sans-serif;
-  text-shadow: 1px 1px 1px #888, 1px 1px 1px #333, 1px 1px 5px black;
-
+  font: Bold 16px/14px 'Orbitron', sans-serif;
   padding-top: 15px;
 
 }

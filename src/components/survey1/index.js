@@ -14,7 +14,7 @@ export default class Survey1 extends Component {
 		setTimeout(() => {
 			document.getElementById('home').classList.remove('dim');
 			route(path);
-		}, 3000);
+		}, 2100);
 	}
 
 	onStarClick(nextValue, prevValue, name) {
@@ -34,21 +34,19 @@ export default class Survey1 extends Component {
 		);
 		this.props.saver(nextValue);
 		if (nextValue < 3) {
-			this.showToast('Your vote has been recorded.');
+			this.showToast('Awesome. You\'ve been heard.');
 			this.waitAndGo('/thanks');
 		}
 		else {
-			this.showToast('Your vote has been recorded. Let\'s begin our quest');
+			this.showToast('Awesome. You\'ve been heard. Let\'s get rolling');
 			this.waitAndGo('/quest');
 		}
 
 	}
 
 	showToast(msg) {
-		let color = { background: '#583', text: '#FFFFFF' };
+		let color = { background: '#FF008C', text: '#FFFFFF' };
 		let timeout = 2000;
-		// document.body.classList.add('mdc-theme--dark');
-		// document.body.classList.remove('mdc-theme--dark');
 		document.getElementById('home').classList.add('dim');
 		notify.show(msg,
 			'custom',
@@ -134,14 +132,15 @@ export default class Survey1 extends Component {
 					emptyStarColor={'#393'}
 					starColor={'#933'}
 					renderStarIcon={(index, value) => {
+
 						if (index === value) {
 							return (
-								<span class={`${style.vote} ${style.YES}`}>{index}</span>
+								<span class={`${style.vote} btn${index} ${style.YES} `}><span class={style.num}>{index}</span></span>
 							);
 						}
 
 						return (
-							<span className={`${style.vote} ${style.NO}`}>{index}</span>
+							<span className={`${style.vote} btn${index} ${style.NO}`}><span class={style.num}>{index}</span></span>
 						);
 
 					}

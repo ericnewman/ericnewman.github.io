@@ -1,8 +1,8 @@
 import { h, Component } from 'preact';
 import 'preact-material-components/Card/style.css';
 import Button from 'preact-material-components/Button';
-import style from './style';
 import { route } from 'preact-router';
+import style from './style';
 
 export default class Dark extends Component {
 
@@ -18,9 +18,9 @@ export default class Dark extends Component {
 
 
 		return (
-			<div class={`${style.home}`}>
+			<div class={style.home}>
 				<div class={style.hint}>
-					<Button onClick={() => this.goHome()} >
+					<Button class={style.darkbutton} onClick={() => this.goHome()} >
 						FSD
 					</Button>
 				</div>

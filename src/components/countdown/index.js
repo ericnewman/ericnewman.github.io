@@ -59,7 +59,7 @@ export default class CountDown extends Component {
 
 		this.timer = setInterval(() => {
 			this.setState({ progress: (this.state.progress + 1) % 100 });
-		}, 200);
+		}, 20000); //200
 	}
 	componentWillUnmount() {
 		// stop when not renderable

@@ -4,45 +4,37 @@ $icon_size: 40px;
 	padding: 4px 0px !important;
 	margin-top:0px;
 	width: 100%;
-	height:70px;
+	height:78px;
 	position:absolute;
 	bottom:0;
-	background:#ccc;
 	max-width: 500px;
+	background:black;
 }
-.mdc-button--raised {
-	padding:1px;
+.playsc {
+	background:white;
+	font:  bold 20px/24px Comfortaa, sans-serif;
+	color:#000;
 }
-.mdc-layout-grid {
-	padding:0px;
-}
-.cent {
-	margin:10px auto;
-	text-align: center;
+.lefty {
+	text-align:left;
+	position:relative;
+	width: 100px;
+	left:10px;
+	top:-8px;
+	font:  bold 20px/24px Comfortaa, sans-serif;
+
 }
 
-button  {
-	color: white ;
-
-}
-.green {
-	background:#519428 !important;
-	width: 120px;
-	line-height: 13px;
-}
-
-
-.bar {
-	display:block;
-	height: 36px;
-	margin: 8px auto;
+.bots {
+	display:inline-block;
 	position: relative;
-	top: 0px;
-	z-index: 2;
 	width:100%;
-	text-align:center;
+	text-align:left;
 }
-
+.buts {
+	display:inline-block;
+	margin:8px 30px 0px 30px ;
+}
 .vote {
 	background: #66aa66;
 

@@ -2,64 +2,90 @@ import { Component } from 'preact';
 import { route } from 'preact-router';
 
 import 'preact-material-components/Card/style.css';
-import 'preact-material-components/Button/style.css';
+//import 'preact-material-components/Button/style.css';
 
 import Button from 'preact-material-components/Button';
-
+import ParticleEffectButton from 'react-particle-effect-button';
 import style from './style';
 
 export default class Quest extends Component {
 
-	constructor(props) {
-		super(props);
+	_onToggle = () => {
+		if (this.state.animating) return;
 
-		this.state = {
-			finished1: false,
-			finished2: false
-		};
+		this.setState({
+			hidden: !this.state.hidden,
+			animating: true
+		});
 	}
 
+	_onAnimationComplete = () => {
+		this.setState({
+			animating: false
+		});
+		route('/dash/1');
+	}
 
 	render(props,state) {
 
-		return (
-			<div class={`${style.home} page`}>
-				<div>
-					<div><p /></div>
-					<div className={style.beta}>DRAFTCARDS</div>
-					<div class={style.smaller}>As a gamer, we're looking forward to having you join our quest as we explore the exciting new world of "Frictionless Gaming".</div>
-					<div><p /></div>
-					{!state.finished1 && <div>
-						<div className={style.smaller}>Together, you and thousands of other folks we've deputized, will
-							participate in an adventure to find the best games, and the most dedicated gamers.
-						</div>
-						<div className={style.smaller}>Each day of your 10-day quest, we'll send you a game to play, master, and review... Let us know what you thought, and compete against others to find the most avid gamers.</div>
-						<div><p /></div>
-						<div className={style.smaller}>In case you're busy, you can always come back a little later by SNOOZING, but only the best players will complete all the steps to master the challenge.</div>
-					</div>
-					}
-					{state.finished1 && <div>
-						<div className={style.smaller}>Get in as many plays as you can, and compete with fellow questers for bragging rights
-						</div>
-						<div className={style.smaller}>Snooze too much, or skip games, and you might not score!</div>
-						<div><p /></div>
-						<div className={style.smaller}>So limber up your game finger, and let the quest begin.</div>
-						<div className={style.cent}>
-							<Button raised ripple dense class={style.green}
-								onClick={() => this.setState({ finished1: true })}
-							>
-								Tell Me More
-							</Button>
-						</div>
+		const {
+			background,
+			text,
+			buttonStyles,
+			buttonOptions = {
+				color: '#EF7D15',
+				duration: 600,
+				easing: 'easeOutQuad',
+				speed: 0.2,
+				particlesAmountCoefficient: 10,
+				oscillationCoefficient: 80
+			}
+		} = this.props;
 
+		const {
+			hidden,
+			animating
+		} = this.state;
+
+		return (
+			<div className="home">
+				<div>
+					<div>
+						<div className="logo" >
+							<div className="urup" />
+							<div className="beta" />
+						</div>
 					</div>
-					}
-					<div className={style.cent}>
-						<Button  raised ripple dense class={style.green}
-							onClick={() => route('/dash/1')}
+					<div className="smaller left">Welcome to the u-R-Up beta.</div>
+					<div><p /></div>
+					<div>
+						<div className="smaller left">You're propmoted to the squad shaping the future of u-R-Up, which is all about finding fun new games.</div><br />
+						<div className="smaller left">For 10 days you'll find 1 ro 2 games per day when you unlock.</div><br />
+						<div className="smaller left">Play &amp; Rate them to build points and cred.</div><br />
+					</div>
+					<div className="cent">
+
+						<ParticleEffectButton
+							hidden={hidden}
+							onComplete={this._onAnimationComplete}
+							{...buttonOptions}
 						>
-							Quest Forth
-						</Button>
+							<button
+								style={{
+									background: '#EF7D15',
+									color: '#fff',
+									padding: '5px 22px',
+									border: '0',
+									borderRadius: 25,
+									cursor: 'pointer',
+									fontSize: '1.6em'
+								}}
+								onClick={this._onToggle}
+							>
+								let's rock
+							</button>
+						</ParticleEffectButton>
+
 					</div>
 				</div>
 			</div>

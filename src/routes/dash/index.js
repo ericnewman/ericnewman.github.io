@@ -3,23 +3,30 @@ import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
 import Countdown from '../../components/countdown';
 import Snooze from '../../components/snooze';
-
-import style from './style';
-import 'preact-material-components/Card/style.css';
-
-import gamesList from '../../gamesList';
 import Button from 'preact-material-components/Button';
 
+import gamesList from '../../gamesList';
+import { auth, database } from '../../firebase';
+
+import 'preact-material-components/Card/style.css';
+
+import style from './style';
 
 export default class Dash extends Component {
 
 
-	startSnooze() {
-		this.setState({ snooze: true });
+	startSnooze(time) {
+		this.setState({ snooze: true , snooze_time: time});
+		let playsRef = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
+		playsRef.transaction((totalPlays) =>
+			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			(totalPlays || 0) + 1
+		);
+
 	}
 
 	cancelSnooze() {
-		this.setState({ snooze: false, gameStarted: false, tooLate: false });
+		this.setState({ snooze: false, gameStarted: false, tooLate: false, snooze_time: 0 });
 	}
 
 	doGameStarted() {
@@ -34,6 +41,7 @@ export default class Dash extends Component {
 
 		this.state = {
 			snooze: false,
+			snooze_time:0,
 			gameStarted: false
 
 		};
@@ -46,15 +54,15 @@ export default class Dash extends Component {
 	render({ selectedGame }, state) {
 
 		const kTopBarHeight = 56;
-		const kFooterBarHeight = 100;
-		let hgt = (window.innerHeight - kTopBarHeight - kFooterBarHeight - 22);
+		const kFooterBarHeight = 60;
+		let hgt = (window.innerHeight - kTopBarHeight - kFooterBarHeight-22);
 		if (state.gameStarted) {
 			hgt += 32;
 		}
 		let url = gamesList[selectedGame].url;
 
 		return (
-			<div id="home" className={`${style.home} page`}>
+			<div id="home" class={style.dash}>
 				{!state.gameStarted &&  !state.snooze && <Countdown afterAction={this.timedOut} />}
 				<div>
 					{!state.tooLate && !state.snooze && <Pframe src={url}
@@ -72,7 +80,7 @@ export default class Dash extends Component {
 						<div class={style.smaller}>
 						Sorry friend, you snooze, you lose! Better luck next time...
 							<div className={style.cent}>
-								<Button  raised ripple dense class={style.green}
+								<Button  raised ripple dense class={style.rose}
 									onClick={() => this.cancelSnooze()}
 								>
 								Try Again...
@@ -83,7 +91,7 @@ export default class Dash extends Component {
 					{!state.tooLate && state.snooze && <div class={style.info}>
 						<Snooze />
 						<div className={style.cent}>
-							<Button  raised ripple dense class={style.green}
+							<Button  raised ripple dense class={style.rose}
 								onClick={() => this.cancelSnooze()}
 							>
 								Go Back
@@ -93,7 +101,7 @@ export default class Dash extends Component {
 					}
 
 					{!state.tooLate && <PFooter name={gamesList[selectedGame].name} showStars={state.gameStarted}
-						snoozer={this.startSnooze} game_id={selectedGame}
+						game_id={selectedGame} snoozer={this.startSnooze}
 					                   />}
 				</div>
 			</div>

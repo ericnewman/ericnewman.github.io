@@ -1,3 +1,4 @@
+@import url('//fonts.googleapis.com/css?family=Comfortaa');
 * {
 	box-sizing: border-box;
 }
@@ -7,16 +8,20 @@ html, body {
 	width: 100vw;
 	padding: 0;
 	margin: 0;
-	font-family: 'Helvetica Neue', arial, sans-serif;
+	font-family: 'Comfortaa', sans-serif;
 	font-weight: 400;
-	color: #444;
+	color: #FFF;
 	min-height: 640px;
+    background: rgb(2,0,36);
+    background: linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
+    background: -moz-linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
+    background: -webkit-linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
+    background: linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#663399",GradientType=1);
 
-	-webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
-/* fallback */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -54,7 +59,7 @@ header {
 .scoreBox {
   height:24px;
   width: 38px;
-  font: Bold 17px 'Orbitron', sans-serif;
+  font: Bold 17px 'Comfortaa', sans-serif;
     text-align:center;
     display:inline-block;
   padding:3px;
@@ -63,34 +68,16 @@ header {
   border:1px solid black;
   border-radius: 5px;
 }
-
-.mdc-theme--dark {
-	background-color: #333;
-	color: #fff;
-}
-
-.mdc-theme--dark .mdc-card {
-  color: #444;
-}
-
 #app .page {
   padding-top: 56px;
 }
 .mdc-top-app-bar {
-background: #B51C7E !important;
-}
+    background: #45196F !important;
+    width:100%;
 
-.mdc-theme--dark {
-    background: black;
 }
-/*.mdc-theme--dark .mdc-button {*/
-/*    color: white !important;;*/
-/*    font:  Bold 13px 'Orbitron', sans-serif;*/
-
-/*}*/
-.mdc-theme--dark .mdc-card {
-    color:white !important;;
-    background: #222 !important;
+.mdc-top-app-bar__title{
+    width:100%;
 
 }
 .mdc-card .grid {
@@ -99,30 +86,110 @@ background: #B51C7E !important;
 	border:1px solid #777;
 
 }
-
-.mdc-theme--dark .mdc-card .grid {
-    background: #14ABAD;
-    color:black !important;
-
-}
-.mdc-theme--dark .mdc-card .scoreBox {
-  background:white;
-  border:1px solid #888;
-  color:black;
-
-  }
-.mdc-theme--dark .mdc-typography--caption {
-	color:black;
-
-}
-.caption {
-	font:  Bold 12px 'Roboto', sans-serif;
-	color: #333;
-}
-.mdc-theme--dark .caption {
-	font:  Bold 16px 'Roboto', sans-serif;
-	color: #eee;
-}
 .dim {
     opacity: .4;
+}
+.home {
+    padding: 10px;
+    min-height: 100%;
+    width: 100%;
+    color: white;
+    border:1px solid #777;
+}
+
+.logo {
+    margin-top:50px;
+    width:100%;
+    text-align:center;
+}
+.urup {
+    background-image: url("../assets/img/logo.png");
+    background-repeat: no-repeat;
+    background-size: 70px 70px;
+    display: inline-block;
+    height: 70px;
+    width: 70px;
+}
+.smaller {
+    font:  bold 20px/24px Comfortaa, sans-serif;
+    text-align: center;
+    margin: 5px 5px;
+}
+.left {
+    text-align:left;
+}
+.beta {
+    background-image: url("../assets/img/beta.png");
+    background-repeat: no-repeat;
+    background-size: 63px 43px;
+    display: inline-block;
+    height: 63px;
+    width:63px;
+}
+.cent {
+    margin:20px auto;
+    text-align: center;
+}
+
+
+@keyframes shadow-pulse
+{
+    0% {
+        transform: scale(0.75);
+
+    }
+    100% {
+        transform: scale(1.3);
+    }
+
+}
+
+.btn1
+{
+    animation: shadow-pulse 1s infinite;
+    animation-delay:1s;
+
+}
+
+.btn2
+{
+    animation: shadow-pulse 1s infinite;
+    animation-delay:1.3s;
+
+}
+.btn3
+{
+    animation: shadow-pulse 1s infinite;
+    animation-delay:1.5s;
+
+}
+.btn4
+{
+    animation: shadow-pulse 1s infinite;
+    animation-delay:1.7s;
+
+}
+.btn5
+{
+    animation: shadow-pulse 1s infinite;
+    animation-delay:1.9s;
+
+}
+@media only screen and (max-width: 360px) {
+    .beta {
+        font:  bold 32px Comfortaa, sans-serif;
+    }
+    .smaller {
+        font:  bold 20px/24px Comfortaa, sans-serif;
+        margin: 5px 5px;
+    }
+    .shape {
+        font:  bolder 20px Comfortaa, sans-serif;
+        margin: 2px 24px 0;
+    }
+    .cent {
+        margin:10px auto;
+        text-align: center;
+    }
+
 }
