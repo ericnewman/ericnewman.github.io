@@ -1,0 +1,45 @@
+@import url('//fonts.googleapis.com/css?family=Orbitron');
+
+.cardHeader {
+  padding: 0px;
+}
+
+.newpage {
+  padding-top: 5px;
+}
+.ranks {
+  font:  Bold 12px 'Roboto', sans-serif;
+}
+.header {
+    padding:3px;
+}
+.game {
+  text-align:left;
+  display:inline-block;
+  width:85%;
+  font:  Bold 14px 'Orbitron', sans-serif;
+  height:22px;
+  margin-left:5px;
+
+}
+.player {
+  text-align:left;
+  display:inline-block;
+  width:32%;
+  height:22px;
+  font:  Bold 11px 'Orbitron', sans-serif;
+  line-height:18pt;
+  padding-top: 5px;
+  position:relative;
+  top:0px;
+  vertical-align: top;
+  .email {
+    font:  10px 'Roboto', sans-serif;
+    color:#eee;
+  }
+
+}
+.tplay {
+  width:50%;
+  display:inline-block;
+}

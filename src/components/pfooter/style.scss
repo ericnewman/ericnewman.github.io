@@ -15,84 +15,63 @@ $icon_size: 40px;
 	font:  bold 20px/24px Comfortaa, sans-serif;
 	color:#000;
 	padding: 0px 4px;
-}
-.lefty {
-	text-align:left;
-	position:relative;
-	width: 100px;
-	left:10px;
-	top:-8px;
-	font:  bold 21px/24px Comfortaa, sans-serif;
-
+	flex: none;
+	width:100%;
 }
 .rateIt {
 	text-align:left;
 	position:relative;
-	width: 100px;
-	left:10px;
-	top:3px;
+	margin: 5px auto;
 	font:  bold 21px/24px Comfortaa, sans-serif;
 
 }
 
-.bots {
-	display:inline-block;
-	position: relative;
-	width:100%;
-	text-align:left;
+.bots {	width:100%;
+	margin: 5px 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	flex-flow: row wrap;
 }
+.lefty {
+	width: 100px;
+	font:  bold 21px/24px Comfortaa, sans-serif;
+	margin: 5px auto;
+}
+
 .buts {
-	display:inline-block;
-	margin:7px 0px 0px 18px;;
+	margin:auto;
 }
-.orangeButton {
-	background: #EF7D16 !important;
-	display: inline-block;
+.bots button {
 	border-radius: 32px;
 	height: 32px;
 	color: white !important;
-	font:  bold 16px Comfortaa, sans-serif;
+	font:  bold 15px Comfortaa, sans-serif;
 	text-transform: lowercase;
-	margin-left:20px;
+	margin-left:5px;
+
+}
+.orangeButton {
+	background: #EF7D16 !important;
 
 }
 .dkBlueButton {
 	background: #073763 !important;
-	display: inline-block;
-	border-radius: 32px;
-	height: 32px;
-	color: white !important;
-	font:  bold 16px Comfortaa, sans-serif;
-	text-transform: lowercase;
-	margin-left:20px;
-
 }
 .yellowButton {
 	background: #FFB600 !important;
-	display: inline-block;
-	border-radius: 32px;
-	height: 32px;
-	color: white !important;
-	font:  bold 16px Comfortaa, sans-serif;
-	text-transform: lowercase;
-	margin-left:20px;
-
 }
 .pinkButton {
 	background: #FF008C !important;
-	display: inline-block;
-	border-radius: 32px;
-	height: 35px;
-	color: white !important;
-	font:  bold 12px Comfortaa, sans-serif;
-	text-transform: lowercase;
-	margin-left:20px;
 }
 
 .tiny {
 	color: #777;
 	font: Bold 10px 'Orbitron', sans-serif;
 	padding-top: 0px;
+	width: 100%;
+	text-align: center;
 }
 @media (max-width: 479px) {
 	.mdc-layout-grid {

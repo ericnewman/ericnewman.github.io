@@ -13,11 +13,6 @@ html, body {
 	color: #FFF;
 	min-height: 640px;
     background: rgb(2,0,36);
-    background: linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
-    background: -moz-linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
-    background: -webkit-linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
-    background: linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#663399",GradientType=1);
 
     -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -47,12 +42,18 @@ html, body {
 
 
 #app {
-	min-height: 640px;
     height:100vh;
+    width:100vh;
     max-width: 500px;
     margin: 0 auto;
+    background: linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
+    background: -moz-linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
+    background: -webkit-linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
+    background: linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#663399",GradientType=1);
+
 }
-#notification-wrapper {
+#notification-wrapper, .toast-notification {
     font: Bold 17px 'Comfortaa', sans-serif;
 
 }
@@ -72,6 +73,32 @@ header {
   border:1px solid black;
   border-radius: 5px;
 }
+
+
+.dark_blue{
+    background:#073763 !important;
+}
+.light_blue {
+    background: #007CE2 !important;
+}
+.pink {
+    background: #FF008C !important;
+}
+.yellow {
+    background: #FFB600 !important;
+    color:black !important;
+}
+.orange {
+    background: #EF7D16 !important;
+}
+.white {
+    background: #F7F7F7 !important;
+}
+.black {
+    background: #2A2A2A !important;
+
+}
+
 #app .page {
   padding-top: 56px;
 }
@@ -117,6 +144,11 @@ header {
 .smaller {
     font:  bold 20px/24px Comfortaa, sans-serif;
     text-align: center;
+    margin: 5px 5px;
+}
+.smallest {
+    font:  bold 10px/14px Comfortaa, sans-serif;
+    text-align: left;
     margin: 5px 5px;
 }
 .left {
@@ -191,6 +223,16 @@ header {
     animation: shadow-pulse 1s infinite;
     animation-delay:1.9s;
 
+}
+.toast-notification {
+    max-width: 180px;
+    display:block;
+    font:  bold 19px/25px Comfortaa, sans-serif;
+
+}
+.mdc-drawer--modal, .mdc-drawer-container {
+
+    left:inherit !important;
 }
 @media only screen and (max-width: 360px) {
     .beta {

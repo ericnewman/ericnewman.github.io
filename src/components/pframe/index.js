@@ -19,15 +19,12 @@ export default class PFrame extends Component {
 		//this.setState(this.state);
 		//this.showToast('Click');
 		//this.props.gameClick();
-		console.log('CLICK',e);
 	}
 
 	onBlur(e) {
-		console.log('BLUR', e);
 		this.playGame();
 	}
 	onCancel(e) {
-		console.log('CANCEL', e);
 	}
 
 	// onHover(e) {
@@ -100,7 +97,7 @@ export default class PFrame extends Component {
 	componentDidUnmount() {
 		this.removeListeners();
 	}
-		
+
 
 	constructor(props) {
 

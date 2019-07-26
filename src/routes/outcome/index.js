@@ -1,21 +1,39 @@
 import { Component } from 'preact';
 import { route } from 'preact-router';
+import Logo from '../../components/logo';
+import Button from 'preact-material-components/Button';
+
+import CoinBar from '../../components/coinbar';
+import { auth, database } from '../../firebase';
 
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 
-import Button from 'preact-material-components/Button';
+// 	10 games deliveries
+// 	100 to 300 to play
+// 	200 to Rate
+// 	Max score: 5000
+//
+// 	Health
+// -the number of snoozes left.
+// -start with 10
+//
+// 	Play Cred
+// -novice: 0 to 999
+// -intermediate: 1000 to 1999
+// -pro: 2000 to 2999
+// -elite: 3000 and up
 
-import style from './style';
-import CoinBar from '../../components/coinbar';
-import { auth, database } from '../../firebase';
+const number_of_game_deliveries = 10,
+	max_score =  5000,
+	rankings = ['Novice', 'Intermediate', 'Pro', 'Elite'];
 
 
 export default class Outcome extends Component {
 
 	componentWillMount() {
 
-		if (typeof window !== "undefined") {
+		if (typeof window !== 'undefined') {
 			auth.signInAnonymously().catch((error) => {
 				// Handle Errors here.
 				// let errorCode = error.code;
@@ -42,12 +60,13 @@ export default class Outcome extends Component {
 		super(props);
 
 		this.state = {
-			finished1: false,
-			finished2: false,
 			user: {
+				games_played: {},
+				latest_visit: 0,
 				totalVisits: 0,
 				totalPlays: 0,
-				totalSnoozes: 0,
+				score: 0,
+				snoozes: 0,
 				unique_day_count: 0
 			}
 		};
@@ -56,68 +75,49 @@ export default class Outcome extends Component {
 
 	render(props, state) {
 		let expectedDailyPVs = 2.0;
-		let campaignLength = 14.0;
-		let campprog = (campaignLength/state.user.unique_day_count).toFixed(2);;
+		let campaignLength = 10.0;
+		let campprog = (state.user.unique_day_count/campaignLength*100).toFixed(2);
+		let playprog = (state.user.totalPlays/campaignLength*100).toFixed(2);
 
-		let engagement = (state.user.totalVisits/expectedDailyPVs)/state.user.totalPlays;
-		let rank = (state.user.unique_day_count * expectedDailyPVs)/state.user.totalPlays;
+		let rank = parseInt(state.user.score/1000);
+		console.log(rankings[rank]);
 
 		return (
-			<div class={`${style.home} page`}>
-				<div>
-					<div><p /></div>
-					<div class={style.beta}>DRAFTCARDS</div>
-					<div class={style.smaller}>Thank you fearless adventurer.</div>
-					<div><p /></div>
-					{!state.finished1 && <div>
-						<div class={style.smaller}>We'll see you again soon for your next mission in THE QUEST.
-						</div>
-						<div className={style.smaller}>In the mean time, rest your thumbs, and be sure to take
-							nourishment.
-						</div>
-					</div>
-					}
-					{!state.finished1 && <div>
-						<div class={style.smaller}>Remember, you can save this app to your phone's home screen, and
+			<div class="home">
+				<Logo />
+				<div class="smaller">Thank you, fearless adventurer.
+					<p />
+					Remember, you can save this app to your phone's home screen, and
 							play whenever for additional missions and rewards.
-						</div>
-						<div class={style.cent}>
-							<Button raised ripple dense class={style.rose}
-								onClick={() => this.setState({ finished1: true })}
-							>
-								How'd I do?
-							</Button>
-						</div>
+					<div class="cent">
 
-					</div>
-					}
-					{state.finished1 && <div className={style.cent}>
+						<CoinBar title="Current Score" progress={state.user.score/max_score*100} score={state.user.score} color={'#FF0'}  />
+						<div class="smallest">Overall Campaign Progress (out of {campaignLength} days...)</div>
+						<CoinBar title="Campaign Progress" progress={campprog} score={state.user.unique_day_count} color={'#808'}  />
+						<div class="smallest">Overall Campaign Progress (out of {campaignLength} days...)</div>
+						<CoinBar title="Visits" progress={state.user.totalVisits} score={state.user.totalVisits} color={'#800'} />
+						<div class="smallest">Equivalent to PageViews</div>
+						<CoinBar title="Plays" progress={state.user.playprog} score={state.user.totalVisits}color={'#080'}  />
+						<div class="smallest">Measure of game starts</div>
+						<CoinBar title="Snoozes" progress={state.user.totalSnoozes} score={state.user.totalSnoozes} color={'#CC0'}  />
+						<div class="smallest">Number of Snoozes</div>
+						<p />
+						Ranking: {rankings[rank]}
+						<p />
+						<p />
 
-						<CoinBar title="Campaign Progress" progress={campprog*100} color={'#808'} percent/>
-						<div className={style.smallest}>Overall Campaign Progress</div>
-						<CoinBar title="Visits" progress={state.user.totalVisits} color={'#800'} />
-						<div class={style.smallest}>Equivalent to PageViews</div>
-						<CoinBar title="Plays" progress={state.user.totalPlays} color={'#080'}  />
-						<div className={style.smallest}>Measure of game starts</div>
-						<CoinBar title="Snoozes" progress={state.user.totalSnoozes} color={'#CC0'}  />
-						<div className={style.smallest}>Number of Snoozes</div>
-						<CoinBar title="Unique Days" progress={state.user.unique_day_count} color={'#38f'}  />
-						<div className={style.smallest}>Separate days visits occurred</div>
-						<CoinBar title="Engagement" progress={engagement} color={'#38f'} percent />
-						<div className={style.smallest}>Visits/Plays</div>
-						<CoinBar title="Ranking" progress={rank} color={'#0cc'}  />
-						<div className={style.smallest}>True Score</div>
-					</div>
-					}
-					<div className={style.cent}>
-						<Button raised ripple dense class={style.green}
+						{/*<CoinBar title="Unique Days" progress={state.user.unique_day_count} color={'#38f'}  />*/}
+						{/*<div class="smallest">Separate days visits occurred</div>*/}
+						{/*<CoinBar title="Ranking" progress={rank} color={'#0cc'}  />*/}
+						{/*<div class="smallest">True Score</div>*/}
+						<Button raised ripple dense class="yellow"
 							onClick={() => route('/dash/1')}
 						>
 							Play Again
 						</Button>
 					</div>
-
 				</div>
+
 			</div>
 		);
 	}

@@ -8,13 +8,15 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 import style from './style';
 
+const timeout = 2000;
+
 export default class Survey1 extends Component {
 
 	waitAndGo(path) {
 		setTimeout(() => {
 			document.getElementById('home').classList.remove('dim');
 			route(path);
-		}, 2100);
+		}, timeout + 500);
 	}
 
 	onStarClick(nextValue, prevValue, name) {
@@ -46,7 +48,6 @@ export default class Survey1 extends Component {
 
 	showToast(msg) {
 		let color = { background: '#FF008C', text: '#FFFFFF' };
-		let timeout = 2000;
 		document.getElementById('home').classList.add('dim');
 		notify.show(msg,
 			'custom',
@@ -140,7 +141,7 @@ export default class Survey1 extends Component {
 						}
 
 						return (
-							<span className={`${style.vote} btn${index} ${style.NO}`}><span class={style.num}>{index}</span></span>
+							<span class={`${style.vote} btn${index} ${style.NO}`}><span class={style.num}>{index}</span></span>
 						);
 
 					}

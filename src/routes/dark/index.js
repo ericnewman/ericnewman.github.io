@@ -18,7 +18,7 @@ export default class Dark extends Component {
 
 
 		return (
-			<div class={style.home}>
+			<div class={style.dark}>
 				<div class={style.hint}>
 					<Button class={style.darkbutton} onClick={() => this.goHome()} >
 						FSD

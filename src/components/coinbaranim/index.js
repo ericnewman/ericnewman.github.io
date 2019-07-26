@@ -117,12 +117,12 @@ export default class CoinBar extends Component {
 		return (
 			<div class={style.bar}>
 				<Progress
-					className={style.loader}
+					class={style.loader}
 					value={state.progress} height="32px" color={props.color}
 					onChange={this.onChange}
 					onComplete={this.onComplete}
 				/>
-				<div className={style.title}>
+				<div class={style.title}>
 					{props.title}
 				</div>
 				<Coin metal="brass" earned={props.earnedBrass} progress={props.brassPts} />

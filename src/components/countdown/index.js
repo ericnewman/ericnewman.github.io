@@ -35,9 +35,9 @@ export default class CountDown extends Component {
 				break;
 			case 1:
 			case 0:
-				this.props.message = 'Too Late, better luck next time.';
+				this.props.message = 'No fast-play bonus.';
 				if(this.props.changeBonus) {
-					this.props.changeBonus(0);
+					this.props.changeBonus(3);
 				}
 				break;
 		}

@@ -5,15 +5,16 @@ import { notify } from 'react-notify-toast';
 import Button from 'preact-material-components/Button';
 import ParticleEffectButton from 'react-particle-effect-button';
 
-import {  database } from '../../firebase';
+import { auth, database } from '../../firebase';
 import gamesList from '../../gamesList';
 
 import 'preact-material-components/Button/style.css';
 
 import style from './style';
 
-const  timeout = 3500;
+const  timeout = 2000;
 
+const k_rating_bonus = 200;
 
 export default class PFooter extends Component {
 
@@ -28,7 +29,6 @@ export default class PFooter extends Component {
 
 	doSnooze = (interval) => {
 		this.interval = interval;
-		let timeout=3000;
 
 		let color = { background: '#58F', text: '#FFFFFF' };
 		document.getElementById('home').classList.add('dim');
@@ -43,6 +43,12 @@ export default class PFooter extends Component {
 
 			route('/dark/' + (interval*3600));
 		}, timeout-500);
+
+		let ref = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
+		ref.transaction((totalSnooze) =>
+			(totalSnooze || 0) + 1
+		);
+
 	};
 
 
@@ -92,7 +98,7 @@ export default class PFooter extends Component {
 	waitAndNext() {
 		setTimeout(() => {
 			document.getElementById('home').classList.remove('dim');
-			this.setState({voted:true});
+			this.setState({ voted: true });
 		}, timeout-500);
 
 	}
@@ -109,15 +115,13 @@ export default class PFooter extends Component {
 	}
 
 	vote(nextValue) {
-		console.log("vote");
 
 		if (this.state.voted) {
 			return;
 		}
 		let name = gamesList[this.props.game_id].name;
 
-		let ref = database.ref('games/' + name + '/review_points');
-
+		let ref = database.ref('games/' + name + '/reviews');
 		ref.transaction(points  => ((points || 0) + nextValue));
 
 		ref = database.ref('games/'+ name + '/rating');
@@ -131,6 +135,11 @@ export default class PFooter extends Component {
 			return average;
 		}
 		);
+		ref = database.ref('users/' + auth.currentUser.uid + '/score');
+		ref.transaction((totalScore) =>
+			(totalScore || 0) + k_rating_bonus
+		);
+
 		this.showToast('Thanks for your review - you will be rewarded!');
 		this.waitAndNext();
 	}
@@ -161,7 +170,7 @@ export default class PFooter extends Component {
 			buttonStyles,
 			buttonOptions = {
 				color: '#007CE2',
-				duration: 600,
+				duration: 300,
 				easing: 'easeOutQuad',
 				speed: 0.2,
 				particlesAmountCoefficient: 20,
@@ -171,7 +180,7 @@ export default class PFooter extends Component {
 			},
 			buttonOptions2 = {
 				color: '#073763',
-				duration: 600,
+				duration: 300,
 				easing: 'easeOutQuad',
 				speed: 0.2,
 				particlesAmountCoefficient: 20,
@@ -195,8 +204,8 @@ export default class PFooter extends Component {
 			<div class={style.footer}>
 				<div class={style.playsc}>{props.gameMsg}</div>
 				{!props.showStars &&
-				<div class="bots">
-					<span class={style.lefty}>SNOOZE:</span>
+				<div class={style.bots}>
+					<div class={style.lefty}>SNOOZE:</div>
 					<div class={style.buts}>
 						<ParticleEffectButton
 							hidden={hidden}
@@ -211,7 +220,8 @@ export default class PFooter extends Component {
 									border: '0',
 									borderRadius: 25,
 									cursor: 'pointer',
-									fontSize: '1.4em'
+									fontSize: '1.4em',
+									flexGrow: 1
 								}}
 								onClick={this._onToggle}
 							>
@@ -243,8 +253,8 @@ export default class PFooter extends Component {
 				}
 
 				{props.showStars && !state.voted &&
-					<div class="bots" >
-						<span class={style.rateIt}>RATE IT</span>
+					<div class={style.bots} >
+						<div class={style.rateIt}>RATE IT</div>
 						<div class={style.buts}>
 							<Button class={style.orangeButton} onClick={() => this.vote(1)} >
 							MEH
@@ -260,9 +270,9 @@ export default class PFooter extends Component {
 					</div>
 				}
 				{state.voted &&
-				<div class="bots">
-					<span className={style.rateIt}>NEXT</span>
-					<div className={style.buts}>
+				<div class={style.bots}>
+					<span class={style.rateIt}>NEXT</span>
+					<div class={style.buts}>
 						<Button class={style.dkBlueButton} onClick={() => this.close()}>
 							close
 						</Button>
@@ -270,7 +280,7 @@ export default class PFooter extends Component {
 							medals
 						</Button>
 						<Button class={style.pinkButton} onClick={() => this.more()}>
-							More Games
+							more games
 						</Button>
 					</div>
 				</div>

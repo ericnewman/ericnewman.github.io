@@ -1,10 +1,8 @@
 import { Component } from 'preact';
 import { route } from 'preact-router';
+import Logo from '../../components/logo';
 
 import 'preact-material-components/Card/style.css';
-//import 'preact-material-components/Button/style.css';
-
-import Button from 'preact-material-components/Button';
 import ParticleEffectButton from 'react-particle-effect-button';
 import style from './style';
 
@@ -48,22 +46,17 @@ export default class Quest extends Component {
 		} = this.state;
 
 		return (
-			<div className="home">
+			<div class="home">
 				<div>
-					<div>
-						<div className="logo" >
-							<div className="urup" />
-							<div className="beta" />
-						</div>
-					</div>
-					<div className="smaller left">Welcome to the u-R-Up beta.</div>
+					<Logo />
+					<div class="smaller left">Welcome to the u-R-Up beta.</div>
 					<div><p /></div>
 					<div>
-						<div className="smaller left">You're propmoted to the squad shaping the future of u-R-Up, which is all about finding fun new games.</div><br />
-						<div className="smaller left">For 10 days you'll find 1 ro 2 games per day when you unlock.</div><br />
-						<div className="smaller left">Play &amp; Rate them to build points and cred.</div><br />
+						<div class="smaller left">You're propmoted to the squad shaping the future of u-R-Up, which is all about finding fun new games.</div><br />
+						<div class="smaller left">For 10 days you'll find 1 ro 2 games per day when you unlock.</div><br />
+						<div class="smaller left">Play &amp; Rate them to build points and cred.</div><br />
 					</div>
-					<div className="cent">
+					<div class="cent">
 
 						<ParticleEffectButton
 							hidden={hidden}

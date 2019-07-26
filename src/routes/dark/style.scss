@@ -1,13 +1,15 @@
-.home {
-	min-height: 100%;
-	min-width: 100%;
+.dark {
+	height: 100%;
+	width: 100%;
     background:black;
-  position: absolute;
-  z-index: 10;
+    z-index: 10;
+    max-width: 500px;
 }
 
 .hint {
   color:#336 !important;
+  background :#000000;
+
 min-height: 100%;
 min-width: 100%;
   left:50vw;
@@ -18,8 +20,5 @@ min-width: 100%;
     background:#222;
 }
 .darkbutton {
-  color:#33c !important;
-}
-header {
-  display:none;
+  color:#34F !important;
 }

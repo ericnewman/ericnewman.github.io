@@ -1,0 +1,41 @@
+.home {
+}
+.main {
+  padding:5px;
+  margin:5px;
+}
+.footer {
+  padding: 4px 0px !important;
+  margin-top:5px;
+  width: 100%;
+  height:100px;
+  position:absolute;
+  bottom:0;
+  background:#000;
+  max-width: 500px;
+  button {
+    width:300px;
+  }
+}
+.mdc-button--raised {
+  padding:3px;
+}
+.mdc-button {
+  width: 300px;
+}
+.mdc-layout-grid {
+  padding:0px;
+
+}
+.butn {
+  text-align:center;
+}
+@media (max-width: 479px) {
+  .mdc-layout-grid {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 4px !important;;
+    padding: var(--mdc-layout-grid-margin-phone, 4px) !important;
+  }
+}

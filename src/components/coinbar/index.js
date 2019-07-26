@@ -6,26 +6,27 @@ import style from './style';
 
 
 const Coin = (props) => {
-	let stylex = '';
-
-	switch (props.metal) {
-		case 'brass':
-			stylex = style.brass;
-			break;
-		case 'silver':
-			stylex = style.silver;
-			break;
-		case 'gold':
-			stylex = style.gold;
-			break;
-	}
-
+	// let stylex = '';
+	//
+	// switch (props.metal) {
+	// 	case 'brass':
+	// 		stylex = style.brass;
+	// 		break;
+	// 	case 'silver':
+	// 		stylex = style.silver;
+	// 		break;
+	// 	case 'gold':
+	// 		stylex = style.gold;
+	// 		break;
+	// }
+	{/*<div className={`${style.coin} ${stylex}`}>*/}
+	{/*	{props.percent && <div className={style.num}>{props.progress}%</div>}*/}
+	{/*	{!props.percent && <div className={style.num}>{props.progress}</div>}*/}
+	{/*</div>*/}
 	return (
-
-		<div class={`${style.coin} ${stylex}`}>
-			<div class={style.num}>{props.progress}
-				{props.percent && '%'}
-			</div>
+		<div class={`${style.coin} ${style.gold}`}>
+			{props.percent && <div className={style.num}>{props.progress}%</div>}
+			{!props.percent && <div className={style.num}>{props.progress}</div>}
 		</div>
 	);
 };
@@ -34,7 +35,6 @@ export default class CoinBar extends Component {
 
 	recalcColors() {
 		let val = this.props.progress;
-		console.log(this.props);
 		if (val > 80) {
 			// this.props.color = '#0F0';
 			this.props.metal = 'gold';
@@ -77,7 +77,7 @@ export default class CoinBar extends Component {
 
 	componentWillMount() {
 		// stop when not renderable
-		this.setState(this.props);
+		//this.setState(this.props);
 
 	}
 
@@ -91,18 +91,23 @@ export default class CoinBar extends Component {
 
 
 	render(props, state) {
+		if(!props.maxValue) {
+			props.maxValue = 100;
+		}
+		let val = props.progress;
+
 		return (
 			<div class={style.bar}>
 				<Progress
-					className={style.loader}
-					value={state.progress} height="32px" color={props.color}
+					class={style.loader}
+					value={val} height="32px" color={props.color}
 					onChange={this.onChange}
 					onComplete={this.onComplete}
 				/>
-				<div className={style.title}>
+				<div class={style.title}>
 					{props.title}
 				</div>
-				<Coin metal={props.metal} progress={props.progress} percent={props.percent} />
+				<Coin metal={props.metal} progress={props.score} percent={props.percent} />
 			</div>
 		);
 	}

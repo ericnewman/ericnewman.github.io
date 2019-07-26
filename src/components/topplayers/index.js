@@ -68,33 +68,33 @@ export default class TopPlayers extends Component {
 		return (
 			<div class={style.newpage}>
 				<Card>
-					<div className="caption">Top Players:</div>
+					<div class="caption">Top Players:</div>
 					<div class={style.cardBody}>
-						<div className="grid">
-							<div className={style.ranks}>The current top players are as follows:</div>
+						<div class="grid">
+							<div class={style.ranks}>The current top players are as follows:</div>
 							<div>
 								{
 
 									people.map((name, index) => (
 										name.email !== '' &&
 									<div>
-										<span className={style.player}>{name.username}</span>
-										<span className={`${style.ach} ${style.green}`}>
+										<span class={style.player}>{name.username}</span>
+										<span class={`${style.ach} ${style.green}`}>
 											{name.achievements && name.achievements.green > 0 && <span>{name.achievements.green}</span>}
 										</span>
-										<span className={`${style.ach} ${style.red}`}>
+										<span class={`${style.ach} ${style.red}`}>
 											{name.achievements && name.achievements.red > 0 && <span>{name.achievements.red}</span>}
 										</span>
-										<span className={`${style.ach} ${style.blue}`}>
+										<span class={`${style.ach} ${style.blue}`}>
 											{name.achievements && name.achievements.blue > 0 && <span>{name.achievements.blue}</span>}
 										</span>
-										<span className={`${style.ach} ${style.silver}`}>
+										<span class={`${style.ach} ${style.silver}`}>
 											{name.achievements && name.achievements.silver > 0 && <span>{name.achievements.silver}</span>}
 										</span>
-										<span className={`${style.ach} ${style.gold}`}>
+										<span class={`${style.ach} ${style.gold}`}>
 											{name.achievements && name.achievements.gold > 0 && <span>{name.achievements.gold}</span>}
 										</span>
-										<span className={`${style.ach} ${style.magic}`}>
+										<span class={`${style.ach} ${style.magic}`}>
 											{name.achievements && name.achievements.magic > 0 && <span>{name.achievements.magic}</span>}
 										</span>
 									</div>

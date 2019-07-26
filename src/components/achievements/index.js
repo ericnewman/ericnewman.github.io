@@ -65,9 +65,9 @@ export default class Achievements extends Component {
 		return (
 			<div class={style.newpage}>
 				<Card>
-					<div className="caption">Achievements:</div>
+					<div class="caption">Achievements:</div>
 					<div class={style.cardBody}>
-						<div className="grid">
+						<div class="grid">
 							<div class={style.ranks}>You have a total of {this.state.total_achievements} achievements.
 							</div>
 							<div class={style.bgroup}>
@@ -80,7 +80,7 @@ export default class Achievements extends Component {
 								<span class={`${style.achievement}	${style.gold}`}>{achs.gold}</span>
 								<span class={`${style.achievement}	${style.magic}`}>{achs.magic}</span>
 							</div>
-							<div className={style.ranks}>Add an achievement</div>
+							<div class={style.ranks}>Add an achievement</div>
 							<div class={style.bgroup}>
 								<Button raised ripple onClick={() => this.bumpAchievement('red')}>Add Red</Button>
 								<Button raised ripple onClick={() => this.bumpAchievement('green')}>Add Green</Button>

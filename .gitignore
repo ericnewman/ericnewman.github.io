@@ -65,3 +65,5 @@ yarn.lock
 package-lock.json
 .idea/*
 build/*
+.idea/workspace.xml
+build/*/*

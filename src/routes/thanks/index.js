@@ -69,18 +69,18 @@ export default class Thanks extends Component {
 		} = this.state;
 
 		return (
-			<div className="home">
+			<div class="home">
 				<div>
 					<div>
-						<div className="logo" >
-							<div className="urup" />
-							<div className="beta" />
+						<div class="logo" >
+							<div class="urup" />
+							<div class="beta" />
 						</div>
 					</div>
-					<div className="smaller left">Gotcha. Looks like you might not be interested in checking out
+					<div class="smaller left">Gotcha. Looks like you might not be interested in checking out
 						our fun new game around discovering new games... but we might be wrong.</div>
 					<div><p /></div>
-					<div className="cent">
+					<div class="cent">
 
 						<ParticleEffectButton
 							hidden={hidden}
@@ -103,7 +103,7 @@ export default class Thanks extends Component {
 							</button>
 						</ParticleEffectButton>
 					</div>
-					<div className="cent">
+					<div class="cent">
 						<ParticleEffectButton
 							hidden={hidden2}
 							onComplete={this._onAnimationComplete2}

@@ -1,5 +1,4 @@
 import { Component } from 'preact';
-import Snooze from '../../components/snooze';
 
 import GamesCarousel from '../../components/gamescarousel';
 
@@ -52,7 +51,6 @@ export default class Home extends Component {
 				<CoinBar title="HUSTLE" progress={50} />
 				<CoinBar title="SNOOZE" progress={40} />
 				<CoinBar title="FLOW" progress={30} />
-				{<Snooze />}
 			</div>
 		);
 	}

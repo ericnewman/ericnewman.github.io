@@ -2,7 +2,6 @@ import { Component } from 'preact';
 import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
 import Countdown from '../../components/countdown';
-import Snooze from '../../components/snooze';
 import Button from 'preact-material-components/Button';
 
 import gamesList from '../../gamesList';
@@ -16,7 +15,7 @@ export default class Dash extends Component {
 
 
 	startSnooze(time) {
-		this.setState({ snooze: true , snooze_time: time});
+		this.setState({ snooze: true , snooze_time: time });
 		let playsRef = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
 		playsRef.transaction((totalPlays) =>
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
@@ -24,16 +23,22 @@ export default class Dash extends Component {
 		);
 	}
 	changeBonus(index) {
-		if(index !== this.state.bonusIndex) {
+		if (index !== this.state.bonusIndex) {
 			this.setState({ bonusIndex: index });
 		}
 	}
 	cancelSnooze() {
-		this.setState({ snooze: false, gameStarted: false, tooLate: false, snooze_time: 0});
+		this.setState({ snooze: false, gameStarted: false, tooLate: false, snooze_time: 0 });
 	}
 
 	doGameStarted() {
-		this.setState({ gameStarted: true, playMsg: 'Rate this game and be heard!' , bonusIndex:0 });
+		this.setState({ gameStarted: true, playMsg: 'Rate this game and be heard!' , bonusIndex: 0 });
+		let playsRef = database.ref('users/' + auth.currentUser.uid + '/score');
+		playsRef.transaction((totalScore) =>
+			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			(totalScore || 0) + this.bonusPts[this.state.bonusIndex]
+		);
+
 	}
 	timedOut() {
 		this.setState({ tooLate: true });
@@ -42,14 +47,15 @@ export default class Dash extends Component {
 	constructor(props) {
 		super(props);
 
+		this.bonusPts = [0,300,200,100];
+
 		this.state = {
 			snooze: false,
-			snooze_time:0,
+			snooze_time: 0,
 			gameStarted: false,
 			playMsg: 'Tap to Play now!',
-			bonusIndex:0,
-			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn'],
-			bonusPts: [0,300,200,100]
+			bonusIndex: 0,
+			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn']
 		};
 
 		this.startSnooze = this.startSnooze.bind(this);
@@ -70,53 +76,30 @@ export default class Dash extends Component {
 
 		return (
 			<div id="home" class={style.dash}>
-				{!state.gameStarted &&  !state.snooze && <Countdown afterAction={this.timedOut} changeBonus={this.changeBonus}/>}
+				{!state.gameStarted && <Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} />}
 				<div>
-					{!state.tooLate && !state.snooze && <Pframe src={url}
+					 <Pframe src={url}
 						width="100%"
 						height={hgt}
 						name="gameFrame"
 						id="gameFrame"
+						scrolling="no"
 						class={style.framey}
 						display="initial"
 						position="relative"
 						game_id={selectedGame}
 						doGameStarted={this.doGameStarted}
-					                                    />}
-					{state.tooLate && <div class={style.info}>
-						<div class={style.smaller}>
-						Sorry friend, you snooze, you lose! Better luck next time...
-							<div className={style.cent}>
-								<Button  raised ripple dense class={style.rose}
-									onClick={() => this.cancelSnooze()}
-								>
-								Try Again...
-								</Button>
-							</div>
-						</div>
-					</div>}
-					{!state.tooLate && state.snooze && <div class={style.info}>
-						<Snooze />
-						<div className={style.cent}>
-							<Button  raised ripple dense class={style.rose}
-								onClick={() => this.cancelSnooze()}
-							>
-								Go Back
-							</Button>
-						</div>
-					</div>
-					}
-					{!state.tooLate &&
+					 />
+					{!state.tooLate && !state.gameStarted &&
 						state.bonusIndex > 0 &&
-							<div className={`${style.bonusMsg} btn1}`}>{state.bonusMsg[state.bonusIndex]} <span class={style.bonusPts}>{state.bonusPts[state.bonusIndex]}</span> Points</div>}
-					{!state.tooLate &&
+							<div class={`${style.bonusMsg} btn1}`}>{state.bonusMsg[state.bonusIndex]} <span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span> Points</div>}
 					<PFooter name={gamesList[selectedGame].name}
-							 showStars={state.gameStarted}
-							 game_id={selectedGame}
-							 snoozer={this.startSnooze}
-							 gameClick={this.doGameStarted}
-							 gameMsg={state.playMsg}
-					                   />}
+						showStars={state.gameStarted}
+						game_id={selectedGame}
+						snoozer={this.startSnooze}
+						gameClick={this.doGameStarted}
+						gameMsg={state.playMsg}
+					/>
 				</div>
 			</div>
 

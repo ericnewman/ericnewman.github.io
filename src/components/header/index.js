@@ -32,11 +32,6 @@ export default class Header extends Component {
 	};
 
 	goHome = this.linkTo('/');
-	goToMyProfile = this.linkTo('/profile');
-	goToSignUp = this.linkTo('/signup');
-	goToSignIn = this.linkTo('/signin');
-	goToSignOut = this.linkTo('/signout');
-	goToBoards = this.linkTo('/boards');
 	goToDash1 = this.linkTo('/dash/1');
 	goToDash2 = this.linkTo('/dash/2');
 	goToDash3 = this.linkTo('/dash/3');
@@ -44,16 +39,18 @@ export default class Header extends Component {
 	goToDash5 = this.linkTo('/dash/5');
 	goToDash6= this.linkTo('/dash/6');
 	goToDash7 = this.linkTo('/dash/7');
-	goToAlmostHere = this.linkTo('/almosthere');
+	goToOutcome = this.linkTo('/outcome');
 	goToStep1 = this.linkTo('/step1');
-	goToCat = this.linkTo('/cat');
 
 
 	render(props) {
+		if(!props.selectedRoute) {
+			props.selectedRoute = '/';
+		}
 
 		return (
 			<div>
-				<TopAppBar className="topappbar">
+				<TopAppBar class="topappbar">
 					<TopAppBar.Row>
 						<TopAppBar.Section align-start>
 							<TopAppBar.Icon menu onClick={this.openDrawer}>
@@ -76,9 +73,9 @@ export default class Header extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Day 1 - Onboarding
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/almosthere'} onClick={this.goToAlmostHere}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/outcome'} onClick={this.goToOutcome}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Alternate On Board
+							Standings
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash1}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
@@ -100,26 +97,6 @@ export default class Header extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							FSD 5
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/cat'} onClick={this.goToCat}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Catalog
-						</Drawer.DrawerItem>
-						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/profile'} onClick={this.goToMyProfile}>*/}
-						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}
-						{/*	Profile*/}
-						{/*</Drawer.DrawerItem>*/}
-						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/signin'} onClick={this.goToSignIn}>*/}
-						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}
-						{/*	Sign-In*/}
-						{/*</Drawer.DrawerItem>*/}
-						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/boards'} onClick={this.goToBoards}>*/}
-						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}
-						{/*	Leaderboard*/}
-						{/*</Drawer.DrawerItem>*/}
-						{/*<Drawer.DrawerItem selected={props.selectedRoute === '/signout'} onClick={this.goToSignOut}>*/}
-						{/*	<List.ItemGraphic>account_circle</List.ItemGraphic>*/}
-						{/*	Sign-Out*/}
-						{/*</Drawer.DrawerItem>*/}
 					</Drawer.DrawerContent>
 				</Drawer>
 				{/*<Dialog ref={this.dialogRef}>*/}
