@@ -80,7 +80,6 @@ export default class Outcome extends Component {
 		let playprog = (state.user.totalPlays/campaignLength*100).toFixed(2);
 
 		let rank = parseInt(state.user.score/1000);
-		console.log(rankings[rank]);
 
 		return (
 			<div class="home">

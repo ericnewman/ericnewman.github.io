@@ -13,8 +13,16 @@ import style from './style';
 
 export default class Dash extends Component {
 
+	preSnooze() {
+		this.setState({
+			tooLate: true,
+			bonusIndex: 0
+		});
+	}
+
 
 	startSnooze(time) {
+		this.changeBonus(0);
 		this.setState({ snooze: true , snooze_time: time });
 		let playsRef = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
 		playsRef.transaction((totalPlays) =>
@@ -62,15 +70,17 @@ export default class Dash extends Component {
 		this.doGameStarted = this.doGameStarted.bind(this);
 		this.timedOut = this.timedOut.bind(this);
 		this.changeBonus = this.changeBonus.bind(this);
+		this.preSnooze = this.preSnooze.bind(this);
 	}
 
 	render({ selectedGame }, state) {
 
 		const kTopBarHeight = 56;
-		const kFooterBarHeight = 60;
-		let hgt = (window.innerHeight - kTopBarHeight - kFooterBarHeight-75);
+		const kFooterBarHeight = 68;
+		const kCountDownBarHeight = 30;
+		let hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
 		if (state.gameStarted) {
-			hgt += 32;
+			hgt += kCountDownBarHeight;
 		}
 		let url = gamesList[selectedGame].url;
 
@@ -99,6 +109,7 @@ export default class Dash extends Component {
 						snoozer={this.startSnooze}
 						gameClick={this.doGameStarted}
 						gameMsg={state.playMsg}
+						preSnooze={this.preSnooze}
 					/>
 				</div>
 			</div>

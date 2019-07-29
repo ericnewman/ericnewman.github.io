@@ -12,7 +12,7 @@ import 'preact-material-components/Button/style.css';
 
 import style from './style';
 
-const  timeout = 2000;
+const  timeout = 1800;
 
 const k_rating_bonus = 200;
 
@@ -39,8 +39,9 @@ export default class PFooter extends Component {
 			color);
 
 		setTimeout(() => {
-			document.getElementById('home').classList.remove('dim');
-
+			if(document.getElementById('home')) {
+				document.getElementById('home').classList.remove('dim');
+			}
 			route('/dark/' + (interval*3600));
 		}, timeout-500);
 
@@ -53,6 +54,9 @@ export default class PFooter extends Component {
 
 
 	_onToggle = () => {
+		if (this.props.preSnooze) {
+			this.props.preSnooze();
+		}
 		if (this.state.animating) return;
 
 		this.setState({
@@ -61,6 +65,10 @@ export default class PFooter extends Component {
 		});
 	}
 	_onToggle2 = () => {
+		if (this.props.preSnooze) {
+			this.props.preSnooze();
+		}
+
 		if (this.state.animating2) return;
 
 		this.setState({
@@ -87,7 +95,11 @@ export default class PFooter extends Component {
 	showToast(msg) {
 		let color = { background: '#F83', text: '#FFFFFF' };
 		let timeout = timeout;
-		document.getElementById('home').classList.add('dim');
+		let d = document.getElementById('home');
+
+		if(d != null) {
+			d.classList.add('dim');
+		}
 
 		notify.show(msg,
 			'custom',
@@ -99,7 +111,7 @@ export default class PFooter extends Component {
 		setTimeout(() => {
 			document.getElementById('home').classList.remove('dim');
 			this.setState({ voted: true });
-		}, timeout-500);
+		}, timeout+100);
 
 	}
 	close() {
@@ -170,17 +182,17 @@ export default class PFooter extends Component {
 			buttonStyles,
 			buttonOptions = {
 				color: '#007CE2',
-				duration: 300,
-				easing: 'easeOutQuad',
-				speed: 0.2,
-				particlesAmountCoefficient: 20,
+				duration: 200,
+				easing: 'easeInOutQuad',
+				speed: 0.15,
+				particlesAmountCoefficient: 30,
 				oscillationCoefficient: 100,
 				direction: 'top',
 				type: 'triangle'
 			},
 			buttonOptions2 = {
 				color: '#073763',
-				duration: 300,
+				duration: 200,
 				easing: 'easeOutQuad',
 				speed: 0.2,
 				particlesAmountCoefficient: 20,

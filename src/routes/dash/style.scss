@@ -1,10 +1,17 @@
 $boxh: 100px;
-$boxw: 125px;
+$boxw: 135px;
 
+#app {
+  width: 100% !important;
+}
 .dash {
-  padding-top:56px;
+  top:0;
   background:black;
-
+  width:100%;
+  max-width: 500px;
+  margin: 0 auto;
+  height:100%;
+  vertical-align:bottom;
 }
 .info {
     height:250px;
@@ -24,7 +31,7 @@ $boxw: 125px;
   z-index:10000;
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  font: Bold 16px/20px 'Comfortaa', sans-serif;
+  font: Bold 16px 'Comfortaa', sans-serif;
   text-align:center;
   padding:10px;
   animation: pulse 4s infinite

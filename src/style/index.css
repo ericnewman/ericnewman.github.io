@@ -4,14 +4,13 @@
 }
 
 html, body {
-	height: 100vh;
-	width: 100vw;
+    width:100%;
+    height:100%;
 	padding: 0;
 	margin: 0;
 	font-family: 'Comfortaa', sans-serif;
 	font-weight: 400;
 	color: #FFF;
-	min-height: 640px;
     background: rgb(2,0,36);
 
     -webkit-font-smoothing: antialiased;
@@ -42,10 +41,9 @@ html, body {
 
 
 #app {
-    height:100vh;
-    width:100vh;
-    max-width: 500px;
     margin: 0 auto;
+    text-align:center;
+
     background: linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
     background: -moz-linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
     background: -webkit-linear-gradient(356deg, rgba(2,0,36,1) 0%, rgba(102,51,153,1) 93%);
@@ -59,21 +57,11 @@ html, body {
 }
 header {
     max-width: 500px;
-
-}
-.scoreBox {
-  height:24px;
-  width: 38px;
-  font: Bold 17px 'Comfortaa', sans-serif;
+    width:100%;
+    margin: 0 auto;
     text-align:center;
-    display:inline-block;
-  padding:3px;
-  margin:3px;
-  background:white;
-  border:1px solid black;
-  border-radius: 5px;
-}
 
+}
 
 .dark_blue{
     background:#073763 !important;
@@ -105,6 +93,7 @@ header {
 .mdc-top-app-bar {
     background: #45196F !important;
     width:100%;
+    position:relative !important;
 
 }
 .mdc-top-app-bar__title{
@@ -118,10 +107,10 @@ header {
 
 }
 .dim {
-    opacity: .4;
+    opacity: .3;
 }
 .home {
-    padding: 10px;
+    padding: 5px;
     min-height: 100%;
     width: 100%;
     color: white;
@@ -250,5 +239,8 @@ header {
         margin:10px auto;
         text-align: center;
     }
-
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
 }
