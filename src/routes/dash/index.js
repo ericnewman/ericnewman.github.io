@@ -22,8 +22,6 @@ export default class Dash extends Component {
 
 
 	startSnooze(time) {
-		console.log('snoozing');
-
 		this.setState({ snooze: true , snooze_time: time });
 		this.changeBonus(0);
 		let playsRef = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');

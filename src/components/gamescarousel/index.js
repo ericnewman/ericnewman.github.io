@@ -86,7 +86,7 @@ export default class GamesCarousel extends Component {
 	clickItem(index, element) {
 		if (!this.props.clickable) {
 			return;
-		}
+	}
 
 
 		let foo = {
@@ -176,7 +176,8 @@ export default class GamesCarousel extends Component {
 				</div>
 
 				}
-				{!hasFave && <div class={style.space}><Carousel height="90px"
+				{!hasFave &&
+				<div class={style.space}><Carousel height="90px"
 					transitionTime={750}
 					centerMode
 					centerSlidePercentage={40}
@@ -185,39 +186,15 @@ export default class GamesCarousel extends Component {
 					autoPlay
 					showThumbs={false}
 					onClickItem={(index, element) => this.clickItem(index, element)}
-				                                      >
-					<div>
-						<img src={gamesList[0].image} alt={gamesList[0].name} />
-						<p class="legend">{gamesList[0].name}</p>
-					</div>
-					<div>
-						<img src={gamesList[1].image} alt={gamesList[1].name} />
-						<p class="legend">{gamesList[1].name}</p>
-					</div>
-					<div>
-						<img src={gamesList[2].image} alt={gamesList[2].name} />
-						<p class="legend">{gamesList[2].name}</p>
-					</div>
-					<div>
-						<img src={gamesList[3].image} alt={gamesList[3].name} />
-						<p class="legend">{gamesList[3].name}</p>
-					</div>
-					<div>
-						<img src={gamesList[4].image} alt={gamesList[4].name} />
-						<p class="legend">{gamesList[4].name}</p>
-					</div>
-					<div>
-						<img src={gamesList[5].image} alt={gamesList[5].name}/>
-						<p className="legend">{gamesList[5].name}</p>
-					</div>
-					<div>
-						<img src={gamesList[6].image} alt={gamesList[6].name}/>
-						<p className="legend">{gamesList[6].name}</p>
-					</div>
-					<div>
-						<img src={gamesList[7].image} alt={gamesList[7].name}/>
-						<p className="legend">{gamesList[7].name}</p>
-					</div>
+				>
+					{gamesList.map((aGame) => {
+
+						return <div>
+							<img src={aGame.image} alt={aGame.name}/>
+							<p class="legend">{aGame.name}</p>
+						</div>
+					})}
+
 				</Carousel> </div>}
 			</Card>
 		);

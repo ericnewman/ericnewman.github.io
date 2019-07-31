@@ -4,6 +4,10 @@ import Logo from '../../components/logo';
 import Button from 'preact-material-components/Button';
 
 import CoinBar from '../../components/coinbar';
+import ScoreBar from '../../components/scorebar';
+
+import style from './style';
+
 import { auth, database } from '../../firebase';
 
 import 'preact-material-components/Card/style.css';
@@ -26,7 +30,8 @@ import 'preact-material-components/Button/style.css';
 
 const number_of_game_deliveries = 10,
 	max_score =  5000,
-	rankings = ['Novice', 'Intermediate', 'Pro', 'Elite'];
+	max_snoozes = 10,
+	rankings = ['Novice', 'Intermediate', 'Pro', 'Elite', 'Elite+', 'Elite++'];
 
 
 export default class Outcome extends Component {
@@ -74,41 +79,67 @@ export default class Outcome extends Component {
 
 
 	render(props, state) {
-		let expectedDailyPVs = 2.0;
-		let campaignLength = 10.0;
-		let campprog = (state.user.unique_day_count/campaignLength*100).toFixed(2);
-		let playprog = (state.user.totalPlays/campaignLength*100).toFixed(2);
+		//let expectedDailyPVs = 1.0;
+		//let campaignLength = 10.0;
+		// let campprog = (state.user.unique_day_count/campaignLength*100).toFixed(2);
+		// let playprog = (state.user.totalPlays/campaignLength*100).toFixed(2);
 
-		let rank = parseInt(state.user.score/1000);
+		let score = (state.user.score <= max_score) ? state.user.score : max_score;
+		let rank = parseInt(score/1000);
+		let snoozes = (state.user.totalSnoozes <= max_snoozes) ? state.user.totalSnoozes : max_snoozes;
+
+		let snoozeMsg = (max_snoozes - snoozes) > 0 ? ' You\'ve only got ' + (max_snoozes - snoozes) + ' left.' :
+			' (You\'ve used them all up!)';
 
 		return (
 			<div class="home">
 				<Logo />
-				<div class="smaller">Thank you, fearless adventurer.
+				<div class={style.inner}>
+					<div class={style.rankTitle}>Discoverer Ranking:</div>
+					<div class={style.rank}>{rankings[rank]}</div>
+					<div class="smaller left">You're doing great. Only {max_score - score} points until you reach Elite status.</div>
 					<p />
-					Remember, you can save this app to your phone's home screen, and
-							play whenever for additional missions and rewards.
-					<div class="cent">
+					<ScoreBar progress={score/max_score*100}  color={'#FFB600'}  />
 
-						<CoinBar title="Current Score" progress={state.user.score/max_score*100} score={state.user.score} color={'#FF0'}  />
-						<div class="smallest">Overall Campaign Progress (out of {campaignLength} days...)</div>
-						<CoinBar title="Campaign Progress" progress={campprog} score={state.user.unique_day_count} color={'#C0C'}  />
-						<div class="smallest">Overall Campaign Progress (out of {campaignLength} days...)</div>
-						<CoinBar title="Visits" progress={state.user.totalVisits} score={state.user.totalVisits} color={'#C00'} />
-						<div class="smallest">Equivalent to PageViews</div>
-						<CoinBar title="Plays" progress={state.user.totalPlays} score={state.user.totalPlays} color={'#080'}  />
-						<div class="smallest">Measure of game starts</div>
-						<CoinBar title="Snoozes" progress={state.user.totalSnoozes} score={state.user.totalSnoozes} color={'#F70'}  />
-						<div class="smallest">Number of Snoozes</div>
+					{state.gameRankAvailable && <div>
+						<div class="small">Gamer Ranking:</div>
+						<div class={style.rank}>{gamerrank}</div>
 						<p />
-						Ranking: {rankings[rank]}
-						<p />
-						<p />
+					</div>
+					}
+					<div class={style.snoozeSec}>
+						<div class={style.snoozeIcon} />
+						<div class={style.headTxt}>
+							<div>
+								Snooze Bank<br />
+								<span class={style.snoozeScore}>{snoozes}</span>
+							</div>
+						</div>
+						<div className={style.label}>Remember! Use your Snoozes sparingly.
+							{snoozeMsg}
+						</div>
 
-						{/*<CoinBar title="Unique Days" progress={state.user.unique_day_count} color={'#38f'}  />*/}
-						{/*<div class="smallest">Separate days visits occurred</div>*/}
-						{/*<CoinBar title="Ranking" progress={rank} color={'#0cc'}  />*/}
-						{/*<div class="smallest">True Score</div>*/}
+					</div>
+					<ScoreBar progress={snoozes/max_snoozes*100} noscore color={'#007CE2'}  />
+
+					{/*	<CoinBar title="Current Score" progress={state.user.score/max_score*100} score={state.user.score} color={'#FF0'}  />*/}
+					{/*	<div class="smallest">Overall Campaign Progress (out of {campaignLength} days...)</div>*/}
+					{/*	<CoinBar title="Campaign Progress" progress={campprog} score={state.user.unique_day_count} color={'#C0C'}  />*/}
+					{/*	<div class="smallest">Overall Campaign Progress (out of {campaignLength} days...)</div>*/}
+					{/*	<CoinBar title="Visits" progress={state.user.totalVisits} score={state.user.totalVisits} color={'#C00'} />*/}
+					{/*	<div class="smallest">Equivalent to PageViews</div>*/}
+					{/*	<CoinBar title="Plays" progress={state.user.totalPlays} score={state.user.totalPlays} color={'#080'}  />*/}
+					{/*	<div class="smallest">Measure of game starts</div>*/}
+					{/*	<CoinBar title="Snoozes" progress={state.user.totalSnoozes} score={state.user.totalSnoozes} color={'#F70'}  />*/}
+					{/*	<div class="smallest">Number of Snoozes</div>*/}
+					{/*	<p />*/}
+
+					{/*<CoinBar title="Unique Days" progress={state.user.unique_day_count} color={'#38f'}  />*/}
+					{/*<div class="smallest">Separate days visits occurred</div>*/}
+					{/*<CoinBar title="Ranking" progress={rank} color={'#0cc'}  />*/}
+					{/*<div class="smallest">True Score</div>*/}
+					<div className={style.snoozeSec}>
+
 						<Button raised ripple dense class="yellow"
 							onClick={() => route('/dash/1')}
 						>
@@ -116,7 +147,6 @@ export default class Outcome extends Component {
 						</Button>
 					</div>
 				</div>
-
 			</div>
 		);
 	}

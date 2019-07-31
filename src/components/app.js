@@ -8,6 +8,7 @@ import Dark from '../routes/dark';
 import Step1 from '../routes/step1';
 import Quest from '../routes/quest';
 import Outcome from '../routes/outcome';
+import Metrics from '../routes/metrics';
 import Thanks from '../routes/thanks';``
 import NotFound from '../routes/404';
 import Notifications from 'react-notify-toast';
@@ -108,6 +109,7 @@ export default class App extends Component {
 					<Step1 path="/step1" />
 					<Quest path="/quest" />
 					<Outcome path="/outcome" />
+					<Metrics path="/metrics" />
 					<Thanks path="/thanks" />
 					<NotFound default />
 				</Router>

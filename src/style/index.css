@@ -158,7 +158,7 @@ header {
 }
 
 .smaller {
-    font: bold 20px/21px Comfortaa, sans-serif;
+    font: bold 20px/27px Comfortaa, sans-serif;
     text-align: center;
     margin: 5px 25px;
 }
@@ -198,7 +198,9 @@ header {
     margin: 20px auto;
     text-align: center;
 }
-
+.inline {
+    display:inline-block;
+}
 
 @keyframes shadow-pulse {
     0% {
@@ -312,7 +314,7 @@ header {
     }
 
     .smaller {
-        font: bold 18px Comfortaa, sans-serif;
+        font: bold 18px/20px Comfortaa, sans-serif;
         margin: 5px 15px;
     }
 
