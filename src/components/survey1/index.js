@@ -3,6 +3,7 @@ import Stars from 'react-star-rating-component';
 import { route } from 'preact-router';
 import { auth, database } from '../../firebase';
 import { notify } from 'react-notify-toast';
+import ReactGA from 'react-ga';
 
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
@@ -22,6 +23,13 @@ export default class Survey1 extends Component {
 	onStarClick(nextValue, prevValue, name) {
 
 		this.setState({ rating: nextValue });
+
+		ReactGA.event({
+			category: 'Survey',
+			action: 'User likes games ' + nextValue,
+			value: nextValue
+		});
+
 
 		let ref = database.ref('likesplay/vote_count');
 		ref.transaction((numberOfVotes) =>
@@ -47,12 +55,16 @@ export default class Survey1 extends Component {
 	}
 
 	showToast(msg) {
-		let color = { background: '#FF008C', text: '#FFFFFF' };
+		let color = { background: 'none', text: '#FFFFFF' };
 		document.getElementById('home').classList.add('dim');
+		document.getElementById('toastBox').classList.add('pinkBox');
 		notify.show(msg,
 			'custom',
 			timeout,
 			color);
+		setTimeout(() => {
+			document.getElementById('toastBox').classList.remove('pinkBox');
+		}, timeout + 300);
 
 	}
 

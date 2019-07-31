@@ -27,25 +27,9 @@ export default class PFrame extends Component {
 	onCancel(e) {
 	}
 
-	// onHover(e) {
-	// 	// this.showToast('Hover');
-	// 	// this.state.hovering = true;
-	// 	// this.setState(this.state);
-	// }
-	//
-	// onHoverExit(e) {
-	// 	// this.showToast('HoverExit');
-	// 	// this.state.hovering = false;
-	// 	// this.setState(this.state);
-	// }
-	//
-	// onCancel(e) {
-	// 	// this.showToast('onCancel');
-	// }
-
 	showToast(msg) {
 		let color = { background: '#EF7D16', text: '#FFFFFF' };
-		let timeout = 200000;
+		let timeout = 2000;
 
 		notify.show(msg,
 			'custom',

@@ -92,13 +92,13 @@ export default class Outcome extends Component {
 
 						<CoinBar title="Current Score" progress={state.user.score/max_score*100} score={state.user.score} color={'#FF0'}  />
 						<div class="smallest">Overall Campaign Progress (out of {campaignLength} days...)</div>
-						<CoinBar title="Campaign Progress" progress={campprog} score={state.user.unique_day_count} color={'#808'}  />
+						<CoinBar title="Campaign Progress" progress={campprog} score={state.user.unique_day_count} color={'#C0C'}  />
 						<div class="smallest">Overall Campaign Progress (out of {campaignLength} days...)</div>
-						<CoinBar title="Visits" progress={state.user.totalVisits} score={state.user.totalVisits} color={'#800'} />
+						<CoinBar title="Visits" progress={state.user.totalVisits} score={state.user.totalVisits} color={'#C00'} />
 						<div class="smallest">Equivalent to PageViews</div>
-						<CoinBar title="Plays" progress={state.user.playprog} score={state.user.totalVisits}color={'#080'}  />
+						<CoinBar title="Plays" progress={state.user.totalPlays} score={state.user.totalPlays} color={'#080'}  />
 						<div class="smallest">Measure of game starts</div>
-						<CoinBar title="Snoozes" progress={state.user.totalSnoozes} score={state.user.totalSnoozes} color={'#CC0'}  />
+						<CoinBar title="Snoozes" progress={state.user.totalSnoozes} score={state.user.totalSnoozes} color={'#F70'}  />
 						<div class="smallest">Number of Snoozes</div>
 						<p />
 						Ranking: {rankings[rank]}

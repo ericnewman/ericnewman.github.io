@@ -52,9 +52,11 @@ export default class Quest extends Component {
 					<div class="smaller left">Welcome to the u-R-Up beta.</div>
 					<div><p /></div>
 					<div>
-						<div class="smaller left">You're propmoted to the squad shaping the future of u-R-Up, which is all about finding fun new games.</div><br />
-						<div class="smaller left">For 10 days you'll find 1 ro 2 games per day when you unlock.</div><br />
-						<div class="smaller left">Play &amp; Rate them to build points and cred.</div><br />
+						<div class="smaller left">You’re now part of the squad shaping the future of u-R-Up, a new way to discover fun new games.</div><br />
+						<div class="smaller left">For 10 days you’ll find 1 new game per day when you unlock.</div><br />
+						<div class="smaller left">Play &amp; Rate them to build cred as a game connoisseur.</div><br />
+						<div class="smaller left">Click below to see how it will work each day.</div>
+						<br />
 					</div>
 					<div class="cent">
 

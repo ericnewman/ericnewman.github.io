@@ -27,20 +27,27 @@ export default class Header extends Component {
 	dialogRef = dialog => (this.dialog = dialog);
 
 	linkTo = path => () => {
-		route(path);
 		this.closeDrawer();
+		route(path);
 	};
 
 	goHome = this.linkTo('/');
+	goToDash0 = this.linkTo('/dash/0');
 	goToDash1 = this.linkTo('/dash/1');
 	goToDash2 = this.linkTo('/dash/2');
 	goToDash3 = this.linkTo('/dash/3');
 	goToDash4 = this.linkTo('/dash/4');
 	goToDash5 = this.linkTo('/dash/5');
-	goToDash6= this.linkTo('/dash/6');
+	goToDash6 = this.linkTo('/dash/6');
 	goToDash7 = this.linkTo('/dash/7');
 	goToOutcome = this.linkTo('/outcome');
 	goToStep1 = this.linkTo('/step1');
+
+	resetExp = () => {
+		localStorage.setItem('seenWelcomeMessage', false);
+		this.closeDrawer();
+		route('/');
+	}
 
 
 	render(props) {
@@ -75,27 +82,43 @@ export default class Header extends Component {
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/outcome'} onClick={this.goToOutcome}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Standings
+							Medals
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash1}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/0'} onClick={this.goToDash1}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							FSD 1
+							Monsters Up
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/2'} onClick={this.goToDash2}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash2}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							FSD 2
+							Ninja Action
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/3'} onClick={this.goToDash3}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/2'} onClick={this.goToDash3}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							FSD 3
+							Flow Mania
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/4'} onClick={this.goToDash4}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/3'} onClick={this.goToDash4}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							FSD 4
+							Light Rays
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/4'} onClick={this.goToDash5}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Robotion
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/5'} onClick={this.goToDash5}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							FSD 5
+							Swing Robber
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/6'} onClick={this.goToDash6}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Balloon
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/7'} onClick={this.goToDash7}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Basketball
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/'} onClick={this.resetExp}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Reset to First Day
 						</Drawer.DrawerItem>
 					</Drawer.DrawerContent>
 				</Drawer>

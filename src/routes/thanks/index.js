@@ -77,8 +77,9 @@ export default class Thanks extends Component {
 							<div class="beta" />
 						</div>
 					</div>
-					<div class="smaller left">Gotcha. Looks like you might not be interested in checking out
-						our fun new game around discovering new games... but we might be wrong.</div>
+					<div class="small left">Gotcha.  Looks like you might not be interested in
+						checking out our fun new game around discovering new games . . . but we might be wrong.
+					</div>
 					<div><p /></div>
 					<div class="cent">
 

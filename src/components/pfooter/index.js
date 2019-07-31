@@ -4,6 +4,7 @@ import Stars from 'react-star-rating-component';
 import { notify } from 'react-notify-toast';
 import Button from 'preact-material-components/Button';
 import ParticleEffectButton from 'react-particle-effect-button';
+import ReactGA from 'react-ga';
 
 import { auth, database } from '../../firebase';
 import gamesList from '../../gamesList';
@@ -12,7 +13,7 @@ import 'preact-material-components/Button/style.css';
 
 import style from './style';
 
-const  timeout = 1800;
+const  timeout = 2000;
 
 const k_rating_bonus = 200;
 
@@ -20,7 +21,8 @@ export default class PFooter extends Component {
 
 	state = {
 		time: Date.now(),
-		interval: 0
+		interval: 0,
+		snoozing: false
 	};
 	//update the current time
 	updateTime = () => {
@@ -29,26 +31,45 @@ export default class PFooter extends Component {
 
 	doSnooze = (interval) => {
 		this.interval = interval;
+		if(this.props.snoozer) {
+			this.props.snoozer();
 
-		let color = { background: '#58F', text: '#FFFFFF' };
+		}
+
+		if(!this.state.snoozing) {
+			this.setState({snoozing: true})
+			ReactGA.event({
+				category: 'Snooze',
+				action: 'User Snoozed for: ' + interval,
+				value: interval
+			});
+
+			let ref = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
+			ref.transaction((totalSnooze) =>
+				(totalSnooze || 0) + 1
+			);
+
+		}
+
+
+		let colors = { background: 'none', text: '#FFFFFF' };
 		document.getElementById('home').classList.add('dim');
+		document.getElementById('toastBox').classList.add('snoozeBox');
 
 		notify.show('See you soon! Be back in ' + this.interval + ' Minutes...',
 			'custom',
 			timeout,
-			color);
+			colors);
 
 		setTimeout(() => {
 			if(document.getElementById('home')) {
 				document.getElementById('home').classList.remove('dim');
 			}
-			route('/dark/' + (interval*3600));
-		}, timeout-500);
+			document.getElementById('toastBox').classList.remove('snoozeBox');
 
-		let ref = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
-		ref.transaction((totalSnooze) =>
-			(totalSnooze || 0) + 1
-		);
+			route('/dark/' + (interval*3600));
+		}, timeout+500);
+
 
 	};
 
@@ -93,19 +114,27 @@ export default class PFooter extends Component {
 	}
 
 	showToast(msg) {
-		let color = { background: '#F83', text: '#FFFFFF' };
-		let timeout = timeout;
 		let d = document.getElementById('home');
 
 		if(d != null) {
 			d.classList.add('dim');
 		}
+		let colors = { background: 'none', text: '#FFFFFF' };
+		document.getElementById('toastBox').classList.add('orangeBox');
+
+		setTimeout(() => {
+			document.getElementById('toastBox').classList.remove('orangeBox');
+		}, timeout + 200);
+
 
 		notify.show(msg,
 			'custom',
 			timeout,
-			color);
-	}
+			colors);
+
+
+
+		}
 
 	waitAndNext() {
 		setTimeout(() => {
@@ -132,6 +161,13 @@ export default class PFooter extends Component {
 			return;
 		}
 		let name = gamesList[this.props.game_id].name;
+
+		ReactGA.event({
+			category: 'Ratings',
+			action: 'User Rated ' + name + ' ' + nextValue,
+			value: nextValue
+		});
+
 
 		let ref = database.ref('games/' + name + '/reviews');
 		ref.transaction(points  => ((points || 0) + nextValue));
@@ -278,7 +314,7 @@ export default class PFooter extends Component {
 							Love It
 							</Button>
 						</div>
-						<div class={style.tiny}>Running at an average rating of: {state.rating}</div>
+						{/*<div class={style.tiny}>Running at an average rating of: {state.rating}</div>*/}
 					</div>
 				}
 				{state.voted &&

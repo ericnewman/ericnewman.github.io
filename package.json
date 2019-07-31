@@ -53,6 +53,7 @@
     "preact-router": "^2.5.7",
     "preact-slide": "^0.4.7",
     "preact-transition-group": "^1.1.1",
+    "react-ga": "^2.6.0",
     "react-notify-toast": "^0.5.0",
     "react-particle-effect-button": "^1.0.1",
     "react-responsive-carousel": "^3.1.49",

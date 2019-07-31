@@ -207,8 +207,16 @@ export default class GamesCarousel extends Component {
 						<p class="legend">{gamesList[4].name}</p>
 					</div>
 					<div>
-						<img src={gamesList[5].image} alt={gamesList[5].name} />
-						<p class="legend">{gamesList[5].name}</p>
+						<img src={gamesList[5].image} alt={gamesList[5].name}/>
+						<p className="legend">{gamesList[5].name}</p>
+					</div>
+					<div>
+						<img src={gamesList[6].image} alt={gamesList[6].name}/>
+						<p className="legend">{gamesList[6].name}</p>
+					</div>
+					<div>
+						<img src={gamesList[7].image} alt={gamesList[7].name}/>
+						<p className="legend">{gamesList[7].name}</p>
 					</div>
 				</Carousel> </div>}
 			</Card>

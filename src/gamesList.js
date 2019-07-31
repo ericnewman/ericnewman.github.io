@@ -4,6 +4,8 @@ const gamesList  = [
 	{ id: 10, name: 'Flow Mania',  image: '../../assets/img/flowMania.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b' },
 	{ id: 15, name: 'Light Rays',  image: '../../assets/img/lightRays.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/0ba97a81-7c6f-4b74-a3e6-b4f2c017af87' },
 	{ id: 20, name: 'Robotion',  image: '../../assets/img/robotion.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/c83f2ec0846022246f3ba55f6b49ca31' },
-	{ id: 25, name: 'Swing Robber',  image: '../../assets/img/swingRobber.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/c7445989-e955-40d1-8ae2-ad0581ed8a97' }
+	{ id: 25, name: 'Swing Robber',  image: '../../assets/img/swingRobber.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/c7445989-e955-40d1-8ae2-ad0581ed8a97' },
+	{ id: 30, name: 'Balloon', image: '../../assets/img/balloon.png', url: 'https://balloon.frvr.com'},
+	{ id: 35, name: 'Basketball', image: '../../assets/img/basketball.png', url: 'https://basketball.frvr.com'}
 ];
 export default gamesList;

@@ -67,3 +67,4 @@ package-lock.json
 build/*
 .idea/workspace.xml
 build/*/*
+build/ssr-build/*

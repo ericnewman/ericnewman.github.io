@@ -31,13 +31,10 @@
 }
 
 @keyframes colorz {
-  0% {
-	background-color: #500;
+  0%, 100% {
+	background-color: #800;
   }
   50% {
 	background-color: #000;
-  }
-  100% {
-	background-color: #500;
   }
 }

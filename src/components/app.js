@@ -3,20 +3,22 @@ import { Router } from 'preact-router';
 
 import Header from './header';
 
-import Home from '../routes/home';
 import Dash from '../routes/dash';
 import Dark from '../routes/dark';
 import Step1 from '../routes/step1';
 import Quest from '../routes/quest';
 import Outcome from '../routes/outcome';
-import Thanks from '../routes/thanks';
+import Thanks from '../routes/thanks';``
 import NotFound from '../routes/404';
 import Notifications from 'react-notify-toast';
 import { auth, database } from '../firebase';
+import ReactGA from 'react-ga';
 
 export default class App extends Component {
 	handleRoute = e => {
 		setTimeout(() => {
+			ReactGA.pageview(e.url);
+
 			this.setState({
 				currentUrl: e.url
 			});
@@ -32,6 +34,9 @@ export default class App extends Component {
 		this.state = {
 			currentUrl: '.'
 		}
+		ReactGA.initialize('UA-102222556-2');
+		ReactGA.pageview('/');
+
 
 		if (typeof window !== 'undefined') {
 			auth.signInAnonymously().catch((error) => {
@@ -90,13 +95,12 @@ export default class App extends Component {
 
 		return (
 			<div id="app">
-				<Notifications options={{ zIndex: 200, top: '180px' }} />
+				<Notifications options={{ zIndex: 200, top: '180px', wrapperId : 'toastBox' }} />
 				{showHeader &&
 					<Header selectedRoute={state.currentUrl} />}
 
 				<Router onChange={this.handleRoute}>
 					<Step1 path="/" />
-					<Home path="/home" />
 					<Dark path="/dark/" delay="3600" />
 					<Dark path="/dark/:delay" />
 					<Dash path="/dash" selectedGame="1" />

@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
 import Countdown from '../../components/countdown';
-import Button from 'preact-material-components/Button';
+import ReactGA from 'react-ga';
 
 import gamesList from '../../gamesList';
 import { auth, database } from '../../firebase';
@@ -22,8 +22,10 @@ export default class Dash extends Component {
 
 
 	startSnooze(time) {
-		this.changeBonus(0);
+		console.log('snoozing');
+
 		this.setState({ snooze: true , snooze_time: time });
+		this.changeBonus(0);
 		let playsRef = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
 		playsRef.transaction((totalPlays) =>
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
@@ -40,6 +42,13 @@ export default class Dash extends Component {
 	}
 
 	doGameStarted() {
+
+		ReactGA.event({
+			category: 'Game Start',
+			action: gamesList[this.props.selectedGame].name,
+			value: this.bonusPts[this.state.bonusIndex]
+		});
+
 		this.setState({ gameStarted: true, playMsg: 'Rate this game and be heard!' , bonusIndex: 0 });
 		let playsRef = database.ref('users/' + auth.currentUser.uid + '/score');
 		playsRef.transaction((totalScore) =>
@@ -63,14 +72,17 @@ export default class Dash extends Component {
 			gameStarted: false,
 			playMsg: 'Tap to Play now!',
 			bonusIndex: 0,
-			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn']
-		};
+			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn'],
+			day1: localStorage.getItem('seenWelcomeMessage')
+
+	};
 
 		this.startSnooze = this.startSnooze.bind(this);
 		this.doGameStarted = this.doGameStarted.bind(this);
 		this.timedOut = this.timedOut.bind(this);
 		this.changeBonus = this.changeBonus.bind(this);
 		this.preSnooze = this.preSnooze.bind(this);
+
 	}
 
 	render({ selectedGame }, state) {
@@ -78,17 +90,24 @@ export default class Dash extends Component {
 		const kTopBarHeight = 56;
 		const kFooterBarHeight = 68;
 		const kCountDownBarHeight = 30;
+		let msgStyle = '';
+
 		let hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
 		if (state.gameStarted) {
 			hgt += kCountDownBarHeight;
 		}
 		let url = gamesList[selectedGame].url;
 
+		if (state.bonusIndex === 4) {
+			msgStyle = 'intro';
+		}
+
 		return (
 			<div id="home" class={style.dash}>
-				{!state.gameStarted && <Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} />}
+				{!state.snooze &&
 				<div>
-					 <Pframe src={url}
+					{!state.gameStarted && <Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} />}
+					<Pframe src={url}
 						width="100%"
 						height={hgt}
 						name="gameFrame"
@@ -101,8 +120,13 @@ export default class Dash extends Component {
 						doGameStarted={this.doGameStarted}
 					 />
 					{!state.tooLate && !state.gameStarted &&
-						state.bonusIndex > 0 &&
-							<div class={`${style.bonusMsg} btn1}`}>{state.bonusMsg[state.bonusIndex]} <span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span> Points</div>}
+					state.bonusIndex > 0 &&
+					<div class={`${style.bonusMsg} {msgStyle} btn1}`}>
+						<div class={style.bonus}>{state.bonusMsg[state.bonusIndex]}
+							<span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span>
+							Points</div>
+					</div>
+					}
 					<PFooter name={gamesList[selectedGame].name}
 						showStars={state.gameStarted}
 						game_id={selectedGame}
@@ -112,6 +136,7 @@ export default class Dash extends Component {
 						preSnooze={this.preSnooze}
 					/>
 				</div>
+				}
 			</div>
 
 		)
