@@ -86,7 +86,7 @@ export default class GamesCarousel extends Component {
 	clickItem(index, element) {
 		if (!this.props.clickable) {
 			return;
-	}
+		}
 
 
 		let foo = {
@@ -159,6 +159,9 @@ export default class GamesCarousel extends Component {
 		let hasFave = (id !== -1) && props.showFavorite;
 
 		let tp = 0;
+		let games = gamesList;
+
+		games.shift();
 
 		return (
 
@@ -186,14 +189,11 @@ export default class GamesCarousel extends Component {
 					autoPlay
 					showThumbs={false}
 					onClickItem={(index, element) => this.clickItem(index, element)}
-				>
-					{gamesList.map((aGame) => {
-
-						return <div>
-							<img src={aGame.image} alt={aGame.name}/>
-							<p class="legend">{aGame.name}</p>
-						</div>
-					})}
+				                         >
+					{games.map((aGame) => (<div>
+						<img src={aGame.image} alt={aGame.name} />
+						<p class="legend">{aGame.name}</p>
+					</div>))}
 
 				</Carousel> </div>}
 			</Card>

@@ -32,7 +32,7 @@ export default class Header extends Component {
 	};
 
 	goHome = this.linkTo('/');
-	goToDash8 = this.linkTo('/dash/8');
+	goToDash0 = this.linkTo('/dash/0');
 	goToDash1 = this.linkTo('/dash/1');
 	goToDash2 = this.linkTo('/dash/2');
 	goToDash3 = this.linkTo('/dash/3');
@@ -93,7 +93,7 @@ export default class Header extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Medals
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/13'} onClick={this.goToDash13}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/0'} onClick={this.goToDash0}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Monsters Up
 						</Drawer.DrawerItem>
