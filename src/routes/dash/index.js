@@ -38,14 +38,35 @@ export default class Dash extends Component {
 	cancelSnooze() {
 		this.setState({ snooze: false, gameStarted: false, tooLate: false, snooze_time: 0 });
 	}
+	tickSession() {
+		this.sessionLength += 15;
+
+		ReactGA.event({
+			category: 'Session Length',
+			action: 'Session continuing',
+			value: this.sessionLength
+		});
+
+		let playsRef = database.ref('users/' + auth.currentUser.uid + '/total_session_duration');
+		playsRef.transaction((totalDuration) =>
+			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+			(totalDuration || 0) + 15
+		);
+	}
 
 	doGameStarted() {
 
+		this.sessionLength = 0;
+		
 		ReactGA.event({
 			category: 'Game Start',
 			action: gamesList[this.props.selectedGame].name,
 			value: this.bonusPts[this.state.bonusIndex]
 		});
+
+		this.timer = setInterval(() => {
+			this.tickSession();
+		}, 15000);
 
 		this.setState({ gameStarted: true, playMsg: 'Rate this game and be heard!' , bonusIndex: 0 });
 		let playsRef = database.ref('users/' + auth.currentUser.uid + '/score');
@@ -58,11 +79,19 @@ export default class Dash extends Component {
 	timedOut() {
 		this.setState({ tooLate: true });
 	}
+	componentWillUnmount() {  // Stop counting game clock time.
+		clearInterval(this.timer);
+		this.timer = null;
+		this.sessionLength = 0;
+	}
 
 	constructor(props) {
 		super(props);
 
 		this.bonusPts = [0,300,200,100];
+
+		this.sessionLength=0;
+
 
 		this.state = {
 			snooze: false,
@@ -73,7 +102,7 @@ export default class Dash extends Component {
 			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn'],
 			day1: localStorage.getItem('seenWelcomeMessage')
 
-	};
+		};
 
 		this.startSnooze = this.startSnooze.bind(this);
 		this.doGameStarted = this.doGameStarted.bind(this);
@@ -116,7 +145,7 @@ export default class Dash extends Component {
 						position="relative"
 						game_id={selectedGame}
 						doGameStarted={this.doGameStarted}
-					 />
+					/>
 					{!state.tooLate && !state.gameStarted &&
 					state.bonusIndex > 0 &&
 					<div class={`${style.bonusMsg} {msgStyle} btn1}`}>

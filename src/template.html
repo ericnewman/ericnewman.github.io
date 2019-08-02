@@ -1,33 +1,31 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="dns-prefetch" href="https://cdn.rawgit.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="preact, material components, preact components">
-    <meta name="description" content="preact-material-components is a thin opinionless wrapper around material-components-web. Use these components to add material components to your web app, without worrying about the extra code of the the components which you are not using.">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
-    <link rel="preconnect" href="https://cdn.rawgit.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="draftCards">
+    <meta name="application-name" content="Progressive Web Application">
+    <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>manifest.json">
     <% if (htmlWebpackPlugin.options.manifest.theme_color) { %>
     <meta name="theme-color" content="<%= htmlWebpackPlugin.options.manifest.theme_color %>">
     <% } %>
-    <% const loadManifest = htmlWebpackPlugin.options.createLoadManifest(compilation.assets, webpack.namedChunkGroups);%>
-    <% const filesRegexp = htmlWebpackPlugin.options.inlineCss ? /\.(chunk\.\w{5}\.css|js)$/ : /\.(css|js)$/;%>
-    <% for (const file in loadManifest[htmlWebpackPlugin.options.url]) { %>
-    <% if (file && file.match(filesRegexp)) { %>
-    <% /* crossorigin for main bundle as that is loaded from `<script type=module` tag, other lazy loaded bundles are from webpack so its not needed */ %>
-    <link rel="preload" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>" <%= file.match(/bundle\.\w{5}\.esm\.js$/)?'crossorigin="anonymous"':'' %>>
+    <% for (var chunk of webpack.chunks) { %>
+    <% if (chunk.names.length === 1 && chunk.names[0] === 'polyfills') continue; %>
+    <% for (var file of chunk.files) { %>
+    <% if (htmlWebpackPlugin.options.preload && file.match(/\.(js|css)$/)) { %>
+    <link rel="preload" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>">
+    <% } else if (file.match(/manifest\.json$/)) { %>
+    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath + file %>">
+    <% } %>
     <% } %>
     <% } %>
 </head>
-<body custom="en">
+<body>
 <%= htmlWebpackPlugin.options.ssr({
 url: '/'
 }) %>

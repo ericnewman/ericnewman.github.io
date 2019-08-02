@@ -43,7 +43,7 @@ $icon_size: 46px;
 }
 
 .coin {
-  background-image: url("../../assets/img/nomedal.png");
+  background-image: url("../../src/assets/img/nomedal.png");
   background-repeat: no-repeat;
   background-size: $icon_size $icon_size;
   display: inline-block;
@@ -59,17 +59,17 @@ $icon_size: 46px;
 }
 
 .brass {
-  background-image: url("../../assets/img/brassmedal.png");
+  background-image: url("../../src/assets/img/brassmedal.png");
   left: 80px;
 
 }
 .silver {
-  background-image: url("../../assets/img/silvermedal.png");
+  background-image: url("../../src/assets/img/silvermedal.png");
   left: 52%;
 }
 
 .gold {
-  background-image: url("../../assets/img/goldmedal.png");
+  background-image: url("../../src/assets/img/goldmedal.png");
   right: 0px;
 }
 

@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import GamesCarousel from '../../components/gamescarousel';
+import GamesCarousel from '../../src/components/gamescarousel';
 import { route } from 'preact-router';
 import Button from 'preact-material-components/Button';
 

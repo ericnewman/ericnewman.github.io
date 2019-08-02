@@ -1,67 +1,58 @@
-let  MobilePosse = {
-	state: { version: 'Micro Bridge 1.0' },
+let  microBridge = {
+	version: 'Micro Bridge 1.0' ,
 
 
-	updateScheduleList () {
-		let str = 'No Bridge';
-		//         if(window.MP && window.MP.getAllScheduledLocalNotifications) {
-		//             var items = MP.getAllScheduledLocalNotifications();
+	sendDelayedBanner(url, delay) {
+
+		let msg = { notification: {
+			'alert-sound': false,
+			'default-title': 'Start using uRUP',
+			'en-message': 'Welcome to uRUP',
+			'default-message': 'Welcome to uRUP',
+			'en-title': 'Start using uRUP',
+			'es-title': 'Comenzar a usar uRUP',
+			'alert-vibrate': true,
+			'es-message': 'Bienvenido a uRUP'
+		},
+		content: {
+			'default-url': '',
+			width: 'match_parent',
+			'es-url': '',
+			'en-url': '',
+			height: 'match_parent' },
+		'display-delay-duration': 'PT15M'
+		};
+		msg.content['default-url'] = url;
+		msg.content['es-url'] = url;
+		msg.content['en-url'] = url;
+		msg['display-delay-duration'] = 'PT' + delay + 'M';
+
 		let MP = window.MP || '';
 
-		if (MP && window.MP.getAllScheduledBannerExecutors) {
-			let items = MP.getAllScheduledBannerExecutors();
-			items = JSON.parse(items);
+		if (MP && window.MP.addScheduledCommandExecutor) {
+			MP.addScheduledCommandExecutor(msg);
+			console.log(url, delay);
+			console.log(msg);
+			MP.dismiss();
+		}
+	},
+	closeWindow() {
+		let MP = window.MP || '';
 
-			str = '<table><tr><th>ID</th><th>URL</th><th>TIME</th><th>DIS</th></tr>';
-			for (let z = 0; z < items.length; z++) {
-				let o = items[z];
-
-				str += '<tr><td>' + o.id + '</td><td>' + o.url + '</td><td>' + o.scheduledTimes + '</td><td>' + o.disabled + '</td></tr>';
-			}
-			str += '</table>';
-
+		if (MP && window.MP.addScheduledCommandExecutor) {
+			MP.dismiss();
 		}
 		else {
-			return (str);
+			document.location.href= 'http://google.com';
 		}
 	},
 
-	addScheduledContent (id, url, scheduledTime, enable){
 
-		let mtime = new Date(scheduledTime);
-		let otime = mtime.getHours() + ':' + mtime.getMinutes() + ':' + mtime.getSeconds();
-
-		if (window.MP && window.MP.addScheduledLocalNotification) {
-			window.MP.addScheduledLocalNotification(id, url, otime, enable);
-		}
-
-		this.updateScheduleList();
-	},
 	versionInfo () {
-		return this.state.version;
+		return this.version;
 	}
-
 };
-//
-//
-//
-//
-//
-//
-//      function deleteScheduledLocalNotification(name) {
-//         if(window.MP && window.MP.deleteScheduledLocalNotification) {
-//             window.MP.deleteScheduledLocalNotification(name);
-//         }
-//         //updateScheduleList();
-//     }
-//      function toggleNotification(aname) {
-//         if(window.MP) {
-//             var item = MP.getScheduledLocalNotification(aname);
-//             item = JSON.parse(item);
-//             // Function inherently toggles value of disabled
-//             window.MP.enableScheduledLocalNotification(aname, item.disabled);
-//             //updateScheduleList();
-//         }
-//     }
-// }
-export default MobilePosse;
+
+export { microBridge };
+
+

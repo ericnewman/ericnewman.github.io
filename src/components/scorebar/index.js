@@ -8,43 +8,22 @@ import style from './style';
 
 export default class ScoreBar extends Component {
 
-
-
-	onChange = (ctx, val) => {
-
-	};
-	onComplete = ctx => {
-	};
-
-
-	constructor(props) {
-		super(props);
-
-		this.onChange.bind(this);
-		this.onComplete.bind(this);
-	}
-
-
-	componentWillMount() {
-		// stop when not renderable
-		//this.setState(this.props);
+	// Don't delete these methods!
+	onChange() {
 
 	}
-
-	componentDidMount() {
+	onComplete() {
 
 	}
-
-	componentWillUnmount() {
-		// stop when not renderable
-	}
-
-
 	render(props, state) {
 		if(!props.maxValue) {
 			props.maxValue = 100;
 		}
 		let val = props.progress;
+
+		if(!props.title) {
+			props.title = props.progress + ' points';
+		}
 
 		return (
 			<div class={style.bar}>
@@ -55,7 +34,7 @@ export default class ScoreBar extends Component {
 					onComplete={this.onComplete}
 				/>
 				{!props.noscore && <div class={style.title}>
-					{props.progress}
+					{props.title}
 				</div>}
 			</div>
 		);

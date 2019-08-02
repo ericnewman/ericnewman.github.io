@@ -31,17 +31,18 @@ export default class Header extends Component {
 		route(path);
 	};
 
-	goHome = this.linkTo('/');
-	goToDash0 = this.linkTo('/dash/0');
-	goToDash1 = this.linkTo('/dash/1');
-	goToDash2 = this.linkTo('/dash/2');
-	goToDash3 = this.linkTo('/dash/3');
-	goToDash4 = this.linkTo('/dash/4');
-	goToDash5 = this.linkTo('/dash/5');
-	goToDash6 = this.linkTo('/dash/6');
-	goToDash7 = this.linkTo('/dash/7');
-	goToDash8 = this.linkTo('/dash/8');
-	goToDash9 = this.linkTo('/dash/9');
+	goHome     = this.linkTo('/');
+	goToStep1  = this.linkTo('/step1');
+	goToDash0  = this.linkTo('/dash/0');
+	goToDash1  = this.linkTo('/dash/1');
+	goToDash2  = this.linkTo('/dash/2');
+	goToDash3  = this.linkTo('/dash/3');
+	goToDash4  = this.linkTo('/dash/4');
+	goToDash5  = this.linkTo('/dash/5');
+	goToDash6  = this.linkTo('/dash/6');
+	goToDash7  = this.linkTo('/dash/7');
+	goToDash8  = this.linkTo('/dash/8');
+	goToDash9  = this.linkTo('/dash/9');
 	goToDash10 = this.linkTo('/dash/10');
 	goToDash11 = this.linkTo('/dash/11');
 	goToDash12 = this.linkTo('/dash/12');
@@ -50,7 +51,6 @@ export default class Header extends Component {
 	goToDash15 = this.linkTo('/dash/15');
 	goToOutcome = this.linkTo('/outcome');
 	goToMetrics = this.linkTo('/metrics');
-	goToStep1 = this.linkTo('/step1');
 
 	resetExp = () => {
 		localStorage.setItem('seenWelcomeMessage', false);
@@ -93,21 +93,17 @@ export default class Header extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Medals
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/0'} onClick={this.goToDash0}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Monsters Up
-						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash1}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Ninja Action
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/2'} onClick={this.goToDash2}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Robotion
+							Piggy Night
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/3'} onClick={this.goToDash3}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Swing Robber
+							Crazy Balls
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/4'} onClick={this.goToDash4}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
@@ -115,37 +111,46 @@ export default class Header extends Component {
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/5'} onClick={this.goToDash5}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Basketball
+							Monsters Up
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/6'} onClick={this.goToDash6}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Caveman Adventures
+							Basketball
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/7'} onClick={this.goToDash7}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Rolling Panda
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/8'} onClick={this.goToDash8}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Rise Up
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/9'} onClick={this.goToDash9}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Run Panda Run
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/10'} onClick={this.goToDash10}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Caveman Adventures
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/11'} onClick={this.goToDash11}>
+							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Jelly Jump
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/'} onClick={this.resetExp}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/12'} onClick={this.goToDash12}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							Swing Robber
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={false} onClick={this.resetExp}>
+							<List.ItemGraphic>settings</List.ItemGraphic>
 							Reset to First Day
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/metrics'} onClick={this.goToMetrics}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							<List.ItemGraphic>settings</List.ItemGraphic>
 							Metrics
 						</Drawer.DrawerItem>
 					</Drawer.DrawerContent>
 				</Drawer>
-				{/*<Dialog ref={this.dialogRef}>*/}
-				{/*	<Dialog.Header>Settings</Dialog.Header>*/}
-				{/*	<Dialog.Body>*/}
-				{/*		<div>*/}
-				{/*			Enable dark theme <Switch onClick={this.toggleDarkTheme}  checked={this.state.darkThemeEnabled} />*/}
-				{/*		</div>*/}
-				{/*	</Dialog.Body>*/}
-				{/*	<Dialog.Footer>*/}
-				{/*		<Dialog.FooterButton accept>OK</Dialog.FooterButton>*/}
-				{/*	</Dialog.Footer>*/}
-				{/*</Dialog>*/}
 			</div>
 		);
 	}

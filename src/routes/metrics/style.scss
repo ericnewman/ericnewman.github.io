@@ -1,1 +1,23 @@
-@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
+$table-header: #1976D2;
+$table-header-border: #1565C0;
+$table-border: #000;
+.report {
+
+  border: solid 1px $table-border;
+  background-color :#ccc;
+  color:#000;
+  margin:20px;
+  padding:20px;
+
+  transition: 0.5s;
+  text-align: left;
+  font-size: 10px;
+  line-height: 11px;
+}
+
+td {
+  background: $table-header;
+}
+td {
+  border: solid 1px $table-border;
+}

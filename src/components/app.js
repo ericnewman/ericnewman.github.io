@@ -92,6 +92,9 @@ export default class App extends Component {
 
 		if(url) {
 			showHeader = (url.indexOf('dark') === -1);
+			if (typeof window !== "undefined" && window.MP) { // Do not show the header in-app...
+				showHeader = false;
+			}
 		}
 
 		return (

@@ -3,9 +3,7 @@ import Logo from '../../components/logo';
 
 import { auth, database } from '../../firebase';
 
-import 'preact-material-components/Card/style.css';
-import 'preact-material-components/Button/style.css';
-import gamesList from '../../gamesList';
+import style from './style';
 
 // 	10 games deliveries
 // 	100 to 300 to play
@@ -43,7 +41,7 @@ export default class Metrics extends Component {
 					// User is signed in.
 					let playsRef = database.ref('users/' + auth.currentUser.uid);
 					playsRef.on('value', (snapshot) => {
-						this.setState({ user: snapshot.val(), num_of_users: snapshot.numChildren()});
+						this.setState({ user: snapshot.val(), num_of_users: snapshot.numChildren() });
 					});
 					playsRef = database.ref('games/');
 					playsRef.on('value', (snapshot) => {
@@ -84,10 +82,10 @@ export default class Metrics extends Component {
 			});
 			str += '</div>';
 		});
-		console.log(str);
 
 		return str;
 	}
+
 
 	render(props, state) {
 		// let expectedDailyPVs = 2.0;
@@ -99,14 +97,15 @@ export default class Metrics extends Component {
 		let str = '';
 		let games = this.state.games;
 		let likes = this.state.likesplay;
+		let goodFields = ['times_played', 'average_rating', 'review_points'];
 
-		console.log(this.state);
 		return (
 			<div class="home">
+
 				<Logo />
 				<div class="smaller">Stats
 					<p />
-					<div class="smallest left">
+					<div class={style.report}>
 						Total Users: {state.num_of_users}
 						<p />
 						How much do people like playing?{
@@ -126,9 +125,11 @@ export default class Metrics extends Component {
 							Object.keys(games).map((keys) => (<div>{keys}<ul>
 
 								{
-									Object.keys(games[keys]).map((ikey) => (<li>{ikey}{' : '}
-										{games[keys][ikey]}
-									</li>))
+									Object.keys(games[keys]).map((ikey) => {
+										if (goodFields.includes(ikey)) {
+											return (<li>{ikey}{' : '} {games[keys][ikey]}</li>);
+										}
+									})
 								}
 							</ul></div>))
 						}

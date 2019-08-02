@@ -1,20 +1,21 @@
 {
   "private": true,
-  "name": "draftcards",
+  "name": "uRUP",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "start": "per-env",
     "start:production": "npm run -s serve",
     "start:development": "npm run -s dev",
-    "build": "preact build",
-    "serve": "preact build && preact serve",
-    "dev": "preact watch",
-    "deploy": "preact build && aws s3 sync build/ s3://spages.mobileposse.com/ && aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
+    "build": "preact build --template src/template.html",
+    "serve": "preact build --template src/template.html && preact serve",
+    "dev": "preact watch --template src/template.html",
+    "deploy": "preact build --template src/template.html && aws s3 sync build/ s3://spages.mobileposse.com/ && aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
     "demo": "npm run deploy && npm run aws-clear/",
     "cache": "s3cmd --recursive modify --add-header=\"Cache-Control:public ,max-age= 31536000\" s3://spages.mobileposse.com",
     "aws-clear": "aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
     "lint": "eslint src",
+    "purge": "./purgeSpages.sh \"spages.mobileposse.com\" \"3d\"",
     "test": "jest"
   },
   "eslintConfig": {

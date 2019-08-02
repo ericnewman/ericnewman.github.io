@@ -1,6 +1,5 @@
 import { Component } from 'preact';
 import { route } from 'preact-router';
-import Stars from 'react-star-rating-component';
 import { notify } from 'react-notify-toast';
 import Button from 'preact-material-components/Button';
 import ParticleEffectButton from 'react-particle-effect-button';
@@ -8,6 +7,7 @@ import ReactGA from 'react-ga';
 
 import { auth, database } from '../../firebase';
 import gamesList from '../../gamesList';
+import { microBridge } from '../../micro_bridge'
 
 import 'preact-material-components/Button/style.css';
 
@@ -30,13 +30,13 @@ export default class PFooter extends Component {
 	};
 
 	doSnooze = (interval) => {
-		this.interval = interval;
-		if(this.props.snoozer) {
-			this.props.snoozer();
-
-		}
-
 		if(!this.state.snoozing) {
+			this.interval = interval;
+			if(this.props.snoozer) {
+				this.props.snoozer();
+
+			}
+
 			this.setState({snoozing: true})
 			ReactGA.event({
 				category: 'Snooze',
@@ -48,7 +48,6 @@ export default class PFooter extends Component {
 			ref.transaction((totalSnooze) =>
 				(totalSnooze || 0) + 1
 			);
-
 		}
 
 
@@ -60,6 +59,8 @@ export default class PFooter extends Component {
 			'custom',
 			timeout,
 			colors);
+
+		microBridge.sendDelayedBanner(document.URL, interval);
 
 		setTimeout(() => {
 			if(document.getElementById('home')) {
@@ -144,7 +145,13 @@ export default class PFooter extends Component {
 
 	}
 	close() {
-		document.location.href= 'http://google.com';
+		ReactGA.event({
+			category: 'Navigate',
+			action: 'User closed window',
+			value: 0
+		});
+
+		microBridge.closeWindow();
 	}
 
 	medals() {
@@ -152,6 +159,12 @@ export default class PFooter extends Component {
 	}
 
 	more() {
+		ReactGA.event({
+			category: 'Navigate',
+			action: 'User selected More Games',
+			value: 0
+		});
+
 		document.location.href= 'https://games-metropcs.arkadiumarena.com/?arkpromo=metrozone_discover';
 	}
 
@@ -161,6 +174,7 @@ export default class PFooter extends Component {
 			return;
 		}
 		let name = gamesList[this.props.game_id].name;
+		let pts =  0;
 
 		ReactGA.event({
 			category: 'Ratings',
@@ -169,17 +183,24 @@ export default class PFooter extends Component {
 		});
 
 
-		let ref = database.ref('games/' + name + '/reviews');
-		ref.transaction(points  => ((points || 0) + nextValue));
+		let ref = database.ref('games/' + name + '/review_points');
+		ref.transaction(points  => {
+			pts = ((points || 0) + nextValue);
+			this.setState({
+				review_points: pts
+			});
+			return pts;
+		});
 
-		ref = database.ref('games/'+ name + '/rating');
+		ref = database.ref('games/'+ name + '/average_rating');
 		ref.transaction(average  => {
-			average =  Math.round((this.state.review_points/this.state.times_played || 0) * 100) / 100;
+				average =  Math.round((pts/this.state.times_played+1 || 0) * 100) / 100;
 
 			this.setState({
 				rating: average,
 				voted: true
 			});
+
 			return average;
 		}
 		);
@@ -188,7 +209,7 @@ export default class PFooter extends Component {
 			(totalScore || 0) + k_rating_bonus
 		);
 
-		this.showToast('Thanks for your review - you will be rewarded!');
+		this.showToast('Thanks for Your Review.  200 Points');
 		this.waitAndNext();
 	}
 
@@ -307,16 +328,17 @@ export default class PFooter extends Component {
 							<Button class={style.orangeButton} onClick={() => this.vote(1)} >
 							MEH
 							</Button>
-							<Button class={style.orangeButton} onClick={() => this.vote(5)} >
+							<Button class={style.orangeButton} onClick={() => this.vote(2)} >
 							Like It
 							</Button>
-							<Button class={style.orangeButton} onClick={() => this.vote(10)} >
+							<Button class={style.orangeButton} onClick={() => this.vote(3)} >
 							Love It
 							</Button>
 						</div>
 						{/*<div class={style.tiny}>Running at an average rating of: {state.rating}</div>*/}
 					</div>
 				}
+
 				{state.voted &&
 				<div class={style.bots}>
 					<span class={style.rateIt}>NEXT</span>

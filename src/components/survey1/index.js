@@ -7,6 +7,7 @@ import ReactGA from 'react-ga';
 
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
+
 import style from './style';
 
 const timeout = 2000;
