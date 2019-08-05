@@ -31,8 +31,6 @@ let  microBridge = {
 
 		if (MP && window.MP.addScheduledCommandExecutor) {
 			MP.addScheduledCommandExecutor(msg);
-			console.log(url, delay);
-			console.log(msg);
 			MP.dismiss();
 		}
 	},

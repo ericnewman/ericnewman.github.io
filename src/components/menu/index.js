@@ -11,8 +11,9 @@ import 'preact-material-components/Drawer/style.css';
 import 'preact-material-components/List/style.css';
 import 'preact-material-components/TopAppBar/style.css';
 import style from './style';
+import { auth, database } from '../../firebase';
 
-export default class Header extends Component {
+export default class Menu extends Component {
 
 
 	closeDrawer() {
@@ -32,7 +33,7 @@ export default class Header extends Component {
 	};
 
 	goHome     = this.linkTo('/');
-	goToStep1  = this.linkTo('/step1');
+	// goToStep1  = this.linkTo('/step1');
 	goToDash0  = this.linkTo('/dash/0');
 	goToDash1  = this.linkTo('/dash/1');
 	goToDash2  = this.linkTo('/dash/2');
@@ -52,15 +53,47 @@ export default class Header extends Component {
 	goToOutcome = this.linkTo('/outcome');
 	goToMetrics = this.linkTo('/metrics');
 
-	resetExp = () => {
+	goToStep1 = () => {
 		localStorage.setItem('seenWelcomeMessage', false);
+		localStorage.setItem('currentGameID', '1');
+		localStorage.setItem('highestGameID', '1');
+
+		this.closeDrawer();
+		route('/step1');
+
+	}
+
+	showAllGames = () => {
+		localStorage.setItem('seenWelcomeMessage', false);
+		localStorage.setItem('currentGameID', '1');
+		localStorage.setItem('highestGameID', '12');
+
 		this.closeDrawer();
 		route('/');
 	}
+	resetSnoozes = () => {
+		let ref = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
+		ref.transaction((totalSnooze) => 0);
+		this.closeDrawer();
+	}
 
+	componentWillMount() {
+		if (typeof window !== 'undefined') {
+			this.state = {
+				currentGame: localStorage.getItem('currentGameID') || '1',
+				highestGame: localStorage.getItem('highestGameID') || '1'
+			};
+		}
+		else {
+			this.state = {
+				currentGame: '1',
+				highestGame: '1'
+			};
+		}
+	}
 
-	render(props) {
-		if(!props.selectedRoute) {
+	render(props, state) {
+		if (!props.selectedRoute) {
 			props.selectedRoute = '/';
 		}
 
@@ -72,7 +105,7 @@ export default class Header extends Component {
 							<TopAppBar.Icon menu onClick={this.openDrawer}>
 								menu
 							</TopAppBar.Icon>
-							<TopAppBar.Title><div class={style.logo}></div></TopAppBar.Title>
+							<TopAppBar.Title><div class={style.logo} /></TopAppBar.Title>
 						</TopAppBar.Section>
 						{/*<TopAppBar.Section align-end shrink-to-fit onClick={this.openSettings}>*/}
 						{/*	<TopAppBar.Icon>settings</TopAppBar.Icon>*/}
@@ -86,68 +119,72 @@ export default class Header extends Component {
 							Home
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/step1'} onClick={this.goToStep1}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Day 1 - Onboarding
+							<List.ItemGraphic>whatshot</List.ItemGraphic>
+							Repeat Onboarding
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/outcome'} onClick={this.goToOutcome}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
+							<List.ItemGraphic>grade</List.ItemGraphic>
 							Medals
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash1}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Ninja Action
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/2'} onClick={this.goToDash2}>
+						{state.highestGame > 1 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/2'} onClick={this.goToDash2}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Piggy Night
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/3'} onClick={this.goToDash3}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 2 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/3'} onClick={this.goToDash3}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Crazy Balls
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/4'} onClick={this.goToDash4}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 3 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/4'} onClick={this.goToDash4}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Balloon
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/5'} onClick={this.goToDash5}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 4 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/5'} onClick={this.goToDash5}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Monsters Up
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/6'} onClick={this.goToDash6}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 5 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/6'} onClick={this.goToDash6}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Basketball
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/7'} onClick={this.goToDash7}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 6 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/7'} onClick={this.goToDash7}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Rolling Panda
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/8'} onClick={this.goToDash8}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 7 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/8'} onClick={this.goToDash8}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Rise Up
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/9'} onClick={this.goToDash9}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 8 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/9'} onClick={this.goToDash9}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Run Panda Run
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/10'} onClick={this.goToDash10}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 9 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/10'} onClick={this.goToDash10}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Caveman Adventures
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/11'} onClick={this.goToDash11}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 10 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/11'} onClick={this.goToDash11}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Jelly Jump
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/12'} onClick={this.goToDash12}>
+						</Drawer.DrawerItem>}
+						{state.highestGame > 11 && <Drawer.DrawerItem selected={props.selectedRoute === '/dash/12'} onClick={this.goToDash12}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Swing Robber
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={false} onClick={this.resetExp}>
-							<List.ItemGraphic>settings</List.ItemGraphic>
-							Reset to First Day
-						</Drawer.DrawerItem>
+						</Drawer.DrawerItem>}
 						<Drawer.DrawerItem selected={props.selectedRoute === '/metrics'} onClick={this.goToMetrics}>
-							<List.ItemGraphic>settings</List.ItemGraphic>
+							<List.ItemGraphic>explore</List.ItemGraphic>
 							Metrics
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem  onClick={this.resetSnoozes}>
+							<List.ItemGraphic>build</List.ItemGraphic>
+							Reset Snoozes
+						</Drawer.DrawerItem>
+						<Drawer.DrawerItem  onClick={this.showAllGames}>
+							<List.ItemGraphic>build</List.ItemGraphic>
+							Show All Games
 						</Drawer.DrawerItem>
 					</Drawer.DrawerContent>
 				</Drawer>

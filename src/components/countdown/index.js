@@ -65,12 +65,22 @@ export default class CountDown extends Component {
 		this.onChange.bind(this);
 		this.onComplete.bind(this);
 	}
-
-	componentDidMount() {
-
+	screenUnlocked() {
 		this.timer = setInterval(() => {
 			this.setState({ progress: (this.state.progress + 1) % 100 });
 		}, 100); //200
+	}
+	componentDidMount() {
+
+		if (window.MP && (window.MP.setScreenUnLockCallBack != undefined)) {
+			window.MP.setScreenUnLockCallBack('this.screenUnlocked()');
+		} else {
+			this.timer = setInterval(() => {
+				this.setState({ progress: (this.state.progress + 1) % 100 });
+			}, 100); //200
+
+		}
+
 	}
 	componentWillUnmount() {
 		// stop when not renderable

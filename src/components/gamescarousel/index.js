@@ -57,7 +57,7 @@ export default class GamesCarousel extends Component {
 		this.state.timesPlayed[id] = tp;
 
 		this.setState( this.state);
-		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
+		//localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
 
 		let ref = database.ref('users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played');
@@ -98,7 +98,7 @@ export default class GamesCarousel extends Component {
 
 		this.setState(foo);
 
-		localStorage.setItem('savedFavorite', JSON.stringify(this.state));
+		//localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
 		// if (confirm("You've selected " + gamesList[index].name + ' as your favorite game...Would you like to play it now?')) {
 		this.playGame(gamesList[index].id);
@@ -111,7 +111,6 @@ export default class GamesCarousel extends Component {
 	constructor(props) {
 
 		super(props);
-		this.games= [];
 		this.props = {
 		    showHeader: true,
 			showFavorite: true,
@@ -126,10 +125,10 @@ export default class GamesCarousel extends Component {
 		};
 
 		if (typeof window !== 'undefined') {
-			let s = JSON.parse(localStorage.getItem('savedFavorite'));
-			if (s && s.favoriteGameID !== -1) {
-				this.state = { ...s };
-			}
+			// let s = JSON.parse(localStorage.getItem('savedFavorite'));
+			// if (s && s.favoriteGameID !== -1) {
+			// 	this.state = { ...s };
+			// }
 
 			auth.signInAnonymously().catch((error) => {
 				// Handle Errors here.
@@ -159,9 +158,8 @@ export default class GamesCarousel extends Component {
 		let hasFave = (id !== -1) && props.showFavorite;
 
 		let tp = 0;
-		let games = gamesList;
+		let games = gamesList.slice(1);
 
-		games.shift();
 
 		return (
 

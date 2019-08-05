@@ -28,14 +28,14 @@ import 'preact-material-components/Button/style.css';
 // -elite: 3000 and up
 
 const number_of_game_deliveries = 10,
-	max_score =  6000,
-	max_snoozes = 10,
+	maxScore =  6000,
+	maxSnoozes = 10,
 	rankings = ['Novice', 'Intermediate', 'Pro', 'Elite', 'Elite+', 'Elite++'];
 
 
 export default class Outcome extends Component {
 
-	componentWillMount() {
+	componentDidMount() {
 
 		if (typeof window !== 'undefined') {
 			auth.signInAnonymously().catch((error) => {
@@ -83,13 +83,14 @@ export default class Outcome extends Component {
 		// let campprog = (state.user.unique_day_count/campaignLength*100).toFixed(2);
 		// let playprog = (state.user.totalPlays/campaignLength*100).toFixed(2);
 
-		let score = (state.user.score <= max_score) ? state.user.score : max_score;
+		let score = (state.user.score <= maxScore) ? state.user.score : maxScore;
+
 		let rank = parseInt(score/1250);
-		let snoozes = (state.user.totalSnoozes <= max_snoozes) ? state.user.totalSnoozes : max_snoozes;
-		let snoozeMsg = (max_snoozes - snoozes) > 0 ? ' You\'ve only got ' + (max_snoozes - snoozes) + ' left.' :
+		let snoozes = ((state.user.totalSnoozes <= maxSnoozes) ? state.user.totalSnoozes : maxSnoozes) || 0;
+		let snoozeMsg = (maxSnoozes - snoozes) > 0 ? ' You\'ve only got ' + (maxSnoozes - snoozes) + ' left.' :
 			' (You\'ve used them all up!)';
 
-		score = score - (state.user.totalSnoozes * 100);
+		score = score - (snoozes * 100);
 
 		return (
 			<div class="home">
@@ -97,9 +98,9 @@ export default class Outcome extends Component {
 				<div class={style.inner}>
 					<div class={style.rankTitle}>Discoverer Ranking:</div>
 					<div class={style.rank}>{rankings[rank]}</div>
-					<div class="smaller left">You're doing great. Only {max_score - score} points until you reach Elite status.</div>
+					<div class="smaller left">You're doing great. Only {maxScore - score} points until you reach Elite status.</div>
 					<p />
-					<ScoreBar progress={score/max_score*100}  title={score} color={'#FFB600'}  />
+					<ScoreBar progress={score/maxScore*100}  title={score} color={'#FFB600'}  />
 
 					{state.gameRankAvailable && <div>
 						<div class="small">Gamer Ranking:</div>
@@ -117,12 +118,12 @@ export default class Outcome extends Component {
 						</div>
 						<div className={style.label}>Remember! Use your Snoozes sparingly.</div>
 					</div>
-					<ScoreBar progress={100 - (snoozes/max_snoozes*100)} title={snoozeMsg}  color={'#FFB600'}  />
+					<ScoreBar progress={100 - (snoozes/maxSnoozes*100)} title={snoozeMsg}  color={'#FFB600'}  />
 
 					<div className={style.snoozeSec}>
 
 						<Button raised ripple dense class="light_blue"
-							onClick={() => route('/dash/1')}
+							onClick={() => 	route('/dash/' + localStorage.getItem('currentGameID') || '1')}
 						>
 							Play Again
 						</Button>

@@ -15,6 +15,7 @@ export default class Quest extends Component {
 			hidden: !this.state.hidden,
 			animating: true
 		});
+		localStorage.setItem('seenWelcomeMessage', true);
 	}
 
 	_onAnimationComplete = () => {

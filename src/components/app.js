@@ -1,7 +1,7 @@
 import { Component } from 'preact';
-import { Router } from 'preact-router';
+import { route, Router } from 'preact-router';
 
-import Header from './header';
+import Menu from './menu';
 
 import Dash from '../routes/dash';
 import Dark from '../routes/dark';
@@ -9,7 +9,7 @@ import Step1 from '../routes/step1';
 import Quest from '../routes/quest';
 import Outcome from '../routes/outcome';
 import Metrics from '../routes/metrics';
-import Thanks from '../routes/thanks';``
+import Thanks from '../routes/thanks';``;
 import NotFound from '../routes/404';
 import Notifications from 'react-notify-toast';
 import { auth, database } from '../firebase';
@@ -17,13 +17,21 @@ import ReactGA from 'react-ga';
 
 export default class App extends Component {
 	handleRoute = e => {
-		setTimeout(() => {
-			ReactGA.pageview(e.url);
+		if (typeof window !== "undefined") {
+			if (localStorage.getItem('seenWelcomeMessage') === 'false') {
+				if (e.url !== '/step1') {
+					route('/step1');
+				}
+			}
+			console.log(e.url);
+			setTimeout(() => {
+				ReactGA.pageview(e.url);
 
-			this.setState({
-				currentUrl: e.url
-			});
-		}, 100);
+				this.setState({
+					currentUrl: e.url
+				});
+			}, 100);
+		}
 	};
 
 	constructor(props) {
@@ -34,9 +42,9 @@ export default class App extends Component {
 		this.visitCounted = false;
 		this.state = {
 			currentUrl: '.'
-		}
+		};
 		ReactGA.initialize('UA-102222556-2');
-		ReactGA.pageview('/');
+		// ReactGA.pageview('/');
 
 
 		if (typeof window !== 'undefined') {
@@ -90,31 +98,31 @@ export default class App extends Component {
 		let showHeader = true;
 		let url = this.state.currentUrl;
 
-		if(url) {
+		if (url) {
 			showHeader = (url.indexOf('dark') === -1);
-			if (typeof window !== "undefined" && window.MP) { // Do not show the header in-app...
+			if (typeof window !== 'undefined' && window.MP) { // Do not show the header in-app...
 				showHeader = false;
 			}
 		}
 
 		return (
 			<div id="app">
-				<Notifications options={{ zIndex: 200, top: '180px', wrapperId : 'toastBox' }} />
+				<Notifications options={{ zIndex: 200, top: '180px', wrapperId: 'toastBox' }} />
 				{showHeader &&
-					<Header selectedRoute={state.currentUrl} />}
+					<Menu selectedRoute={state.currentUrl} />}
 
 				<Router onChange={this.handleRoute}>
-					<Step1 path="/" />
 					<Dark path="/dark/" delay="3600" />
 					<Dark path="/dark/:delay" />
 					<Dash path="/dash" selectedGame="1" />
 					<Dash path="/dash/:selectedGame" />
-					<Step1 path="/step1" />
 					<Quest path="/quest" />
-					<Outcome path="/outcome" />
-					<Metrics path="/metrics" />
+					<Step1 path="/" />
+					<Step1 path="/step1" />
 					<Thanks path="/thanks" />
+					<Metrics path="/metrics" />
 					<NotFound default />
+					<Outcome path="/outcome" />
 				</Router>
 			</div>
 		);

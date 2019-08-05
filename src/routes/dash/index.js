@@ -43,8 +43,9 @@ export default class Dash extends Component {
 
 		ReactGA.event({
 			category: 'Session Length',
-			action: 'Session continuing',
-			value: this.sessionLength
+			action: 'Session Continuing',
+			label: this.sessionLength.toString(10),
+			nonInteraction: false
 		});
 
 		let playsRef = database.ref('users/' + auth.currentUser.uid + '/total_session_duration');
@@ -56,8 +57,8 @@ export default class Dash extends Component {
 
 	doGameStarted() {
 
-		this.sessionLength = 0;
-		
+		this.sessionLength = 1;
+
 		ReactGA.event({
 			category: 'Game Start',
 			action: gamesList[this.props.selectedGame].name,
@@ -82,7 +83,17 @@ export default class Dash extends Component {
 	componentWillUnmount() {  // Stop counting game clock time.
 		clearInterval(this.timer);
 		this.timer = null;
-		this.sessionLength = 0;
+
+		if(this.sessionLength > 0) {
+			ReactGA.event({
+				category: 'Session End',
+				action: 'Session Ending',
+				label: this.sessionLength.toString(10),
+				nonInteraction: false
+			});
+
+			this.sessionLength = 0;
+		}
 	}
 
 	constructor(props) {
@@ -110,6 +121,43 @@ export default class Dash extends Component {
 		this.changeBonus = this.changeBonus.bind(this);
 		this.preSnooze = this.preSnooze.bind(this);
 
+
+		localStorage.setItem('highestGameID', (localStorage.getItem('highestGameID') || 1));
+
+		if(this.props.selectedGame) {
+			localStorage.setItem('currentGameID', this.props.selectedGame);
+			if(this.props.selectedGame > localStorage.getItem('highestGameID')) {
+				localStorage.setItem('highestGameID', this.props.selectedGame);
+			}
+		}
+
+
+		window.onbeforeunload = (event) => {
+			if(this.sessionLength > 0) {
+				ReactGA.event({
+					category: 'Session Close',
+					action: 'Session Closed',
+					label: this.sessionLength.toString(10),
+					nonInteraction: false
+				});
+
+				this.sessionLength = 0;
+			}
+		};
+		window.onblur = (event) => {
+			if(this.sessionLength > 0) {
+				ReactGA.event({
+					category: 'Session Blurred',
+					action: 'Session Blurred',
+					label: this.sessionLength.toString(10),
+					nonInteraction: false
+				});
+
+				this.sessionLength = 0;
+			}
+		}
+
+
 	}
 
 	render({ selectedGame }, state) {
@@ -124,6 +172,7 @@ export default class Dash extends Component {
 			hgt += kCountDownBarHeight;
 		}
 		let url = gamesList[selectedGame].url;
+
 
 		if (state.bonusIndex === 4) {
 			msgStyle = 'intro';

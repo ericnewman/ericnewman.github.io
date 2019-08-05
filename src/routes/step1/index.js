@@ -14,7 +14,9 @@ export default class Step1 extends Component {
 	saver() {
 
 	}
-
+	componentDidMount() {
+		localStorage.setItem('seenWelcomeMessage', true);
+	}
 
 	render() {
 

@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import { database } from '../../firebase';
+import { database } from '../../src/firebase';
 
 import Card from 'preact-material-components/Card';
 import 'preact-material-components/Card/style.css';
