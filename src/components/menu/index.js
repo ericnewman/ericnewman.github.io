@@ -3,8 +3,6 @@ import { route } from 'preact-router';
 import TopAppBar from 'preact-material-components/TopAppBar';
 import Drawer from 'preact-material-components/Drawer';
 import List from 'preact-material-components/List';
-// import Dialog from 'preact-material-components/Dialog';
-// import Switch from 'preact-material-components/Switch';
 import 'preact-material-components/Switch/style.css';
 import 'preact-material-components/Dialog/style.css';
 import 'preact-material-components/Drawer/style.css';
@@ -57,7 +55,7 @@ export default class Menu extends Component {
 		localStorage.setItem('seenWelcomeMessage', false);
 		localStorage.setItem('currentGameID', '1');
 		localStorage.setItem('highestGameID', '1');
-
+		localStorage.setItem('gameEnthusiasm', '99');
 		this.closeDrawer();
 		route('/step1');
 
@@ -69,7 +67,8 @@ export default class Menu extends Component {
 		localStorage.setItem('highestGameID', '12');
 
 		this.closeDrawer();
-		route('/');
+		 let a = document.location.href;
+		 document.location.href = a;
 	}
 	resetSnoozes = () => {
 		let ref = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');

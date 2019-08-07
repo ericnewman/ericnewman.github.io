@@ -1,6 +1,5 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-// import "firebase/functions";
 import 'firebase/database';
 
 const firebaseConfig = {
@@ -12,14 +11,59 @@ const firebaseConfig = {
 	messagingSenderId: '948162458323',
 	appId: '1:948162458323:web:bc126f0bb10b7807'
 };
-let db, aAuth, gAP;
+let db, aAuth, gAP, aUser;
 
 if (typeof window !== 'undefined') {
 	firebase.initializeApp(firebaseConfig);
 	db =  firebase.database();
 	aAuth = firebase.auth();
 	gAP = new firebase.auth.GoogleAuthProvider();
+
+	aAuth.signInAnonymously().catch((error) => {
+		// Handle Errors here.
+		// let errorCode = error.code;
+		// let errorMessage = error.message;
+		// ...
+	});
+
+	aAuth.onAuthStateChanged((user) => {
+		if (user) {
+			// User is signed in.
+			// let isAnonymous = user.isAnonymous;
+			// let uid = user.uid;
+			// ...
+			aUser = user;
+			let myDB = database.ref('users/' + auth.currentUser.uid + '/latest_visit');
+			let newD = new Date().toLocaleString('en-US').split(',')[0];
+
+			myDB.once('value', (snapshot) => {
+				if (newD !== snapshot.val()) {
+					let ref = database.ref('users/' + auth.currentUser.uid + '/unique_day_count');
+					ref.transaction((uniqueDays) => (uniqueDays || 0) + 1);
+				}
+			});
+
+			// myDB.set({latest_visit:d });
+			let ref = database.ref('users/' + auth.currentUser.uid + '/latest_visit');
+			ref.transaction((latestVisit) => (newD));
+
+			if (!this.visitCounted) {
+				let ref = database.ref('users/' + auth.currentUser.uid + '/totalVisits');
+				ref.transaction((totalPlays) =>
+					(totalPlays || 0) + 1
+				);
+				this.visitCounted = true;
+			}
+
+		}
+		else {
+			// User is signed out.
+			// ...
+		}
+	});
+
 }
 export const database = db;
 export const auth = aAuth;
+export const user = aUser;
 export const googleAuthProvider =  gAP;

@@ -1,19 +1,19 @@
 const gamesList  = [
-	{ id: 0, name: '', image: '', url: ''},
+	{ id: 0, name: '', image: '', url: '' },
 	{ id: 1,  name: 'Ninja Action',  image: '../../assets/img/ninjaAction.jpg', url: 'https://api-gametroove.eeposit.com/games/NinjaAction2/' },
-	{ id: 10, name: 'Piggy Night', image: '../../assets/img/piggynight.png', url: 'https://api-gametroove.eeposit.com/games/Piggy-Night/'},
-	{ id: 20, name: 'Crazy Balls', image: '../../assets/img/crazyballs.png', url: 'https://api-gametroove.eeposit.com/games/greg-cb/'},
-	{ id: 30, name: 'Balloon', image: '../../assets/img/balloon.png', url: 'https://balloon.frvr.com'},
+	{ id: 10, name: 'Piggy Night', image: '../../assets/img/piggynight.png', url: 'https://api-gametroove.eeposit.com/games/Piggy-Night/' },
+	{ id: 20, name: 'Crazy Balls', image: '../../assets/img/crazyballs.png', url: 'https://api-gametroove.eeposit.com/games/greg-cb/' },
+	{ id: 30, name: 'Balloon', image: '../../assets/img/balloon.png', url: 'https://balloon.frvr.com' },
 	{ id: 40, name: 'Monsters Up', image: '../../assets/img/monstersUp.jpg',url: 'https://api-gametroove.eeposit.com/games/Monstersup/' },
-	{ id: 50, name: 'Basketball', image: '../../assets/img/basketball.png', url: 'https://basketball.frvr.com'},
-	{ id: 60, name: 'Rolling Panda', image: '../../assets/img/rollingpanda.png', url: 'https://api-gametroove.eeposit.com/games/RollingPanda/'},
-	{ id: 70, name: 'Rise Up', image: '../../assets/img/riseup.png', url: 'https://api-gametroove.eeposit.com/games/RiseUp/'},
-	{ id: 80, name: 'Run Panda Run', image: '../../assets/img/runpandarun.png', url: 'https://api-gametroove.eeposit.com/games/RunPandaRun/'},
-	{ id: 90, name: 'Caveman Adventures', image: '../../assets/img/cavemanadv.png', url: 'https://api-gametroove.eeposit.com/games/Caveman-Adventures/'},
-	{ id: 100, name: 'Jelly Jump', image: '../../assets/img/jellyjump.png', url: 'https://api-gametroove.eeposit.com/games/JellyJump/'},
-	{ id: 110, name: 'Swing Robber',  image: '../../assets/img/swingRobber.jpg', url: 'https://api-gametroove.eeposit.com/games/SwingRobber/' },
+	{ id: 50, name: 'Basketball', image: '../../assets/img/basketball.png', url: 'https://basketball.frvr.com' },
+	{ id: 60, name: 'Rolling Panda', image: '../../assets/img/rollingpanda.png', url: 'https://api-gametroove.eeposit.com/games/RollingPanda/' },
+	{ id: 70, name: 'Rise Up', image: '../../assets/img/riseup.png', url: 'https://api-gametroove.eeposit.com/games/RiseUp/' },
+	{ id: 80, name: 'Run Panda Run', image: '../../assets/img/runpandarun.png', url: 'https://api-gametroove.eeposit.com/games/RunPandaRun/' },
+	{ id: 90, name: 'Caveman Adventures', image: '../../assets/img/cavemanadv.png', url: 'https://api-gametroove.eeposit.com/games/Caveman-Adventures/' },
+	{ id: 100, name: 'Jelly Jump', image: '../../assets/img/jellyjump.png', url: 'https://api-gametroove.eeposit.com/games/JellyJump/' },
+	{ id: 110, name: 'Swing Robber',  image: '../../assets/img/swingRobber.jpg', url: 'https://api-gametroove.eeposit.com/games/SwingRobber/' }
 
-	];
+];
 export default gamesList;
 
 

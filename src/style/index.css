@@ -158,13 +158,18 @@ header {
 }
 
 .smaller {
-    font: bold 20px/27px Comfortaa, sans-serif;
+    font: normal 20px/23px Comfortaa, sans-serif;
     text-align: center;
+    margin: 5px 25px;
+}
+.smallerBold {
+    font: bold 10px Comfortaa, sans-serif;
+    text-align: left;
     margin: 5px 25px;
 }
 
 .smallest {
-    font: bold 10px/14px Comfortaa, sans-serif;
+    font: normal 10px/14px Comfortaa, sans-serif;
     text-align: left;
     margin: 5px 5px;
 }
@@ -183,7 +188,18 @@ header {
     animation: roto 5s infinite
 
 }
+.cardHeader {
+    padding: 0px;
 
+}
+
+.cardBody {
+    padding: 0px;
+}
+
+.newpage {
+    padding-top: 5px;
+}
 @keyframes roto {
     0%, 100% {
         transform: rotate(-10deg);
@@ -314,7 +330,7 @@ header {
     }
 
     .smaller {
-        font: bold 18px/20px Comfortaa, sans-serif;
+        font: bold 18px Comfortaa, sans-serif;
         margin: 5px 15px;
     }
 

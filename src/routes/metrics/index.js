@@ -8,7 +8,7 @@ import style from './style';
 // 	10 games deliveries
 // 	100 to 300 to play
 // 	200 to Rate
-// 	Max score: 5000
+// 	Max score: 6000
 //
 // 	Health
 // -the number of snoozes left.
@@ -20,14 +20,39 @@ import style from './style';
 // -pro: 2000 to 2999
 // -elite: 3000 and up
 
-const number_of_game_deliveries = 10,
-	max_score =  5000,
-	rankings = ['Novice', 'Intermediate', 'Pro', 'Elite'];
+//const rankings = ['Novice', 'Intermediate', 'Pro', 'Elite'];
 
 
 export default class Metrics extends Component {
 
-	componentWillMount() {
+	gamesTable() {
+		let games = this.state.games;
+		let str = '';
+		Object.keys(games).forEach((key, idx) => {
+			str += '<div>' + key + ':';
+			Object.keys(games[key]).forEach((ikey, idx) => {
+				str += ikey + ':' +  games[key][ikey] + ' ';
+			});
+			str += '</div>';
+		});
+
+		return str;
+	}
+
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			user: {},
+			counts: {},
+			games: {},
+			likesplay: {},
+			num_of_users: 0
+		};
+	}
+
+	componentDidMount() {
 
 		if (typeof window !== 'undefined') {
 			auth.signInAnonymously().catch((error) => {
@@ -61,31 +86,6 @@ export default class Metrics extends Component {
 		}
 	}
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			user: {},
-			counts: {},
-			games: {},
-			likesplay: {},
-			num_of_users: 0
-		};
-	}
-	gamesTable() {
-		let games = this.state.games;
-		let str = '';
-		Object.keys(games).forEach((key, idx) => {
-			str += '<div>' + key + ':';
-			Object.keys(games[key]).forEach((ikey, idx) => {
-				str += ikey + ':' +  games[key][ikey] + ' ';
-			});
-			str += '</div>';
-		});
-
-		return str;
-	}
-
 
 	render(props, state) {
 		// let expectedDailyPVs = 2.0;
@@ -94,7 +94,7 @@ export default class Metrics extends Component {
 		// let playprog = (state.user.totalPlays/campaignLength*100).toFixed(2);
 		//
 		// let rank = parseInt(state.user.score/1000);
-		let str = '';
+		let user = this.state.user;
 		let games = this.state.games;
 		let likes = this.state.likesplay;
 		let goodFields = ['times_played', 'average_rating', 'review_points'];
@@ -103,39 +103,54 @@ export default class Metrics extends Component {
 			<div class="home">
 
 				<Logo />
-				<div class="smaller">Stats
+				{state.num_of_users && <div class="smaller">Stats
 					<p />
 					<div class={style.report}>
 						Total Users: {state.num_of_users}
-						<p />
+						<hr />
 						How much do people like playing?{
-						Object.keys(likes).map((keys) => (<div><stong>{keys}</stong><ul>
+							Object.keys(likes).map((keys) => (<div class="smallerBold">{keys}
 								{
-									typeof likes[keys] === 'object' && Object.keys(likes[keys]).map((ikey) => (<li>{ikey}{' : '}
+									typeof likes[keys] === 'object' && Object.keys(likes[keys]).map((ikey) => (<div> - {ikey}  :
 										{likes[keys][ikey]}
-									</li>))
+									</div>))
 								}
 								{
 									typeof likes[keys] !== 'object' && likes[keys]
 								}
-							</ul></div>))
+							</div>))
 						}
+						<hr />
 						Activity within Games
 						{
-							Object.keys(games).map((keys) => (<div>{keys}<ul>
-
+							Object.keys(games).map((keys) => (<div class="smallerBold">{keys}<div>
 								{
 									Object.keys(games[keys]).map((ikey) => {
 										if (goodFields.includes(ikey)) {
-											return (<li>{ikey}{' : '} {games[keys][ikey]}</li>);
+											return (<div>- {ikey} {' : '} {games[keys][ikey]}</div>);
 										}
 									})
 								}
-							</ul></div>))
+							</div><br /></div>))
 						}
-
+						<hr />
+					User
+						{
+							Object.keys(user).map((keys) => (
+								<div class="smallerBold">
+									<p />{keys} :
+									{
+										typeof user[keys] === 'object' && Object.keys(user[keys]).map((ikey) => (<div> - {ikey} :
+											{user[keys][ikey]} {user[keys][ikey].times_played}
+										</div>))
+									}
+									{
+										typeof likes[keys] !== 'object' && user[keys]
+									}
+								</div>))
+						}
 					</div>
-				</div>
+				</div> }
 
 			</div>
 		);

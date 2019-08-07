@@ -3,11 +3,8 @@ import GamesCarousel from '../../components/gamescarousel';
 import Survey1 from '../../components/survey1';
 import Logo from '../../components/logo';
 
-import 'preact-material-components/Card/style.css';
-import 'preact-material-components/Button/style.css';
-
-import style from './style';
-
+// import 'preact-material-components/Card/style.css';
+// import 'preact-material-components/Button/style.css';
 
 export default class Step1 extends Component {
 
@@ -25,7 +22,7 @@ export default class Step1 extends Component {
 			<div id="home" class="home">
 				<Logo />
 				<div>
-					<div class="smaller">10 days of a new type of gameplay.<br/>Play. Rate. Win!<br/>
+					<div class="smaller">10 days of a new type of gameplay.<br />Play. Rate. Win!<br />
 					It's your chance to be heard!
 					</div>
 					<GamesCarousel showHeader={false} showFavorite={false} clickable={false} />
@@ -38,4 +35,5 @@ export default class Step1 extends Component {
 			</div>
 		);
 	}
+
 }

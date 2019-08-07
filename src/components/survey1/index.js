@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 import Stars from 'react-star-rating-component';
 import { route } from 'preact-router';
-import { auth, database } from '../../firebase';
+import { database } from '../../firebase';
 import { notify } from 'react-notify-toast';
 import ReactGA from 'react-ga';
 
@@ -24,6 +24,7 @@ export default class Survey1 extends Component {
 	onStarClick(nextValue, prevValue, name) {
 
 		this.setState({ rating: nextValue });
+		localStorage.setItem('gameEnthusiasm', nextValue);
 
 		ReactGA.event({
 			category: 'Survey',
@@ -77,27 +78,6 @@ export default class Survey1 extends Component {
 			average: 0,
 			count: 0
 		};
-		if (typeof window !== 'undefined') {
-			auth.signInAnonymously().catch((error) => {
-				// Handle Errors here.
-				// let errorCode = error.code;
-				// let errorMessage = error.message;
-				// ...
-			});
-
-			auth.onAuthStateChanged((user) => {
-				if (user) {
-					// User is signed in.
-					// let isAnonymous = user.isAnonymous;
-					// let uid = user.uid;
-					// ...
-				}
-				else {
-					// User is signed out.
-					// ...
-				}
-			});
-		}
 	}
 
 	componentWillMount() {

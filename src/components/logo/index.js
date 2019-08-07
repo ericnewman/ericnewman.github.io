@@ -6,8 +6,8 @@ export default class logo extends Component {
 		return (
 			<div>
 				<div className="logo">
-					<div className="urup"/>
-					<div className="beta"/>
+					<div className="urup" />
+					<div className="beta" />
 				</div>
 			</div>
 		);

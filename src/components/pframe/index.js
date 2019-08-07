@@ -1,15 +1,10 @@
 import { h, Component } from 'preact';
-import 'preact-material-components/Card/style.css';
-import 'preact-material-components/Button/style.css';
+// import 'preact-material-components/Card/style.css';
+// import 'preact-material-components/Button/style.css';
 import { notify } from 'react-notify-toast';
 
-import { auth, database } from '../../firebase';
-
+import { auth, database, user } from '../../firebase';
 import gamesList from '../../gamesList';
-
-
-import style from './style';
-
 
 export default class PFrame extends Component {
 
@@ -69,12 +64,12 @@ export default class PFrame extends Component {
 	}
 
 	removeListeners() {
-		//removeEventListener('click', this.onClick);
+		removeEventListener('click', this.onClick);
 		removeEventListener('blur', this.onBlur);
 		// removeEventListener('mouseover', this.onHover);
 		// removeEventListener('mouseout', this.onHoverExit);
 		// removeEventListener('touchend', this.onCancel);
-		// removeEventListener('touchstart', this.onClick);
+		removeEventListener('touchstart', this.onClick);
 		// removeEventListener('touchcancel', this.onCancel);
 	}
 
@@ -103,7 +98,7 @@ export default class PFrame extends Component {
 	}
 
 	componentDidMount() {
-		// addEventListener('click', this.onClick);
+		addEventListener('click', this.onClick);
 		addEventListener('blur', this.onBlur);
 		// addEventListener('mouseover', this.onHover);
 		// addEventListener('mouseout', this.onHoverExit);
@@ -111,27 +106,15 @@ export default class PFrame extends Component {
 		addEventListener('touchstart', this.onClick);
 		//addEventListener('touchcancel', this.onCancel);
 
-		auth.signInAnonymously().catch((error) => {
-			// Handle Errors here.
-			// let errorCode = error.code;
-			// let errorMessage = error.message;
-		});
+		if (user) {
+			// User is signed in.
+			let name = gamesList[this.props.game_id].name;
+			let playsRef =  database.ref('users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played');
 
-		auth.onAuthStateChanged(user => {
-			if (user) {
-				// User is signed in.
-				let name = gamesList[this.props.game_id].name;
-				let playsRef =  database.ref('users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played');
-
-				playsRef.on('value', snapshot => {
-					this.setState({ currentPlays: snapshot.val(), gameName: name });
-				});
-			}
-			else {
-				// User is signed out.
-				// ...
-			}
-		});
+			playsRef.on('value', snapshot => {
+				this.setState({ currentPlays: snapshot.val(), gameName: name });
+			});
+		}
 	}
 
 

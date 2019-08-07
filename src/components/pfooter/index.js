@@ -7,7 +7,7 @@ import ReactGA from 'react-ga';
 
 import { auth, database } from '../../firebase';
 import gamesList from '../../gamesList';
-import { microBridge } from '../../micro_bridge'
+import { microBridge } from '../../micro_bridge';
 
 import 'preact-material-components/Button/style.css';
 
@@ -15,7 +15,7 @@ import style from './style';
 
 const  timeout = 2000;
 
-const k_rating_bonus = 200;
+const kRatingBonus = 200;
 
 export default class PFooter extends Component {
 
@@ -30,14 +30,14 @@ export default class PFooter extends Component {
 	};
 
 	doSnooze = (interval) => {
-		if(!this.state.snoozing) {
+		if (!this.state.snoozing) {
 			this.interval = interval;
-			if(this.props.snoozer) {
+			if (this.props.snoozer) {
 				this.props.snoozer();
 
 			}
 
-			this.setState({snoozing: true})
+			this.setState({ snoozing: true });
 			ReactGA.event({
 				category: 'Snooze',
 				action: 'User Snoozed for: ' + interval,
@@ -55,15 +55,25 @@ export default class PFooter extends Component {
 		document.getElementById('home').classList.add('dim');
 		document.getElementById('toastBox').classList.add('snoozeBox');
 
-		notify.show('See you soon! Be back in ' + this.interval + ' Minutes...',
-			'custom',
-			timeout,
-			colors);
+		if (window.MP) {
+			notify.show('See you soon! Unlock in ' + this.interval + ' Minutes...',
+				'custom',
+				timeout,
+				colors);
+
+		}
+		else {
+			notify.show('See you soon! Be back in ' + this.interval + ' Minutes...',
+				'custom',
+				timeout,
+				colors);
+
+		}
 
 		microBridge.sendDelayedBanner(document.URL, interval);
 
 		setTimeout(() => {
-			if(document.getElementById('home')) {
+			if (document.getElementById('home')) {
 				document.getElementById('home').classList.remove('dim');
 			}
 			document.getElementById('toastBox').classList.remove('snoozeBox');
@@ -117,7 +127,7 @@ export default class PFooter extends Component {
 	showToast(msg) {
 		let d = document.getElementById('home');
 
-		if(d != null) {
+		if (d !== null) {
 			d.classList.add('dim');
 		}
 		let colors = { background: 'none', text: '#FFFFFF' };
@@ -134,8 +144,7 @@ export default class PFooter extends Component {
 			colors);
 
 
-
-		}
+	}
 
 	waitAndNext() {
 		setTimeout(() => {
@@ -194,7 +203,7 @@ export default class PFooter extends Component {
 
 		ref = database.ref('games/'+ name + '/average_rating');
 		ref.transaction(average  => {
-				average =  Math.round((pts/this.state.times_played+1 || 0) * 100) / 100;
+			average =  Math.round((pts/this.state.times_played+1 || 0) * 100) / 100;
 
 			this.setState({
 				rating: average,
@@ -206,7 +215,7 @@ export default class PFooter extends Component {
 		);
 		ref = database.ref('users/' + auth.currentUser.uid + '/score');
 		ref.transaction((totalScore) =>
-			(totalScore || 0) + k_rating_bonus
+			(totalScore || 0) + kRatingBonus
 		);
 
 		this.showToast('Thanks for Your Review.  200 Points');
@@ -224,19 +233,21 @@ export default class PFooter extends Component {
 	componentWillMount() {
 		let name = gamesList[this.props.game_id].name;
 		let db = {};
+		if (typeof window !== 'undefined') {
 
-		let ref = database.ref('games/' + name);
-		ref.once('value', snapshot => {
-			db = snapshot.val();
-			this.setState(db);
-		});
+			let ref = database.ref('games/' + name);
+			ref.once('value', snapshot => {
+				db = snapshot.val();
+				this.setState(db);
+			});
+		}
 	}
 
 	render(props, state) {
 		const {
-			background,
-			text,
-			buttonStyles,
+			// background,
+			// text,
+			// buttonStyles,
 			buttonOptions = {
 				color: '#007CE2',
 				duration: 200,
@@ -263,9 +274,9 @@ export default class PFooter extends Component {
 
 		const {
 			hidden,
-			animating,
-			hidden2,
-			animating2
+			// animating,
+			hidden2
+			// animating2
 		} = this.state;
 
 		return (

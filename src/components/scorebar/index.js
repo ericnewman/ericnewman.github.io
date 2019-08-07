@@ -4,8 +4,6 @@ import 'preact-material-components/Button/style.css';
 import Progress from 'preact-progress';
 import style from './style';
 
-
-
 export default class ScoreBar extends Component {
 
 	// Don't delete these methods!
@@ -16,12 +14,12 @@ export default class ScoreBar extends Component {
 
 	}
 	render(props, state) {
-		if(!props.maxValue) {
+		if (!props.maxValue) {
 			props.maxValue = 100;
 		}
 		let val = props.progress;
 
-		if(!props.title) {
+		if (!props.title) {
 			props.title = props.progress + ' points';
 		}
 

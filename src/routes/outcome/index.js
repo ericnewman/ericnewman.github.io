@@ -22,43 +22,18 @@ import 'preact-material-components/Button/style.css';
 // -start with 10
 //
 // 	Play Cred
-// -novice: 0 to 999
-// -intermediate: 1000 to 1999
-// -pro: 2000 to 2999
-// -elite: 3000 and up
+// -novice: 0 to 1499
+// -intermediate: 1500 to 2999
+// -pro: 3000 to 4499
+// -elite: 4500 and up
 
-const number_of_game_deliveries = 10,
-	maxScore =  6000,
+const maxScore =  6000,
 	maxSnoozes = 10,
 	rankings = ['Novice', 'Intermediate', 'Pro', 'Elite', 'Elite+', 'Elite++'];
 
 
 export default class Outcome extends Component {
 
-	componentDidMount() {
-
-		if (typeof window !== 'undefined') {
-			auth.signInAnonymously().catch((error) => {
-				// Handle Errors here.
-				// let errorCode = error.code;
-				// let errorMessage = error.message;
-			});
-
-			auth.onAuthStateChanged(user => {
-				if (user) {
-					// User is signed in.
-					let playsRef = database.ref('users/' + auth.currentUser.uid);
-					playsRef.on('value', (snapshot) => {
-						this.setState({ user: snapshot.val() });
-					});
-				}
-				else {
-					// User is signed out.
-					// ...
-				}
-			});
-		}
-	}
 
 	constructor(props) {
 		super(props);
@@ -69,6 +44,7 @@ export default class Outcome extends Component {
 				latest_visit: 0,
 				totalVisits: 0,
 				totalPlays: 0,
+				gamerrank: 0,
 				score: 0,
 				snoozes: 0,
 				unique_day_count: 0
@@ -76,6 +52,14 @@ export default class Outcome extends Component {
 		};
 	}
 
+	componentDidMount() {
+
+		// User is signed in.
+		let playsRef = database.ref('users/' + auth.currentUser.uid);
+		playsRef.on('value', (snapshot) => {
+			this.setState({ user: snapshot.val() });
+		});
+	}
 
 	render(props, state) {
 		//let expectedDailyPVs = 1.0;
@@ -85,12 +69,16 @@ export default class Outcome extends Component {
 
 		let score = (state.user.score <= maxScore) ? state.user.score : maxScore;
 
-		let rank = parseInt(score/1250);
+		let rank = parseInt(score/1250, 10);
 		let snoozes = ((state.user.totalSnoozes <= maxSnoozes) ? state.user.totalSnoozes : maxSnoozes) || 0;
 		let snoozeMsg = (maxSnoozes - snoozes) > 0 ? ' You\'ve only got ' + (maxSnoozes - snoozes) + ' left.' :
 			' (You\'ve used them all up!)';
 
-		score = score - (snoozes * 100);
+		score = score - (snoozes * 100); // Too many snoozes will make you negative...
+
+		if (score < 0) {
+			score = 0;
+		}
 
 		return (
 			<div class="home">
@@ -104,17 +92,17 @@ export default class Outcome extends Component {
 
 					{state.gameRankAvailable && <div>
 						<div class="small">Gamer Ranking:</div>
-						<div class={style.rank}>{gamerrank}</div>
+						<div class={style.rank}>{state.gamerrank}</div>
 						<p />
 					</div>
 					}
 					<div class={style.snoozeSec}>
 						<div class={style.snoozeIcon} />
 						<div class={style.headTxt}>
-								<div class={style.headTxt}>
+							<div class={style.headTxt}>
 									Snooze Bank
-									<div className={style.snoozeScore}>You have used {snoozes} snoozes.</div>
-								</div>
+								<div className={style.snoozeScore}>You have used {snoozes} snoozes.</div>
+							</div>
 						</div>
 						<div className={style.label}>Remember! Use your Snoozes sparingly.</div>
 					</div>

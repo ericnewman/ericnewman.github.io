@@ -1,6 +1,4 @@
 import { Component } from 'preact';
-import 'preact-material-components/Card/style.css';
-import 'preact-material-components/Button/style.css';
 import Progress from 'preact-progress';
 import style from './style';
 
@@ -13,7 +11,7 @@ export default class CountDown extends Component {
 			case 99:
 				this.props.message = 'Start the game before it\'s too late!!!';
 				this.props.color = '#0F0';
-				if(this.props.changeBonus) {
+				if (this.props.changeBonus) {
 					this.props.changeBonus(1);
 				}
 				break;
@@ -23,20 +21,20 @@ export default class CountDown extends Component {
 			case 45:
 				this.props.color = '#FC0';
 				this.props.message = 'Time\'s almost up!';
-				if(this.props.changeBonus) {
+				if (this.props.changeBonus) {
 					this.props.changeBonus(2);
 				}
 				break;
 			case 20:
 				this.props.color = '#F00';
-				if(this.props.changeBonus) {
+				if (this.props.changeBonus) {
 					this.props.changeBonus(3);
 				}
 				break;
 			case 1:
 			case 0:
 				this.props.message = 'No fast-play bonus.';
-				if(this.props.changeBonus) {
+				if (this.props.changeBonus) {
 					this.props.changeBonus(3);
 				}
 				break;
@@ -54,6 +52,10 @@ export default class CountDown extends Component {
 
 		}
 	};
+	screenUnlocked() {
+		//console.log('It\'s unlocked!');
+		window.unlocked = true;
+	}
 
 	constructor(props) {
 		super(props);
@@ -64,24 +66,29 @@ export default class CountDown extends Component {
 
 		this.onChange.bind(this);
 		this.onComplete.bind(this);
-	}
-	screenUnlocked() {
-		this.timer = setInterval(() => {
-			this.setState({ progress: (this.state.progress + 1) % 100 });
-		}, 100); //200
-	}
-	componentDidMount() {
-
-		if (window.MP && (window.MP.setScreenUnLockCallBack != undefined)) {
-			window.MP.setScreenUnLockCallBack('this.screenUnlocked()');
-		} else {
-			this.timer = setInterval(() => {
-				this.setState({ progress: (this.state.progress + 1) % 100 });
-			}, 100); //200
-
+		if (typeof window !== 'undefined') {
+			window.unlocked = false;
+			window.screenUnlock = this.screenUnlocked;
 		}
-
 	}
+
+	componentDidMount() {
+		if (typeof window !== 'undefined') {
+
+			if (window.MP && (window.MP.setScreenUnLockCallBack !== undefined)) {
+				window.MP.setScreenUnLockCallBack('window.screenUnlock()');
+			}
+
+			this.timer = setInterval(() => {
+				if (window.unlocked) {
+					this.setState({
+						progress: (this.state.progress + 1) % 100
+					});
+				}
+			}, 100); //200
+		}
+	}
+
 	componentWillUnmount() {
 		// stop when not renderable
 		clearInterval(this.timer);

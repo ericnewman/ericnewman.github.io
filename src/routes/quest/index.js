@@ -4,7 +4,6 @@ import Logo from '../../components/logo';
 
 import 'preact-material-components/Card/style.css';
 import ParticleEffectButton from 'react-particle-effect-button';
-import style from './style';
 
 export default class Quest extends Component {
 
@@ -28,22 +27,22 @@ export default class Quest extends Component {
 	render(props,state) {
 
 		const {
-			background,
-			text,
-			buttonStyles,
+			// background,
+			// text,
+			// buttonStyles,
 			buttonOptions = {
 				color: '#EF7D15',
-				duration: 600,
+				duration: 500,
 				easing: 'easeOutQuad',
-				speed: 0.2,
+				speed: 0.25,
 				particlesAmountCoefficient: 10,
 				oscillationCoefficient: 80
 			}
 		} = this.props;
 
 		const {
-			hidden,
-			animating
+			hidden
+			// animating
 		} = this.state;
 
 		return (

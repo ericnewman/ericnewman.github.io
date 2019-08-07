@@ -1,32 +1,20 @@
 import { h, Component } from 'preact';
-import { auth, database } from '../../firebase';
 
 import Card from 'preact-material-components/Card';
-import Button from 'preact-material-components/Button';
-
-import 'preact-material-components/Card/style.css';
-import 'preact-material-components/Button/style.css';
+// import Button from 'preact-material-components/Button';
+//
+// import 'preact-material-components/Card/style.css';
+// import 'preact-material-components/Button/style.css';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { Carousel } from 'react-responsive-carousel';
-import  { notify } from 'react-notify-toast';
-import { route } from 'preact-router';
 
 import gamesList from '../../gamesList';
 import style from './style';
 
 export default class GamesCarousel extends Component {
 
-	showToast(msg) {
-		let color = { background: '#5A3', text: '#FFFFFF' };
-		let timeout = 2000;
-
-		notify.show(msg,
-			'custom',
-			timeout,
-			color);
-	}
 
 	newFave(id) {
 		let s = this.state;
@@ -36,51 +24,8 @@ export default class GamesCarousel extends Component {
 
 	}
 
-	getGame(id) {
-		let items = gamesList.filter(item => (item.id === id));
-
-		return items[0];
-	}
-
 	playGame(id) {
 
-		let game = this.getGame(id);
-		let name = game.name;
-		let tp = 0;
-
-		if (this.state.timesPlayed[id]) {
-			tp =  this.state.timesPlayed[id]++;
-		}
-		else {
-			tp = 1;
-		}
-		this.state.timesPlayed[id] = tp;
-
-		this.setState( this.state);
-		//localStorage.setItem('savedFavorite', JSON.stringify(this.state));
-
-
-		let ref = database.ref('users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played');
-		ref.transaction((numberOfTimesPlayed) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(numberOfTimesPlayed || 0) + 1
-		);
-
-		ref = database.ref('games/' + name + '/times_played');
-		ref.transaction((numberOfTimesPlayed) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(numberOfTimesPlayed || 0) + 1
-		);
-
-		ref = database.ref('users/' + auth.currentUser.uid + '/totalPlays');
-		ref.transaction((totalPlays) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(totalPlays || 0) + 1
-		);
-
-
-		// document.location.href = JSON.parse(localStorage.getItem('savedFavorite')).favoriteGameURL;
-		route('/dash');
 	}
 
 	clickItem(index, element) {
@@ -98,14 +43,8 @@ export default class GamesCarousel extends Component {
 
 		this.setState(foo);
 
-		//localStorage.setItem('savedFavorite', JSON.stringify(this.state));
 
-		// if (confirm("You've selected " + gamesList[index].name + ' as your favorite game...Would you like to play it now?')) {
-		this.playGame(gamesList[index].id);
-		// }
-		// else {
-		// 	this.showToast("We'll try later...");
-		// }
+		//this.playGame(gamesList[index].id);
 	}
 
 	constructor(props) {
@@ -124,32 +63,6 @@ export default class GamesCarousel extends Component {
 			timesPlayed: {}
 		};
 
-		if (typeof window !== 'undefined') {
-			// let s = JSON.parse(localStorage.getItem('savedFavorite'));
-			// if (s && s.favoriteGameID !== -1) {
-			// 	this.state = { ...s };
-			// }
-
-			auth.signInAnonymously().catch((error) => {
-				// Handle Errors here.
-				// let errorCode = error.code;
-				// let errorMessage = error.message;
-				// ...
-			});
-
-			auth.onAuthStateChanged((user) => {
-				if (user) {
-					// User is signed in.
-					// let isAnonymous = user.isAnonymous;
-					// let uid = user.uid;
-					// ...
-				}
-				else {
-					// User is signed out.
-					// ...
-				}
-			});
-		}
 	}
 
 

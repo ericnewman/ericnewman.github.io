@@ -1,0 +1,319 @@
+{
+  "errors": [
+    "./src/index.js\nModule not found: Error: Can't resolve './style' in '/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src'\nresolve './style' in '/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src'\n  using description file: /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/package.json (relative path: ./src)\n    Field 'browser' doesn't contain a valid alias configuration\n    using description file: /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/package.json (relative path: ./src/style)\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style is not a file\n      .wasm\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.wasm doesn't exist\n      .mjs\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.mjs doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.js doesn't exist\n      .json\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.json doesn't exist\n      as directory\n        existing directory\n          using path: /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index\n            using description file: /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/package.json (relative path: ./src/style/index)\n              no extension\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index doesn't exist\n              .wasm\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.wasm doesn't exist\n              .mjs\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.mjs doesn't exist\n              .js\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.js doesn't exist\n              .json\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.json doesn't exist\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.wasm]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.mjs]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.js]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.json]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.wasm]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.mjs]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.js]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.json]\n @ ./src/index.js 1:0-17",
+    "./src/components/app.js 19:13\nModule parse failed: Unexpected token (19:13)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n| \n| export default class App extends Component {\n> \thandleRoute = e => {\n| \t\tif (typeof window !== 'undefined') {\n| \t\t\tif (localStorage.getItem('seenWelcomeMessage') === 'false') {\n @ ./src/index.js 2:0-35 5:15-18"
+  ],
+  "warnings": [
+    "configuration\nThe 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.\nYou can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/"
+  ],
+  "version": "4.35.0",
+  "hash": "e00e63732d652c3ff5e7",
+  "time": 92,
+  "builtAt": 1565202035496,
+  "publicPath": "",
+  "outputPath": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/dist",
+  "assetsByChunkName": {
+    "main": "main.js"
+  },
+  "assets": [
+    {
+      "name": "main.js",
+      "size": 1518,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "main.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "main.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "size": 498,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "main.js"
+      ],
+      "hash": "b821367e3d34fa6d3b1e",
+      "siblings": [],
+      "parents": [],
+      "children": [],
+      "childrenByOrder": {},
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/components/app.js",
+          "name": "./src/components/app.js",
+          "index": 1,
+          "index2": 0,
+          "size": 422,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+          "issuerId": 1,
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": 1,
+              "identifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 31,
+                "building": 12
+              }
+            }
+          ],
+          "profile": {
+            "factory": 3,
+            "building": 5
+          },
+          "failed": true,
+          "errors": 1,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": 1,
+              "moduleIdentifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "./components/app",
+              "loc": "2:0-35"
+            },
+            {
+              "moduleId": 1,
+              "moduleIdentifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony import specifier",
+              "userRequest": "./components/app",
+              "loc": "5:15-18"
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1,
+          "source": "throw new Error(\"Module parse failed: Unexpected token (19:13)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| export default class App extends Component {\\n> \\thandleRoute = e => {\\n| \\t\\tif (typeof window !== 'undefined') {\\n| \\t\\t\\tif (localStorage.getItem('seenWelcomeMessage') === 'false') {\");"
+        },
+        {
+          "id": 1,
+          "identifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+          "name": "./src/index.js",
+          "index": 0,
+          "index2": 1,
+          "size": 76,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "profile": {
+            "factory": 31,
+            "building": 12
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./src",
+              "loc": "main"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is an entry point"
+          ],
+          "depth": 0,
+          "source": "import './style';\nimport App from './components/app';\n\n\nexport default App;\n"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/components/app.js",
+      "name": "./src/components/app.js",
+      "index": 1,
+      "index2": 0,
+      "size": 422,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+      "issuerId": 1,
+      "issuerName": "./src/index.js",
+      "issuerPath": [
+        {
+          "id": 1,
+          "identifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+          "name": "./src/index.js",
+          "profile": {
+            "factory": 31,
+            "building": 12
+          }
+        }
+      ],
+      "profile": {
+        "factory": 3,
+        "building": 5
+      },
+      "failed": true,
+      "errors": 1,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": 1,
+          "moduleIdentifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "harmony side effect evaluation",
+          "userRequest": "./components/app",
+          "loc": "2:0-35"
+        },
+        {
+          "moduleId": 1,
+          "moduleIdentifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "harmony import specifier",
+          "userRequest": "./components/app",
+          "loc": "5:15-18"
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1,
+      "source": "throw new Error(\"Module parse failed: Unexpected token (19:13)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| export default class App extends Component {\\n> \\thandleRoute = e => {\\n| \\t\\tif (typeof window !== 'undefined') {\\n| \\t\\t\\tif (localStorage.getItem('seenWelcomeMessage') === 'false') {\");"
+    },
+    {
+      "id": 1,
+      "identifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
+      "name": "./src/index.js",
+      "index": 0,
+      "index2": 1,
+      "size": 76,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "profile": {
+        "factory": 31,
+        "building": 12
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": null,
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "type": "single entry",
+          "userRequest": "./src",
+          "loc": "main"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is an entry point"
+      ],
+      "depth": 0,
+      "source": "import './style';\nimport App from './components/app';\n\n\nexport default App;\n"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}

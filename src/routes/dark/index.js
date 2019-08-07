@@ -7,12 +7,10 @@ import style from './style';
 export default class Dark extends Component {
 
 	goHome() {
-		let url =
-			route('/dash/' + localStorage.getItem('currentGameID') || '1');
+		route('/dash/' + localStorage.getItem('currentGameID') || '1');
 	}
 
 	render(props) {
-		console.log(this.props);
 
 		return (
 			<div class={style.dark}>

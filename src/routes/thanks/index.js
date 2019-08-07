@@ -4,8 +4,6 @@ import { route } from 'preact-router';
 
 import ParticleEffectButton from 'react-particle-effect-button';
 
-import style from './style';
-
 export default class Thanks extends Component {
 
 	_onToggle = () => {
@@ -40,9 +38,9 @@ export default class Thanks extends Component {
 
 	render() {
 		const {
-			background,
-			text,
-			buttonStyles,
+			// background,
+			// text,
+			// buttonStyles,
 			buttonOptions = {
 				color: '#EF7D15',
 				duration: 600,
@@ -63,9 +61,9 @@ export default class Thanks extends Component {
 
 		const {
 			hidden,
-			animating,
-			hidden2,
-			animating2
+			// animating,
+			hidden2
+			// animating2
 		} = this.state;
 
 		return (

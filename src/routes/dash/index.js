@@ -53,6 +53,9 @@ export default class Dash extends Component {
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
 			(totalDuration || 0) + 15
 		);
+		if (this.sessionLength >= 600) {
+			clearInterval(this.timer);
+		}
 	}
 
 	doGameStarted() {
@@ -80,11 +83,81 @@ export default class Dash extends Component {
 	timedOut() {
 		this.setState({ tooLate: true });
 	}
+
+	constructor(props) {
+		super(props);
+
+		this.bonusPts = [0,300,200,100];
+
+		this.sessionLength=0;
+
+		let hasSeen = false;
+
+		if (typeof window !== 'undefined') {
+			hasSeen = localStorage.getItem('seenWelcomeMessage');
+		}
+
+		this.state = {
+			snooze: false,
+			snooze_time: 0,
+			gameStarted: false,
+			playMsg: 'Tap to Play now!',
+			bonusIndex: 0,
+			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn'],
+			day1: hasSeen
+
+		};
+
+		this.startSnooze = this.startSnooze.bind(this);
+		this.doGameStarted = this.doGameStarted.bind(this);
+		this.timedOut = this.timedOut.bind(this);
+		this.changeBonus = this.changeBonus.bind(this);
+		this.preSnooze = this.preSnooze.bind(this);
+
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('highestGameID', (localStorage.getItem('highestGameID') || 1));
+
+			if (this.props.selectedGame) {
+				localStorage.setItem('currentGameID', this.props.selectedGame);
+				if (this.props.selectedGame > localStorage.getItem('highestGameID')) {
+					localStorage.setItem('highestGameID', this.props.selectedGame);
+				}
+			}
+
+
+			window.onbeforeunload = (event) => {
+				if (this.sessionLength > 0) {
+					ReactGA.event({
+						category: 'Session Close',
+						action: 'Session Closed',
+						label: this.sessionLength.toString(10),
+						nonInteraction: false
+					});
+
+					this.sessionLength = 0;
+				}
+			};
+			window.onblur = (event) => {
+				event.preventDefault();
+				if (this.sessionLength > 0) {
+					ReactGA.event({
+						category: 'Session Blurred',
+						action: 'Session Blurred',
+						label: this.sessionLength.toString(10),
+						nonInteraction: false
+					});
+
+					this.sessionLength = 0;
+				}
+			};
+		}
+	}
+
 	componentWillUnmount() {  // Stop counting game clock time.
 		clearInterval(this.timer);
 		this.timer = null;
 
-		if(this.sessionLength > 0) {
+		if (this.sessionLength > 0) {
 			ReactGA.event({
 				category: 'Session End',
 				action: 'Session Ending',
@@ -96,87 +169,21 @@ export default class Dash extends Component {
 		}
 	}
 
-	constructor(props) {
-		super(props);
-
-		this.bonusPts = [0,300,200,100];
-
-		this.sessionLength=0;
-
-
-		this.state = {
-			snooze: false,
-			snooze_time: 0,
-			gameStarted: false,
-			playMsg: 'Tap to Play now!',
-			bonusIndex: 0,
-			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn'],
-			day1: localStorage.getItem('seenWelcomeMessage')
-
-		};
-
-		this.startSnooze = this.startSnooze.bind(this);
-		this.doGameStarted = this.doGameStarted.bind(this);
-		this.timedOut = this.timedOut.bind(this);
-		this.changeBonus = this.changeBonus.bind(this);
-		this.preSnooze = this.preSnooze.bind(this);
-
-
-		localStorage.setItem('highestGameID', (localStorage.getItem('highestGameID') || 1));
-
-		if(this.props.selectedGame) {
-			localStorage.setItem('currentGameID', this.props.selectedGame);
-			if(this.props.selectedGame > localStorage.getItem('highestGameID')) {
-				localStorage.setItem('highestGameID', this.props.selectedGame);
-			}
-		}
-
-
-		window.onbeforeunload = (event) => {
-			if(this.sessionLength > 0) {
-				ReactGA.event({
-					category: 'Session Close',
-					action: 'Session Closed',
-					label: this.sessionLength.toString(10),
-					nonInteraction: false
-				});
-
-				this.sessionLength = 0;
-			}
-		};
-		window.onblur = (event) => {
-			if(this.sessionLength > 0) {
-				ReactGA.event({
-					category: 'Session Blurred',
-					action: 'Session Blurred',
-					label: this.sessionLength.toString(10),
-					nonInteraction: false
-				});
-
-				this.sessionLength = 0;
-			}
-		}
-
-
-	}
-
 	render({ selectedGame }, state) {
 
 		const kTopBarHeight = 56;
 		const kFooterBarHeight = 68;
 		const kCountDownBarHeight = 30;
-		let msgStyle = '';
 
-		let hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
+		let hgt = 640;
+		if (typeof window !== "undefined") {
+			hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
+		}
+
 		if (state.gameStarted) {
 			hgt += kCountDownBarHeight;
 		}
 		let url = gamesList[selectedGame].url;
-
-
-		if (state.bonusIndex === 4) {
-			msgStyle = 'intro';
-		}
 
 		return (
 			<div id="home" class={style.dash}>
