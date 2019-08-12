@@ -25,6 +25,7 @@ import style from './style';
 
 export default class Metrics extends Component {
 
+
 	gamesTable() {
 		let games = this.state.games;
 		let str = '';
@@ -39,20 +40,16 @@ export default class Metrics extends Component {
 		return str;
 	}
 
-
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			user: {},
-			counts: {},
 			games: {},
 			likesplay: {},
-			num_of_users: 0
+			likedplay: {},
+			num_of_users: {}
 		};
-	}
-
-	componentDidMount() {
 
 		if (typeof window !== 'undefined') {
 			auth.signInAnonymously().catch((error) => {
@@ -62,11 +59,13 @@ export default class Metrics extends Component {
 			});
 
 			auth.onAuthStateChanged(user => {
+
 				if (user) {
 					// User is signed in.
 					let playsRef = database.ref('users/' + auth.currentUser.uid);
 					playsRef.on('value', (snapshot) => {
-						this.setState({ user: snapshot.val(), num_of_users: snapshot.numChildren() });
+						this.setState({ user: snapshot.val() });
+						this.setState({ num_of_users: snapshot.numChildren() });
 					});
 					playsRef = database.ref('games/');
 					playsRef.on('value', (snapshot) => {
@@ -87,19 +86,21 @@ export default class Metrics extends Component {
 					// ...
 				}
 			});
+
 		}
+
 	}
 
 
-	render(props, state) {
+	render(state) {
 		// let expectedDailyPVs = 2.0;
 		// let campaignLength = 10.0;
 		// let campprog = (state.user.unique_day_count/campaignLength*100).toFixed(2);
 		// let playprog = (state.user.totalPlays/campaignLength*100).toFixed(2);
 		//
 		// let rank = parseInt(state.user.score/1000);
-		let user = this.state.user;
-		let games = this.state.games;
+		let user = this.state.user || {};
+		let games = this.state.games || {};
 		let likes = this.state.likesplay;
 		let liked = this.state.likedplay;
 		let goodFields = ['times_played', 'average_rating', 'review_points'];
@@ -108,10 +109,10 @@ export default class Metrics extends Component {
 			<div class="home">
 
 				<Logo />
-				{state.num_of_users && <div class="smaller">Stats
+				<div class="smaller">Stats
 					<p />
 					<div class={style.report}>
-						Total Users: {state.num_of_users}
+						Total Users: {this.state.num_of_users}
 						<hr />
 						How much do people like playing?{
 							Object.keys(likes).map((keys) => (<div class="smallerBold">{keys}
@@ -134,7 +135,7 @@ export default class Metrics extends Component {
 									</div>))
 								}
 								{
-									typeof likes[keys] !== 'object' && ' : ' + likes[keys]
+									typeof liked[keys] !== 'object' && ' : ' + liked[keys]
 								}
 							</div>))
 						}
@@ -163,12 +164,12 @@ export default class Metrics extends Component {
 										</div>))
 									}
 									{
-										typeof likes[keys] !== 'object' && user[keys]
+										typeof user[keys] !== 'object' && user[keys]
 									}
 								</div>))
 						}
 					</div>
-				</div> }
+				</div>
 
 			</div>
 		);
