@@ -153,7 +153,7 @@ export default class Metrics extends Component {
 							</div><br /></div>))
 						}
 						<hr />
-					User
+						User
 						{
 							Object.keys(user).map((keys) => (
 								<div class="smallerBold">
