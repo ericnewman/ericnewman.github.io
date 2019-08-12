@@ -76,6 +76,10 @@ export default class Metrics extends Component {
 					playsRef.on('value', (snapshot) => {
 						this.setState({ likesplay: snapshot.val() });
 					});
+					playsRef = database.ref('likedplay/');
+					playsRef.on('value', (snapshot) => {
+						this.setState({ likedplay: snapshot.val() });
+					});
 
 				}
 				else {
@@ -97,6 +101,7 @@ export default class Metrics extends Component {
 		let user = this.state.user;
 		let games = this.state.games;
 		let likes = this.state.likesplay;
+		let liked = this.state.likedplay;
 		let goodFields = ['times_played', 'average_rating', 'review_points'];
 
 		return (
@@ -116,7 +121,20 @@ export default class Metrics extends Component {
 									</div>))
 								}
 								{
-									typeof likes[keys] !== 'object' && likes[keys]
+									typeof likes[keys] !== 'object' && ' : ' + likes[keys]
+								}
+							</div>))
+						}
+						<hr />
+						How much did people like playing at the end?{
+							Object.keys(liked).map((keys) => (<div class="smallerBold">{keys}
+								{
+									typeof liked[keys] === 'object' && Object.keys(liked[keys]).map((ikey) => (<div> - {ikey}  :
+										{liked[keys][ikey]}
+									</div>))
+								}
+								{
+									typeof likes[keys] !== 'object' && ' : ' + likes[keys]
 								}
 							</div>))
 						}

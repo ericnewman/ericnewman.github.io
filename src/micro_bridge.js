@@ -4,11 +4,13 @@ let  microBridge = {
 
 	sendDelayedBanner(url, delay) {
 
-		url = (url  + '?snooze_interval=' + delay);
+		url = (url.split('?')[0]  + '?snooze_interval=' + delay);
 
-		let bTime = this.getTime(0,delay);
+		let bTime = this.getTime(0, delay);
 
-		//Touch this at your own peril.... This is totally fragile
+		//
+		// Touch this at your own peril.... This is totally fragile
+		//
 		//let msg = '{"actionAttempts": 0, "cmds": [{ "jsCmd": {"js": "javascript:(function() { var config = {disabled: false, standaloneUrl: \\\"' + url + '\\\", layoutConfig: {layout_height: \\\"match_parent\\\", layout_width: \\\"match_parent\\\"} }; MP.displayBanner(JSON.stringify(config)); })();"}}],"id": "OptInExecutorId","lastActionTime": 0,"oneShot": true,"allowWhenIdle": true,"disabled": false,"scheduledTimes": ["' + bTime + '"],"type": "ScheduledCommandExecutor"}';
 		//let msg = '{"actionAttempts": 0, "cmds": [{ "jsCmd": {"js": "javascript:(function() { var config = {disabled: false, standaloneUrl: \\\"' + url + '\\\", layoutConfig: {layout_height: \\\"match_parent\\\", layout_width: \\\"match_parent\\\"} }; MP.displayBanner(JSON.stringify(config)); })();"}}],"id": "OptInExecutorId","lastActionTime": 0,"oneShot": true,"allowWhenIdle": true,"disabled": false,"scheduledTimes": ["' + bTime + '"],"type": "ScheduledCommandExecutor"}';
 		//let msg = '{"actionAttempts": 0, "cmds": [{ "jsCmd": {"js": "javascript:(function() { var config = {disabled: false, standaloneUrl: \\\"' + url + '\\\", layoutConfig: {layout_height: \\\"match_parent\\\", layout_width: \\\"match_parent\\\"} }; MP.displayBanner(JSON.stringify(config)); })();"}}],"id": "OptInExecutorId","lastActionTime": 0,"oneShot": true,"allowWhenIdle": true,"disabled": false,"scheduledTimes": ["' + bTime + '"],"type": "ScheduledCommandExecutor"}';

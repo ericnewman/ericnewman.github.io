@@ -1,6 +1,4 @@
 import { h, Component } from 'preact';
-// import 'preact-material-components/Card/style.css';
-// import 'preact-material-components/Button/style.css';
 import { notify } from 'react-notify-toast';
 
 import { auth, database, user } from '../../firebase';

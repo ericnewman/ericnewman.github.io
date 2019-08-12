@@ -11,13 +11,12 @@
     "serve": "preact build --template src/template.html && preact serve",
     "dev": "preact watch --template src/template.html",
     "deploy": "preact build --template src/template.html --prerenderUrls src/prerender-urls.json && aws s3 sync build/ s3://spages.mobileposse.com/ && aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
-    "demo": "npm run deploy && npm run aws-clear/",
     "cache": "s3cmd --recursive modify --add-header=\"Cache-Control:public ,max-age= 31536000\" s3://spages.mobileposse.com",
     "aws-clear": "aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
     "lint": "eslint src",
     "purge": "./purgeSpages.sh \"spages.mobileposse.com\" \"3d\"",
     "analyze": "bundle-analyzer build",
-    "test": "jest"
+    "light": "lighthouse https://spages.mobileposse.com/step1 --view"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"
@@ -63,34 +62,5 @@
     "react-responsive-carousel": "^3.1.49",
     "react-select": "^3.0.4",
     "react-star-rating-component": "^1.4.1"
-  },
-  "jest": {
-    "verbose": true,
-    "setupFiles": [
-      "<rootDir>/tests/__mocks__/browserMocks.js"
-    ],
-    "testRegex": "(/(__tests__|tests)/.*|(\\.|/)(test|spec))\\.jsx?$",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "<rootDir>/tests/__mocks__/*"
-    ],
-    "testURL": "http://localhost:8080",
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/fileMock.js",
-      "\\.(css|less|scss)$": "identity-obj-proxy",
-      "^./style$": "identity-obj-proxy",
-      "^preact$": "<rootDir>/node_modules/preact/dist/preact.min.js",
-      "^react$": "preact-compat",
-      "^react-dom$": "preact-compat",
-      "^create-react-class$": "preact-compat/lib/create-react-class",
-      "^react-addons-css-transition-group$": "preact-css-transition-group"
-    }
   }
 }

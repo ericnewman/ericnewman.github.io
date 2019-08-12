@@ -213,10 +213,19 @@ export default class PFooter extends Component {
 			return average;
 		}
 		);
-		ref = database.ref('users/' + auth.currentUser.uid + '/score');
-		ref.transaction((totalScore) =>
-			(totalScore || 0) + kRatingBonus
-		);
+		//
+		// Remember that the user has rated this game, and prevent counting the bonus if they rate more than once.
+		//
+		let prevRatings = localStorage.getItem('previouslyRated') || ',';
+		if(!prevRatings.includes(',' + this.props.game_id + ',')) {
+			ref = database.ref('users/' + auth.currentUser.uid + '/score');
+			ref.transaction((totalScore) =>
+				(totalScore || 0) + kRatingBonus
+			);
+			localStorage.setItem('previouslyRated', prevRatings + this.props.game_id + ',');
+		} else {
+			console.log('No Bonus');
+		}
 
 		this.showToast('Thanks for Your Review.  200 Points');
 		this.waitAndNext();

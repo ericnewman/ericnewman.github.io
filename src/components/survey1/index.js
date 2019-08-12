@@ -9,6 +9,7 @@ import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';
 
 import style from './style';
+import Button from 'preact-material-components/Button';
 
 const timeout = 2000;
 
@@ -20,38 +21,89 @@ export default class Survey1 extends Component {
 			route(path);
 		}, timeout + 500);
 	}
+	waitAndDismiss() {
+		setTimeout(() => {
+			document.getElementById('home').classList.remove('dim');
+			if (window && window.MP) {
+				MP.dismiss();
+			}
+			else {
+				window.open('', '_self', '').close();
+				document.location.href= 'http://google.com';
+			}
+		}, timeout + 500);
+
+	}
+
+	more() {
+		ReactGA.event({
+			category: 'Navigate',
+			action: 'User selected More Games from Last Page',
+			value: 0
+		});
+
+		document.location.href= 'https://games-metropcs.arkadiumarena.com/?arkpromo=metrozone_discover';
+	}
 
 	onStarClick(nextValue, prevValue, name) {
 
-		this.setState({ rating: nextValue });
-		localStorage.setItem('gameEnthusiasm', nextValue);
+		if (this.props.final) {
+			ReactGA.event({
+				category: 'Final Survey',
+				action: 'User liked games ' + nextValue,
+				value: nextValue
+			});
 
-		ReactGA.event({
-			category: 'Survey',
-			action: 'User likes games ' + nextValue,
-			value: nextValue
-		});
+			let ref = database.ref('likedplay/vote_count');
 
-
-		let ref = database.ref('likesplay/vote_count');
-		ref.transaction((numberOfVotes) =>
+			ref.transaction((numberOfVotes) =>
 			// If numberOfVotes has never been set, numberOfVotes will be `null`.
-			(numberOfVotes || 0) + 1
-		);
+				(numberOfVotes || 0) + 1
+			);
 
-		ref = database.ref('likesplay/ratings/' + nextValue);
-		ref.transaction((numberOfVotes) =>
+			ref = database.ref('likedplay/ratings/' + nextValue);
+			ref.transaction((numberOfVotes) =>
 			// If numberOfVotes has never been set, numberOfVotes will be `null`.
-			(numberOfVotes || 0) + 1
-		);
-		this.props.saver(nextValue);
-		if (nextValue < 3) {
-			this.showToast('Awesome. You\'ve been heard.');
-			this.waitAndGo('/thanks');
+				(numberOfVotes || 0) + 1
+			);
+			this.showToast('Awesome. Thanks for your vote!');
+			this.waitAndDismiss();
+			this.setState({'voted': true});
+
 		}
 		else {
-			this.showToast('Awesome. You\'ve been heard. Let\'s get rolling');
-			this.waitAndGo('/quest');
+			this.setState({ rating: nextValue });
+			localStorage.setItem('gameEnthusiasm', nextValue);
+
+			ReactGA.event({
+				category: 'Survey',
+				action: 'User likes games ' + nextValue,
+				value: nextValue
+			});
+
+
+			let ref = database.ref('likesplay/vote_count');
+			ref.transaction((numberOfVotes) =>
+				// If numberOfVotes has never been set, numberOfVotes will be `null`.
+				(numberOfVotes || 0) + 1
+			);
+
+			ref = database.ref('likesplay/ratings/' + nextValue);
+			ref.transaction((numberOfVotes) =>
+				// If numberOfVotes has never been set, numberOfVotes will be `null`.
+				(numberOfVotes || 0) + 1
+			);
+			//this.props.saver(nextValue);
+
+
+			if (nextValue < 3) {
+				this.showToast('Awesome. You\'ve been heard.');
+				this.waitAndGo('/thanks');
+			}
+			else {
+				this.showToast('Awesome. You\'ve been heard. Let\'s get rolling');
+				this.waitAndGo('/quest');
+			}
 		}
 
 	}
@@ -76,14 +128,22 @@ export default class Survey1 extends Component {
 		this.state = {
 			rating: 1,
 			average: 0,
-			count: 0
+			count: 0,
+			voted: false
 		};
 	}
 
 	componentWillMount() {
 
 		if (typeof window !== 'undefined') {
-			let myDB = database.ref('likesplay');
+			let myDB = {};
+
+			if (this.props.final) {
+				myDB = database.ref('likedplay');
+			}
+			else {
+				myDB = database.ref('likesplay');
+			}
 
 			myDB.on('value', (snapshot) => {
 				let foo = 0;
@@ -100,13 +160,10 @@ export default class Survey1 extends Component {
 								foo += (parseInt(childData[i].toString().match(/(\d+)/), 10) * i);
 							}
 						}
-
 					}
 					else if (childKey === 'vote_count') {
 						tot = childData;
 					}
-
-
 				});
 
 				this.setState({ count: tot, average: Math.round(foo / tot * 100) / 100 });
@@ -118,6 +175,10 @@ export default class Survey1 extends Component {
 		return (
 
 			<div class={style.bar}>
+				{props.final && !state.voted && <div class="smaller">
+					How much did you enjoy discovering and playing games this way (1 to 5)?
+				</div>}
+				{!state.voted &&
 				<Stars
 					name="rate1"
 					starCount={5}
@@ -140,8 +201,15 @@ export default class Survey1 extends Component {
 					}
 					}
 					onStarClick={this.onStarClick.bind(this)}
-				/>
-				<div class={style.tiny}>Votes: {state.count} - Avg: {state.average}</div>
+				               />}
+				{state.voted && props.final &&
+				<div className={style.buts}>
+					<Button class={style.pinkButton} onClick={() => this.more()}>
+					more games
+					</Button>
+				</div>
+
+				}
 			</div>
 		);
 	}

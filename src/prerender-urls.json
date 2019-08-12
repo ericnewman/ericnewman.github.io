@@ -1,5 +1,9 @@
 [
   {
+    "url": "/",
+    "title": "Home"
+  },
+  {
     "url": "/step1",
     "title": "Onboarding"
   },
@@ -41,5 +45,11 @@
   },
   {
     "url": "/dash/12"
+  },
+  {
+    "url": "/404"
+  },
+  {
+    "url": "index.html"
   }
 ]

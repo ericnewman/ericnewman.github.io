@@ -34,6 +34,9 @@ export default class Thanks extends Component {
 			animating2: false
 		});
 		document.location.href = 'http://google.com';
+		if(window && window.MP) {
+			MP.dismiss();
+		}
 	}
 
 	render() {

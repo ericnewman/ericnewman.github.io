@@ -53,12 +53,24 @@ export default class Outcome extends Component {
 	}
 
 	componentDidMount() {
-
 		// User is signed in.
-		let playsRef = database.ref('users/' + auth.currentUser.uid);
-		playsRef.on('value', (snapshot) => {
-			this.setState({ user: snapshot.val() });
+		auth.signInAnonymously().catch((error) => {
+			// Handle Errors here.
+			// let errorCode = error.code;
+			// let errorMessage = error.message;
+			// ...
 		});
+		auth.onAuthStateChanged((user) => {
+			if (user) {
+
+				let playsRef = database.ref('users/' + auth.currentUser.uid);
+				playsRef.on('value', (snapshot) => {
+					this.setState({ user: snapshot.val() })
+				});
+			}
+		});
+
+
 	}
 
 	render(props, state) {

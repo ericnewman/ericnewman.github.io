@@ -3,14 +3,12 @@ import GamesCarousel from '../../components/gamescarousel';
 import Survey1 from '../../components/survey1';
 import Logo from '../../components/logo';
 
-// import 'preact-material-components/Card/style.css';
-// import 'preact-material-components/Button/style.css';
 
 export default class Step1 extends Component {
 
-	saver() {
-
-	}
+	// saver() {
+	//
+	// }
 	componentDidMount() {
 		localStorage.setItem('seenWelcomeMessage', true);
 	}
@@ -29,7 +27,7 @@ export default class Step1 extends Component {
 					<br />
 					<div class="smaller">How much do you like playing mobile games (1 to 5)?</div>
 					<div class="cent">
-						<Survey1 saver={this.saver} />
+						<Survey1 />
 					</div>
 				</div>
 			</div>

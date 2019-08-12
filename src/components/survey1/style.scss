@@ -53,3 +53,17 @@
   font: Bold 10px/14px 'Comfortaa', sans-serif;
 }
 
+.buts {
+  margin: auto;
+}
+.pinkButton {
+  background: #FF008C !important;
+}
+.buts button {
+  border-radius: 32px;
+  height: 32px;
+  color: white !important;
+  font: bold 15px Comfortaa, sans-serif;
+  text-transform: lowercase;
+  margin-left: 5px;
+}

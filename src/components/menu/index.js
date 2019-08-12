@@ -30,7 +30,7 @@ export default class Menu extends Component {
 		route(path);
 	};
 
-	goHome     = this.linkTo('/');
+	goHome     = this.linkTo('/step1');
 	// goToStep1  = this.linkTo('/step1');
 	goToDash0  = this.linkTo('/dash/0');
 	goToDash1  = this.linkTo('/dash/1');
@@ -50,12 +50,15 @@ export default class Menu extends Component {
 	goToDash15 = this.linkTo('/dash/15');
 	goToOutcome = this.linkTo('/outcome');
 	goToMetrics = this.linkTo('/metrics');
+	goToLastPage = this.linkTo('/lastpage');
 
 	goToStep1 = () => {
 		localStorage.setItem('seenWelcomeMessage', false);
 		localStorage.setItem('currentGameID', '1');
 		localStorage.setItem('highestGameID', '1');
 		localStorage.setItem('gameEnthusiasm', '99');
+		localStorage.setItem('fastStarts', ',');
+		localStorage.setItem('previouslyRated', ',');
 		this.closeDrawer();
 		route('/step1');
 
@@ -80,7 +83,8 @@ export default class Menu extends Component {
 		if (typeof window !== 'undefined') {
 			this.state = {
 				currentGame: localStorage.getItem('currentGameID') || '1',
-				highestGame: localStorage.getItem('highestGameID') || '1'
+				highestGame: localStorage.getItem('highestGameID') || '1',
+				isAdmin:     localStorage.getItem('isAdmin') || false
 			};
 		}
 		else {
@@ -93,9 +97,8 @@ export default class Menu extends Component {
 
 	render(props, state) {
 		if (!props.selectedRoute) {
-			props.selectedRoute = '/';
+			props.selectedRoute = '/step1';
 		}
-
 		return (
 			<div>
 				<TopAppBar class="topappbar">
@@ -113,17 +116,17 @@ export default class Menu extends Component {
 				</TopAppBar>
 				<Drawer modal ref={this.drawerRef}>
 					<Drawer.DrawerContent>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/'} onClick={this.goHome}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/step1' || props.selectedRoute === '/'}  onClick={this.goHome}>
 							<List.ItemGraphic>home</List.ItemGraphic>
 							Home
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/step1'} onClick={this.goToStep1}>
+						{state.isAdmin && <Drawer.DrawerItem selected={props.selectedRoute === '/step1'} onClick={this.goToStep1}>
 							<List.ItemGraphic>whatshot</List.ItemGraphic>
 							Repeat Onboarding
-						</Drawer.DrawerItem>
+						</Drawer.DrawerItem>}
 						<Drawer.DrawerItem selected={props.selectedRoute === '/outcome'} onClick={this.goToOutcome}>
 							<List.ItemGraphic>grade</List.ItemGraphic>
-							Medals
+							Score &amp; Ranking
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/dash/1'} onClick={this.goToDash1}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
@@ -173,18 +176,22 @@ export default class Menu extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Swing Robber
 						</Drawer.DrawerItem>}
-						<Drawer.DrawerItem selected={props.selectedRoute === '/metrics'} onClick={this.goToMetrics}>
+						{state.isAdmin && <Drawer.DrawerItem selected={props.selectedRoute === '/metrics'} onClick={this.goToMetrics}>
 							<List.ItemGraphic>explore</List.ItemGraphic>
 							Metrics
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem  onClick={this.resetSnoozes}>
+						</Drawer.DrawerItem>}
+						{state.isAdmin && <Drawer.DrawerItem selected={props.selectedRoute === '/lastpage'} onClick={this.goToLastPage}>
+							<List.ItemGraphic>explore</List.ItemGraphic>
+							Last Page
+						</Drawer.DrawerItem>}
+						{state.isAdmin && <Drawer.DrawerItem  onClick={this.resetSnoozes}>
 							<List.ItemGraphic>build</List.ItemGraphic>
 							Reset Snoozes
-						</Drawer.DrawerItem>
-						<Drawer.DrawerItem  onClick={this.showAllGames}>
+						</Drawer.DrawerItem>}
+						{state.isAdmin && <Drawer.DrawerItem  onClick={this.showAllGames}>
 							<List.ItemGraphic>build</List.ItemGraphic>
 							Show All Games
-						</Drawer.DrawerItem>
+						</Drawer.DrawerItem>}
 					</Drawer.DrawerContent>
 				</Drawer>
 			</div>

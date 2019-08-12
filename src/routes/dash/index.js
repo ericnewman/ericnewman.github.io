@@ -61,23 +61,36 @@ export default class Dash extends Component {
 	doGameStarted() {
 
 		this.sessionLength = 1;
+		let bonus = this.bonusPts[this.state.bonusIndex];
+		let fastStarts = this.state.canFastStart;
 
 		ReactGA.event({
 			category: 'Game Start',
 			action: gamesList[this.props.selectedGame].name,
-			value: this.bonusPts[this.state.bonusIndex]
+			value: bonus
 		});
 
 		this.timer = setInterval(() => {
 			this.tickSession();
 		}, 15000);
 
-		this.setState({ gameStarted: true, playMsg: 'Rate this game and be heard!' , bonusIndex: 0 });
-		let playsRef = database.ref('users/' + auth.currentUser.uid + '/score');
-		playsRef.transaction((totalScore) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(totalScore || 0) + this.bonusPts[this.state.bonusIndex]
-		);
+
+
+		if(fastStarts.includes(',' + this.props.selectedGame + ',')) {
+			bonus = 0;
+			console.log('No fast Start Bonus');
+
+		} else {
+			localStorage.setItem('fastStarts', fastStarts + this.props.selectedGame + ',');
+			let playsRef = database.ref('users/' + auth.currentUser.uid + '/score');
+			playsRef.transaction((totalScore) =>
+				// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+				(totalScore || 0) + bonus
+			);
+			fastStarts = fastStarts + this.props.selectedGame + ','
+		}
+		this.setState({ gameStarted: true, playMsg: 'Rate this game and be heard!' , bonusIndex: 0 , canFastStart: fastStarts});
+
 
 	}
 	timedOut() {
@@ -92,15 +105,19 @@ export default class Dash extends Component {
 		this.sessionLength=0;
 
 		let hasSeen = false;
+		let canFastStart = ',';
 
 		if (typeof window !== 'undefined') {
 			hasSeen = localStorage.getItem('seenWelcomeMessage');
+			canFastStart = localStorage.getItem('fastStarts') || ',';
+
 		}
 
 		this.state = {
 			snooze: false,
 			snooze_time: 0,
 			gameStarted: false,
+			canFastStart: canFastStart,
 			playMsg: 'Tap to Play now!',
 			bonusIndex: 0,
 			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn'],
@@ -184,12 +201,13 @@ export default class Dash extends Component {
 			hgt += kCountDownBarHeight;
 		}
 		let url = gamesList[selectedGame].url;
+		let showCountdown = !state.canFastStart.includes(',' + selectedGame + ',');
 
 		return (
 			<div id="home" class={style.dash}>
 				{!state.snooze &&
 				<div>
-					{!state.gameStarted && <Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} />}
+					{!state.gameStarted && showCountdown && <Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} />}
 					<Pframe src={url}
 						width="100%"
 						height={hgt}

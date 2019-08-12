@@ -6,6 +6,7 @@ import Menu from './menu';
 import Home from '../routes/home';
 import Dash from '../routes/dash';
 import Dark from '../routes/dark';
+import LastPage from '../routes/lastpage';
 import Step1 from '../routes/step1';
 import Quest from '../routes/quest';
 import Outcome from '../routes/outcome';
@@ -81,6 +82,7 @@ export default class App extends Component {
 					<Dash path="/dash/:selectedGame" />
 					<Quest path="/quest" />
 					<Step1 path="/step1" />
+					<LastPage path="/lastpage" />
 					<Thanks path="/thanks" />
 					<Metrics path="/metrics" />
 					<NotFound default />

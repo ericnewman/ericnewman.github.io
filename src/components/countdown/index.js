@@ -1,6 +1,7 @@
 import { Component } from 'preact';
 import Progress from 'preact-progress';
 import style from './style';
+import ReactGA from 'react-ga';
 
 export default class CountDown extends Component {
 
@@ -49,19 +50,26 @@ export default class CountDown extends Component {
 				this.props.afterAction();
 			}
 			this.timer= null;
-
+			this.setState({complete:true});
 		}
 	};
 	screenUnlocked() {
 		//console.log('It\'s unlocked!');
 		window.unlocked = true;
+		ReactGA.event({
+			category: 'Screen Unlocked',
+			action: 'Screen Unlocked',
+			nonInteraction: false
+		});
+
 	}
 
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			progress: 1
+			progress: 1,
+			complete: false
 		};
 
 		this.onChange.bind(this);
@@ -73,10 +81,13 @@ export default class CountDown extends Component {
 	}
 
 	componentDidMount() {
+
 		if (typeof window !== 'undefined') {
 
 			if (window.MP && (window.MP.setScreenUnLockCallBack !== undefined)) {
 				window.MP.setScreenUnLockCallBack('window.screenUnlock()');
+			} else {
+				window.unlocked = true;
 			}
 
 			this.timer = setInterval(() => {
@@ -94,7 +105,8 @@ export default class CountDown extends Component {
 		clearInterval(this.timer);
 	}
 
-	render(props) {
+	render(props, state) {
+		if(state.complete) { return;}
 		return (
 			<div class={style.loader}>
 				<div class={style.warn}>

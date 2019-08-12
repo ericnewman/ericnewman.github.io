@@ -1,7 +1,7 @@
 {
   "name": "uRUP",
   "short_name": "uRUP",
-  "start_url": "/dash/1",
+  "start_url": "/dash/step1",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#073763",
