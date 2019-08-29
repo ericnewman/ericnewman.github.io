@@ -1,6 +1,0 @@
-  rules: {
-    "react/prefer-stateless-function": "off",
-    "react/jsx-no-bind":"off"
-    }
-  extends: 'eslint-config-synacor'
-

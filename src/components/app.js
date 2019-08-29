@@ -46,7 +46,7 @@ export default class App extends Component {
 		ReactGA.initialize('UA-102222556-2');
 		// ReactGA.pageview('/');
 		if (typeof window !== 'undefined') {
-			if (localStorage.getItem('gameEnthusiasm') <= 3) {
+			if (localStorage.getItem('gameEnthusiasm') < 3) {
 				if (document.location.pathname !== '/step1') {
 					ReactGA.pageview('/redirected');
 					document.location.href = 'https://metropcs.mobi';

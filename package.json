@@ -38,16 +38,16 @@
     "wordwrap": "^1.0.0"
   },
   "dependencies": {
-    "@firebase/app": "^0.4.11",
-    "@firebase/auth": "^0.11.5",
-    "@firebase/database": "^0.4.8",
+    "@firebase/app": "^0.4.15",
+    "@firebase/auth": "^0.11.8",
+    "@firebase/database": "^0.4.12",
     "aws": "0.0.3-2",
     "cache": "^2.1.0",
     "clear": "^0.1.0",
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.2",
     "eslint-config-synacor": "^3.0.4",
-    "firebase": "^6.3.1",
-    "preact": "^8.4.2",
+    "firebase": "^6.4.2",
+    "preact": "^8.5.2",
     "preact-compat": "^3.17.0",
     "preact-context": "^1.1.3",
     "preact-material-components": "^1.4.3",
@@ -59,7 +59,7 @@
     "react-ga": "^2.6.0",
     "react-notify-toast": "^0.5.0",
     "react-particle-effect-button": "^1.0.1",
-    "react-responsive-carousel": "^3.1.49",
+    "react-responsive-carousel": "^3.1.50",
     "react-select": "^3.0.4",
     "react-star-rating-component": "^1.4.1"
   }
