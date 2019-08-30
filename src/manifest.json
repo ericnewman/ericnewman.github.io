@@ -1,7 +1,7 @@
 {
-  "name": "uRUP",
-  "short_name": "uRUP",
-  "start_url": "/dash/step1",
+  "name": "MetroZone Games",
+  "short_name": "MetroZone Games",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#073763",

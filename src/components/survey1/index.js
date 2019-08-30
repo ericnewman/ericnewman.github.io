@@ -51,6 +51,7 @@ export default class Survey1 extends Component {
 			ReactGA.event({
 				category: 'Final Survey',
 				action: 'User liked games ' + nextValue,
+				label: 'User liked games ' + nextValue,
 				value: nextValue
 			});
 
@@ -73,11 +74,12 @@ export default class Survey1 extends Component {
 		}
 		else {
 			this.setState({ rating: nextValue });
-			localStorage.setItem('gameEnthusiasm', nextValue);
+			localStorage.setItem('explicitOptOut', nextValue);
 
 			ReactGA.event({
 				category: 'Survey',
 				action: 'User likes games ' + nextValue,
+				label: 'User likes games ' + nextValue,
 				value: nextValue
 			});
 

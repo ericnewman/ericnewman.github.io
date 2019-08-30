@@ -1,5 +1,4 @@
 import { Component } from 'preact';
-import Logo from '../../components/logo';
 
 import { auth, database } from '../../firebase';
 
@@ -107,8 +106,6 @@ export default class Metrics extends Component {
 
 		return (
 			<div class="home">
-
-				<Logo />
 				<div class="smaller">Stats
 					<p />
 					<div class={style.report}>

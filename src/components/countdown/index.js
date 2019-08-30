@@ -3,7 +3,7 @@ import Progress from 'preact-progress';
 import style from './style';
 import ReactGA from 'react-ga';
 
-export default class CountDown extends Component {
+export default class Countdown extends Component {
 
 	onChange = (ctx, val) => {
 
@@ -50,7 +50,7 @@ export default class CountDown extends Component {
 				this.props.afterAction();
 			}
 			this.timer= null;
-			this.setState({complete:true});
+			this.setState({ complete: true });
 		}
 	};
 	screenUnlocked() {
@@ -69,8 +69,13 @@ export default class CountDown extends Component {
 
 		this.state = {
 			progress: 1,
-			complete: false
+			complete: false,
+			showIntro: true
+
+
 		};
+		this.introTimer = null;
+		this.showCountdown = false;
 
 		this.onChange.bind(this);
 		this.onComplete.bind(this);
@@ -83,41 +88,63 @@ export default class CountDown extends Component {
 	componentDidMount() {
 
 		if (typeof window !== 'undefined') {
+			let fasts = localStorage.getItem('fastStarts') || ',';
+			let showCountdown = !fasts.includes(',' + this.props.game + ',');
+			this.setState({
+				showCountdown
+			});
+
 
 			if (window.MP && (window.MP.setScreenUnLockCallBack !== undefined)) {
 				window.MP.setScreenUnLockCallBack('window.screenUnlock()');
-			} else {
+			}
+			else {
 				window.unlocked = true;
 			}
-
-			this.timer = setInterval(() => {
-				if (window.unlocked) {
+			if (showCountdown) {
+				this.introTimer = setTimeout(() => {
 					this.setState({
-						progress: (this.state.progress + 1) % 100
+						showIntro: false
 					});
-				}
-			}, 100); //200
+					this.timer = setInterval(() => {
+						if (window.unlocked) {
+							this.setState({
+								progress: (this.state.progress + 1) % 100
+							});
+						}
+					}, 100); //100
+
+				}, 7000); //10000
+			}
 		}
 	}
 
 	componentWillUnmount() {
 		// stop when not renderable
 		clearInterval(this.timer);
+		clearInterval(this.introTimer);
 	}
-
 	render(props, state) {
-		if(state.complete) { return;}
 		return (
-			<div class={style.loader}>
-				<div class={style.warn}>
-					{props.message}
+			<div>
+			{state.showCountdown && state.showIntro && <div className={style.intro}>
+				{props.intro}
 				</div>
-				<Progress
-					id="loader" class={style.loader}
-					value={100 - this.state.progress} height="30px" color={props.color}
-					onChange={this.onChange}
-					onComplete={this.onComplete}
-				/>
+			}
+
+			{state.showCountdown && !state.complete && !state.showIntro &&
+				<div class={style.loader}>
+					<div class={style.warn}>
+						{props.message}
+					</div>
+
+					<Progress
+						id="loader" class={style.loader}
+						value={100 - this.state.progress} height="30px" color={props.color}
+						onChange={this.onChange}
+						onComplete={this.onComplete}
+					/>
+				</div>}
 			</div>
 		);
 	}

@@ -1,6 +1,8 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+// import 'firebase/performance';
+import ReactGA from 'react-ga';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDQSvwriCLeiaSz347EuOkAwqtDcThZxRI',
@@ -18,12 +20,20 @@ if (typeof window !== 'undefined') {
 	db =  firebase.database();
 	aAuth = firebase.auth();
 	gAP = new firebase.auth.GoogleAuthProvider();
+	// const perf = firebase.performance();
 
 	aAuth.signInAnonymously().catch((error) => {
 		// Handle Errors here.
 		// let errorCode = error.code;
 		// let errorMessage = error.message;
 		// ...
+		ReactGA.event({
+			category: 'Firebase Error',
+			action: 'signInAnonymously',
+			label: error,
+			nonInteraction: true
+		});
+
 	});
 
 	aAuth.onAuthStateChanged((user) => {
@@ -37,7 +47,9 @@ if (typeof window !== 'undefined') {
 			let newD = new Date().toLocaleString('en-US').split(',')[0];
 
 			myDB.once('value', (snapshot) => {
+
 				if (newD !== snapshot.val()) {
+
 					let ref = database.ref('users/' + auth.currentUser.uid + '/unique_day_count');
 					ref.transaction((uniqueDays) => (uniqueDays || 0) + 1);
 				}
@@ -59,6 +71,13 @@ if (typeof window !== 'undefined') {
 		else {
 			// User is signed out.
 			// ...
+			ReactGA.event({
+				category: 'Firebase Auth State CHange',
+				action: 'User Signed Out',
+				label: user,
+				nonInteraction: true
+			});
+
 		}
 	});
 

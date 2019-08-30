@@ -22,7 +22,8 @@ export default class PFooter extends Component {
 	state = {
 		time: Date.now(),
 		interval: 0,
-		snoozing: false
+		snoozing: false,
+		stopping: false
 	};
 	//update the current time
 	updateTime = () => {
@@ -41,7 +42,7 @@ export default class PFooter extends Component {
 			ReactGA.event({
 				category: 'Snooze',
 				action: 'User Snoozed for: ' + interval,
-				value: interval
+				value: parseInt( interval, 10)
 			});
 
 			let ref = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
@@ -95,6 +96,9 @@ export default class PFooter extends Component {
 			hidden: !this.state.hidden,
 			animating: true
 		});
+		if (this.props.stopSessionTimer) {
+			this.props.stopSessionTimer();
+		}
 	}
 	_onToggle2 = () => {
 		if (this.props.preSnooze) {
@@ -107,6 +111,9 @@ export default class PFooter extends Component {
 			hidden2: !this.state.hidden2,
 			animating2: true
 		});
+		if (this.props.stopSessionTimer) {
+			this.props.stopSessionTimer();
+		}
 	}
 
 	_onAnimationComplete = () => {
@@ -147,9 +154,10 @@ export default class PFooter extends Component {
 	}
 
 	waitAndNext() {
+		this.setState({ voted: true });
+
 		setTimeout(() => {
 			document.getElementById('home').classList.remove('dim');
-			this.setState({ voted: true });
 		}, timeout+100);
 
 	}
@@ -159,7 +167,7 @@ export default class PFooter extends Component {
 			action: 'User closed window',
 			value: 0
 		});
-
+		auth.signOut();
 		microBridge.closeWindow();
 	}
 
@@ -173,7 +181,7 @@ export default class PFooter extends Component {
 			action: 'User selected More Games',
 			value: 0
 		});
-
+		auth.signOut();
 		document.location.href= 'https://games-metropcs.arkadiumarena.com/?arkpromo=metrozone_discover';
 	}
 
@@ -188,7 +196,7 @@ export default class PFooter extends Component {
 		ReactGA.event({
 			category: 'Ratings',
 			action: 'User Rated ' + name + ' ' + nextValue,
-			value: nextValue
+			value: parseInt(nextValue, 10)
 		});
 
 
@@ -217,13 +225,14 @@ export default class PFooter extends Component {
 		// Remember that the user has rated this game, and prevent counting the bonus if they rate more than once.
 		//
 		let prevRatings = localStorage.getItem('previouslyRated') || ',';
-		if(!prevRatings.includes(',' + this.props.game_id + ',')) {
+		if (!prevRatings.includes(',' + this.props.game_id + ',')) {
 			ref = database.ref('users/' + auth.currentUser.uid + '/score');
 			ref.transaction((totalScore) =>
 				(totalScore || 0) + kRatingBonus
 			);
 			localStorage.setItem('previouslyRated', prevRatings + this.props.game_id + ',');
-		} else {
+		}
+		else {
 			console.log('No Bonus');
 		}
 
@@ -231,70 +240,104 @@ export default class PFooter extends Component {
 		this.waitAndNext();
 	}
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			voted: false
-		};
+	_stop = () => {
+		this.setState({
+			stopping: true
+		});
 	}
+	cancel = () => {
+		this.setState({
+			stopping: false
+		});
+	}
+		nomore = () => {
+			let enth = localStorage.getItem('explicitOptOut');
 
-	componentWillMount() {
-		let name = gamesList[this.props.game_id].name;
-		let db = {};
-		if (typeof window !== 'undefined') {
+			ReactGA.event({ category: 'User Opt-out',
+					  action: 'User Opted-out Games',
+					  label: 'Old enthiasm was ' + enth,
+					  value: parseInt(enth, 10)
+				  });
 
-			let ref = database.ref('games/' + name);
-			ref.once('value', snapshot => {
-				db = snapshot.val();
-				this.setState(db);
-			});
+			localStorage.setItem('explicitOptOut', true);
+			this.showToast('You will no longer receive Games');
+			setTimeout(() => {
+				document.getElementById('home').classList.remove('dim');
+				auth.signOut();
+				microBridge.closeWindow();
+
+			}, timeout+100);
+
+
 		}
-	}
 
-	render(props, state) {
-		const {
+		constructor(props) {
+			super(props);
+
+			this.state = {
+				voted: false,
+				stopping: false
+			};
+			this._stop = this._stop.bind(this);
+
+		}
+
+		componentWillMount() {
+			let name = gamesList[this.props.game_id].name;
+			let db = {};
+			if (typeof window !== 'undefined') {
+
+				let ref = database.ref('games/' + name);
+				ref.once('value', snapshot => {
+					db = snapshot.val();
+					this.setState(db);
+				});
+			}
+		}
+
+		render(props, state) {
+			const {
 			// background,
 			// text,
 			// buttonStyles,
-			buttonOptions = {
-				color: '#007CE2',
-				duration: 200,
-				easing: 'easeInOutQuad',
-				speed: 0.15,
-				particlesAmountCoefficient: 30,
-				oscillationCoefficient: 100,
-				direction: 'top',
-				type: 'triangle'
-			},
-			buttonOptions2 = {
-				color: '#073763',
-				duration: 200,
-				easing: 'easeOutQuad',
-				speed: 0.2,
-				particlesAmountCoefficient: 20,
-				oscillationCoefficient: 100,
-				direction: 'top',
-				type: 'triangle'
+				buttonOptions = {
+					color: '#007CE2',
+					duration: 200,
+					easing: 'easeInOutQuad',
+					speed: 0.15,
+					particlesAmountCoefficient: 30,
+					oscillationCoefficient: 100,
+					direction: 'top',
+					type: 'triangle'
+				},
+				buttonOptions2 = {
+					color: '#073763',
+					duration: 200,
+					easing: 'easeOutQuad',
+					speed: 0.2,
+					particlesAmountCoefficient: 20,
+					oscillationCoefficient: 100,
+					direction: 'top',
+					type: 'triangle'
 
 
-			}
-		} = this.props;
+				}
+			} = this.props;
 
-		const {
-			hidden,
-			// animating,
-			hidden2
+			const {
+				hidden,
+				// animating,
+				hidden2
 			// animating2
-		} = this.state;
+			} = this.state;
 
-		return (
+			return (
 
-			<div class={style.footer}>
-				<div class={style.playsc}>{props.gameMsg}</div>
-				{!props.showStars &&
+				<div class={style.footer}>
+					<div class={style.playsc}>{props.gameMsg}</div>
+					{!props.showStars && !state.stopping &&
 				<div class={style.bots}>
-					<div class={style.lefty}>SNOOZE:</div>
+					{/*<div class={style.lefty}>SNOOZE:</div>*/}
 					<div class={style.buts}>
 						<ParticleEffectButton
 							hidden={hidden}
@@ -309,12 +352,12 @@ export default class PFooter extends Component {
 									border: '0',
 									borderRadius: 25,
 									cursor: 'pointer',
-									fontSize: '1.4em',
-									flexGrow: 1
+									fontSize: '0.75em',
+									width: '110px'
 								}}
 								onClick={this._onToggle}
 							>
-							5 min
+							5 minute snooze
 							</button>
 						</ParticleEffectButton>&nbsp;&nbsp;&nbsp;&nbsp;
 						<ParticleEffectButton
@@ -330,18 +373,34 @@ export default class PFooter extends Component {
 									border: '0',
 									borderRadius: 25,
 									cursor: 'pointer',
-									fontSize: '1.4em'
+									fontSize: '0.75em',
+									width: '110px'
+
 								}}
 								onClick={this._onToggle2}
 							>
-							30 min
+								30 minute snooze
 							</button>
 						</ParticleEffectButton>
+						<div
+							className={style.stop}
+							onClick={this._stop}
+						/>
 					</div>
 				</div>
-				}
+					}
+					{state.stopping && !state.voted && !props.showStars &&
+				<div className={style.bots}>
+					<Button class={style.redButton} onClick={this.nomore} >
+						stop giving me games
+					</Button>
+					<Button class={style.greenButton} onClick={this.cancel} >
+						oops! I still want games
+					</Button>
+				</div>
+					}
 
-				{props.showStars && !state.voted &&
+					{props.showStars && !state.voted &&
 					<div class={style.bots} >
 						<div class={style.rateIt}>RATE IT</div>
 						<div class={style.buts}>
@@ -357,9 +416,9 @@ export default class PFooter extends Component {
 						</div>
 						{/*<div class={style.tiny}>Running at an average rating of: {state.rating}</div>*/}
 					</div>
-				}
+					}
 
-				{state.voted &&
+					{state.voted &&
 				<div class={style.bots}>
 					<span class={style.rateIt}>NEXT</span>
 					<div class={style.buts}>
@@ -374,8 +433,8 @@ export default class PFooter extends Component {
 						</Button>
 					</div>
 				</div>
-				}
-			</div>
-		);
-	}
+					}
+				</div>
+			);
+		}
 }

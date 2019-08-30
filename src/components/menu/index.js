@@ -56,7 +56,7 @@ export default class Menu extends Component {
 		localStorage.setItem('seenWelcomeMessage', false);
 		localStorage.setItem('currentGameID', '1');
 		localStorage.setItem('highestGameID', '1');
-		localStorage.setItem('gameEnthusiasm', '99');
+		localStorage.setItem('explicitOptOut', '99');
 		localStorage.setItem('fastStarts', ',');
 		localStorage.setItem('previouslyRated', ',');
 		this.closeDrawer();

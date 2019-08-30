@@ -20,7 +20,6 @@ export default class Dash extends Component {
 		});
 	}
 
-
 	startSnooze(time) {
 		this.setState({ snooze: true , snooze_time: time });
 		this.changeBonus(0);
@@ -29,6 +28,7 @@ export default class Dash extends Component {
 			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
 			(totalPlays || 0) + 1
 		);
+		clearInterval(this.timer);
 	}
 	changeBonus(index) {
 		if (index !== this.state.bonusIndex) {
@@ -36,17 +36,21 @@ export default class Dash extends Component {
 		}
 	}
 	cancelSnooze() {
+		this.stopSessionTimer();
+
 		this.setState({ snooze: false, gameStarted: false, tooLate: false, snooze_time: 0 });
 	}
 	tickSession() {
 		this.sessionLength += 15;
 
-		ReactGA.event({
-			category: 'Session Length',
-			action: 'Session Continuing',
-			label: this.sessionLength.toString(10),
-			nonInteraction: false
-		});
+		if (this.sessionLength > 0) {
+			ReactGA.event({
+				category: 'Session Length',
+				action: 'Session Continuing',
+				label: this.sessionLength.toString(10),
+				nonInteraction: false
+			});
+		}
 
 		let playsRef = database.ref('users/' + auth.currentUser.uid + '/total_session_duration');
 		playsRef.transaction((totalDuration) =>
@@ -54,15 +58,16 @@ export default class Dash extends Component {
 			(totalDuration || 0) + 15
 		);
 		if (this.sessionLength >= 600) {
-			clearInterval(this.timer);
+			this.stopSessionTimer();
 		}
 	}
 
 	doGameStarted() {
 
+		let fastStarts = ',';
+
 		this.sessionLength = 1;
 		let bonus = this.bonusPts[this.state.bonusIndex];
-		let fastStarts = this.state.canFastStart;
 
 		ReactGA.event({
 			category: 'Game Start',
@@ -74,27 +79,33 @@ export default class Dash extends Component {
 			this.tickSession();
 		}, 15000);
 
+		if (typeof window !== 'undefined') {
+			fastStarts = localStorage.getItem('fastStarts') || ',';
 
+			if (fastStarts.includes(',' + this.props.selectedGame + ',')) {
+				bonus = 0;
+				console.log('No fast Start Bonus');
 
-		if(fastStarts.includes(',' + this.props.selectedGame + ',')) {
-			bonus = 0;
-			console.log('No fast Start Bonus');
-
-		} else {
-			localStorage.setItem('fastStarts', fastStarts + this.props.selectedGame + ',');
-			let playsRef = database.ref('users/' + auth.currentUser.uid + '/score');
-			playsRef.transaction((totalScore) =>
-				// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-				(totalScore || 0) + bonus
-			);
-			fastStarts = fastStarts + this.props.selectedGame + ','
+			}
+			else {
+				localStorage.setItem('fastStarts', fastStarts + this.props.selectedGame + ',');
+				let playsRef = database.ref('users/' + auth.currentUser.uid + '/score');
+				playsRef.transaction((totalScore) =>
+					// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
+					(totalScore || 0) + bonus
+				);
+				fastStarts = fastStarts + this.props.selectedGame + ',';
+			}
 		}
-		this.setState({ gameStarted: true, playMsg: 'Rate this game and be heard!' , bonusIndex: 0 , canFastStart: fastStarts});
-
-
+		this.setState({ gameStarted: true, playMsg: 'Help out others and rate this game!' , bonusIndex: 0 , canFastStart: fastStarts });
 	}
 	timedOut() {
 		this.setState({ tooLate: true });
+	}
+	stopSessionTimer() {
+		clearInterval(this.timer);
+		this.timer = null;
+		this.sessionLength=0;
 	}
 
 	constructor(props) {
@@ -103,26 +114,15 @@ export default class Dash extends Component {
 		this.bonusPts = [0,300,200,100];
 
 		this.sessionLength=0;
-
-		let hasSeen = false;
-		let canFastStart = ',';
-
-		if (typeof window !== 'undefined') {
-			hasSeen = localStorage.getItem('seenWelcomeMessage');
-			canFastStart = localStorage.getItem('fastStarts') || ',';
-
-		}
+		this.timer=null;
 
 		this.state = {
 			snooze: false,
 			snooze_time: 0,
 			gameStarted: false,
-			canFastStart: canFastStart,
 			playMsg: 'Tap to Play now!',
 			bonusIndex: 0,
-			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn'],
-			day1: hasSeen
-
+			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn']
 		};
 
 		this.startSnooze = this.startSnooze.bind(this);
@@ -130,6 +130,7 @@ export default class Dash extends Component {
 		this.timedOut = this.timedOut.bind(this);
 		this.changeBonus = this.changeBonus.bind(this);
 		this.preSnooze = this.preSnooze.bind(this);
+
 
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('highestGameID', (localStorage.getItem('highestGameID') || 1));
@@ -146,12 +147,12 @@ export default class Dash extends Component {
 				if (this.sessionLength > 0) {
 					ReactGA.event({
 						category: 'Session Close',
-						action: 'Session Closed',
+						action: 'Session Closed (unload)',
 						label: this.sessionLength.toString(10),
 						nonInteraction: false
 					});
 
-					this.sessionLength = 0;
+					this.stopSessionTimer();
 				}
 			};
 			window.onblur = (event) => {
@@ -164,15 +165,14 @@ export default class Dash extends Component {
 						nonInteraction: false
 					});
 
-					this.sessionLength = 0;
+					this.stopSessionTimer();
 				}
 			};
 		}
 	}
 
 	componentWillUnmount() {  // Stop counting game clock time.
-		clearInterval(this.timer);
-		this.timer = null;
+		this.stopSessionTimer();
 
 		if (this.sessionLength > 0) {
 			ReactGA.event({
@@ -193,7 +193,7 @@ export default class Dash extends Component {
 		const kCountDownBarHeight = 30;
 
 		let hgt = 640;
-		if (typeof window !== "undefined") {
+		if (typeof window !== 'undefined') {
 			hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
 		}
 
@@ -201,13 +201,14 @@ export default class Dash extends Component {
 			hgt += kCountDownBarHeight;
 		}
 		let url = gamesList[selectedGame].url;
-		let showCountdown = !state.canFastStart.includes(',' + selectedGame + ',');
+		let intro = gamesList[selectedGame].intro;
 
 		return (
 			<div id="home" class={style.dash}>
 				{!state.snooze &&
 				<div>
-					{!state.gameStarted && showCountdown && <Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} />}
+					{!state.gameStarted &&
+					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} intro={intro} />}
 					<Pframe src={url}
 						width="100%"
 						height={hgt}
@@ -220,13 +221,12 @@ export default class Dash extends Component {
 						game_id={selectedGame}
 						doGameStarted={this.doGameStarted}
 					/>
-					{!state.tooLate && !state.gameStarted &&
-					state.bonusIndex > 0 &&
-					<div class={`${style.bonusMsg} {msgStyle} btn1}`}>
-						<div class={style.bonus}>{state.bonusMsg[state.bonusIndex]}
-							<span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span>
-							Points</div>
-					</div>
+					{!state.tooLate && !state.gameStarted && state.bonusIndex > 0 &&
+						<div class={`${style.bonusMsg} {msgStyle} btn1}`}>
+							<div class={style.bonus}>{state.bonusMsg[state.bonusIndex]}
+								<span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span>
+								Points</div>
+						</div>
 					}
 					<PFooter name={gamesList[selectedGame].name}
 						showStars={state.gameStarted}
@@ -235,6 +235,7 @@ export default class Dash extends Component {
 						gameClick={this.doGameStarted}
 						gameMsg={state.playMsg}
 						preSnooze={this.preSnooze}
+						stopSessionTimer={this.stopSessionTimer}
 					/>
 				</div>
 				}

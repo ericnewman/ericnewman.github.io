@@ -1,8 +1,6 @@
 import { Component } from 'preact';
-import { auth, database } from '../../firebase';
-import GamesCarousel from '../../components/gamescarousel';
+import {  database } from '../../firebase';
 import Survey1 from '../../components/survey1';
-import Logo from '../../components/logo';
 import style from './style';
 
 export default class LastPage extends Component {
@@ -14,7 +12,7 @@ export default class LastPage extends Component {
 
 	}
 	handleChange(event) {
-		this.setState({value: event.target.value});
+		this.setState({ value: event.target.value });
 	}
 
 	handleSubmit(event) {
@@ -34,7 +32,6 @@ export default class LastPage extends Component {
 
 		return (
 			<div id="home" class="home">
-				<Logo />
 				<div>
 					<div class="smaller">Thanks for participating in our test<br />Look for more exciting content soon!
 					</div>
@@ -45,13 +42,13 @@ export default class LastPage extends Component {
 						<br />
 					</div>
 					<div class={style.buts}>
-					<form class={style.commentForm} onSubmit={this.handleSubmit}>
-						<label>
-							<div>Please share any comments about your experience:</div>
-							<textarea class={style.texty} value={this.state.value} onChange={this.handleChange} />
-						</label>
-						<input class={style.pinkButton} type="submit" value="Submit" />
-					</form>
+						<form class={style.commentForm} onSubmit={this.handleSubmit}>
+							<label>
+								<div>Please share any comments about your experience:</div>
+								<textarea class={style.texty} value={this.state.value} onChange={this.handleChange} />
+							</label>
+							<input class={style.pinkButton} type="submit" value="Submit" />
+						</form>
 					</div>
 				</div>
 			</div>

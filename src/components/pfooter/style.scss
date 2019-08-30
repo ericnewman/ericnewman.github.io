@@ -32,11 +32,11 @@ $icon_size: 40px;
 }
 
 .bots {
-  width: 100%;
   margin: 5px 0;
   height:36px;
-padding:4px 0;
-
+  padding:4px 0;
+  width: 100%;
+  white-space: normal;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -57,13 +57,27 @@ padding:4px 0;
   border-radius: 32px;
   height: 32px;
   color: white !important;
-  font: bold 15px Comfortaa, sans-serif;
+  font: bold 12px Comfortaa, sans-serif;
   text-transform: lowercase;
   margin-left: 5px;
 }
 
+.wides {
+  width:120px;
+}
 .orangeButton {
   background: #EF7D16 !important;
+
+}
+.redButton {
+  background: #ff0000 !important;
+  width:120px;
+  whitespace:normal;
+}
+.greenButton {
+  background: #55bb55 !important;
+  width:120px;
+  whitespace:normal;
 
 }
 
@@ -86,7 +100,16 @@ padding:4px 0;
   width: 100%;
   text-align: center;
 }
-
+.stop {
+  width:35px;
+  height:35px;
+  background-image: url("../../assets/icons/stop.png");
+  background-size:contain;
+  background-repeat: no-repeat;
+  display:inline-block;
+  vertical-align: center;
+  margin-left:10px;
+}
 @media (max-width: 479px) {
 
 	.mdc-layout-grid {
@@ -103,16 +126,20 @@ padding:4px 0;
 	}
 	.bots button {
 		color: white !important;
-		font: bold 16px Comfortaa, sans-serif !important;
+		font: bold 10px Comfortaa, sans-serif !important;
 		margin-left: 3px;
 	}
 	.bots {
 		margin: 3px 0;
 	}
+  .playsc {
+    font: bold 18px/25px Comfortaa, sans-serif;
+  }
+
 }
 @media (max-width: 320px) {
   #app {
-    width:320px;
+    width: 320px;
   }
   .lefty {
     margin-top: 10px;
@@ -121,10 +148,13 @@ padding:4px 0;
   }
   .bots button {
     color: white !important;
-    font: bold 13px Comfortaa, sans-serif !important;
+    font: bold 12px Comfortaa, sans-serif !important;
     margin-left: 2px;
   }
   .bots {
     margin: 3px 0;
+  }
+  .playsc {
+    font: bold 18px/25px Comfortaa, sans-serif;
   }
 }

@@ -1,6 +1,5 @@
 import { Component } from 'preact';
 import { route } from 'preact-router';
-import Logo from '../../components/logo';
 import Button from 'preact-material-components/Button';
 
 import ScoreBar from '../../components/scorebar';
@@ -65,7 +64,7 @@ export default class Outcome extends Component {
 
 				let playsRef = database.ref('users/' + auth.currentUser.uid);
 				playsRef.on('value', (snapshot) => {
-					this.setState({ user: snapshot.val() })
+					this.setState({ user: snapshot.val() });
 				});
 			}
 		});
@@ -94,7 +93,6 @@ export default class Outcome extends Component {
 
 		return (
 			<div class="home">
-				<Logo />
 				<div class={style.inner}>
 					<div class={style.rankTitle}>Discoverer Ranking:</div>
 					<div class={style.rank}>{rankings[rank]}</div>

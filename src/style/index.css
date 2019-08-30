@@ -142,14 +142,6 @@ header {
     text-align: center;
 }
 
-.urup {
-    background-image: url("../assets/img/logo.png");
-    background-repeat: no-repeat;
-    background-size: 70px 70px;
-    display: inline-block;
-    height: 70px;
-    width: 70px;
-}
 
 .small {
     font: normal 25px/35px Comfortaa, sans-serif;
@@ -162,6 +154,7 @@ header {
     text-align: center;
     margin: 5px 25px;
 }
+
 .smallerBold {
     font: bold 10px Comfortaa, sans-serif;
     text-align: left;
@@ -188,6 +181,7 @@ header {
     animation: roto 5s infinite
 
 }
+
 .cardHeader {
     padding: 0px;
 
@@ -200,6 +194,7 @@ header {
 .newpage {
     padding-top: 5px;
 }
+
 @keyframes roto {
     0%, 100% {
         transform: rotate(-10deg);
@@ -214,8 +209,9 @@ header {
     margin: 20px auto;
     text-align: center;
 }
+
 .inline {
-    display:inline-block;
+    display: inline-block;
 }
 
 @keyframes shadow-pulse {
@@ -271,8 +267,9 @@ header {
     height: 150px;
 
 }
+
 .toast-notification span {
-    margin-top:5px;
+    margin-top: 5px;
 
 }
 
@@ -317,7 +314,6 @@ header {
     padding-top: 5px;
 
 }
-
 
 
 @media only screen and (max-width: 360px) {

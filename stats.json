@@ -1,15 +1,15 @@
 {
   "errors": [
     "./src/index.js\nModule not found: Error: Can't resolve './style' in '/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src'\nresolve './style' in '/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src'\n  using description file: /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/package.json (relative path: ./src)\n    Field 'browser' doesn't contain a valid alias configuration\n    using description file: /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/package.json (relative path: ./src/style)\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style is not a file\n      .wasm\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.wasm doesn't exist\n      .mjs\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.mjs doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.js doesn't exist\n      .json\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.json doesn't exist\n      as directory\n        existing directory\n          using path: /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index\n            using description file: /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/package.json (relative path: ./src/style/index)\n              no extension\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index doesn't exist\n              .wasm\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.wasm doesn't exist\n              .mjs\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.mjs doesn't exist\n              .js\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.js doesn't exist\n              .json\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.json doesn't exist\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.wasm]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.mjs]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.js]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style.json]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.wasm]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.mjs]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.js]\n[/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/style/index.json]\n @ ./src/index.js 1:0-17",
-    "./src/components/app.js 19:13\nModule parse failed: Unexpected token (19:13)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n| \n| export default class App extends Component {\n> \thandleRoute = e => {\n| \t\tif (typeof window !== 'undefined') {\n| \t\t\tif (localStorage.getItem('seenWelcomeMessage') === 'false') {\n @ ./src/index.js 2:0-35 5:15-18"
+    "./src/components/app.js 17:13\nModule parse failed: Unexpected token (17:13)\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\n| \n| export default class App extends Component {\n> \thandleRoute = e => {\n| \t\tif (typeof window !== 'undefined') {\n| \t\t\tif(this.state.currentUrl !== e.url) { // Try to prevent possible double firing of pageview.\n @ ./src/index.js 2:0-35 5:15-18"
   ],
   "warnings": [
     "configuration\nThe 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.\nYou can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/"
   ],
   "version": "4.35.0",
-  "hash": "e00e63732d652c3ff5e7",
-  "time": 92,
-  "builtAt": 1565202035496,
+  "hash": "0cb479bc0d18a5adf455",
+  "time": 251,
+  "builtAt": 1567195420027,
   "publicPath": "",
   "outputPath": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/dist",
   "assetsByChunkName": {
@@ -18,7 +18,7 @@
   "assets": [
     {
       "name": "main.js",
-      "size": 1518,
+      "size": 1548,
       "chunks": [
         0
       ],
@@ -59,14 +59,14 @@
       "rendered": true,
       "initial": true,
       "entry": true,
-      "size": 498,
+      "size": 528,
       "names": [
         "main"
       ],
       "files": [
         "main.js"
       ],
-      "hash": "b821367e3d34fa6d3b1e",
+      "hash": "f1c22996cda5273d4ffa",
       "siblings": [],
       "parents": [],
       "children": [],
@@ -78,7 +78,7 @@
           "name": "./src/components/app.js",
           "index": 1,
           "index2": 0,
-          "size": 422,
+          "size": 452,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -95,14 +95,14 @@
               "identifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
               "name": "./src/index.js",
               "profile": {
-                "factory": 31,
-                "building": 12
+                "factory": 25,
+                "building": 9
               }
             }
           ],
           "profile": {
             "factory": 3,
-            "building": 5
+            "building": 3
           },
           "failed": true,
           "errors": 1,
@@ -136,7 +136,7 @@
             "ModuleConcatenation bailout: Module is not an ECMAScript module"
           ],
           "depth": 1,
-          "source": "throw new Error(\"Module parse failed: Unexpected token (19:13)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| export default class App extends Component {\\n> \\thandleRoute = e => {\\n| \\t\\tif (typeof window !== 'undefined') {\\n| \\t\\t\\tif (localStorage.getItem('seenWelcomeMessage') === 'false') {\");"
+          "source": "throw new Error(\"Module parse failed: Unexpected token (17:13)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| export default class App extends Component {\\n> \\thandleRoute = e => {\\n| \\t\\tif (typeof window !== 'undefined') {\\n| \\t\\t\\tif(this.state.currentUrl !== e.url) { // Try to prevent possible double firing of pageview.\");"
         },
         {
           "id": 1,
@@ -157,8 +157,8 @@
           "issuerName": null,
           "issuerPath": null,
           "profile": {
-            "factory": 31,
-            "building": 12
+            "factory": 25,
+            "building": 9
           },
           "failed": false,
           "errors": 0,
@@ -206,7 +206,7 @@
       "name": "./src/components/app.js",
       "index": 1,
       "index2": 0,
-      "size": 422,
+      "size": 452,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -223,14 +223,14 @@
           "identifier": "/Users/ericnewman/Dropbox/Private Files/ericnewman.github.io/draftcards/src/index.js",
           "name": "./src/index.js",
           "profile": {
-            "factory": 31,
-            "building": 12
+            "factory": 25,
+            "building": 9
           }
         }
       ],
       "profile": {
         "factory": 3,
-        "building": 5
+        "building": 3
       },
       "failed": true,
       "errors": 1,
@@ -264,7 +264,7 @@
         "ModuleConcatenation bailout: Module is not an ECMAScript module"
       ],
       "depth": 1,
-      "source": "throw new Error(\"Module parse failed: Unexpected token (19:13)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| export default class App extends Component {\\n> \\thandleRoute = e => {\\n| \\t\\tif (typeof window !== 'undefined') {\\n| \\t\\t\\tif (localStorage.getItem('seenWelcomeMessage') === 'false') {\");"
+      "source": "throw new Error(\"Module parse failed: Unexpected token (17:13)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| export default class App extends Component {\\n> \\thandleRoute = e => {\\n| \\t\\tif (typeof window !== 'undefined') {\\n| \\t\\t\\tif(this.state.currentUrl !== e.url) { // Try to prevent possible double firing of pageview.\");"
     },
     {
       "id": 1,
@@ -285,8 +285,8 @@
       "issuerName": null,
       "issuerPath": null,
       "profile": {
-        "factory": 31,
-        "building": 12
+        "factory": 25,
+        "building": 9
       },
       "failed": false,
       "errors": 0,
