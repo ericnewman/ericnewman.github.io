@@ -11,13 +11,22 @@ import Metrics from '../routes/metrics';
 import NotFound from '../routes/404';
 import Notifications from 'react-notify-toast';
 import ReactGA from 'react-ga';
-import { auth } from '../firebase';
+import { auth, database } from '../firebase';
 
 export default class App extends Component {
 	handleRoute = e => {
+		if(window.sessionTimer) {
+			// Clear any residual session left open somehow.
+			clearTimeout(window.sessionTimer);
+			window.sessionTimer = null;
+
+		}
+
 		if (typeof window !== 'undefined') {
-			if(this.state.currentUrl !== e.url) { // Try to prevent possible double firing of pageview.
+			if (this.state.currentUrl !== e.url) { // Try to prevent possible double firing of pageview.
 				ReactGA.pageview(e.url);
+				this.registerPageView(e.url);
+
 				setTimeout(() => {
 					this.setState({
 						currentUrl: e.url
@@ -28,6 +37,20 @@ export default class App extends Component {
 		}
 	};
 
+	registerPageView(page) {
+		let ref = database.ref('pageview/' + page);
+		ref.transaction((count) => (count) || 1) + 1;
+		let opt = localStorage.getItem('explicitOptOut')!== true
+		if(opt) {
+			let ref = database.ref('pageview/opted In');
+			ref.transaction((count) => (count) || 1) + 1;
+		} else {
+			let ref = database.ref('pageview/opted Out');
+			ref.transaction((count) => (count) || 1) + 1;
+		}
+
+	}
+
 	constructor(props) {
 
 		super(props);
@@ -35,7 +58,7 @@ export default class App extends Component {
 		this.games = [];
 		this.visitCounted = false;
 		this.state = {
-			currentUrl: '',
+			currentUrl: ''
 
 		};
 		ReactGA.initialize('UA-102222556-2');

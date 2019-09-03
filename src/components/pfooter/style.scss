@@ -8,8 +8,8 @@ $icon_size: 40px;
   position: absolute;
   bottom: 0px;
   background: black;
-  max-width:500px;
-  vertical-align:bottom;
+  max-width: 500px;
+  vertical-align: bottom;
 
 }
 
@@ -20,7 +20,7 @@ $icon_size: 40px;
   padding: 0px 4px;
   flex: none;
   width: 100%;
-  height:24px;
+  height: 24px;
 }
 
 .rateIt {
@@ -33,8 +33,8 @@ $icon_size: 40px;
 
 .bots {
   margin: 5px 0;
-  height:36px;
-  padding:4px 0;
+  height: 36px;
+  padding: 4px 0;
   width: 100%;
   white-space: normal;
   display: flex;
@@ -44,7 +44,7 @@ $icon_size: 40px;
 }
 
 .lefty {
-  width:90px;
+  width: 90px;
   font: bold 21px/24px Comfortaa, sans-serif;
   margin: 2px auto;
 }
@@ -63,21 +63,24 @@ $icon_size: 40px;
 }
 
 .wides {
-  width:120px;
+  width: 120px;
 }
+
 .orangeButton {
   background: #EF7D16 !important;
 
 }
+
 .redButton {
   background: #ff0000 !important;
-  width:120px;
-  whitespace:normal;
+  width: 120px;
+  whitespace: normal;
 }
+
 .greenButton {
   background: #55bb55 !important;
-  width:120px;
-  whitespace:normal;
+  width: 120px;
+  whitespace: normal;
 
 }
 
@@ -100,43 +103,46 @@ $icon_size: 40px;
   width: 100%;
   text-align: center;
 }
+
 .stop {
-  width:35px;
-  height:35px;
+  width: 35px;
+  height: 35px;
   background-image: url("../../assets/icons/stop.png");
-  background-size:contain;
+  background-size: contain;
   background-repeat: no-repeat;
-  display:inline-block;
+  display: inline-block;
   vertical-align: center;
-  margin-left:10px;
+  margin-left: 10px;
 }
+
 @media (max-width: 479px) {
 
-	.mdc-layout-grid {
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-		margin: 0 auto;
-		padding: 4px !important;;
-		padding: var(--mdc-layout-grid-margin-phone, 4px) !important;
-	}
-	.lefty {
-		margin-top:10px;
-		font: bold 15px/14px Comfortaa, sans-serif;
+  .mdc-layout-grid {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 4px !important;;
+    padding: var(--mdc-layout-grid-margin-phone, 4px) !important;
+  }
+  .lefty {
+    margin-top: 10px;
+    font: bold 15px/14px Comfortaa, sans-serif;
 
-	}
-	.bots button {
-		color: white !important;
-		font: bold 10px Comfortaa, sans-serif !important;
-		margin-left: 3px;
-	}
-	.bots {
-		margin: 3px 0;
-	}
+  }
+  .bots button {
+    color: white !important;
+    font: bold 10px Comfortaa, sans-serif !important;
+    margin-left: 3px;
+  }
+  .bots {
+    margin: 3px 0;
+  }
   .playsc {
     font: bold 18px/25px Comfortaa, sans-serif;
   }
 
 }
+
 @media (max-width: 320px) {
   #app {
     width: 320px;

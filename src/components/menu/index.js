@@ -30,7 +30,7 @@ export default class Menu extends Component {
 		route(path);
 	};
 
-	goHome     = this.linkTo('/step1');
+	goHome     = this.linkTo('/');
 	// goToStep1  = this.linkTo('/step1');
 	goToDash0  = this.linkTo('/dash/0');
 	goToDash1  = this.linkTo('/dash/1');

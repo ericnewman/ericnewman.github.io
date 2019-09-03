@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import { Component } from 'preact';
 import { notify } from 'react-notify-toast';
 
 import { auth, database, user } from '../../firebase';

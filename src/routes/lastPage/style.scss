@@ -3,42 +3,44 @@ $toast_color: #FF008c;
 
 
 .home {
-	padding: 10px;
-	min-height: 100%;
-	width: 100%;
-    color: white;
-    border:1px solid #777;
+  padding: 10px;
+  min-height: 100%;
+  width: 100%;
+  color: white;
+  border: 1px solid #777;
 
 }
 
 .mdc-card {
-  margin:50px 0;
+  margin: 50px 0;
 }
 
 
 .cent {
-    margin:20px auto;
-    text-align: center;
+  margin: 20px auto;
+  text-align: center;
 }
+
 .rose {
-    background:$header_color !important;
-    width: 120px;
+  background: $header_color !important;
+  width: 120px;
   line-height: 13px;
 }
 
 .commentForm {
-  margin: 50px;
+  margin: 70px 50px;
 }
+
 .texty {
-    width: 100%;
-    height: 150px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 1px solid #EF7D15;
-    border-radius: 4px;
-    background-color: #ddd;
-    resize: none;
-    margin:5px;
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #EF7D15;
+  border-radius: 4px;
+  background-color: #ddd;
+  resize: none;
+  margin: 5px;
 }
 
 .buts input {

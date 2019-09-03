@@ -294,7 +294,6 @@ header {
 }
 
 .orangeBox .toast-notification {
-    /*background-color: #EF7D16;*/
     background-image: url("../assets/img/orange.png");
     background-size: contain;
     background-repeat: no-repeat;

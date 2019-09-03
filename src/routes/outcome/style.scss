@@ -1,16 +1,19 @@
 .inner {
-  margin:15px;
-  padding:5px;
+  margin: 15px;
+  padding: 5px;
 }
+
 .rank {
   color: #ef7d16;
   font: normal 25px Comfortaa, sans-serif;
-  padding:10px;
+  padding: 10px;
 }
+
 .rankTitle {
   font: bold 25px Comfortaa, sans-serif;
-  text-align:center;
+  text-align: center;
 }
+
 .snoozeIcon {
   background-image: url("../../assets/img/snooze.png");
   background-size: contain;
@@ -18,40 +21,45 @@
   position: relative;
   margin: 0px 0px 30px 0px;
   padding-top: 0px;
-  height:70px;
-  width:70px;
-  margin-left:25px;
-  display:inline-block;
-  float:left;
+  height: 70px;
+  width: 70px;
+  margin-left: 25px;
+  display: inline-block;
+  float: left;
 
 }
+
 .label {
   font: normal 18px Comfortaa, sans-serif;
   text-align: left;
   margin: 5px;
-  clear:both;
+  clear: both;
 
 }
+
 .headTxt {
   font: bold 20px Comfortaa, sans-serif;
   text-align: left;
   margin: 7px;
   top: 5px;
   left: 5px;
-  position:relative;
+  position: relative;
 
 }
+
 .snoozeScore {
   font: normal 19px Comfortaa, sans-serif;
   text-align: left;
   color: #ef7d16;
-  display:block;
+  display: block;
 }
+
 .snoozeSec {
-  display:block;
-  clear:both;
-  margin:5px;
+  display: block;
+  clear: both;
+  margin: 5px;
 }
+
 .snoozeSec button {
-  top:20px;
+  top: 20px;
 }

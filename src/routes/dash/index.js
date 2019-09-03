@@ -3,6 +3,7 @@ import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
 import Countdown from '../../components/countdown';
 import ReactGA from 'react-ga';
+import { route } from 'preact-router';
 
 import gamesList from '../../gamesList';
 import { auth, database } from '../../firebase';
@@ -78,6 +79,7 @@ export default class Dash extends Component {
 		this.timer = setInterval(() => {
 			this.tickSession();
 		}, 15000);
+		window.sessionTimer = this.timer;
 
 		if (typeof window !== 'undefined') {
 			fastStarts = localStorage.getItem('fastStarts') || ',';
@@ -110,6 +112,10 @@ export default class Dash extends Component {
 
 	constructor(props) {
 		super(props);
+
+		if( this.props.selectedGame > 12) {
+			route('404');
+		}
 
 		this.bonusPts = [0,300,200,100];
 
@@ -144,6 +150,8 @@ export default class Dash extends Component {
 
 
 			window.onbeforeunload = (event) => {
+				event.preventDefault();
+
 				if (this.sessionLength > 0) {
 					ReactGA.event({
 						category: 'Session Close',
@@ -151,7 +159,8 @@ export default class Dash extends Component {
 						label: this.sessionLength.toString(10),
 						nonInteraction: false
 					});
-
+					clearTimeout(window.sessionTimer);
+					window.sessionTimer = null;
 					this.stopSessionTimer();
 				}
 			};
@@ -164,6 +173,8 @@ export default class Dash extends Component {
 						label: this.sessionLength.toString(10),
 						nonInteraction: false
 					});
+					clearTimeout(window.sessionTimer);
+					window.sessionTimer = null;
 
 					this.stopSessionTimer();
 				}

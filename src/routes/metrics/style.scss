@@ -4,10 +4,10 @@ $table-border: #000;
 .report {
 
   border: solid 1px $table-border;
-  background-color :#ccc;
-  color:#000;
-  margin:20px;
-  padding:20px;
+  background-color: #ccc;
+  color: #000;
+  margin: 20px;
+  padding: 20px;
 
   transition: 0.5s;
   text-align: left;
@@ -18,6 +18,7 @@ $table-border: #000;
 td {
   background: $table-header;
 }
+
 td {
   border: solid 1px $table-border;
 }

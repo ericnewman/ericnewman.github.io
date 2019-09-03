@@ -45,7 +45,7 @@ export default class PFooter extends Component {
 				value: parseInt( interval, 10)
 			});
 
-			let ref = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
+			let ref = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes_' + interval);
 			ref.transaction((totalSnooze) =>
 				(totalSnooze || 0) + 1
 			);
@@ -165,6 +165,7 @@ export default class PFooter extends Component {
 		ReactGA.event({
 			category: 'Navigate',
 			action: 'User closed window',
+			label: document.URL,
 			value: 0
 		});
 		auth.signOut();

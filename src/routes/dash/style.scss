@@ -4,50 +4,54 @@ $boxw: 185px;
 #app {
   width: 100% !important;
 }
+
 .dash {
-  top:0;
-  background:black;
-  width:100%;
+  top: 0;
+  background: black;
+  width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  height:100%;
-  vertical-align:bottom;
+  height: 100%;
+  vertical-align: bottom;
 }
+
 .info {
-    height:250px;
-    margin:20px;
+  height: 250px;
+  margin: 20px;
 }
+
 .framey {
-  border:none;
- }
+  border: none;
+}
+
 .bonusMsg {
   left: 50%;
   position: absolute;
   width: $boxw;
   height: $boxh;
   top: 40%;
-  z-index:10000;
+  z-index: 10000;
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   animation: pulse 4s infinite;
   background-image: url("../../assets/img/msgframepink.png");
-  background-size:contain;
+  background-size: contain;
   background-repeat: no-repeat;
 
-
 }
+
 .bonus {
-  color:white;
+  color: white;
   font: Bold 16px 'Comfortaa', sans-serif;
-  text-align:center;
-  padding:30px 10px;
+  text-align: center;
+  padding: 30px 10px;
   vertical-align: middle;
 
 }
-@keyframes pulse
-{
+
+@keyframes pulse {
   0%, 100% {
-  transform: translate(-50%, -50%) scale(0.45) rotate(-15deg);
+    transform: translate(-50%, -50%) scale(0.45) rotate(-15deg);
 
   }
   50% {
@@ -58,5 +62,5 @@ $boxw: 185px;
 
 .bonusPts {
   font: Bold 28px/42px 'Comfortaa', sans-serif;
-  display:block;
+  display: block;
 }

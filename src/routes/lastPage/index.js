@@ -5,6 +5,10 @@ import style from './style';
 
 export default class LastPage extends Component {
 
+		state = {
+			textvalue: ''
+
+		}
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
@@ -12,18 +16,19 @@ export default class LastPage extends Component {
 
 	}
 	handleChange(event) {
-		this.setState({ value: event.target.value });
+		this.setState({ textvalue: event.target.value });
 	}
 
 	handleSubmit(event) {
 		event.preventDefault();
 		//push itself
 
+		let mailsRef = database.ref('comments/').push();
 
-		let mailsRef = database.ref('comments').push();
 		mailsRef.set(
 			{
-				comment: this.state.value
+				comment: this.state.textvalue,
+				date: new Date().toDateString()
 			}
 		);
 	}
@@ -45,7 +50,8 @@ export default class LastPage extends Component {
 						<form class={style.commentForm} onSubmit={this.handleSubmit}>
 							<label>
 								<div>Please share any comments about your experience:</div>
-								<textarea class={style.texty} value={this.state.value} onChange={this.handleChange} />
+								<textarea className={style.texty} value={this.state.textvalue}
+										  onChange={this.handleChange} />
 							</label>
 							<input class={style.pinkButton} type="submit" value="Submit" />
 						</form>
