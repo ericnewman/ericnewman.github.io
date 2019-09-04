@@ -44,6 +44,32 @@ $toast_color: #FF008c;
   font: bold 18px Comfortaa, sans-serif;
 
 }
+.bots {
+  margin: 5px 0;
+  height: 36px;
+  padding: 4px 0;
+  width: 100%;
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+}
+
+.bots button {
+  border-radius: 32px;
+  height: 32px;
+  color: white !important;
+  font: bold 12px Comfortaa, sans-serif;
+  text-transform: lowercase;
+  margin-left: 5px;
+}
+
+.buts {
+  margin: 60px auto;
+  top:45%;
+}
+
 
 .buts input {
   border-radius: 32px;
@@ -56,3 +82,10 @@ $toast_color: #FF008c;
   border: 2px solid #ef7d16;
 
 }
+
+.dkBlueButton {
+  background: #073763 !important;
+  color: white !important;
+  text-align:center;
+}
+

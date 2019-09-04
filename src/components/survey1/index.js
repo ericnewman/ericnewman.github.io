@@ -41,6 +41,7 @@ export default class Survey1 extends Component {
 		ReactGA.event({
 			category: 'Navigate',
 			action: 'User selected More Games from Last Page',
+			label: 'More Games',
 			value: 0
 		});
 

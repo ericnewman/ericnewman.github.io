@@ -188,7 +188,7 @@ export default class Dash extends Component {
 		if (this.sessionLength > 0) {
 			ReactGA.event({
 				category: 'Session End',
-				action: 'Session Ending',
+				action: 'Session Ended',
 				label: this.sessionLength.toString(10),
 				nonInteraction: false
 			});
@@ -219,7 +219,7 @@ export default class Dash extends Component {
 				{!state.snooze &&
 				<div>
 					{!state.gameStarted &&
-					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} intro={intro} />}
+					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}
 					<Pframe src={url}
 						width="100%"
 						height={hgt}
@@ -234,9 +234,13 @@ export default class Dash extends Component {
 					/>
 					{!state.tooLate && !state.gameStarted && state.bonusIndex > 0 &&
 						<div class={`${style.bonusMsg} {msgStyle} btn1}`}>
-							<div class={style.bonus}>{state.bonusMsg[state.bonusIndex]}
-								<span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span>
-								Points</div>
+							{/*<div class={style.bonus}>{state.bonusMsg[state.bonusIndex]}*/}
+							{/*	<span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span>*/}
+							{/*	Points*/}
+							{/*</div>*/}
+							<div class={style.bonus}>
+								{intro}
+							</div>
 						</div>
 					}
 					<PFooter name={gamesList[selectedGame].name}

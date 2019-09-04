@@ -74,7 +74,6 @@ export default class Countdown extends Component {
 
 
 		};
-		this.introTimer = null;
 		this.showCountdown = false;
 
 		this.onChange.bind(this);
@@ -102,19 +101,14 @@ export default class Countdown extends Component {
 				window.unlocked = true;
 			}
 			if (showCountdown) {
-				this.introTimer = setTimeout(() => {
-					this.setState({
-						showIntro: false
-					});
-					this.timer = setInterval(() => {
-						if (window.unlocked) {
-							this.setState({
-								progress: (this.state.progress + 1) % 100
-							});
-						}
-					}, 100); //100
+				this.timer = setInterval(() => {
+					if (window.unlocked) {
+						this.setState({
+							progress: (this.state.progress + 1) % 100
+						});
+					}
+				}, 100); //100
 
-				}, 7000); //10000
 			}
 		}
 	}
@@ -127,12 +121,12 @@ export default class Countdown extends Component {
 	render(props, state) {
 		return (
 			<div>
-			{state.showCountdown && state.showIntro && <div className={style.intro}>
-				{props.intro}
-				</div>
-			}
+				{/*{state.showCountdown && state.showIntro && <div className={style.intro}>*/}
+				{/*	{props.intro}*/}
+				{/*	</div>*/}
+				{/*}*/}
 
-			{state.showCountdown && !state.complete && !state.showIntro &&
+				{state.showCountdown && !state.complete &&
 				<div class={style.loader}>
 					<div class={style.warn}>
 						{props.message}

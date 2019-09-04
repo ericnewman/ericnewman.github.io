@@ -1,5 +1,5 @@
-$boxh: 180px;
-$boxw: 185px;
+$boxh: 230px;
+$boxw: 215px;
 
 #app {
   width: 100% !important;
@@ -46,16 +46,17 @@ $boxw: 185px;
   text-align: center;
   padding: 30px 10px;
   vertical-align: middle;
+  margin:10px;
 
 }
 
 @keyframes pulse {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(0.45) rotate(-15deg);
+    transform: translate(-50%, -50%) scale(0.85) rotate(-10deg);
 
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.15) rotate(15deg);
+    transform: translate(-50%, -50%) scale(1.15) rotate(10deg);
   }
 
 }

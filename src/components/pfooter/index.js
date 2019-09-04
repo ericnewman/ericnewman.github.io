@@ -237,7 +237,7 @@ export default class PFooter extends Component {
 			console.log('No Bonus');
 		}
 
-		this.showToast('Thanks for Your Review.  200 Points');
+		this.showToast('Thank you for your review.');
 		this.waitAndNext();
 	}
 
@@ -264,8 +264,9 @@ export default class PFooter extends Component {
 			this.showToast('You will no longer receive Games');
 			setTimeout(() => {
 				document.getElementById('home').classList.remove('dim');
-				auth.signOut();
-				microBridge.closeWindow();
+				// auth.signOut();
+				// microBridge.closeWindow();
+				route('lastpage')
 
 			}, timeout+100);
 
@@ -335,9 +336,10 @@ export default class PFooter extends Component {
 			return (
 
 				<div class={style.footer}>
-					<div class={style.playsc}>{props.gameMsg}</div>
+
 					{!props.showStars && !state.stopping &&
 				<div class={style.bots}>
+					<div className={style.playsc}>{props.gameMsg}</div>
 					{/*<div class={style.lefty}>SNOOZE:</div>*/}
 					<div class={style.buts}>
 						<ParticleEffectButton
@@ -421,17 +423,17 @@ export default class PFooter extends Component {
 
 					{state.voted &&
 				<div class={style.bots}>
-					<span class={style.rateIt}>NEXT</span>
+					{/*<span class={style.rateIt}>NEXT</span>*/}
 					<div class={style.buts}>
 						<Button class={style.dkBlueButton} onClick={() => this.close()}>
 							close
 						</Button>
-						<Button class={style.yellowButton} onClick={() => this.medals()}>
-							medals
-						</Button>
-						<Button class={style.pinkButton} onClick={() => this.more()}>
-							more games
-						</Button>
+						{/*<Button class={style.yellowButton} onClick={() => this.medals()}>*/}
+						{/*	medals*/}
+						{/*</Button>*/}
+						{/*<Button class={style.pinkButton} onClick={() => this.more()}>*/}
+						{/*	more games*/}
+						{/*</Button>*/}
 					</div>
 				</div>
 					}

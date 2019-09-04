@@ -1,9 +1,23 @@
 import { Component } from 'preact';
-import {  database } from '../../firebase';
+import { auth, database } from '../../firebase';
 import Survey1 from '../../components/survey1';
 import style from './style';
+import ReactGA from 'react-ga';
+import { microBridge } from '../../micro_bridge';
+import Button from 'preact-material-components/Button';
 
 export default class LastPage extends Component {
+
+	close() {
+		ReactGA.event({
+			category: 'Navigate',
+			action: 'User closed window on survey',
+			label: document.URL,
+			value: 0
+		});
+		auth.signOut();
+		microBridge.closeWindow();
+	}
 
 	constructor(props) {
 		super(props);
@@ -60,10 +74,11 @@ export default class LastPage extends Component {
 					</div> }
 					{state.submitted &&
 					<div className={style.buts}>
-						<p />
-						<p />
-						<div className="smaller">Thanks for Your feedback!!!!
-						</div>
+						<div className="smaller">Thanks for Your feedback!!!!</div>
+
+						<Button class={style.dkBlueButton} onClick={() => this.close()}>
+							close
+						</Button>
 					</div>
 					}
 				</div>
