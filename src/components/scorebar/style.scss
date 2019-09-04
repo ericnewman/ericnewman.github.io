@@ -1,0 +1,37 @@
+.title {
+  color: white;
+  font: Normal 20px 'Orbitron', sans-serif;
+  left: 10px;
+  position: relative;
+  text-shadow: 1px 1px 1px #888, 1px 1px 1px #333, 1px 1px 5px black;
+  top: -27px;
+  z-index: 199999;
+  text-align: left;
+
+}
+
+.loader {
+  height: 36px;
+  top: 6px;
+  z-index: -1;
+  padding-top: 6px;
+
+}
+
+.bar {
+  background: #073763;
+  display: block;
+  height: 36px;
+  margin: 4px 0px;
+  position: relative;
+  top: 0px;
+  z-index: 2;
+  width: 100%;
+}
+
+.num {
+  color: white;
+  font: Bold 16px/12px 'Roboto', sans-serif;
+  text-shadow: 1px 1px 1px #888, 1px 1px 1px #333, 1px 1px 5px black;
+  padding-top: 15px;
+}
