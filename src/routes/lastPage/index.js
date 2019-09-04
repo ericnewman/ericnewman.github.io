@@ -5,14 +5,14 @@ import style from './style';
 
 export default class LastPage extends Component {
 
-		state = {
-			textvalue: ''
-
-		}
 	constructor(props) {
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.state = {
+			textvalue: '',
+			submitted: false
+		};
 
 	}
 	handleChange(event) {
@@ -20,6 +20,8 @@ export default class LastPage extends Component {
 	}
 
 	handleSubmit(event) {
+		this.setState({ submitted: true });
+
 		event.preventDefault();
 		//push itself
 
@@ -33,8 +35,7 @@ export default class LastPage extends Component {
 		);
 	}
 
-	render() {
-
+	render(props, state) {
 		return (
 			<div id="home" class="home">
 				<div>
@@ -43,19 +44,28 @@ export default class LastPage extends Component {
 					{/*<GamesCarousel showHeader={false} showFavorite={false} clickable={false} />*/}
 					<br />
 					<div class="cent">
-						<Survey1 final />
+						<Survey1 final noexit />
 						<br />
 					</div>
-					<div class={style.buts}>
+					{!state.submitted && <div class={style.buts}>
 						<form class={style.commentForm} onSubmit={this.handleSubmit}>
 							<label>
 								<div>Please share any comments about your experience:</div>
 								<textarea className={style.texty} value={this.state.textvalue}
-										  onChange={this.handleChange} />
+									onChange={this.handleChange}
+								/>
 							</label>
 							<input class={style.pinkButton} type="submit" value="Submit" />
 						</form>
+					</div> }
+					{state.submitted &&
+					<div className={style.buts}>
+						<p />
+						<p />
+						<div className="smaller">Thanks for Your feedback!!!!
+						</div>
 					</div>
+					}
 				</div>
 			</div>
 		);

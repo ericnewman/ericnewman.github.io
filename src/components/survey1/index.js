@@ -24,15 +24,17 @@ export default class Survey1 extends Component {
 	waitAndDismiss() {
 		setTimeout(() => {
 			document.getElementById('home').classList.remove('dim');
-			if (window && window.MP) {
-				MP.dismiss();
-			}
-			else {
-				window.open('', '_self', '').close();
-				document.location.href= 'http://google.com';
+
+			if (!this.props.noexit) {
+				if (window && window.MP) {
+					MP.dismiss();
+				}
+				else {
+					window.open('', '_self', '').close();
+					document.location.href = 'http://google.com';
+				}
 			}
 		}, timeout + 500);
-
 	}
 
 	more() {
@@ -131,7 +133,8 @@ export default class Survey1 extends Component {
 			rating: 1,
 			average: 0,
 			count: 0,
-			voted: false
+			voted: false,
+			noexit: props.noexit
 		};
 	}
 

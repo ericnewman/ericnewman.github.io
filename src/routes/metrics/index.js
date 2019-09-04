@@ -24,7 +24,6 @@ import style from './style';
 
 export default class Metrics extends Component {
 
-
 	gamesTable() {
 		let games = this.state.games;
 		let str = '';
@@ -49,7 +48,7 @@ export default class Metrics extends Component {
 			likedplay: {},
 			num_of_users: {},
 			pageviews: {},
-			comments: {},
+			comments: [],
 			num_of_comments: 0
 		};
 
@@ -91,8 +90,7 @@ export default class Metrics extends Component {
 					});
 					playsRef = database.ref('comments').limitToLast(10);
 					playsRef.on('value', (snapshot) => {
-						this.setState({ comments: snapshot.val() });
-
+						this.setState({ comments: Object.entries(snapshot.val()) });
 					});
 
 				}
@@ -108,10 +106,6 @@ export default class Metrics extends Component {
 
 
 	render(state) {
-		// let expectedDailyPVs = 2.0;
-		// let campaignLength = 10.0;
-		// let campprog = (state.user.unique_day_count/campaignLength*100).toFixed(2);
-		// let playprog = (state.user.totalPlays/campaignLength*100).toFixed(2);
 		//
 		// let rank = parseInt(state.user.score/1000);
 		let user = this.state.user || {};
@@ -119,8 +113,12 @@ export default class Metrics extends Component {
 		// let likes = this.state.likesplay || {};
 		let liked = this.state.likedplay || {};
 		let pageviews = this.state.pageviews || {};
-		let comments = this.state.comments || {};
+		let comments = [];
 		let goodFields = ['times_played', 'average_rating', 'review_points'];
+		this.state.comments.forEach((item) => {
+			comments.push(<div class={style.comments}>{item[1].comment} <span class={style.dates}>({item[1].date})</span> </div>);
+		 });
+
 
 		return (
 			<div class="home">
@@ -128,7 +126,6 @@ export default class Metrics extends Component {
 					<p />
 					<div class={style.report}>
 						Total Users: {this.state.num_of_users}<br />
-						Total Comments: {this.state.num_of_comments}
 						<hr />
 						PageViews:{
 							Object.keys(pageviews).map((keys) => (<div class="smallerBold">{keys}
@@ -198,20 +195,14 @@ export default class Metrics extends Component {
 								</div>))
 						}
 						<hr />
-						Last 10 Comments {
-							Object.keys(comments).map((keys) => (<div class="smallerBold">
-								{
-									typeof comments[keys] === 'object' && Object.keys(comments[keys]).map((ikey) => (
-										<span>{
-											comments[keys][ikey]
-										} </span>
-									))
-								}
-							</div>))
+						Total Comments: {this.state.num_of_comments}<br/>
+						Last 10 Comments: {
+							<div className="smallerBold">
+								{comments}
+							</div>
 						}
 					</div>
 				</div>
-
 			</div>
 		);
 	}
