@@ -72,7 +72,7 @@ export default class Survey1 extends Component {
 			);
 			this.showToast('Awesome. Thanks for your vote!');
 			this.waitAndDismiss();
-			this.setState({'voted': true});
+			this.setState({ voted: true });
 
 		}
 		else {
@@ -207,7 +207,7 @@ export default class Survey1 extends Component {
 					}
 					}
 					onStarClick={this.onStarClick.bind(this)}
-				               />}
+				/>}
 				{state.voted && props.final &&
 				<div className={style.buts}>
 					<Button class={style.pinkButton} onClick={() => this.more()}>

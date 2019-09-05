@@ -67,32 +67,29 @@ export default class Countdown extends Component {
 	constructor(props) {
 		super(props);
 
+		let fasts = localStorage.getItem('fastStarts') || ',';
+		let showCountdown = !fasts.includes(',' + this.props.game + ',');
+
 		this.state = {
 			progress: 1,
 			complete: false,
-			showIntro: true
-
-
+			showIntro: true,
+			showCountdown
 		};
-		this.showCountdown = false;
+
 
 		this.onChange.bind(this);
 		this.onComplete.bind(this);
 		if (typeof window !== 'undefined') {
 			window.unlocked = false;
 			window.screenUnlock = this.screenUnlocked;
+
 		}
 	}
 
 	componentDidMount() {
 
 		if (typeof window !== 'undefined') {
-			let fasts = localStorage.getItem('fastStarts') || ',';
-			let showCountdown = !fasts.includes(',' + this.props.game + ',');
-			this.setState({
-				showCountdown
-			});
-
 
 			if (window.MP && (window.MP.setScreenUnLockCallBack !== undefined)) {
 				window.MP.setScreenUnLockCallBack('window.screenUnlock()');
@@ -100,7 +97,7 @@ export default class Countdown extends Component {
 			else {
 				window.unlocked = true;
 			}
-			if (showCountdown) {
+			if (this.state.showCountdown) {
 				this.timer = setInterval(() => {
 					if (window.unlocked) {
 						this.setState({

@@ -1,9 +1,10 @@
-import {Component } from 'preact';
+import { Component } from 'preact';
 
 import Card from 'preact-material-components/Card';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { Carousel } from 'react-responsive-carousel';
+import Button from 'preact-material-components/Button';
 
 import gamesList from '../../gamesList';
 import style from './style';

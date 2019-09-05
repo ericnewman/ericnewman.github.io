@@ -3,7 +3,6 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/performance';
 import ReactGA from 'react-ga';
-import { Component } from 'preact';
 
 // const firebaseConfig = {
 // 	apiKey: 'AIzaSyDQSvwriCLeiaSz347EuOkAwqtDcThZxRI',
@@ -45,7 +44,6 @@ if (typeof window !== 'undefined') {
 			label: error.message,
 			nonInteraction: true
 		});
-
 	});
 
 	aAuth.onAuthStateChanged((user) => {
@@ -63,26 +61,28 @@ if (typeof window !== 'undefined') {
 			});
 
 			let myDB = database.ref('users/' + auth.currentUser.uid + '/latest_visit');
+			let fDB = database.ref('users/' + auth.currentUser.uid + '/first_visit');
 			let newD = new Date().toLocaleString('en-US').split(',')[0];
 			let udref = database.ref('users/' + auth.currentUser.uid + '/unique_day_count');
-
-			myDB.once('value', (snapshot) => {
-				if (newD !== snapshot.val()) {
-					udref.transaction((uniqueDays) => (uniqueDays || 1) + 1);
-				}
-				else {
-					udref.transaction((uniqueDays) => 1);
-				}
+			let firstDay = '';
+			fDB.on('value', (snapshot) => {
+				fDB.transaction((day) =>  {
+					firstDay = day;
+					return day || (newD);
+				});
 			});
 
-			// myDB.set({latest_visit:d });
-			let ref = database.ref('users/' + auth.currentUser.uid + '/latest_visit');
-			ref.transaction((latestVisit) => (newD));
+			myDB.once('value', (snapshot) => {
+				myDB.transaction((latestVisit) => (newD));
+
+				udref.transaction((uniqueDays) => daysDifference( firstDay, newD));
+			});
+
 
 			if (!this.visitCounted) {
 				let ref = database.ref('users/' + auth.currentUser.uid + '/totalVisits');
 				ref.transaction((totalPlays) =>
-					(totalPlays || 1) + 1
+					(totalPlays || 0) + 1
 				);
 				this.visitCounted = true;
 			}
@@ -102,7 +102,10 @@ if (typeof window !== 'undefined') {
 	});
 
 }
-
+function daysDifference(d0, d1) {
+	let diff = new Date(d1).setHours(12) - new Date(d0).setHours(12);
+	return Math.round(diff/8.64e7);
+}
 export const database = db;
 export const auth = aAuth;
 export const user = aUser;

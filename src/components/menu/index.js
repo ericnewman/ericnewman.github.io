@@ -84,7 +84,7 @@ export default class Menu extends Component {
 			this.state = {
 				currentGame: localStorage.getItem('currentGameID') || '1',
 				highestGame: localStorage.getItem('highestGameID') || '1',
-				isAdmin:     localStorage.getItem('isAdmin') || false
+				isAdmin: localStorage.getItem('isAdmin') || false
 			};
 		}
 		else {

@@ -113,7 +113,7 @@ export default class Dash extends Component {
 	constructor(props) {
 		super(props);
 
-		if( this.props.selectedGame > 12) {
+		if ( this.props.selectedGame > 12) {
 			route('404');
 		}
 
@@ -139,7 +139,7 @@ export default class Dash extends Component {
 
 
 		if (typeof window !== 'undefined') {
-			localStorage.setItem('highestGameID', (localStorage.getItem('highestGameID') || 1));
+			localStorage.setItem('highestGameID', (localStorage.getItem('highestGameID') || '1'));
 
 			if (this.props.selectedGame) {
 				localStorage.setItem('currentGameID', this.props.selectedGame);
@@ -202,6 +202,7 @@ export default class Dash extends Component {
 		const kTopBarHeight = 56;
 		const kFooterBarHeight = 68;
 		const kCountDownBarHeight = 30;
+		const kPlayReminder = 100;
 
 		let hgt = 640;
 		if (typeof window !== 'undefined') {
@@ -209,7 +210,7 @@ export default class Dash extends Component {
 		}
 
 		if (state.gameStarted) {
-			hgt += kCountDownBarHeight;
+			hgt += (kCountDownBarHeight + kPlayReminder);
 		}
 		let url = gamesList[selectedGame].url;
 		let intro = gamesList[selectedGame].intro;

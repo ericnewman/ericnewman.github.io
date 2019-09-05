@@ -61,14 +61,12 @@ export default class PFooter extends Component {
 				'custom',
 				timeout,
 				colors);
-
 		}
 		else {
 			notify.show('See you soon! Be back in ' + this.interval + ' Minutes...',
 				'custom',
 				timeout,
 				colors);
-
 		}
 
 		microBridge.sendDelayedBanner(document.URL, interval);
@@ -149,8 +147,6 @@ export default class PFooter extends Component {
 			'custom',
 			timeout,
 			colors);
-
-
 	}
 
 	waitAndNext() {
@@ -266,7 +262,7 @@ export default class PFooter extends Component {
 				document.getElementById('home').classList.remove('dim');
 				// auth.signOut();
 				// microBridge.closeWindow();
-				route('lastpage')
+				route('lastpage');
 
 			}, timeout+100);
 
@@ -336,7 +332,6 @@ export default class PFooter extends Component {
 			return (
 
 				<div class={style.footer}>
-
 					{!props.showStars && !state.stopping &&
 				<div class={style.bots}>
 					<div className={style.playsc}>{props.gameMsg}</div>

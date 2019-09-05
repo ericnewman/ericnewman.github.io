@@ -19,16 +19,6 @@ export default class LastPage extends Component {
 		microBridge.closeWindow();
 	}
 
-	constructor(props) {
-		super(props);
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.state = {
-			textvalue: '',
-			submitted: false
-		};
-
-	}
 	handleChange(event) {
 		this.setState({ textvalue: event.target.value });
 	}
@@ -47,6 +37,16 @@ export default class LastPage extends Component {
 				date: new Date().toDateString()
 			}
 		);
+	}
+
+	constructor(props) {
+		super(props);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.state = {
+			textvalue: '',
+			submitted: false
+		};
 	}
 
 	render(props, state) {

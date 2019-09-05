@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import { route, Router } from 'preact-router';
+import { Router } from 'preact-router';
 
 import Menu from './menu';
 
@@ -15,7 +15,7 @@ import { auth, database } from '../firebase';
 
 export default class App extends Component {
 	handleRoute = e => {
-		if(window.sessionTimer) {
+		if (window.sessionTimer) {
 			// Clear any residual session left open somehow.
 			clearTimeout(window.sessionTimer);
 			window.sessionTimer = null;
@@ -40,11 +40,12 @@ export default class App extends Component {
 	registerPageView(page) {
 		let ref = database.ref('pageview/' + page);
 		ref.transaction((count) => (count) || 1) + 1;
-		let opt = localStorage.getItem('explicitOptOut')!== true
-		if(opt) {
+		let opt = localStorage.getItem('explicitOptOut') !== 'true';
+		if (opt) {
 			let ref = database.ref('pageview/opted In');
 			ref.transaction((count) => (count) || 1) + 1;
-		} else {
+		}
+		else {
 			let ref = database.ref('pageview/opted Out');
 			ref.transaction((count) => (count) || 1) + 1;
 		}
@@ -66,7 +67,7 @@ export default class App extends Component {
 		// ReactGA.pageview('/');
 		if (typeof window !== 'undefined') {
 
-			if (localStorage.getItem('explicitOptOut') === true) {
+			if (localStorage.getItem('explicitOptOut') === 'true') {
 				auth.signOut();
 				ReactGA.pageview('/redirected-opt-out');
 				document.location.href = 'https://metropcs.mobi';

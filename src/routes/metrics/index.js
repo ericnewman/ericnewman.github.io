@@ -195,7 +195,7 @@ export default class Metrics extends Component {
 								</div>))
 						}
 						<hr />
-						Total Comments: {this.state.num_of_comments}<br/>
+						Total Comments: {this.state.num_of_comments} <br />
 						Last 10 Comments: {
 							<div className="smallerBold">
 								{comments}

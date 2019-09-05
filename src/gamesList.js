@@ -17,5 +17,5 @@ const gamesList  = [
 export default gamesList;
 
 
-// { id: 10, name: 'Flow Mania',  image: '../../assets/img/flowMania.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b' },
+// { id: 10, name: 'Flow Mania',  image: '.././assets/img/flowMania.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b' },
 // { id: 15, name: 'Light Rays',  image: '../../assets/img/lightRays.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/0ba97a81-7c6f-4b74-a3e6-b4f2c017af87' },

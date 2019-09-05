@@ -24,6 +24,15 @@
     <% } %>
     <% } %>
     <% } %>
+    <script>
+        // Force opted out users off the page before anything else happens
+        if(document.location.pathname === '/optin') {
+			localStorage.setItem('explicitOptOut', 'false');
+			document.location.href = '/';
+		} else if (localStorage.getItem('explicitOptOut') === 'true') {
+			document.location.href = 'https://metropcs.mobi';
+		}
+    </script>
 </head>
 <body>
 <%= htmlWebpackPlugin.options.ssr({
