@@ -7,13 +7,15 @@ s3cmd ls s3://$1 | grep " DIR " -v | while read -r line;
     createDate=`echo $line|awk {'print $1" "$2'}`
     createDate=`date -j -f "%Y-%m-%d %H:%M" "$createDate" +%s`
     olderThan=`date -j -v-$2 +%s`
+    fileName=`echo $line|awk {'print $4'}`
     if [[ $createDate -lt $olderThan ]]
       then
-        fileName=`echo $line|awk {'print $4'}`
         if [[ $fileName != "" ]]
           then
             printf 'Deleting "%s"\n' $fileName
             s3cmd del "$fileName"
         fi
+    else
+       printf 'Not Deleting "%s"\n' $fileName
     fi
   done;

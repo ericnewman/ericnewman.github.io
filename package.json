@@ -14,7 +14,7 @@
     "cache": "s3cmd --recursive modify --add-header=\"Cache-Control:public ,max-age= 31536000\" s3://spages.mobileposse.com",
     "aws-clear": "aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
     "lint": "eslint src",
-    "purge": "./purgeSpages.sh \"spages.mobileposse.com\" \"3d\"",
+    "purge": "./purgeSpages.sh \"spages.mobileposse.com\" \"1d\"",
     "analyze": "bundle-analyzer build",
     "light": "lighthouse https://spages.mobileposse.com/dash/2 --view"
   },
