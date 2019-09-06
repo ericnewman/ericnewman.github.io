@@ -137,6 +137,7 @@ export default class Survey1 extends Component {
 			voted: false,
 			noexit: props.noexit
 		};
+		this.onStarClick.bind(this);
 	}
 
 	componentWillMount() {
@@ -206,11 +207,11 @@ export default class Survey1 extends Component {
 
 					}
 					}
-					onStarClick={this.onStarClick.bind(this)}
+					onStarClick={this.onStarClick}
 				/>}
 				{state.voted && props.final &&
 				<div className={style.buts}>
-					<Button class={style.pinkButton} onClick={() => this.more()}>
+					<Button class={style.pinkButton} onClick={this.more}>
 					more games
 					</Button>
 				</div>

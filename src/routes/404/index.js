@@ -2,6 +2,12 @@ import { Component } from 'preact';
 import style from './style';
 
 export default class NotFound extends Component {
+
+
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
 			<div class={style.home}>
