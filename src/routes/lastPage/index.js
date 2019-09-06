@@ -20,7 +20,9 @@ export default class LastPage extends Component {
 	}
 
 	handleChange(event) {
-		this.setState({ textvalue: event.target.value });
+		if(event.target.value) {
+			this.setState({ textvalue: event.target.value });
+		}
 	}
 
 	handleSubmit(event) {
@@ -41,12 +43,19 @@ export default class LastPage extends Component {
 
 	constructor(props) {
 		super(props);
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+
 		this.state = {
 			textvalue: '',
-			submitted: false
+			submitted: false,
+
 		};
+
+
+	}
+	componentDidMount() {
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+
 	}
 
 	render(props, state) {
@@ -55,7 +64,6 @@ export default class LastPage extends Component {
 				<div>
 					<div class="smaller">Thanks for participating in our test<br />Look for more exciting content soon!
 					</div>
-					{/*<GamesCarousel showHeader={false} showFavorite={false} clickable={false} />*/}
 					<br />
 					<div class="cent">
 						<Survey1 final noexit />
@@ -75,8 +83,7 @@ export default class LastPage extends Component {
 					{state.submitted &&
 					<div className={style.buts}>
 						<div className="smaller">Thanks for Your feedback!!!!</div>
-
-						<Button class={style.dkBlueButton} onClick={() => this.close()}>
+						<Button class={style.dkBlueButton} onClick={this.close}>
 							close
 						</Button>
 					</div>

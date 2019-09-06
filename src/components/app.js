@@ -32,7 +32,7 @@ export default class App extends Component {
 					this.setState({
 						currentUrl: e.url
 					});
-				}, 100);
+				}, 1);
 
 			}
 		}
@@ -82,7 +82,7 @@ export default class App extends Component {
 		let url = this.state.currentUrl;
 
 		if (url) {
-			showHeader = (url.indexOf('dark') === -1 );
+			showHeader = (url.indexOf('dark') === -1);
 			if (typeof window !== 'undefined' && window.MP) { // Do not show the header in-app...
 				showHeader = false;
 			}
@@ -96,7 +96,7 @@ export default class App extends Component {
 				<Router onChange={this.handleRoute}>
 					<Dark path="/dark/" delay="3600" />
 					<Dark path="/dark/:delay" />
-					<Dash path="/" selectedGame="1" />
+					<Dash path="/"  selectedGame="1" />
 					<Dash path="/dash" selectedGame="1" />
 					<Dash path="/dash/:selectedGame" />
 					<LastPage path="/lastpage" />
