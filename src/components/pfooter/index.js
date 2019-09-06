@@ -295,9 +295,6 @@ export default class PFooter extends Component {
 
 		render(props, state) {
 			const {
-			// background,
-			// text,
-			// buttonStyles,
 				buttonOptions = {
 					color: '#007CE2',
 					duration: 200,
@@ -324,25 +321,20 @@ export default class PFooter extends Component {
 
 			const {
 				hidden,
-				// animating,
 				hidden2
-			// animating2
 			} = this.state;
 
 			return (
-
 				<div class={style.footer}>
 					{!props.showStars && !state.stopping &&
 				<div class={style.bots}>
 					<div className={style.playsc}>{props.gameMsg}</div>
-					{/*<div class={style.lefty}>SNOOZE:</div>*/}
 					<div class={style.buts}>
 						<ParticleEffectButton
 							hidden={hidden}
 							onComplete={this._onAnimationComplete}
 							{...buttonOptions}
-						>
-							<button
+						><button
 								style={{
 									background: '#007CE2',
 									color: '#fff',
@@ -354,16 +346,13 @@ export default class PFooter extends Component {
 									width: '110px'
 								}}
 								onClick={this._onToggle}
-							>
-							5 minute snooze
-							</button>
-						</ParticleEffectButton>&nbsp;&nbsp;&nbsp;&nbsp;
+							>5 minute snooze</button>
+						</ParticleEffectButton>
 						<ParticleEffectButton
 							hidden={hidden2}
 							onComplete={this._onAnimationComplete2}
 							{...buttonOptions2}
-						>
-							<button
+						><button
 								style={{
 									background: '#007CE2',
 									color: '#fff',
@@ -412,7 +401,6 @@ export default class PFooter extends Component {
 							Love It
 							</Button>
 						</div>
-						{/*<div class={style.tiny}>Running at an average rating of: {state.rating}</div>*/}
 					</div>
 					}
 
@@ -420,15 +408,9 @@ export default class PFooter extends Component {
 				<div class={style.bots}>
 					{/*<span class={style.rateIt}>NEXT</span>*/}
 					<div class={style.buts}>
-						<Button class={style.dkBlueButton} onClick={() => this.close()}>
+						<Button class={style.dkBlueButton} onClick={this.close}>
 							close
 						</Button>
-						{/*<Button class={style.yellowButton} onClick={() => this.medals()}>*/}
-						{/*	medals*/}
-						{/*</Button>*/}
-						{/*<Button class={style.pinkButton} onClick={() => this.more()}>*/}
-						{/*	more games*/}
-						{/*</Button>*/}
 					</div>
 				</div>
 					}
