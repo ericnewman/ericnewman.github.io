@@ -113,7 +113,7 @@ export default class Dash extends Component {
 	constructor(props) {
 		super(props);
 
-		if ( this.props.selectedGame > 12) {
+		if ( this.props.selectedGame > gamesList.length) {
 			route('404');
 		}
 

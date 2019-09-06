@@ -1,7 +1,6 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
-import 'firebase/performance';
 import ReactGA from 'react-ga';
 
 // const firebaseConfig = {
@@ -31,7 +30,6 @@ if (typeof window !== 'undefined') {
 	db =  firebase.database();
 	aAuth = firebase.auth();
 	gAP = new firebase.auth.GoogleAuthProvider();
-	const perf = firebase.performance();
 
 	aAuth.signInAnonymously().catch((error) => {
 		// Handle Errors here.

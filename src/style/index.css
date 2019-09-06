@@ -171,16 +171,16 @@ header {
     text-align: left;
 }
 
-.beta {
-    background-image: url("../assets/img/beta.png");
-    background-repeat: no-repeat;
-    background-size: 63px 43px;
-    display: inline-block;
-    height: 63px;
-    width: 63px;
-    animation: roto 5s infinite
+/*.beta {*/
+/*    background-image: url("../assets/img/beta.png");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: 63px 43px;*/
+/*    display: inline-block;*/
+/*    height: 63px;*/
+/*    width: 63px;*/
+/*    animation: roto 5s infinite*/
 
-}
+/*}*/
 
 .cardHeader {
     padding: 0px;

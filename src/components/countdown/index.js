@@ -66,8 +66,12 @@ export default class Countdown extends Component {
 
 	constructor(props) {
 		super(props);
+		let fasts = ",";
 
-		let fasts = localStorage.getItem('fastStarts') || ',';
+		if (typeof window !== 'undefined') {
+			fasts = localStorage.getItem('fastStarts') || ',';
+		}
+
 		let showCountdown = !fasts.includes(',' + this.props.game + ',');
 
 		this.state = {

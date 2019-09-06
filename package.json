@@ -16,7 +16,7 @@
     "lint": "eslint src",
     "purge": "./purgeSpages.sh \"spages.mobileposse.com\" \"3d\"",
     "analyze": "bundle-analyzer build",
-    "light": "lighthouse https://spages.mobileposse.com/step1 --view"
+    "light": "lighthouse https://spages.mobileposse.com/dash/2 --view"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"
@@ -35,20 +35,19 @@
     "sass-loader": "^7.3.1",
     "type-check": "^0.3.2",
     "webpack-bundle-analyzer": "^3.4.1",
-    "wordwrap": "^1.0.0"
-  },
-  "dependencies": {
-    "@firebase/app": "^0.4.15",
-    "@firebase/auth": "^0.11.8",
-    "@firebase/database": "^0.4.12",
+    "wordwrap": "^1.0.0",
     "aws": "0.0.3-2",
     "cache": "^2.1.0",
     "clear": "^0.1.0",
     "eslint": "^6.3.0",
-    "eslint-config-synacor": "^3.0.4",
-    "firebase": "^6.5.0",
+    "eslint-config-synacor": "^3.0.4"
+  },
+  "dependencies": {
+    "@firebase/app": "^0.4.16",
+    "@firebase/auth": "^0.11.8",
+    "@firebase/database": "^0.4.12",
+    "firebase": "^6.6.0",
     "for-own": "^1.0.0",
-    "idb": "^4.0.4",
     "lodash.tail": "^4.1.1",
     "mixin-object": "^3.0.0",
     "preact": "^8.5.2",

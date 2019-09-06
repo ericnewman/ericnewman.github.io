@@ -15,14 +15,15 @@ import { auth, database } from '../firebase';
 
 export default class App extends Component {
 	handleRoute = e => {
-		if (window.sessionTimer) {
-			// Clear any residual session left open somehow.
-			clearTimeout(window.sessionTimer);
-			window.sessionTimer = null;
-
-		}
 
 		if (typeof window !== 'undefined') {
+
+			if (window.sessionTimer) {
+				// Clear any residual session left open somehow.
+				clearTimeout(window.sessionTimer);
+				window.sessionTimer = null;
+			}
+
 			if (this.state.currentUrl !== e.url) { // Try to prevent possible double firing of pageview.
 				ReactGA.pageview(e.url);
 				this.registerPageView(e.url);
@@ -49,7 +50,6 @@ export default class App extends Component {
 			let ref = database.ref('pageview/opted Out');
 			ref.transaction((count) => (count) || 1) + 1;
 		}
-
 	}
 
 	constructor(props) {

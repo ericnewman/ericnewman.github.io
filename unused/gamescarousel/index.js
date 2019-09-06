@@ -6,7 +6,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import Button from 'preact-material-components/Button';
 
-import gamesList from '../../gamesList';
+import gamesList from '../../src/gamesList';
 import style from './style';
 
 export default class GamesCarousel extends Component {

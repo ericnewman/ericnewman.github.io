@@ -4,10 +4,6 @@
     "title": "Home"
   },
   {
-    "url": "/step1",
-    "title": "Onboarding"
-  },
-  {
     "url": "/outcome"
   },
   {
@@ -27,24 +23,6 @@
   },
   {
     "url": "/dash/6"
-  },
-  {
-    "url": "/dash/7"
-  },
-  {
-    "url": "/dash/8"
-  },
-  {
-    "url": "/dash/9"
-  },
-  {
-    "url": "/dash/10"
-  },
-  {
-    "url": "/dash/11"
-  },
-  {
-    "url": "/dash/12"
   },
   {
     "url": "/404"
