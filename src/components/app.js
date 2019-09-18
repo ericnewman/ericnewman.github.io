@@ -23,32 +23,36 @@ export default class App extends Component {
 				clearTimeout(window.sessionTimer);
 				window.sessionTimer = null;
 			}
+			console.log(this.state.currentUrl, e.url);
+			this.registerPageView(e.url);
 
 			if (this.state.currentUrl !== e.url) { // Try to prevent possible double firing of pageview.
-				ReactGA.pageview(e.url);
-				this.registerPageView(e.url);
+
 
 				setTimeout(() => {
-					this.setState({
-						currentUrl: e.url
-					});
-				}, 1);
+				this.setState({
+					currentUrl: e.url
+				});
+				}, 0);
 
 			}
 		}
 	};
 
 	registerPageView(page) {
+		ReactGA.pageview(page);
+
 		let ref = database.ref('pageview/' + page);
-		ref.transaction((count) => (count) || 1) + 1;
+		ref.transaction((count) => ((count) || 1) + 1);
+
 		let opt = localStorage.getItem('explicitOptOut') !== 'true';
 		if (opt) {
 			let ref = database.ref('pageview/opted In');
-			ref.transaction((count) => (count) || 1) + 1;
+			ref.transaction((count) => ((count) || 1) + 1);
 		}
 		else {
 			let ref = database.ref('pageview/opted Out');
-			ref.transaction((count) => (count) || 1) + 1;
+			ref.transaction((count) => ((count) || 1) + 1);
 		}
 	}
 
@@ -58,10 +62,12 @@ export default class App extends Component {
 
 		this.games = [];
 		this.visitCounted = false;
-		this.state = {
-			currentUrl: ''
-
+		if (typeof window !== 'undefined') {
+			this.state = {
+				currentUrl: document.location.pathname
+			};
 		};
+
 		ReactGA.initialize('UA-102222556-2');
 
 		// ReactGA.pageview('/');
@@ -70,7 +76,10 @@ export default class App extends Component {
 			if (localStorage.getItem('explicitOptOut') === 'true') {
 				auth.signOut();
 				ReactGA.pageview('/redirected-opt-out');
-				document.location.href = 'https://metropcs.mobi';
+				setTimeout(() => {
+					document.location.href = 'https://metropcs.mobi';
+				}, 25);
+
 			}
 		}
 
@@ -100,6 +109,7 @@ export default class App extends Component {
 					<Dash path="/dash" selectedGame="1" />
 					<Dash path="/dash/:selectedGame" />
 					<LastPage path="/lastpage" />
+					<LastPage path="/dash/lastpage" />
 					<Metrics path="/metrics" />
 					<NotFound default />
 					<Outcome path="/outcome" />

@@ -37,6 +37,44 @@ export default class Metrics extends Component {
 
 		return str;
 	}
+	updateStats() {
+		// User is signed in.
+		if (auth && auth.currentUser && auth.currentUser.uid) {
+			let playsRef = database.ref('users/' + auth.currentUser.uid);
+			playsRef.on('value', (snapshot) => {
+				this.setState({ user: snapshot.val() || {} });
+			});
+
+			let usersRef = database.ref('users/');
+			usersRef.on('value', (snapshot) => {
+				this.setState({ num_of_users: snapshot.numChildren()});
+			});
+			playsRef = database.ref('games/');
+			playsRef.on('value', (snapshot) => {
+				this.setState({ games: snapshot.val() || {}});
+			});
+			playsRef = database.ref('likesplay/');
+			playsRef.on('value', (snapshot) => {
+				this.setState({ likesplay: snapshot.val() || {}});
+			});
+			playsRef = database.ref('likedplay/');
+			playsRef.on('value', (snapshot) => {
+				this.setState({ likedplay: snapshot.val() || {}});
+			});
+			playsRef = database.ref('pageview/');
+			playsRef.on('value', (snapshot) => {
+				this.setState({ pageviews: snapshot.val() || {}});
+			});
+			playsRef = database.ref('comments/');
+			playsRef.on('value', (snapshot) => {
+				this.setState({ num_of_comments: snapshot.numChildren() });
+			});
+			playsRef = database.ref('comments').limitToLast(10);
+			playsRef.on('value', (snapshot) => {
+				this.setState({ comments: Object.entries(snapshot.val()) });
+			});
+		}
+	}
 
 	constructor(props) {
 		super(props);
@@ -46,11 +84,12 @@ export default class Metrics extends Component {
 			games: {},
 			likesplay: {},
 			likedplay: {},
-			num_of_users: {},
+			num_of_users: 0,
 			pageviews: {},
 			comments: [],
 			num_of_comments: 0
 		};
+		this.updateStats.bind(this);
 
 		if (typeof window !== 'undefined') {
 			auth.signInAnonymously().catch((error) => {
@@ -58,41 +97,15 @@ export default class Metrics extends Component {
 				// let errorCode = error.code;
 				// let errorMessage = error.message;
 			});
+			if (auth && auth.currentUser && auth.currentUser.uid) {
+				this.updateStats();
+			}
 
 			auth.onAuthStateChanged(user => {
 
-				if (user) {
-					// User is signed in.
-					let playsRef = database.ref('users/' + auth.currentUser.uid);
-					playsRef.on('value', (snapshot) => {
-						this.setState({ user: snapshot.val() });
-						this.setState({ num_of_users: snapshot.numChildren() });
-					});
-					playsRef = database.ref('games/');
-					playsRef.on('value', (snapshot) => {
-						this.setState({ games: snapshot.val() });
-					});
-					playsRef = database.ref('likesplay/');
-					playsRef.on('value', (snapshot) => {
-						this.setState({ likesplay: snapshot.val() });
-					});
-					playsRef = database.ref('likedplay/');
-					playsRef.on('value', (snapshot) => {
-						this.setState({ likedplay: snapshot.val() });
-					});
-					playsRef = database.ref('pageview/');
-					playsRef.on('value', (snapshot) => {
-						this.setState({ pageviews: snapshot.val() });
-					});
-					playsRef = database.ref('comments/');
-					playsRef.on('value', (snapshot) => {
-						this.setState({ num_of_comments: snapshot.numChildren() });
-					});
-					playsRef = database.ref('comments').limitToLast(10);
-					playsRef.on('value', (snapshot) => {
-						this.setState({ comments: Object.entries(snapshot.val()) });
-					});
-
+				if (auth.currentUser.uid) {
+					this.setState({user: auth.currentUser.uid});
+					this.updateStats();
 				}
 				else {
 					// User is signed out.
@@ -103,7 +116,6 @@ export default class Metrics extends Component {
 		}
 
 	}
-
 
 	render(state) {
 		//

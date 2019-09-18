@@ -1,4 +1,6 @@
-import { Component } from 'preact';
+import {
+	Component
+} from 'preact';
 import Progress from 'preact-progress';
 import style from './style';
 import ReactGA from 'react-ga';
@@ -49,8 +51,10 @@ export default class Countdown extends Component {
 			if (this.props.afterAction) {
 				this.props.afterAction();
 			}
-			this.timer= null;
-			this.setState({ complete: true });
+			this.timer = null;
+			this.setState({
+				complete: true
+			});
 		}
 	};
 	screenUnlocked() {
@@ -97,8 +101,7 @@ export default class Countdown extends Component {
 
 			if (window.MP && (window.MP.setScreenUnLockCallBack !== undefined)) {
 				window.MP.setScreenUnLockCallBack('window.screenUnlock()');
-			}
-			else {
+			} else {
 				window.unlocked = true;
 			}
 			if (this.state.showCountdown) {
@@ -120,27 +123,49 @@ export default class Countdown extends Component {
 		clearInterval(this.introTimer);
 	}
 	render(props, state) {
-		return (
-			<div>
-				{/*{state.showCountdown && state.showIntro && <div className={style.intro}>*/}
-				{/*	{props.intro}*/}
-				{/*	</div>*/}
-				{/*}*/}
+		return ( <
+			div > {
+				/*{state.showCountdown && state.showIntro && <div className={style.intro}>*/ } {
+				/*	{props.intro}*/ } {
+				/*	</div>*/ } {
+				/*}*/ }
 
-				{state.showCountdown && !state.complete &&
-				<div class={style.loader}>
-					<div class={style.warn}>
-						{props.message}
-					</div>
+			{
+				state.showCountdown && !state.complete &&
+					<
+					div class = {
+						style.loader
+					} >
+					<
+					div class = {
+						style.warn
+					} > {
+						props.message
+					} <
+					/div>
 
-					<Progress
-						id="loader" class={style.loader}
-						value={100 - this.state.progress} height="30px" color={props.color}
-						onChange={this.onChange}
-						onComplete={this.onComplete}
-					/>
-				</div>}
-			</div>
-		);
+					<
+					Progress
+				id = "loader"
+				class = {
+					style.loader
+				}
+				value = {
+					100 - this.state.progress
+				}
+				height = "30px"
+				color = {
+					props.color
+				}
+				onChange = {
+					this.onChange
+				}
+				onComplete = {
+					this.onComplete
+				}
+				/> <
+				/div>} <
+				/div>
+			);
+		}
 	}
-}

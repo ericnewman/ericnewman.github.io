@@ -29,5 +29,8 @@
   },
   {
     "url": "index.html"
+  },
+  {
+    "url": "/metrics"
   }
 ]
