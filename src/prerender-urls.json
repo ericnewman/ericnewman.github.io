@@ -4,9 +4,6 @@
     "title": "Home"
   },
   {
-    "url": "/outcome"
-  },
-  {
     "url": "/dash/1"
   },
   {
@@ -25,12 +22,9 @@
     "url": "/dash/6"
   },
   {
+    "url": "/dash/7"
+  },
+  {
     "url": "/404"
-  },
-  {
-    "url": "index.html"
-  },
-  {
-    "url": "/metrics"
   }
 ]

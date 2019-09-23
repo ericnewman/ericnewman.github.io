@@ -1,4 +1,4 @@
-@import url('//fonts.googleapis.com/css?family=Comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
 
 * {
     box-sizing: border-box;
@@ -47,6 +47,7 @@ html, body {
     text-align: center;
     max-width: 500px;
     display: block;
+    width: 100% !important;
 
     background: linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
     background: -moz-linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
@@ -55,6 +56,12 @@ html, body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#663399", GradientType=1);
 
 }
+#ad1 {
+    position:relative;
+    margin: 0 auto;
+    text-align:center;
+}
+
 
 #notification-wrapper, .toast-notification {
     font: Bold 17px 'Comfortaa', sans-serif;

@@ -113,18 +113,6 @@ $icon_size: 40px;
   text-align: center;
 }
 
-.stop {
-  width: 35px;
-  height: 35px;
-  background-image: url("../../assets/icons/stop.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: inline-block;
-  margin: 0px 0px 0px 10px;
-  position:relative;
-  top:6px;
-}
-
 @media (max-width: 479px) {
 
   .mdc-layout-grid {

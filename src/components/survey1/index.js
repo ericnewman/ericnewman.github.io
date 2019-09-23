@@ -1,15 +1,14 @@
 import { Component } from 'preact';
 import Stars from 'react-star-rating-component';
 import { route } from 'preact-router';
-import { database } from '../../firebase';
 import { notify } from 'react-notify-toast';
 import ReactGA from 'react-ga';
 
-import 'preact-material-components/Card/style.css';
-import 'preact-material-components/Button/style.css';
+// import 'preact-material-components/Card/style.css';
+// import 'preact-material-components/Button/style.css';
+import Button from 'preact-material-components/Button';
 
 import style from './style';
-import Button from 'preact-material-components/Button';
 
 const timeout = 2000;
 
@@ -48,7 +47,7 @@ export default class Survey1 extends Component {
 		document.location.href= 'https://games-metropcs.arkadiumarena.com/?arkpromo=metrozone_discover';
 	}
 
-	onStarClick(nextValue, prevValue, name) {
+	onStarClick(nextValue) {
 
 		if (this.props.final) {
 			ReactGA.event({
@@ -58,18 +57,6 @@ export default class Survey1 extends Component {
 				value: nextValue
 			});
 
-			let ref = database.ref('likedplay/vote_count');
-
-			ref.transaction((numberOfVotes) =>
-			// If numberOfVotes has never been set, numberOfVotes will be `null`.
-				(numberOfVotes || 0) + 1
-			);
-
-			ref = database.ref('likedplay/ratings/' + nextValue);
-			ref.transaction((numberOfVotes) =>
-			// If numberOfVotes has never been set, numberOfVotes will be `null`.
-				(numberOfVotes || 0) + 1
-			);
 			this.showToast('Awesome. Thanks for your vote!');
 			this.waitAndDismiss();
 			this.setState({ voted: true });
@@ -85,20 +72,6 @@ export default class Survey1 extends Component {
 				label: 'User likes games ' + nextValue,
 				value: nextValue
 			});
-
-
-			let ref = database.ref('likesplay/vote_count');
-			ref.transaction((numberOfVotes) =>
-				// If numberOfVotes has never been set, numberOfVotes will be `null`.
-				(numberOfVotes || 0) + 1
-			);
-
-			ref = database.ref('likesplay/ratings/' + nextValue);
-			ref.transaction((numberOfVotes) =>
-				// If numberOfVotes has never been set, numberOfVotes will be `null`.
-				(numberOfVotes || 0) + 1
-			);
-			//this.props.saver(nextValue);
 
 
 			if (nextValue < 3) {
@@ -137,44 +110,6 @@ export default class Survey1 extends Component {
 			voted: false,
 			noexit: props.noexit
 		};
-	}
-
-	componentWillMount() {
-
-		if (typeof window !== 'undefined') {
-			let myDB = {};
-
-			if (this.props.final) {
-				myDB = database.ref('likedplay');
-			}
-			else {
-				myDB = database.ref('likesplay');
-			}
-
-			myDB.on('value', (snapshot) => {
-				let foo = 0;
-				let tot = 0;
-
-				snapshot.forEach((childSnapshot) => {
-
-					let childKey = childSnapshot.key;
-					let childData = childSnapshot.val();
-
-					if (childKey === 'ratings') {
-						for (let i = 1; i <= childData.length; i++) {
-							if (childData[i]) {
-								foo += (parseInt(childData[i].toString().match(/(\d+)/), 10) * i);
-							}
-						}
-					}
-					else if (childKey === 'vote_count') {
-						tot = childData;
-					}
-				});
-
-				this.setState({ count: tot, average: Math.round(foo / tot * 100) / 100 });
-			});
-		}
 	}
 
 	render(props, state) {

@@ -1,5 +1,4 @@
 import { Component } from 'preact';
-import { auth, database } from '../../firebase';
 import Survey1 from '../../components/survey1';
 import style from './style';
 import ReactGA from 'react-ga';
@@ -15,12 +14,11 @@ export default class LastPage extends Component {
 			label: document.URL,
 			value: 0
 		});
-		auth.signOut();
 		microBridge.closeWindow();
 	}
 
 	handleChange(event) {
-		if(event.target.value) {
+		if (event.target.value) {
 			this.setState({ textvalue: event.target.value });
 		}
 	}
@@ -31,14 +29,14 @@ export default class LastPage extends Component {
 		event.preventDefault();
 		//push itself
 
-		let mailsRef = database.ref('comments/').push();
-
-		mailsRef.set(
-			{
-				comment: this.state.textvalue,
-				date: new Date().toDateString()
-			}
-		);
+		// let mailsRef = database.ref('comments/').push();
+		//
+		// mailsRef.set(
+		// 	{
+		// 		comment: this.state.textvalue,
+		// 		date: new Date().toDateString()
+		// 	}
+		// );
 	}
 
 	constructor(props) {
@@ -46,7 +44,7 @@ export default class LastPage extends Component {
 
 		this.state = {
 			textvalue: '',
-			submitted: false,
+			submitted: false
 
 		};
 

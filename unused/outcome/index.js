@@ -2,11 +2,10 @@ import { Component } from 'preact';
 import { route } from 'preact-router';
 import Button from 'preact-material-components/Button';
 
-import ScoreBar from '../../components/scorebar';
+import ScoreBar from '../scorebar';
 
 import style from './style';
 
-import { auth, database } from '../../firebase';
 
 import 'preact-material-components/Card/style.css';
 import 'preact-material-components/Button/style.css';

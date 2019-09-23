@@ -1,7 +1,5 @@
 import { Component } from 'preact';
 
-import { auth, database } from '../../firebase';
-
 import style from './style';
 
 // 	10 games deliveries

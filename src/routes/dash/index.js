@@ -1,12 +1,13 @@
 import { Component } from 'preact';
 import Pframe from '../../components/pframe';
 import PFooter from '../../components/pfooter';
-import Countdown from '../../components/countdown';
+// import Countdown from '../../components/countdown';
 import ReactGA from 'react-ga';
+import { Bling as Gpt } from 'react-gpt';
+
 import { route } from 'preact-router';
 
 import gamesList from '../../gamesList';
-import { auth, database } from '../../firebase';
 
 import 'preact-material-components/Card/style.css';
 
@@ -14,33 +15,6 @@ import style from './style';
 
 export default class Dash extends Component {
 
-	preSnooze() {
-		this.setState({
-			tooLate: true,
-			bonusIndex: 0
-		});
-	}
-
-	startSnooze(time) {
-		this.setState({ snooze: true , snooze_time: time });
-		this.changeBonus(0);
-		let playsRef = database.ref('users/' + auth.currentUser.uid + '/totalSnoozes');
-		playsRef.transaction((totalPlays) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(totalPlays || 0) + 1
-		);
-		clearInterval(this.timer);
-	}
-	changeBonus(index) {
-		if (index !== this.state.bonusIndex) {
-			this.setState({ bonusIndex: index });
-		}
-	}
-	cancelSnooze() {
-		this.stopSessionTimer();
-
-		this.setState({ snooze: false, gameStarted: false, tooLate: false, snooze_time: 0 });
-	}
 	tickSession() {
 		this.sessionLength += 15;
 
@@ -53,21 +27,18 @@ export default class Dash extends Component {
 			});
 		}
 
-		let playsRef = database.ref('users/' + auth.currentUser.uid + '/total_session_duration');
-		playsRef.transaction((totalDuration) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(totalDuration || 0) + 15
-		);
 		if (this.sessionLength >= 600) {
 			this.stopSessionTimer();
+		}
+		if (this.sessionLength % 30 === 0) {
+			Gpt.refresh();
+
 		}
 	}
 
 	doGameStarted() {
 
-		let fastStarts = ',';
-
-		this.sessionLength = 1;
+		this.sessionLength = 0;
 		let bonus = this.bonusPts[this.state.bonusIndex];
 
 		ReactGA.event({
@@ -81,29 +52,9 @@ export default class Dash extends Component {
 		}, 15000);
 		window.sessionTimer = this.timer;
 
-		if (typeof window !== 'undefined') {
-			fastStarts = localStorage.getItem('fastStarts') || ',';
-
-			if (fastStarts.includes(',' + this.props.selectedGame + ',')) {
-				bonus = 0;
-				console.log('No fast Start Bonus');
-
-			}
-			else {
-				localStorage.setItem('fastStarts', fastStarts + this.props.selectedGame + ',');
-				let playsRef = database.ref('users/' + auth.currentUser.uid + '/score');
-				playsRef.transaction((totalScore) =>
-					// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-					(totalScore || 0) + bonus
-				);
-				fastStarts = fastStarts + this.props.selectedGame + ',';
-			}
-		}
-		this.setState({ gameStarted: true, playMsg: 'Help out others and rate this game!' , bonusIndex: 0 , canFastStart: fastStarts });
+		this.setState({ gameStarted: true });
 	}
-	timedOut() {
-		this.setState({ tooLate: true });
-	}
+
 	stopSessionTimer() {
 		clearInterval(this.timer);
 		this.timer = null;
@@ -126,17 +77,10 @@ export default class Dash extends Component {
 			snooze: false,
 			snooze_time: 0,
 			gameStarted: false,
-			playMsg: 'Tap to Play now!',
-			bonusIndex: 0,
-			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn']
+			playMsg: 'Tap to Play now!'
 		};
 
-		this.startSnooze = this.startSnooze.bind(this);
 		this.doGameStarted = this.doGameStarted.bind(this);
-		this.timedOut = this.timedOut.bind(this);
-		this.changeBonus = this.changeBonus.bind(this);
-		this.preSnooze = this.preSnooze.bind(this);
-
 
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('highestGameID', (localStorage.getItem('highestGameID') || '1'));
@@ -200,9 +144,9 @@ export default class Dash extends Component {
 	render({ selectedGame }, state) {
 
 		const kTopBarHeight = 56;
-		const kFooterBarHeight = 68;
-		const kCountDownBarHeight = 30;
-		const kPlayReminder = 100;
+		const kFooterBarHeight = 50;
+		const kCountDownBarHeight = 0;
+		const kPlayReminder = 0;
 
 		let hgt = 640;
 		if (typeof window !== 'undefined') {
@@ -219,8 +163,8 @@ export default class Dash extends Component {
 			<div id="home" class={style.dash}>
 				{!state.snooze &&
 				<div>
-					{!state.gameStarted &&
-					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}
+					{/*{!state.gameStarted &&}
+					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}*/}
 					<Pframe src={url}
 						width="100%"
 						height={hgt}
@@ -233,7 +177,7 @@ export default class Dash extends Component {
 						game_id={selectedGame}
 						doGameStarted={this.doGameStarted}
 					/>
-					{!state.tooLate && !state.gameStarted && state.bonusIndex > 0 &&
+					{!state.gameStarted && state.bonusIndex > 0 &&
 						<div class={`${style.bonusMsg} {msgStyle} btn1}`}>
 							{/*<div class={style.bonus}>{state.bonusMsg[state.bonusIndex]}*/}
 							{/*	<span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span>*/}
@@ -244,15 +188,22 @@ export default class Dash extends Component {
 							</div>
 						</div>
 					}
-					<PFooter name={gamesList[selectedGame].name}
-						showStars={state.gameStarted}
-						game_id={selectedGame}
-						snoozer={this.startSnooze}
+					{!state.gameStarted && <PFooter
 						gameClick={this.doGameStarted}
 						gameMsg={state.playMsg}
-						preSnooze={this.preSnooze}
-						stopSessionTimer={this.stopSessionTimer}
-					/>
+					                       />}
+					<div class={style.adfooter}>
+						<div id="ad1">
+							<Gpt
+								adUnitPath="/4595/nfl.test.open"
+								sizeMapping={[
+									{ viewport: [0, 0], slot: [320, 50] },
+									{ viewport: [750, 0], slot: [728, 90] },
+									{ viewport: [1050, 0], slot: [1024, 120] }
+								]}
+							/>
+						</div>
+					</div>
 				</div>
 				}
 			</div>

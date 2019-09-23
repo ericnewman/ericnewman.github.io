@@ -1,17 +1,12 @@
 import { Component } from 'preact';
 import { Router } from 'preact-router';
-
 import Menu from './menu';
-
 import Dash from '../routes/dash';
-import Dark from '../routes/dark';
+import Dark from '../../unused/dark';
 import LastPage from '../routes/lastpage';
-import Outcome from '../routes/outcome';
-import Metrics from '../routes/metrics';
 import NotFound from '../routes/404';
 import Notifications from 'react-notify-toast';
 import ReactGA from 'react-ga';
-import { auth, database } from '../firebase';
 
 export default class App extends Component {
 	handleRoute = e => {
@@ -23,37 +18,21 @@ export default class App extends Component {
 				clearTimeout(window.sessionTimer);
 				window.sessionTimer = null;
 			}
-			console.log(this.state.currentUrl, e.url);
 			this.registerPageView(e.url);
 
 			if (this.state.currentUrl !== e.url) { // Try to prevent possible double firing of pageview.
 
-
 				setTimeout(() => {
-				this.setState({
-					currentUrl: e.url
-				});
+					this.setState({
+						currentUrl: e.url
+					});
 				}, 0);
-
 			}
 		}
 	};
 
 	registerPageView(page) {
 		ReactGA.pageview(page);
-
-		let ref = database.ref('pageview/' + page);
-		ref.transaction((count) => ((count) || 1) + 1);
-
-		let opt = localStorage.getItem('explicitOptOut') !== 'true';
-		if (opt) {
-			let ref = database.ref('pageview/opted In');
-			ref.transaction((count) => ((count) || 1) + 1);
-		}
-		else {
-			let ref = database.ref('pageview/opted Out');
-			ref.transaction((count) => ((count) || 1) + 1);
-		}
 	}
 
 	constructor(props) {
@@ -62,29 +41,23 @@ export default class App extends Component {
 
 		this.games = [];
 		this.visitCounted = false;
-		if (typeof window !== 'undefined') {
-			this.state = {
-				currentUrl: document.location.pathname
-			};
+
+		this.state = {
+			currentUrl: (typeof window !== 'undefined') ? document.location.pathname : ':'
 		};
+
 
 		ReactGA.initialize('UA-102222556-2');
 
-		// ReactGA.pageview('/');
 		if (typeof window !== 'undefined') {
-
 			if (localStorage.getItem('explicitOptOut') === 'true') {
-				auth.signOut();
 				ReactGA.pageview('/redirected-opt-out');
 				setTimeout(() => {
 					document.location.href = 'https://metropcs.mobi';
 				}, 25);
-
 			}
 		}
-
 	}
-
 
 	render(state) {
 		let showHeader = true;
@@ -108,11 +81,8 @@ export default class App extends Component {
 					<Dash path="/"  selectedGame="1" />
 					<Dash path="/dash" selectedGame="1" />
 					<Dash path="/dash/:selectedGame" />
-					<LastPage path="/lastpage" />
-					<LastPage path="/dash/lastpage" />
-					<Metrics path="/metrics" />
+					<LastPage path="/survey" />
 					<NotFound default />
-					<Outcome path="/outcome" />
 				</Router>
 			</div>
 		);

@@ -1,10 +1,6 @@
 $boxh: 230px;
 $boxw: 215px;
 
-#app {
-  width: 100% !important;
-}
-
 .dash {
   top: 0;
   background: black;
@@ -24,6 +20,11 @@ $boxw: 215px;
   border: none;
 }
 
+.adfooter {
+  bottom:0;
+  position:absolute;
+  width:100%;
+}
 .bonusMsg {
   left: 50%;
   position: absolute;

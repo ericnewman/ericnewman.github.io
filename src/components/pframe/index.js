@@ -1,8 +1,6 @@
 import { Component } from 'preact';
 import { notify } from 'react-notify-toast';
 
-import { auth, database, user } from '../../firebase';
-import gamesList from '../../gamesList';
 
 export default class PFrame extends Component {
 
@@ -31,29 +29,6 @@ export default class PFrame extends Component {
 	}
 
 	playGame() {
-
-		let name = gamesList[this.props.game_id].name;
-		let p = 'users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played';
-
-		let playsRef = database.ref(p);
-
-		playsRef.transaction((numberOfTimesPlayed) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(numberOfTimesPlayed || 0) + 1
-		);
-
-		playsRef = database.ref('games/' + name + '/times_played');
-
-		playsRef.transaction((numberOfTimesPlayed) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(numberOfTimesPlayed || 0) + 1
-		);
-
-		playsRef = database.ref('users/' + auth.currentUser.uid + '/totalPlays');
-		playsRef.transaction((totalPlays) =>
-			// If numberOfTimesPlayed has never been set, numberOfTimesPlayed will be `null`.
-			(totalPlays || 0) + 1
-		);
 
 		this.removeListeners();
 		if (this.props.doGameStarted) {
@@ -103,16 +78,6 @@ export default class PFrame extends Component {
 		//addEventListener('touchend', this.onCancel);
 		addEventListener('touchstart', this.onClick);
 		//addEventListener('touchcancel', this.onCancel);
-
-		if (user) {
-			// User is signed in.
-			let name = gamesList[this.props.game_id].name;
-			let playsRef =  database.ref('users/' + auth.currentUser.uid + '/games_played/' + name + '/times_played');
-
-			playsRef.on('value', snapshot => {
-				this.setState({ currentPlays: snapshot.val(), gameName: name });
-			});
-		}
 	}
 
 
