@@ -14,6 +14,12 @@ import style from './style';
 
 export default class Game extends Component {
 
+	changeBonus(index) {
+		if (index !== this.state.bonusIndex) {
+			this.setState({ bonusIndex: index });
+		}
+	}
+
 	tickSession() {
 		let sessionLength = this.state.sessionLength + 15;
 
@@ -32,7 +38,7 @@ export default class Game extends Component {
 		if (sessionLength % 30 === 0) {
 			Gpt.refresh();
 		}
-		this.setState({sessionLength: sessionLength});
+		this.setState({ sessionLength: sessionLength });
 	}
 
 	doGameStarted() {
@@ -76,10 +82,14 @@ export default class Game extends Component {
 			snooze_time: 0,
 			sessionLength: 0,
 			gameStarted: false,
-			playMsg: 'Tap to Play now!'
+			bonusIndex: 0,
+			playMsg: 'Tap to Play now!',
+			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn']
 		};
 
 		this.doGameStarted = this.doGameStarted.bind(this);
+		this.changeBonus = this.changeBonus.bind(this);
+
 
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('highestGameID', (localStorage.getItem('highestGameID') || '1'));
@@ -163,8 +173,10 @@ export default class Game extends Component {
 			<div id="home" class={style.dash}>
 				{!state.snooze &&
 				<div>
-					{!state.gameStarted &&
-					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}
+					{/*{!state.gameStarted &&*/}
+					{/*<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}*/}
+					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />
+
 					<Pframe src={url}
 						width="100%"
 						height={hgt}
@@ -185,10 +197,13 @@ export default class Game extends Component {
 						</div>
 					}
 					{!state.gameStarted &&
-						<Footer
-							gameClick={this.doGameStarted}
-							gameMsg={state.playMsg}
-						/>}
+					<Footer
+						gameClick={this.doGameStarted}
+						gameMsg={state.playMsg}
+						game_id={selectedGame}
+
+					/>
+					}
 					<div class={style.adfooter}>
 						<div id="ad1">
 							<Gpt

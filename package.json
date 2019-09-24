@@ -60,6 +60,7 @@
     "react-ga": "^2.6.0",
     "react-gpt": "^2.0.1",
     "react-notify-toast": "^0.5.0",
+    "preact-progress": "^1.0.0",
     "react-star-rating-component": "^1.4.1"
   }
 }

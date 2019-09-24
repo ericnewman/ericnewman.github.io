@@ -80,7 +80,7 @@ export default class App extends Component {
 				<Router onChange={this.handleRoute}>
 					<Game path="/"  selectedGame={gameNum} />
 					<Game path="/game" selectedGame={gameNum} />
-					<Game path="/game/:selectedGame" />
+					<Game path="/game/:selectedGame" selectedGame={gameNum} />
 					<LastPage path="/lastpage" />
 					<NotFound default />
 				</Router>

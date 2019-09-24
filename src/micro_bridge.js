@@ -21,7 +21,6 @@ let  microBridge = {
 
 		if (MP && window.MP.addScheduledCommandExecutor) {
 			MP.addScheduledCommandExecutor((msg));
-			//console.log(msg);
 			MP.dismiss();
 		}
 		else {

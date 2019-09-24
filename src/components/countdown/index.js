@@ -1,11 +1,39 @@
-import {
-	Component
-} from 'preact';
+import { Component } from 'preact';
 import Progress from 'preact-progress';
 import style from './style';
 import ReactGA from 'react-ga';
 
 export default class Countdown extends Component {
+
+	constructor(props) {
+		super(props);
+
+		let fasts = ',';
+
+		if (typeof window !== 'undefined') {
+			fasts = localStorage.getItem('fastStarts') || ',';
+		}
+
+		let showCountdown = !fasts.includes(',' + this.props.game + ',');
+
+		this.state = {
+			progress: 1,
+			complete: false,
+			showIntro: true,
+			showCountdown
+		};
+
+
+		this.onChange.bind(this);
+		this.onComplete.bind(this);
+
+		if (typeof window !== 'undefined') {
+			window.unlocked = false;
+			window.screenUnlock = this.screenUnlocked;
+
+		}
+
+	}
 
 	onChange = (ctx, val) => {
 
@@ -40,12 +68,15 @@ export default class Countdown extends Component {
 				if (this.props.changeBonus) {
 					this.props.changeBonus(3);
 				}
+				this.onComplete(this);
 				break;
 		}
 
 	};
 
 	onComplete = ctx => {
+		console.log('Complete');
+
 		if (this.timer) {
 			clearInterval(this.timer);
 			if (this.props.afterAction) {
@@ -57,8 +88,8 @@ export default class Countdown extends Component {
 			});
 		}
 	};
+
 	screenUnlocked() {
-		//console.log('It\'s unlocked!');
 		window.unlocked = true;
 		ReactGA.event({
 			category: 'Screen Unlocked',
@@ -68,40 +99,14 @@ export default class Countdown extends Component {
 
 	}
 
-	constructor(props) {
-		super(props);
-		let fasts = ",";
-
-		if (typeof window !== 'undefined') {
-			fasts = localStorage.getItem('fastStarts') || ',';
-		}
-
-		let showCountdown = !fasts.includes(',' + this.props.game + ',');
-
-		this.state = {
-			progress: 1,
-			complete: false,
-			showIntro: true,
-			showCountdown
-		};
-
-
-		this.onChange.bind(this);
-		this.onComplete.bind(this);
-		if (typeof window !== 'undefined') {
-			window.unlocked = false;
-			window.screenUnlock = this.screenUnlocked;
-
-		}
-	}
-
 	componentDidMount() {
 
 		if (typeof window !== 'undefined') {
 
 			if (window.MP && (window.MP.setScreenUnLockCallBack !== undefined)) {
 				window.MP.setScreenUnLockCallBack('window.screenUnlock()');
-			} else {
+			}
+			else {
 				window.unlocked = true;
 			}
 			if (this.state.showCountdown) {
@@ -122,50 +127,30 @@ export default class Countdown extends Component {
 		clearInterval(this.timer);
 		clearInterval(this.introTimer);
 	}
+
 	render(props, state) {
-		return ( <
-			div > {
-				/*{state.showCountdown && state.showIntro && <div className={style.intro}>*/ } {
-				/*	{props.intro}*/ } {
-				/*	</div>*/ } {
-				/*}*/ }
+		return (
+			<div>
+				{/*{state.showCountdown && !state.showIntro && <div className={style.intro}>{props.intro}</div>}*/}
 
-			{
-				state.showCountdown && !state.complete &&
-					<
-					div class = {
-						style.loader
-					} >
-					<
-					div class = {
-						style.warn
-					} > {
-						props.message
-					} <
-					/div>
+				{state.showCountdown && !state.complete &&
+				<div className={style.loader}>
+					<div className={style.warn}>
+						{props.message}
+					</div>
 
-					<
-					Progress
-				id = "loader"
-				class = {
-					style.loader
+					<Progress id="loader"
+							  class={style.loader}
+							  value={100 - this.state.progress}
+							  height="30px"
+							  color={props.color}
+							  onChange={this.onChange}
+							  onComplete={this.onComplete}
+					/>
+				</div>
 				}
-				value = {
-					100 - this.state.progress
-				}
-				height = "30px"
-				color = {
-					props.color
-				}
-				onChange = {
-					this.onChange
-				}
-				onComplete = {
-					this.onComplete
-				}
-				/> <
-				/div>} <
-				/div>
-			);
-		}
+			</div>
+		);
+
 	}
+}
