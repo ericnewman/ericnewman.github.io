@@ -10,7 +10,7 @@ import style from './style';
 const  timeout = 2000;
 
 
-export default class PFooter extends Component {
+export default class Footer extends Component {
 
 	state = {
 		time: Date.now(),

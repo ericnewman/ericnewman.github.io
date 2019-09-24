@@ -12,7 +12,7 @@ import style from './style';
 
 const timeout = 2000;
 
-export default class Survey1 extends Component {
+export default class Survey extends Component {
 
 	waitAndGo(path) {
 		setTimeout(() => {
@@ -138,7 +138,6 @@ export default class Survey1 extends Component {
 						return (
 							<span class={`${style.vote} btn${index} ${style.NO}`}><span class={style.num}>{index}</span></span>
 						);
-
 					}
 					}
 					onStarClick={this.onStarClick.bind(this)}

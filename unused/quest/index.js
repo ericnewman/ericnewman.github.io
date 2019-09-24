@@ -20,7 +20,7 @@ export default class Quest extends Component {
 		this.setState({
 			animating: false
 		});
-		route('/dash/1');
+		route('/game/1');
 	}
 
 	render(props,state) {

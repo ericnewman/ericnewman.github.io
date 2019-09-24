@@ -1,6 +1,6 @@
 import { Component } from 'preact';
 import Pframe from '../../components/pframe';
-import PFooter from '../../components/pfooter';
+import PFooter from '../../components/footer';
 // import Countdown from '../../components/countdown';
 import ReactGA from 'react-ga';
 import { Bling as Gpt } from 'react-gpt';
@@ -9,36 +9,35 @@ import { route } from 'preact-router';
 
 import gamesList from '../../gamesList';
 
-import 'preact-material-components/Card/style.css';
 
 import style from './style';
 
-export default class Dash extends Component {
+export default class Game extends Component {
 
 	tickSession() {
-		this.sessionLength += 15;
+		let sessionLength = this.state.sessionLength + 15;
 
-		if (this.sessionLength > 0) {
+		if (sessionLength > 0) {
 			ReactGA.event({
 				category: 'Session Length',
 				action: 'Session Continuing',
-				label: this.sessionLength.toString(10),
+				label: sessionLength.toString(10),
 				nonInteraction: false
 			});
 		}
 
-		if (this.sessionLength >= 600) {
+		if (sessionLength >= 600) {
 			this.stopSessionTimer();
 		}
-		if (this.sessionLength % 30 === 0) {
+		if (sessionLength % 30 === 0) {
 			Gpt.refresh();
-
 		}
+		this.setState({sessionLength: sessionLength});
 	}
 
 	doGameStarted() {
+		Gpt.refresh();
 
-		this.sessionLength = 0;
 		let bonus = this.bonusPts[this.state.bonusIndex];
 
 		ReactGA.event({
@@ -52,13 +51,13 @@ export default class Dash extends Component {
 		}, 15000);
 		window.sessionTimer = this.timer;
 
-		this.setState({ gameStarted: true });
+		this.setState({ gameStarted: true, sessionLength: 0 });
 	}
 
 	stopSessionTimer() {
 		clearInterval(this.timer);
 		this.timer = null;
-		this.sessionLength=0;
+		this.setState({ sessionLength: 0 });
 	}
 
 	constructor(props) {
@@ -70,12 +69,12 @@ export default class Dash extends Component {
 
 		this.bonusPts = [0,300,200,100];
 
-		this.sessionLength=0;
 		this.timer=null;
 
 		this.state = {
 			snooze: false,
 			snooze_time: 0,
+			sessionLength: 0,
 			gameStarted: false,
 			playMsg: 'Tap to Play now!'
 		};
@@ -96,7 +95,7 @@ export default class Dash extends Component {
 			window.onbeforeunload = (event) => {
 				event.preventDefault();
 
-				if (this.sessionLength > 0) {
+				if (this.state.sessionLength > 0) {
 					ReactGA.event({
 						category: 'Session Close',
 						action: 'Session Closed (unload)',
@@ -110,11 +109,11 @@ export default class Dash extends Component {
 			};
 			window.onblur = (event) => {
 				event.preventDefault();
-				if (this.sessionLength > 0) {
+				if (this.state.sessionLength > 0) {
 					ReactGA.event({
 						category: 'Session Blurred',
 						action: 'Session Blurred',
-						label: this.sessionLength.toString(10),
+						label: this.state.sessionLength.toString(10),
 						nonInteraction: false
 					});
 					clearTimeout(window.sessionTimer);
@@ -129,15 +128,15 @@ export default class Dash extends Component {
 	componentWillUnmount() {  // Stop counting game clock time.
 		this.stopSessionTimer();
 
-		if (this.sessionLength > 0) {
+		if (this.state.sessionLength > 0) {
 			ReactGA.event({
 				category: 'Session End',
 				action: 'Session Ended',
-				label: this.sessionLength.toString(10),
+				label: this.state.sessionLength.toString(10),
 				nonInteraction: false
 			});
 
-			this.sessionLength = 0;
+			this.setState({ sessionLength: 0 });
 		}
 	}
 
@@ -156,6 +155,7 @@ export default class Dash extends Component {
 		if (state.gameStarted) {
 			hgt += (kCountDownBarHeight + kPlayReminder);
 		}
+
 		let url = gamesList[selectedGame].url;
 		let intro = gamesList[selectedGame].intro;
 
@@ -179,28 +179,21 @@ export default class Dash extends Component {
 					/>
 					{!state.gameStarted && state.bonusIndex > 0 &&
 						<div class={`${style.bonusMsg} {msgStyle} btn1}`}>
-							{/*<div class={style.bonus}>{state.bonusMsg[state.bonusIndex]}*/}
-							{/*	<span class={style.bonusPts}>{this.bonusPts[state.bonusIndex]}</span>*/}
-							{/*	Points*/}
-							{/*</div>*/}
 							<div class={style.bonus}>
 								{intro}
 							</div>
 						</div>
 					}
-					{!state.gameStarted && <PFooter
-						gameClick={this.doGameStarted}
-						gameMsg={state.playMsg}
-					                       />}
+					{!state.gameStarted &&
+						<PFooter
+							gameClick={this.doGameStarted}
+							gameMsg={state.playMsg}
+						/>}
 					<div class={style.adfooter}>
 						<div id="ad1">
 							<Gpt
-								adUnitPath="/4595/nfl.test.open"
-								sizeMapping={[
-									{ viewport: [0, 0], slot: [320, 50] },
-									{ viewport: [750, 0], slot: [728, 90] },
-									{ viewport: [1050, 0], slot: [1024, 120] }
-								]}
+								adUnitPath="/180049092/TEST_GAMES_WVIEW_EN_TOP"
+								sizeMapping={[{ viewport: [0, 0], slot: [320, 50] }]}
 							/>
 						</div>
 					</div>

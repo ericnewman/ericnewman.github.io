@@ -1,12 +1,13 @@
 import { Component } from 'preact';
 import { Router } from 'preact-router';
 import Menu from './menu';
-import Dash from '../routes/dash';
-import Dark from '../../unused/dark';
+import Game from '../routes/game';
 import LastPage from '../routes/lastpage';
 import NotFound from '../routes/404';
 import Notifications from 'react-notify-toast';
 import ReactGA from 'react-ga';
+
+import gamesList from '../gamesList';
 
 export default class App extends Component {
 	handleRoute = e => {
@@ -39,7 +40,6 @@ export default class App extends Component {
 
 		super(props);
 
-		this.games = [];
 		this.visitCounted = false;
 
 		this.state = {
@@ -59,7 +59,7 @@ export default class App extends Component {
 		}
 	}
 
-	render(state) {
+	render(props, state) {
 		let showHeader = true;
 		let url = this.state.currentUrl;
 
@@ -69,6 +69,8 @@ export default class App extends Component {
 				showHeader = false;
 			}
 		}
+		let today = new Date();
+		let gameNum = props.selectedGame || 1 + String(today.getDate()) % (gamesList.length - 1);
 
 		return (
 			<div id="app">
@@ -76,12 +78,10 @@ export default class App extends Component {
 				{showHeader && <Menu selectedRoute={state.currentUrl} />}
 
 				<Router onChange={this.handleRoute}>
-					<Dark path="/dark/" delay="3600" />
-					<Dark path="/dark/:delay" />
-					<Dash path="/"  selectedGame="1" />
-					<Dash path="/dash" selectedGame="1" />
-					<Dash path="/dash/:selectedGame" />
-					<LastPage path="/survey" />
+					<Game path="/"  selectedGame={gameNum} />
+					<Game path="/game" selectedGame={gameNum} />
+					<Game path="/game/:selectedGame" />
+					<LastPage path="/lastpage" />
 					<NotFound default />
 				</Router>
 			</div>

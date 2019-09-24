@@ -1,5 +1,5 @@
 import { Component } from 'preact';
-import Survey1 from '../../components/survey1';
+import Survey1 from '../../components/survey';
 import style from './style';
 import ReactGA from 'react-ga';
 import { microBridge } from '../../micro_bridge';

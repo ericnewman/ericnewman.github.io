@@ -1,12 +1,12 @@
 const gamesList  = [
-	{ id: 0,  name: '', image: '', url: '', intro: '' },
-	{ id: 1,  name: 'Piggy Night',  image: '../../assets/img/piggynight.png',    url: 'https://api-gametroove.eeposit.com/games/piggy-night_MP/',  intro: 'YEAH!  MetroZONE is now testing Instant Games. GAME ON! Go help Piggy!' },
-	{ id: 20, name: 'Crazy Balls',  image: '../../assets/img/crazyballs.png',    url: 'https://api-gametroove.eeposit.com/games/crazy-balls_MP/',  intro: 'How\'s your aim? Can you take out all the shapes?  Hold Point Release.' },
-	{ id: 30, name: 'Balloon',      image: '../../assets/img/balloon.png',       url: 'https://balloon.frvr.com',                                  intro: 'Like Flappy Birds? Keep your balloons off the wire to collect points.' },
-	{ id: 40, name: 'Ninja Action', image: '../../assets/img/ninjaAction.jpg',   url: 'https://api-gametroove.eeposit.com/games/NinjaAction2_MP/', intro: 'Have what it takes? Try to get our Ninja up the wall. Tap to jump.' },
-	{ id: 50, name: 'Monsters Up',  image: '../../assets/img/monstersUp.jpg',    url: 'https://api-gametroove.eeposit.com/games/monsters-up_MP/',  intro: 'How are your hops? Tap to jump, balance and see how high you can get.' },
-	{ id: 60, name: 'Rise Up',      image: '../../assets/img/riseup.png',        url: 'https://api-gametroove.eeposit.com/games/RiseUp_MP/',       intro: 'Don\'t be misled.  This climbing game starts easy, but watch out.' },
-	{ id: 70, name: 'Basketball',   image: '../../assets/img/basketball.png',    url: 'https://basketball.frvr.com',                               intro: 'How\'s your shot? Find out now, but watch out for the moving rim.' }
+	{ id: 0, name: '', image: '', url: '', intro: '' },
+	{ id: 1, name: 'Piggy Night',  image: '../../assets/img/piggynight.png',    url: 'https://api-gametroove.eeposit.com/games/piggy-night_MP/',  intro: 'YEAH!  MetroZONE is now testing Instant Games. GAME ON! Go help Piggy!' },
+	{ id: 2, name: 'Crazy Balls',  image: '../../assets/img/crazyballs.png',    url: 'https://api-gametroove.eeposit.com/games/crazy-balls_MP/',  intro: 'How\'s your aim? Can you take out all the shapes?  Hold Point Release.' },
+	{ id: 3, name: 'Balloon',      image: '../../assets/img/balloon.png',       url: 'https://balloon.frvr.com',                                  intro: 'Like Flappy Birds? Keep your balloons off the wire to collect points.' },
+	{ id: 4, name: 'Ninja Action', image: '../../assets/img/ninjaAction.jpg',   url: 'https://api-gametroove.eeposit.com/games/NinjaAction2_MP/', intro: 'Have what it takes? Try to get our Ninja up the wall. Tap to jump.' },
+	{ id: 5, name: 'Monsters Up',  image: '../../assets/img/monstersUp.jpg',    url: 'https://api-gametroove.eeposit.com/games/monsters-up_MP/',  intro: 'How are your hops? Tap to jump, balance and see how high you can get.' },
+	{ id: 6, name: 'Rise Up',      image: '../../assets/img/riseup.png',        url: 'https://api-gametroove.eeposit.com/games/RiseUp_MP/',       intro: 'Don\'t be misled.  This climbing game starts easy, but watch out.' },
+	{ id: 7, name: 'Basketball',   image: '../../assets/img/basketball.png',    url: 'https://basketball.frvr.com',                               intro: 'How\'s your shot? Find out now, but watch out for the moving rim.' }
 ];
 
 export default gamesList;

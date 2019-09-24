@@ -1,6 +1,6 @@
 import { Component } from 'preact';
 import GamesCarousel from '../../components/gamescarousel';
-import Survey1 from '../../components/survey1';
+import Survey1 from '../../components/survey';
 import Logo from '../../components/logo';
 
 
