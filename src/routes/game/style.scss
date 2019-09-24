@@ -22,9 +22,14 @@ $boxw: 215px;
 
 .adfooter {
   bottom:0;
-  position:absolute;
   width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  position:relative;
 }
+
 .bonusMsg {
   left: 50%;
   position: absolute;

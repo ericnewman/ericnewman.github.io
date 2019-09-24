@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 import Pframe from '../../components/pframe';
-import PFooter from '../../components/footer';
-// import Countdown from '../../components/countdown';
+import Footer from '../../components/footer';
+import Countdown from '../../components/countdown';
 import ReactGA from 'react-ga';
 import { Bling as Gpt } from 'react-gpt';
 
@@ -163,8 +163,8 @@ export default class Game extends Component {
 			<div id="home" class={style.dash}>
 				{!state.snooze &&
 				<div>
-					{/*{!state.gameStarted &&}
-					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}*/}
+					{!state.gameStarted &&
+					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}
 					<Pframe src={url}
 						width="100%"
 						height={hgt}
@@ -185,7 +185,7 @@ export default class Game extends Component {
 						</div>
 					}
 					{!state.gameStarted &&
-						<PFooter
+						<Footer
 							gameClick={this.doGameStarted}
 							gameMsg={state.playMsg}
 						/>}
