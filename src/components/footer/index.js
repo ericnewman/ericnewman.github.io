@@ -61,30 +61,30 @@ export default class Footer extends Component {
 		microBridge.closeWindow();
 	}
 
-	vote(nextValue) {
-
-		if (this.state.voted) {
-			return;
-		}
-
-		let name = gamesList[this.props.game_id].name;
-
-		ReactGA.event({
-			category: 'Ratings',
-			action: 'User Rated ' + name + ' ' + nextValue,
-			value: parseInt(nextValue, 10)
-		});
-
-
-		this.showToast('Thank you for your review.');
-		this.waitAndNext();
-	}
-
-	_stop = () => {
-		this.setState({
-			stopping: true
-		});
-	}
+	// vote(nextValue) {
+	//
+	// 	if (this.state.voted) {
+	// 		return;
+	// 	}
+	//
+	// 	let name = gamesList[this.props.game_id].name;
+	//
+	// 	ReactGA.event({
+	// 		category: 'Ratings',
+	// 		action: 'User Rated ' + name + ' ' + nextValue,
+	// 		value: parseInt(nextValue, 10)
+	// 	});
+	//
+	//
+	// 	this.showToast('Thank you for your review.');
+	// 	this.waitAndNext();
+	// }
+	//
+	// _stop = () => {
+	// 	this.setState({
+	// 		stopping: true
+	// 	});
+	// }
 	cancel = () => {
 		this.setState({
 			stopping: false
@@ -98,7 +98,7 @@ export default class Footer extends Component {
 			voted: false,
 			stopping: false
 		};
-		this._stop = this._stop.bind(this);
+		// this._stop = this._stop.bind(this);
 
 	}
 

@@ -3,8 +3,8 @@ import { route } from 'preact-router';
 import TopAppBar from 'preact-material-components/TopAppBar';
 import Drawer from 'preact-material-components/Drawer';
 import List from 'preact-material-components/List';
-import 'preact-material-components/Switch/style.css';
-import 'preact-material-components/Dialog/style.css';
+// import 'preact-material-components/Switch/style.css';
+// import 'preact-material-components/Dialog/style.css';
 import 'preact-material-components/Drawer/style.css';
 import 'preact-material-components/List/style.css';
 import 'preact-material-components/TopAppBar/style.css';
@@ -30,8 +30,6 @@ export default class Menu extends Component {
 	};
 
 	goHome = this.linkTo('/');
-	// goToStep1  = this.linkTo('/step1');
-	goToDash0 = this.linkTo('/game/0');
 	goToDash1 = this.linkTo('/game/1');
 	goToDash2 = this.linkTo('/game/2');
 	goToDash3 = this.linkTo('/game/3');
@@ -39,16 +37,6 @@ export default class Menu extends Component {
 	goToDash5 = this.linkTo('/game/5');
 	goToDash6 = this.linkTo('/game/6');
 	goToDash7 = this.linkTo('/game/7');
-	goToDash8 = this.linkTo('/game/8');
-	goToDash9 = this.linkTo('/game/9');
-	goToDash10 = this.linkTo('/game/10');
-	goToDash11 = this.linkTo('/game/11');
-	goToDash12 = this.linkTo('/game/12');
-	goToDash13 = this.linkTo('/game/13');
-	goToDash14 = this.linkTo('/game/14');
-	goToDash15 = this.linkTo('/game/15');
-	goToOutcome = this.linkTo('/outcome');
-	goToMetrics = this.linkTo('/metrics');
 	goToLastPage = this.linkTo('/lastpage');
 
 	goToStep1 = () => {
@@ -91,7 +79,7 @@ export default class Menu extends Component {
 
 	render(props, state) {
 		if (!props.selectedRoute) {
-			props.selectedRoute = '/step1';
+			props.selectedRoute = '/game';
 		}
 		return (
 			<div>
@@ -105,9 +93,6 @@ export default class Menu extends Component {
 								<div class={style.logo} />
 							</TopAppBar.Title>
 						</TopAppBar.Section>
-						{/*<TopAppBar.Section align-end shrink-to-fit onClick={this.openSettings}>*/}
-						{/*	<TopAppBar.Icon>settings</TopAppBar.Icon>*/}
-						{/*</TopAppBar.Section>*/}
 					</TopAppBar.Row>
 				</TopAppBar>
 				<Drawer modal ref={this.drawerRef}>
@@ -122,71 +107,34 @@ export default class Menu extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Ninja Action
 						</Drawer.DrawerItem>
-						{state.highestGame > 1 &&
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/2'} onClick={this.goToDash2}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Piggy Night
-						</Drawer.DrawerItem>}
-						{state.highestGame > 2 &&
+						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/3'} onClick={this.goToDash3}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Crazy Balls
-						</Drawer.DrawerItem>}
-						{state.highestGame > 3 &&
+						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/4'} onClick={this.goToDash4}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Balloon
-						</Drawer.DrawerItem>}
-						{state.highestGame > 4 &&
+						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/5'} onClick={this.goToDash5}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Monsters Up
-						</Drawer.DrawerItem>}
-						{state.highestGame > 5 &&
+						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/6'} onClick={this.goToDash6}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Basketball
-						</Drawer.DrawerItem>}
-						{state.highestGame > 6 &&
+						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/7'} onClick={this.goToDash7}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Rolling Panda
-						</Drawer.DrawerItem>}
-						{state.highestGame > 7 &&
-						<Drawer.DrawerItem selected={props.selectedRoute === '/game/8'} onClick={this.goToDash8}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Rise Up
-						</Drawer.DrawerItem>}
-						{state.highestGame > 8 &&
-						<Drawer.DrawerItem selected={props.selectedRoute === '/game/9'} onClick={this.goToDash9}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Run Panda Run
-						</Drawer.DrawerItem>}
-						{state.highestGame > 9 &&
-						<Drawer.DrawerItem selected={props.selectedRoute === '/game/10'} onClick={this.goToDash10}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Caveman Adventures
-						</Drawer.DrawerItem>}
-						{state.highestGame > 10 &&
-						<Drawer.DrawerItem selected={props.selectedRoute === '/game/11'} onClick={this.goToDash11}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Jelly Jump
-						</Drawer.DrawerItem>}
-						{state.highestGame > 11 &&
-						<Drawer.DrawerItem selected={props.selectedRoute === '/game/12'} onClick={this.goToDash12}>
-							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Swing Robber
-						</Drawer.DrawerItem>}
-						{state.isAdmin &&
-						<Drawer.DrawerItem selected={props.selectedRoute === '/metrics'} onClick={this.goToMetrics}>
-							<List.ItemGraphic>explore</List.ItemGraphic>
-							Metrics
-						</Drawer.DrawerItem>}
-						{state.isAdmin &&
+						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/lastpage'} onClick={this.goToLastPage}>
 							<List.ItemGraphic>explore</List.ItemGraphic>
 							Last Page
-						</Drawer.DrawerItem>}
+						</Drawer.DrawerItem>
 						{state.isAdmin && <Drawer.DrawerItem onClick={this.showAllGames}>
 							<List.ItemGraphic>build</List.ItemGraphic>
 							Show All Games

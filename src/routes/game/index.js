@@ -60,6 +60,11 @@ export default class Game extends Component {
 		this.setState({ gameStarted: true, sessionLength: 0 });
 	}
 
+	timedOut() {
+		this.setState({ tooLate: true });
+	}
+
+
 	stopSessionTimer() {
 		clearInterval(this.timer);
 		this.timer = null;
@@ -89,6 +94,8 @@ export default class Game extends Component {
 
 		this.doGameStarted = this.doGameStarted.bind(this);
 		this.changeBonus = this.changeBonus.bind(this);
+		this.timedOut = this.timedOut.bind(this);
+
 
 
 		if (typeof window !== 'undefined') {
@@ -154,16 +161,21 @@ export default class Game extends Component {
 
 		const kTopBarHeight = 56;
 		const kFooterBarHeight = 50;
-		const kCountDownBarHeight = 0;
-		const kPlayReminder = 0;
+		const kCountDownBarHeight = 31;
+		const kPlayReminder = 24;
 
 		let hgt = 640;
 		if (typeof window !== 'undefined') {
 			hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
+			hgt -= kPlayReminder + 5;
+
 		}
 
 		if (state.gameStarted) {
 			hgt += (kCountDownBarHeight + kPlayReminder);
+		}
+		if(state.tooLate) {
+			hgt += kPlayReminder + 6;
 		}
 
 		let url = gamesList[selectedGame].url;
@@ -173,9 +185,8 @@ export default class Game extends Component {
 			<div id="home" class={style.dash}>
 				{!state.snooze &&
 				<div>
-					{/*{!state.gameStarted &&*/}
-					{/*<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}*/}
-					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />
+					{!state.gameStarted &&
+					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}
 
 					<Pframe src={url}
 						width="100%"
