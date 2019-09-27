@@ -94,19 +94,19 @@ export default class Menu extends Component {
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/1'} onClick={this.goToDash1}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Ninja Action
+							Piggy Night
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/2'} onClick={this.goToDash2}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Piggy Night
+							Crazy Balls
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/3'} onClick={this.goToDash3}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Crazy Balls
+							Balloon
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/4'} onClick={this.goToDash4}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Balloon
+							Ninja Action
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/5'} onClick={this.goToDash5}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
@@ -114,11 +114,11 @@ export default class Menu extends Component {
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/6'} onClick={this.goToDash6}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Basketball
+							Rise Up
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/game/7'} onClick={this.goToDash7}>
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
-							Rolling Panda
+							Basketball
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/survey'} onClick={this.goToSurvey}>
 							<List.ItemGraphic>explore</List.ItemGraphic>

@@ -1,7 +1,6 @@
 let  microBridge = {
 	version: 'Micro Bridge 1.0' ,
 
-
 	sendDelayedBanner(url, delay) {
 
 		url = (url.split('?')[0]  + '?snooze_interval=' + delay);
@@ -10,6 +9,8 @@ let  microBridge = {
 
 		//
 		// Touch this at your own peril.... This is totally fragile
+		// Because this is Javascript INSIDE of a JSON Payload, we need to triple escape things to WRITE the command.
+		//
 		//
 		//let msg = '{"actionAttempts": 0, "cmds": [{ "jsCmd": {"js": "javascript:(function() { var config = {disabled: false, standaloneUrl: \\\"' + url + '\\\", layoutConfig: {layout_height: \\\"match_parent\\\", layout_width: \\\"match_parent\\\"} }; MP.displayBanner(JSON.stringify(config)); })();"}}],"id": "OptInExecutorId","lastActionTime": 0,"oneShot": true,"allowWhenIdle": true,"disabled": false,"scheduledTimes": ["' + bTime + '"],"type": "ScheduledCommandExecutor"}';
 		//let msg = '{"actionAttempts": 0, "cmds": [{ "jsCmd": {"js": "javascript:(function() { var config = {disabled: false, standaloneUrl: \\\"' + url + '\\\", layoutConfig: {layout_height: \\\"match_parent\\\", layout_width: \\\"match_parent\\\"} }; MP.displayBanner(JSON.stringify(config)); })();"}}],"id": "OptInExecutorId","lastActionTime": 0,"oneShot": true,"allowWhenIdle": true,"disabled": false,"scheduledTimes": ["' + bTime + '"],"type": "ScheduledCommandExecutor"}';
@@ -23,9 +24,6 @@ let  microBridge = {
 			MP.addScheduledCommandExecutor((msg));
 			MP.dismiss();
 		}
-		else {
-			//console.log(msg);
-		}
 	},
 	closeWindow() {
 		let MP = window.MP || '';
@@ -38,18 +36,10 @@ let  microBridge = {
 		}
 	},
 
-
-	versionInfo () {
-		return this.version;
-	},
-
 	getTime (addHour, addMin) {
 		addHour = (addHour ? addHour : 0);
 		addMin = (addMin ? addMin : 0);
-		let time = new Date(new Date().getTime());
-		let AM = true;
-		let ndble = 0;
-		let hours, newHour, overHour, newMin, overMin;
+		let time = new Date(new Date().getTime()), AM = true, ndble = 0, hours, newHour, overHour, newMin, overMin;
 		//change form 24 to 12 hour clock
 		if (time.getHours() >= 13) {
 			hours = time.getHours() - 12;

@@ -11,7 +11,6 @@ const gamesList  = [
 
 export default gamesList;
 
-
 // const gamesList  = [
 // 	{ id: 0, name: '', image: '', url: '' },
 // 	{ id: 1,  name: 'Ninja Action',  image: '../../assets/img/ninjaAction.jpg', url: 'https://api-gametroove.eeposit.com/games/NinjaAction2_MP/', intro: 'Have what it takes? Try to get our Ninja up the wall. Tap to jump.' },
@@ -26,7 +25,6 @@ export default gamesList;
 // 	{ id: 90, name: 'Caveman Adventures', image: '../../assets/img/cavemanadv.png', url: 'https://api-gametroove.eeposit.com/games/Caveman-Adventures_MP/', intro: 'This little caveman needs your help. Puh-leese?' },
 // 	{ id: 100, name: 'Jelly Jump', image: '../../assets/img/jellyjump.png',     url: 'https://api-gametroove.eeposit.com/games/JellyJump_MP/', intro: 'This is a tough one. Tap, hold & release just right . . . or ouch!' },
 // 	{ id: 110, name: 'Swing Robber',  image: '../../assets/img/swingRobber.jpg', url: 'https://api-gametroove.eeposit.com/games/SwingRobber_MP/', intro: 'Your mission: help the robber escape. Touch to increase the rope. Touch again to swing.' }
-//
 // ];
 
 // { id: 10, name: 'Flow Mania',  image: '.././assets/img/flowMania.jpg', url: 'https://thegametrove.com/UBT/#/gamedetail/0f93a666-7e69-47f5-b14d-719ded39362b' },

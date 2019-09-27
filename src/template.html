@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" createDate="<%=new Date().toISOString() %>">
 <head>
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
@@ -35,9 +35,7 @@
     </script>
 </head>
 <body>
-<%= htmlWebpackPlugin.options.ssr({
-url: '/'
-}) %>
+<%= htmlWebpackPlugin.options.ssr({ url: '/' }) %>
 <script defer src="<%= htmlWebpackPlugin.files.chunks['bundle'].entry %>"></script>
 <script>window.fetch||document.write('<script src="<%= htmlWebpackPlugin.files.chunks["polyfills"].entry %>"><\/script>')</script>
 </body>

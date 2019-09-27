@@ -1,12 +1,9 @@
 import { Component } from 'preact';
-import Stars from 'react-star-rating-component';
 import { route } from 'preact-router';
 import { notify } from 'react-notify-toast';
 import ReactGA from 'react-ga';
-
-// import 'preact-material-components/Card/style.css';
-// import 'preact-material-components/Button/style.css';
 import Button from 'preact-material-components/Button';
+import Stars from 'react-star-rating-component';
 
 import style from './style';
 
@@ -23,7 +20,6 @@ export default class Survey extends Component {
 	waitAndDismiss() {
 		setTimeout(() => {
 			document.getElementById('home').classList.remove('dim');
-
 			if (!this.props.noexit) {
 				if (window && window.MP) {
 					window.MP.dismiss();
@@ -116,39 +112,42 @@ export default class Survey extends Component {
 		return (
 
 			<div class={style.bar}>
-				{props.final && !state.voted && <div class="smaller">
-					How much did you enjoy discovering and playing games this way (1 to 5)?
-				</div>}
+				{
+					props.final && !state.voted &&
+					<div class="smaller">
+						How much did you enjoy discovering and playing games this way (1 to 5)?
+					</div>
+				}
 				{!state.voted &&
-				<Stars
-					name="rate1"
-					starCount={5}
-					value={props.rating}
-					editing
-					emptyStarColor={'#393'}
-					starColor={'#933'}
-					renderStarIcon={(index, value) => {
+					<Stars
+						name="rate1"
+						starCount={5}
+						value={props.rating}
+						editing
+						emptyStarColor={'#393'}
+						starColor={'#933'}
+						renderStarIcon={(index, value) => {
 
-						if (index === value) {
+							if (index === value) {
+								return (
+									<span class={`${style.vote} btn${index} ${style.YES} `}><span class={style.num}>{index}</span></span>
+								);
+							}
+
 							return (
-								<span class={`${style.vote} btn${index} ${style.YES} `}><span class={style.num}>{index}</span></span>
+								<span class={`${style.vote} btn${index} ${style.NO}`}><span class={style.num}>{index}</span></span>
 							);
 						}
-
-						return (
-							<span class={`${style.vote} btn${index} ${style.NO}`}><span class={style.num}>{index}</span></span>
-						);
-					}
-					}
-					onStarClick={this.onStarClick.bind(this)}
-				/>}
+						}
+						onStarClick={this.onStarClick.bind(this)}
+					/>
+				}
 				{state.voted && props.final &&
-				<div className={style.buts}>
-					<Button class={style.pinkButton} onClick={() => this.more()}>
-					more games
-					</Button>
-				</div>
-
+					<div className={style.buts}>
+						<Button class={style.pinkButton} onClick={() => this.more()}>
+						more games
+						</Button>
+					</div>
 				}
 			</div>
 		);

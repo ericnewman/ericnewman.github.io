@@ -8,14 +8,9 @@ import Notifications from 'react-notify-toast';
 import ReactGA from 'react-ga';
 
 import gamesList from '../gamesList';
-// Must be the first import
-if (process.env.NODE_ENV==='development') {
-	// Must use require here as import statements are only allowed
-	// to exist at the top of a file.
-	require('preact/debug');
-}
 
 export default class App extends Component {
+
 	handleRoute = e => {
 
 		if (typeof window !== 'undefined') {
@@ -69,8 +64,10 @@ export default class App extends Component {
 	}
 
 	render(props, state) {
-		let showHeader = true;
-		let url = this.state.currentUrl;
+		let showHeader = true,
+			url = this.state.currentUrl,
+			today = new Date(),
+			gameNum = props.selectedGame || 1 + String(today.getDate()) % (gamesList.length - 1);
 
 		if (url) {
 			// showHeader = (url.indexOf('dark') === -1);
@@ -78,8 +75,6 @@ export default class App extends Component {
 				showHeader = false;
 			}
 		}
-		let today = new Date();
-		let gameNum = props.selectedGame || 1 + String(today.getDate()) % (gamesList.length - 1);
 
 		return (
 			<div id="app">
