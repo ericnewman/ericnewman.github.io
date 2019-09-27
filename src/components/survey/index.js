@@ -26,7 +26,7 @@ export default class Survey extends Component {
 
 			if (!this.props.noexit) {
 				if (window && window.MP) {
-					MP.dismiss();
+					window.MP.dismiss();
 				}
 				else {
 					window.open('', '_self', '').close();

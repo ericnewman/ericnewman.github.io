@@ -1,22 +1,21 @@
 {
   "private": true,
   "name": "MetroZoneGames",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "per-env",
     "start:production": "npm run -s serve",
     "start:development": "npm run -s dev",
-    "build": "preact build --template \"${PWD}/src/template.html\" --prerenderUrls src/prerender-urls.json",
+    "build": "preact build --template \"${PWD}/src/template.html\" --prerenderUrls \"${PWD}/prerender-urls.json\"",
     "serve": "preact build --template \"${PWD}/src/template.html\" && preact serve",
-    "dev":   "preact watch --template \"${PWD}/src/template.html\"",
-    "deploy":"preact build --template '${PWD}/src/template.html' --prerenderUrls src/prerender-urls.json && aws s3 sync build/ s3://spages.mobileposse.com/ && aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
+    "dev": "preact watch --template \"${PWD}/src/template.html\"",
+    "deploy": "preact build --template '${PWD}/src/template.html' --prerenderUrls \"${PWD}/prerender-urls.json\" && aws s3 sync build/ s3://spages.mobileposse.com/ && aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
     "cache": "s3cmd --recursive modify --add-header=\"Cache-Control:public ,max-age= 31536000\" s3://spages.mobileposse.com",
     "aws-clear": "aws cloudfront create-invalidation --distribution-id E2SA8OWD3VYCAI --paths '/*'",
     "lint": "eslint src",
     "purge": "./purgeSpages.sh \"spages.mobileposse.com\" \"1d\"",
-    "analyze": "preact build --analyze ",
-    "light": "lighthouse https://spages.mobileposse.com/dash/2 --view"
+    "analyze": "preact build --template \"${PWD}/src/template.html\"  --analyze ",
+    "light": "lighthouse https://spages.mobileposse.com/game/0 --view"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"

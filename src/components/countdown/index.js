@@ -5,35 +5,6 @@ import ReactGA from 'react-ga';
 
 export default class Countdown extends Component {
 
-	constructor(props) {
-		super(props);
-
-		let fasts = ',';
-
-		if (typeof window !== 'undefined') {
-			fasts = localStorage.getItem('fastStarts') || ',';
-		}
-
-		let showCountdown = !fasts.includes(',' + this.props.game + ',');
-
-		this.state = {
-			progress: 1,
-			complete: false,
-			showIntro: true,
-			showCountdown
-		};
-
-
-		this.onChange.bind(this);
-		this.onComplete.bind(this);
-
-		if (typeof window !== 'undefined') {
-			window.unlocked = false;
-			window.screenUnlock = this.screenUnlocked;
-
-		}
-
-	}
 
 	onChange = (ctx, val) => {
 
@@ -74,8 +45,7 @@ export default class Countdown extends Component {
 
 	};
 
-	onComplete = ctx => {
-		console.log('Complete');
+	onComplete = () => {
 
 		if (this.timer) {
 			clearInterval(this.timer);
@@ -89,14 +59,41 @@ export default class Countdown extends Component {
 		}
 	};
 
-	screenUnlocked() {
+	screenUnlocked = () => {
 		window.unlocked = true;
 		ReactGA.event({
 			category: 'Screen Unlocked',
 			action: 'Screen Unlocked',
 			nonInteraction: false
 		});
+	};
 
+	constructor(props) {
+		super(props);
+
+		let fasts = ',';
+
+		if (typeof window !== 'undefined') {
+			fasts = localStorage.getItem('fastStarts') || ',';
+		}
+
+		let showCountdown = !fasts.includes(',' + this.props.game + ',');
+
+		this.state = {
+			progress: 1,
+			complete: false,
+			showIntro: true,
+			showCountdown
+		};
+
+
+		this.onChange.bind(this);
+		this.onComplete.bind(this);
+
+		if (typeof window !== 'undefined') {
+			window.unlocked = false;
+			window.screenUnlock = this.screenUnlocked;
+		}
 	}
 
 	componentDidMount() {
@@ -140,12 +137,12 @@ export default class Countdown extends Component {
 					</div>
 
 					<Progress id="loader"
-							  class={style.loader}
-							  value={100 - this.state.progress}
-							  height="30px"
-							  color={props.color}
-							  onChange={this.onChange}
-							  onComplete={this.onComplete}
+						class={style.loader}
+						value={100 - this.state.progress}
+						height="30px"
+						color={props.color}
+						onChange={this.onChange}
+						onComplete={this.onComplete}
 					/>
 				</div>
 				}

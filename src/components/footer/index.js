@@ -1,14 +1,11 @@
 import { Component } from 'preact';
 import { notify } from 'react-notify-toast';
 import ReactGA from 'react-ga';
-
-import gamesList from '../../gamesList';
 import { microBridge } from '../../micro_bridge';
 
 import style from './style';
 
 const  timeout = 2000;
-
 
 export default class Footer extends Component {
 
@@ -61,35 +58,11 @@ export default class Footer extends Component {
 		microBridge.closeWindow();
 	}
 
-	// vote(nextValue) {
-	//
-	// 	if (this.state.voted) {
-	// 		return;
-	// 	}
-	//
-	// 	let name = gamesList[this.props.game_id].name;
-	//
-	// 	ReactGA.event({
-	// 		category: 'Ratings',
-	// 		action: 'User Rated ' + name + ' ' + nextValue,
-	// 		value: parseInt(nextValue, 10)
-	// 	});
-	//
-	//
-	// 	this.showToast('Thank you for your review.');
-	// 	this.waitAndNext();
-	// }
-	//
-	// _stop = () => {
-	// 	this.setState({
-	// 		stopping: true
-	// 	});
-	// }
 	cancel = () => {
 		this.setState({
 			stopping: false
 		});
-	}
+	};
 
 	constructor(props) {
 		super(props);
@@ -98,8 +71,6 @@ export default class Footer extends Component {
 			voted: false,
 			stopping: false
 		};
-		// this._stop = this._stop.bind(this);
-
 	}
 
 	render(props, state) {

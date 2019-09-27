@@ -8,6 +8,12 @@ import Notifications from 'react-notify-toast';
 import ReactGA from 'react-ga';
 
 import gamesList from '../gamesList';
+// Must be the first import
+if (process.env.NODE_ENV==='development') {
+	// Must use require here as import statements are only allowed
+	// to exist at the top of a file.
+	require('preact/debug');
+}
 
 export default class App extends Component {
 	handleRoute = e => {
@@ -49,7 +55,7 @@ export default class App extends Component {
 		ReactGA.initialize('UA-102222556-2');
 
 		if (typeof window !== 'undefined') {
-			if(document.location.pathname.indexOf('/optin') > 0) {
+			if (document.location.pathname.indexOf('/optin') > 0) {
 				localStorage.setItem('explicitOptOut',  'false');
 			}
 
