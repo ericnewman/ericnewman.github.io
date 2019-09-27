@@ -2,6 +2,7 @@ import { Component } from 'preact';
 import Pframe from '../../components/pframe';
 import Footer from '../../components/footer';
 import Countdown from '../../components/countdown';
+import AdUnit from '../../components/adunit';
 import ReactGA from 'react-ga';
 import { Bling as Gpt } from 'react-gpt';
 
@@ -108,7 +109,6 @@ export default class Game extends Component {
 				}
 			}
 
-
 			window.onbeforeunload = (event) => {
 				event.preventDefault();
 
@@ -124,6 +124,7 @@ export default class Game extends Component {
 					this.stopSessionTimer();
 				}
 			};
+
 			window.onblur = (event) => {
 				event.preventDefault();
 				if (this.state.sessionLength > 0) {
@@ -168,12 +169,12 @@ export default class Game extends Component {
 		if (typeof window !== 'undefined') {
 			hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
 			hgt -= kPlayReminder + 5;
-
 		}
 
 		if (state.gameStarted) {
 			hgt += (kCountDownBarHeight + kPlayReminder);
 		}
+
 		if(state.tooLate) {
 			hgt += kPlayReminder + 6;
 		}
@@ -200,6 +201,7 @@ export default class Game extends Component {
 						game_id={selectedGame}
 						doGameStarted={this.doGameStarted}
 					/>
+
 					{!state.gameStarted && state.bonusIndex > 0 &&
 						<div class={`${style.bonusMsg} {msgStyle} btn1}`}>
 							<div class={style.bonus}>
@@ -207,22 +209,16 @@ export default class Game extends Component {
 							</div>
 						</div>
 					}
-					{!state.gameStarted &&
-					<Footer
-						gameClick={this.doGameStarted}
-						gameMsg={state.playMsg}
-						game_id={selectedGame}
 
-					/>
+					{!state.gameStarted &&
+						<Footer
+							gameClick={this.doGameStarted}
+							gameMsg={state.playMsg}
+							game_id={selectedGame}
+
+						/>
 					}
-					<div class={style.adfooter}>
-						<div id="ad1">
-							<Gpt
-								adUnitPath="/180049092/TEST_GAMES_WVIEW_EN_TOP"
-								sizeMapping={[{ viewport: [0, 0], slot: [320, 50] }]}
-							/>
-						</div>
-					</div>
+					<AdUnit adPath="/180049092/TEST_GAMES_WVIEW_EN_TOP" />
 				</div>
 				}
 			</div>

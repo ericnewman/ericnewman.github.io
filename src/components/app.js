@@ -2,7 +2,7 @@ import { Component } from 'preact';
 import { Router } from 'preact-router';
 import Menu from './menu';
 import Game from '../routes/game';
-import LastPage from '../routes/lastpage';
+import LastPage from '../routes/survey';
 import NotFound from '../routes/404';
 import Notifications from 'react-notify-toast';
 import ReactGA from 'react-ga';
@@ -46,12 +46,15 @@ export default class App extends Component {
 			currentUrl: (typeof window !== 'undefined') ? document.location.pathname : ':'
 		};
 
-
 		ReactGA.initialize('UA-102222556-2');
 
 		if (typeof window !== 'undefined') {
+			if(document.location.pathname.indexOf('/optin') > 0) {
+				localStorage.setItem('explicitOptOut',  'false');
+			}
+
 			if (localStorage.getItem('explicitOptOut') === 'true') {
-				ReactGA.pageview('/redirected-opt-out');
+				ReactGA.pageview('/redirected-by-opt-out');
 				setTimeout(() => {
 					document.location.href = 'https://metropcs.mobi';
 				}, 25);
@@ -64,7 +67,7 @@ export default class App extends Component {
 		let url = this.state.currentUrl;
 
 		if (url) {
-			showHeader = (url.indexOf('dark') === -1);
+			// showHeader = (url.indexOf('dark') === -1);
 			if (typeof window !== 'undefined' && window.MP) { // Do not show the header in-app...
 				showHeader = false;
 			}

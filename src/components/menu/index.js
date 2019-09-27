@@ -37,29 +37,14 @@ export default class Menu extends Component {
 	goToDash5 = this.linkTo('/game/5');
 	goToDash6 = this.linkTo('/game/6');
 	goToDash7 = this.linkTo('/game/7');
-	goToLastPage = this.linkTo('/lastpage');
+	goToSurvey = this.linkTo('/survey');
 
-	goToStep1 = () => {
-		localStorage.setItem('seenWelcomeMessage', false);
-		localStorage.setItem('currentGameID', '1');
-		localStorage.setItem('highestGameID', '1');
-		localStorage.setItem('explicitOptOut', '99');
-		localStorage.setItem('fastStarts', ',');
-		localStorage.setItem('previouslyRated', ',');
+
+	optOut = () => {
+		localStorage.setItem('explicitOptOut',  'true');
 		this.closeDrawer();
-		route('/step1');
-
-	};
-
-	showAllGames = () => {
-		localStorage.setItem('seenWelcomeMessage', false);
-		localStorage.setItem('currentGameID', '1');
-		localStorage.setItem('highestGameID', '12');
-
-		this.closeDrawer();
-		let a = document.location.href;
-		document.location.href = a;
-	};
+		document.location.href = 'https://metropcs.mobi';
+	}
 
 	componentWillMount() {
 		if (typeof window !== 'undefined') {
@@ -81,6 +66,7 @@ export default class Menu extends Component {
 		if (!props.selectedRoute) {
 			props.selectedRoute = '/game';
 		}
+
 		return (
 			<div>
 				<TopAppBar class="topappbar">
@@ -131,14 +117,14 @@ export default class Menu extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Rolling Panda
 						</Drawer.DrawerItem>
-						<Drawer.DrawerItem selected={props.selectedRoute === '/lastpage'} onClick={this.goToLastPage}>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/survey'} onClick={this.goToSurvey}>
 							<List.ItemGraphic>explore</List.ItemGraphic>
-							Last Page
+							Survey
 						</Drawer.DrawerItem>
-						{state.isAdmin && <Drawer.DrawerItem onClick={this.showAllGames}>
+						<Drawer.DrawerItem onClick={this.optOut}>
 							<List.ItemGraphic>build</List.ItemGraphic>
-							Show All Games
-						</Drawer.DrawerItem>}
+							Stop Getting Games
+						</Drawer.DrawerItem>
 					</Drawer.DrawerContent>
 				</Drawer>
 			</div>
