@@ -1,0 +1,42 @@
+[
+  {
+    "url": "/game",
+    "title": "Home"
+  },
+  {
+    "url": "/game/1",
+    "title": "Game 1"
+  },
+  {
+    "url": "/game/2",
+    "title": "Game 2"
+  },
+  {
+    "url": "/game/3",
+    "title": "Game 3"
+  },
+  {
+    "url": "/game/4",
+    "title": "Game 4"
+  },
+  {
+    "title": "Game 5",
+    "url": "/game/5"
+  },
+  {
+    "url": "/game/6",
+    "title": "Game 6"
+  },
+  {
+    "url": "/game/7",
+    "title": "Game 7"
+  },
+  {
+    "url": "/survey",
+    "title": "Exit Survey"
+  },
+  {
+    "url": "/404",
+    "title": "Missing Page"
+  }
+]
