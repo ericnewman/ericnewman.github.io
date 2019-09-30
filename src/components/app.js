@@ -85,7 +85,7 @@ export default class App extends Component {
 					<Game path="/"  selectedGame={gameNum} />
 					<Game path="/game" selectedGame={gameNum} />
 					<Game path="/game/:selectedGame" selectedGame={gameNum} />
-					<LastPage path="/lastpage" />
+					<LastPage path="/survey" />
 					<NotFound default />
 				</Router>
 			</div>

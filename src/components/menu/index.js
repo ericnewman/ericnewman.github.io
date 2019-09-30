@@ -4,20 +4,17 @@ import TopAppBar from 'preact-material-components/TopAppBar';
 import Drawer from 'preact-material-components/Drawer';
 import List from 'preact-material-components/List';
 import ReactGA from 'react-ga';
+
 import 'preact-material-components/Drawer/style.css';
 import 'preact-material-components/List/style.css';
 import 'preact-material-components/TopAppBar/style.css';
 
-import style from './style';
+import style from 'style';
 
 export default class Menu extends Component {
 
-	closeDrawer() {
-		this.drawer.MDComponent.open = false;
-	}
-
+	closeDrawer = () => (this.drawer.MDComponent.open = false);
 	openDrawer = () => (this.drawer.MDComponent.open = true);
-	openSettings = () => this.dialog.MDComponent.show();
 
 	drawerRef = drawer => (this.drawer = drawer);
 	dialogRef = dialog => (this.dialog = dialog);
@@ -38,7 +35,7 @@ export default class Menu extends Component {
 	goToSurvey = this.linkTo('/survey');
 
 
-	optOut() {
+	optOut = () => {
 		localStorage.setItem('explicitOptOut',  'true');
 		ReactGA.event({
 			category: 'User Opt-Out',
@@ -47,7 +44,7 @@ export default class Menu extends Component {
 		});
 		this.closeDrawer();
 		document.location.href = 'https://metropcs.mobi';
-	}
+	};
 
 	componentWillMount() {
 		if (typeof window !== 'undefined') {
