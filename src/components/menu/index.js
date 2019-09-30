@@ -9,7 +9,7 @@ import 'preact-material-components/Drawer/style.css';
 import 'preact-material-components/List/style.css';
 import 'preact-material-components/TopAppBar/style.css';
 
-import style from 'style';
+import style from './style.scss';
 
 export default class Menu extends Component {
 
