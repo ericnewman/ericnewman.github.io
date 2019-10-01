@@ -2,63 +2,77 @@ $icon_size: 40px;
 
 .footer {
   width: inherit;
-  height: 24px;
+  height: 36px;
   z-index: 6;
 }
 
 .playsc {
   background: white;
-  font: bold 20px/24px Comfortaa, sans-serif;
+  font: bold 23px/27px Comfortaa, sans-serif;
   color: #000;
   width: 100%;
-  height: 24px;
+  height: 32px;
   position: relative;
-  bottom: 0px;
   margin:0 auto;
-  animation-duration: 6s;
+  animation-duration: 9s;
   animation-iteration-count: infinite;
   animation-name: beat;
+  padding-top:3px;
 }
 
   @keyframes beat {
-    0%, 100% {
+    0%,100% {
       background-color: #FCC;
       letter-spacing: 5px;
     }
-    30% {
-      background-color: #FFF;
-      letter-spacing: 0px;
-    }
-    60% {
+    50% {
       background-color: #CCF;
-      letter-spacing: 5px;
+      letter-spacing: 0px;
+
     }
   }
 
 .lefty {
   width: 90px;
-  font: bold 21px/24px Comfortaa, sans-serif;
+  font: bold 20px/23px Comfortaa, sans-serif;
   margin: 2px auto;
 }
 
 .buts {
-  height:50px;
+  height:32px;
   position:relative;
   top:0;
-  vertical-align:top;
+  vertical-align:middle;
   display: inline-flex;
+}
+.bots {
+  width: 100%;
+  margin: 0;
+  height:36px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
 }
 
 .bots button {
-  border-radius: 32px;
-  height: 32px;
+  border-radius: 30px;
+  height: 30px;
   color: white !important;
   font: bold 12px Comfortaa, sans-serif;
   text-transform: lowercase;
-  margin: 8px 25px;
-  padding:0;
+  margin: 0px 25px;
+  padding:0px 15px;
   position:relative;
   vertical-align:top;
+}
+.rateIt {
+  text-align: center;
+  position: relative;
+  margin: 5px auto;
+  font: bold 15px/15px Comfortaa, sans-serif;
+
 }
 
 .wides {
@@ -70,30 +84,6 @@ $icon_size: 40px;
 
 }
 
-.redButton {
-  background: #ff0000 !important;
-  width: 120px;
-  whitespace: normal;
-}
-
-.greenButton {
-  background: #55bb55 !important;
-  width: 120px;
-  whitespace: normal;
-
-}
-
-.dkBlueButton {
-  background: #073763 !important;
-}
-
-.yellowButton {
-  background: #FFB600 !important;
-}
-
-.pinkButton {
-  background: #FF008C !important;
-}
 
 .tiny {
   color: #777;

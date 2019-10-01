@@ -13,6 +13,8 @@ html, body {
     font-weight: 400;
     color: #FFF;
     background: rgb(2, 0, 36);
+    overflow: hidden;
+    position: relative;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -176,17 +178,6 @@ header {
 .left {
     text-align: left;
 }
-
-/*.beta {*/
-/*    background-image: url("../assets/img/beta.png");*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: 63px 43px;*/
-/*    display: inline-block;*/
-/*    height: 63px;*/
-/*    width: 63px;*/
-/*    animation: roto 5s infinite*/
-
-/*}*/
 
 .cardHeader {
     padding: 0px;

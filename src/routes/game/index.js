@@ -39,7 +39,7 @@ export default class Game extends Component {
 		if (sessionLength % 30 === 0) {
 			Gpt.refresh();
 		}
-		this.setState({ sessionLength: sessionLength });
+		this.setState({ sessionLength });
 	}
 
 	doGameStarted() {
@@ -96,7 +96,6 @@ export default class Game extends Component {
 		this.doGameStarted = this.doGameStarted.bind(this);
 		this.changeBonus = this.changeBonus.bind(this);
 		this.timedOut = this.timedOut.bind(this);
-
 
 
 		if (typeof window !== 'undefined') {
@@ -161,22 +160,16 @@ export default class Game extends Component {
 	render({ selectedGame }, state) {
 
 		const kTopBarHeight = 56;
-		const kFooterBarHeight = 50;
-		const kCountDownBarHeight = 31;
-		const kPlayReminder = 24;
+		const kFooterBarHeight = 86;
+		const kCountDownBarHeight = 32;
 
 		let hgt = 640;
 		if (typeof window !== 'undefined') {
 			hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
-			hgt -= kPlayReminder + 5;
 		}
 
 		if (state.gameStarted) {
-			hgt += (kCountDownBarHeight + kPlayReminder);
-		}
-
-		if(state.tooLate) {
-			hgt += kPlayReminder + 6;
+			hgt += kCountDownBarHeight;
 		}
 
 		let url = gamesList[selectedGame].url;
@@ -200,6 +193,7 @@ export default class Game extends Component {
 						position="relative"
 						game_id={selectedGame}
 						doGameStarted={this.doGameStarted}
+						title="Game Frame"
 					/>
 
 					{!state.gameStarted && state.bonusIndex > 0 &&
@@ -210,14 +204,12 @@ export default class Game extends Component {
 						</div>
 					}
 
-					{!state.gameStarted &&
-						<Footer
-							gameClick={this.doGameStarted}
-							gameMsg={state.playMsg}
-							game_id={selectedGame}
-
-						/>
-					}
+					<Footer
+						gameMsg={state.playMsg}
+						game_id={selectedGame}
+						started={state.gameStarted}
+						elapsed={state.sessionLength}
+					/>
 					<AdUnit adPath="/180049092/TEST_GAMES_WVIEW_EN_TOP" />
 				</div>
 				}

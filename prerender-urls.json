@@ -1,5 +1,9 @@
 [
   {
+    "url": "/",
+    "title": "Home"
+  },
+  {
     "url": "/game",
     "title": "Home"
   },
