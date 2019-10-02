@@ -1,6 +1,7 @@
 import { Component } from 'preact';
 import { Router } from 'preact-router';
 import Menu from './menu';
+import Optin from '../routes/optin';
 import Game from '../routes/game';
 import LastPage from '../routes/survey';
 import NotFound from '../routes/404';
@@ -50,10 +51,6 @@ export default class App extends Component {
 		ReactGA.initialize('UA-102222556-2');
 
 		if (typeof window !== 'undefined') {
-			if (document.location.pathname.indexOf('/optin') > 0) {
-				localStorage.setItem('explicitOptOut',  'false');
-			}
-
 			if (localStorage.getItem('explicitOptOut') === 'true') {
 				ReactGA.pageview('/redirected-by-opt-out');
 				setTimeout(() => {
@@ -86,6 +83,8 @@ export default class App extends Component {
 					<Game path="/game" selectedGame={gameNum} />
 					<Game path="/game/:selectedGame" selectedGame={gameNum} />
 					<LastPage path="/survey" />
+					<Optin path="/optin"  />
+					<Optin path="/optin/:experiment"  />
 					<NotFound default />
 				</Router>
 			</div>

@@ -61,6 +61,8 @@
     "react-ga": "^2.6.0",
     "react-gpt": "^2.0.1",
     "react-notify-toast": "^0.5.0",
-    "react-star-rating-component": "^1.4.1"
+    "react-particle-effect-button": "^1.0.1",
+    "react-star-rating-component": "^1.4.1",
+    "react-typed": "^1.2.0"
   }
 }
