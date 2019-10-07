@@ -84,7 +84,6 @@ export default class App extends Component {
 					<Game path="/game/:selectedGame" selectedGame={gameNum} />
 					<LastPage path="/survey" />
 					<Optin path="/optin"  />
-					<Optin path="/optin/:experiment"  />
 					<NotFound default />
 				</Router>
 			</div>
