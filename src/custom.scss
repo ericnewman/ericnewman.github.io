@@ -1,0 +1,6 @@
+$body-bg:  rgb(2, 0, 36);
+$grid-columns: 12 !default;
+
+$grid-gutter-width: 10px !default;
+// Import Bootstrap and its default variables
+@import 'bootstrap/scss/bootstrap.scss';

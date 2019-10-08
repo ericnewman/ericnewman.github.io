@@ -2,6 +2,7 @@ import { Component } from 'preact';
 import { Router } from 'preact-router';
 import Menu from './menu';
 import Optin from '../routes/optin';
+import Portal from '../routes/portal';
 import Game from '../routes/game';
 import LastPage from '../routes/survey';
 import NotFound from '../routes/404';
@@ -83,6 +84,7 @@ export default class App extends Component {
 					<Game path="/game" selectedGame={gameNum} />
 					<Game path="/game/:selectedGame" selectedGame={gameNum} />
 					<LastPage path="/survey" />
+					<Portal path="/portal"  />
 					<Optin path="/optin"  />
 					<NotFound default />
 				</Router>

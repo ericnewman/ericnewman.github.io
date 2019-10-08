@@ -34,6 +34,7 @@ export default class Menu extends Component {
 	goToDash7 = this.linkTo('/game/7');
 	goToSurvey = this.linkTo('/survey');
 	goToOptIn = this.linkTo('/optin');
+	goToPortal = this.linkTo('/portal');
 
 
 	optOut = () => {
@@ -118,8 +119,12 @@ export default class Menu extends Component {
 							<List.ItemGraphic>web_asset</List.ItemGraphic>
 							Basketball
 						</Drawer.DrawerItem>
+						<Drawer.DrawerItem selected={props.selectedRoute === '/portal'} onClick={this.goToPortal}>
+							<List.ItemGraphic>dashboard</List.ItemGraphic>
+							Portal
+						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/optin'} onClick={this.goToOptIn}>
-							<List.ItemGraphic>explore</List.ItemGraphic>
+							<List.ItemGraphic>stars</List.ItemGraphic>
 							Opt In
 						</Drawer.DrawerItem>
 						<Drawer.DrawerItem selected={props.selectedRoute === '/survey'} onClick={this.goToSurvey}>

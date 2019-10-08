@@ -51,7 +51,6 @@ html, body {
     display: block;
     width: 100% !important;
 
-    background: linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
     background: -moz-linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
     background: -webkit-linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
     background: linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
