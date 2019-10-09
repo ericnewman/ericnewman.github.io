@@ -38,7 +38,8 @@ export default class Menu extends Component {
 
 
 	optOut = () => {
-		localStorage.setItem('explicitOptOut',  'true');
+		localStorage.setItem('explicitOptIn',  'false');
+		localStorage.setItem('explicitOptOut', 'true');
 		ReactGA.event({
 			category: 'User Opt-Out',
 			action: 'User Opt-Out',

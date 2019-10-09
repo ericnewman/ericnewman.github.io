@@ -2,6 +2,7 @@ import { Component } from 'preact';
 import Pframe from '../../components/pframe';
 import Footer from '../../components/footer';
 import Countdown from '../../components/countdown';
+import Preview from '../../components/preview';
 import AdUnit from '../../components/adunit';
 import ReactGA from 'react-ga';
 import { Bling as Gpt } from 'react-gpt';
@@ -11,15 +12,10 @@ import { route } from 'preact-router';
 import gamesList from '../../gamesList';
 
 
-import style from './style';
+import style from './style.scss';
 
 export default class Game extends Component {
 
-	changeBonus(index) {
-		if (index !== this.state.bonusIndex) {
-			this.setState({ bonusIndex: index });
-		}
-	}
 
 	tickSession() {
 		let sessionLength = this.state.sessionLength + 15;
@@ -64,6 +60,9 @@ export default class Game extends Component {
 	timedOut() {
 		this.setState({ tooLate: true });
 	}
+	previewtimedOut() {
+		this.setState({ previewed: true });
+	}
 
 
 	stopSessionTimer() {
@@ -81,20 +80,17 @@ export default class Game extends Component {
 
 		this.bonusPts = [0,300,200,100];
 
-		this.timer=null;
+		this.timer = null;
 
 		this.state = {
-			snooze: false,
-			snooze_time: 0,
+			tooLate: false,
 			sessionLength: 0,
 			gameStarted: false,
-			bonusIndex: 0,
 			playMsg: 'Tap to Play now!',
-			bonusMsg: ['', 'Play now for', 'Play to earn', 'Hurry. Earn']
+			previewed: false
 		};
 
 		this.doGameStarted = this.doGameStarted.bind(this);
-		this.changeBonus = this.changeBonus.bind(this);
 		this.timedOut = this.timedOut.bind(this);
 
 
@@ -173,14 +169,14 @@ export default class Game extends Component {
 		}
 
 		let url = gamesList[selectedGame].url;
-		let intro = gamesList[selectedGame].intro;
+		//let intro = gamesList[selectedGame].intro;
 
 		return (
 			<div id="home" class={style.dash}>
 				{!state.snooze &&
 				<div>
-					{!state.gameStarted &&
-					<Countdown afterAction={this.timedOut} changeBonus={this.changeBonus} game={selectedGame} />}
+					{!state.tooLate && <Countdown afterAction={this.timedOut}  game={selectedGame} gamestarted={state.gameStarted} />}
+					{state.gameStarted && <Preview  afterAction={this.timedOut} game={selectedGame} />}
 
 					<Pframe src={url}
 						width="100%"
@@ -195,14 +191,6 @@ export default class Game extends Component {
 						doGameStarted={this.doGameStarted}
 						title="Game Frame"
 					/>
-
-					{!state.gameStarted && state.bonusIndex > 0 &&
-						<div class={`${style.bonusMsg} {msgStyle} btn1}`}>
-							<div class={style.bonus}>
-								{intro}
-							</div>
-						</div>
-					}
 
 					<Footer
 						gameMsg={state.playMsg}

@@ -1,6 +1,6 @@
 import { Component } from 'preact';
 import Progress from 'preact-progress';
-import style from './style';
+import style from './style.scss';
 import ReactGA from 'react-ga';
 
 export default class Countdown extends Component {
@@ -13,9 +13,6 @@ export default class Countdown extends Component {
 			case 99:
 				this.props.message = 'Start the game before it\'s too late!!!';
 				this.props.color = '#0F0';
-				if (this.props.changeBonus) {
-					this.props.changeBonus(1);
-				}
 				break;
 			case 95:
 				this.props.color = '#0B0';
@@ -23,41 +20,34 @@ export default class Countdown extends Component {
 			case 45:
 				this.props.color = '#FC0';
 				this.props.message = 'Time\'s almost up!';
-				if (this.props.changeBonus) {
-					this.props.changeBonus(2);
-				}
 				break;
 			case 20:
 				this.props.color = '#F00';
-				if (this.props.changeBonus) {
-					this.props.changeBonus(3);
-				}
 				break;
 			case 1:
 			case 0:
 				this.props.message = 'No fast-play bonus.';
-				if (this.props.changeBonus) {
-					this.props.changeBonus(3);
-				}
 				this.onComplete(this);
 				break;
 		}
-
 	};
 
-	onComplete = () => {
-
-		if (this.timer) {
-			clearInterval(this.timer);
-			if (this.props.afterAction) {
-				this.props.afterAction();
-			}
-			this.timer = null;
+		onComplete = () => {
 			this.setState({
-				complete: true
+				complete: true,
+				progress: 1
 			});
-		}
-	};
+
+
+			if (this.timer) {
+				clearInterval(this.timer);
+				this.timer = null;
+				if (this.props.afterAction) {
+					this.props.afterAction();
+				}
+			}
+		};
+
 
 	screenUnlocked = () => {
 		window.unlocked = true;
@@ -72,17 +62,18 @@ export default class Countdown extends Component {
 		super(props);
 
 		let fasts = ',';
+		let optedIn = false;
 
 		if (typeof window !== 'undefined') {
 			fasts = localStorage.getItem('fastStarts') || ',';
 		}
 
-		let showCountdown = !fasts.includes(',' + this.props.game + ',');
+		let showCountdown = !fasts.includes(',' + this.props.game + ',') || !optedIn;
 
 		this.state = {
 			progress: 1,
 			complete: false,
-			showIntro: true,
+			countedDown: false,
 			showCountdown
 		};
 
@@ -122,29 +113,30 @@ export default class Countdown extends Component {
 	componentWillUnmount() {
 		// stop when not renderable
 		clearInterval(this.timer);
-		clearInterval(this.introTimer);
 	}
 
 	render(props, state) {
+		if (props.gamestarted) {
+			this.onComplete();
+		}
 		return (
 			<div>
-				{/*{state.showCountdown && !state.showIntro && <div className={style.intro}>{props.intro}</div>}*/}
 
 				{state.showCountdown && !state.complete &&
-				<div className={style.loader}>
-					<div className={style.warn}>
-						{props.message}
-					</div>
+					<div className={style.loader}>
+						<div className={style.warn}>
+							{props.message}
+						</div>
 
-					<Progress id="loader"
-						class={style.loader}
-						value={100 - this.state.progress}
-						height="30px"
-						color={props.color}
-						onChange={this.onChange}
-						onComplete={this.onComplete}
-					/>
-				</div>
+						<Progress id="loader"
+							class={style.loader}
+							value={100 - this.state.progress}
+							height="30px"
+							color={props.color}
+							onChange={this.onChange}
+							onComplete={this.onComplete}
+						/>
+					</div>
 				}
 			</div>
 		);
