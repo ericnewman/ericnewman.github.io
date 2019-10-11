@@ -60,7 +60,7 @@ export default class Game extends Component {
 	timedOut() {
 		this.setState({ tooLate: true });
 	}
-	previewtimedOut() {
+	previewTimedOut() {
 		this.setState({ previewed: true });
 	}
 
@@ -93,6 +93,7 @@ export default class Game extends Component {
 
 		this.doGameStarted = this.doGameStarted.bind(this);
 		this.timedOut = this.timedOut.bind(this);
+		this.previewTimedOut = this.previewTimedOut.bind(this);
 
 
 		if (typeof window !== 'undefined') {
@@ -165,7 +166,10 @@ export default class Game extends Component {
 			hgt = (document.documentElement.clientHeight - (kTopBarHeight + kFooterBarHeight + kCountDownBarHeight));
 		}
 
-		if (state.gameStarted) {
+		let showCountdown = !state.gameStarted && !state.tooLate;
+		let showPreview = state.gameStarted && !state.previewed && !(localStorage.getItem('explicitOptIn' === 'true'));
+
+		if (!(showCountdown || showPreview)) {
 			hgt += kCountDownBarHeight;
 		}
 
@@ -179,11 +183,9 @@ export default class Game extends Component {
 					{intro}
 				</div>
 				}
-
-				{!state.snooze &&
 				<div>
-					{!state.tooLate && <Countdown afterAction={this.timedOut}  game={selectedGame} gamestarted={state.gameStarted} />}
-					{state.gameStarted && <Preview  afterAction={this.timedOut} game={selectedGame} />}
+					{showCountdown && <Countdown afterAction={this.timedOut}  game={selectedGame} gamestarted={state.gameStarted} />}
+					{showPreview && <Preview  afterAction={this.previewTimedOut} game={selectedGame} />}
 
 					<Pframe src={url}
 						width="100%"
@@ -207,7 +209,6 @@ export default class Game extends Component {
 					/>
 					<AdUnit adPath="/180049092/TEST_GAMES_WVIEW_EN_TOP" />
 				</div>
-				}
 			</div>
 
 		)

@@ -10,9 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="draftCards">
     <meta name="application-name" content="Progressive Web Application">
+    <meta name="createDate" content="<%=new Date().toISOString()%>">
     <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>assets/icons/apple-touch-icon.png">
     <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>manifest.json">
-    <!-- createDate="<%=new Date().toISOString() %>" -->
     <% if (htmlWebpackPlugin.options.manifest.theme_color) { %>
     <meta name="theme-color" content="<%= htmlWebpackPlugin.options.manifest.theme_color %>">
     <% } %>
@@ -28,9 +28,9 @@
     <% } %>
     <script>
         // Force opted out users off the page before anything else happens
-        if(!document.location.href.indexOf('optin') !== -1) {
+        if(document.location.href.indexOf('optin') !== -1) {
 			if (localStorage.getItem('explicitOptOut') === 'true') {
-				document.location.href = 'https://metropcs.mobi';
+				//document.location.href = 'https://metropcs.mobi';
 			}
         }
     </script>
