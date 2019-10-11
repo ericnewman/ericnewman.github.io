@@ -1,0 +1,58 @@
+
+
+.home {
+  padding: 10px;
+  min-height: 100%;
+  width: 100%;
+  color: white;
+  border: 1px solid #777;
+
+}
+
+.mdc-card {
+  margin: 50px 0;
+}
+
+
+.cent {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.bots {
+  margin: 5px 0;
+  height: 36px;
+  padding: 4px 0;
+  width: 100%;
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+}
+.box {
+  padding:5px;
+  margin-bottom: 5px;
+}
+.box .tile {
+  border:1px solid white;
+  border-radius:32px;
+  height:150px;
+  background: -moz-linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
+  background: -webkit-linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
+  background: linear-gradient(356deg, rgba(2, 0, 36, 1) 0%, rgba(102, 51, 153, 1) 93%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#663399", GradientType=1);
+
+}
+.tiletitle {
+  font: bold 18px Comfortaa, sans-serif;
+  text-shadow: #0b2e13 2px 2px;
+  padding:5px;
+}
+.image {
+  max-height:115px;
+  max-width:115px;
+  min-height:100px;
+  margin:auto;
+  vertical-align: middle;
+}
