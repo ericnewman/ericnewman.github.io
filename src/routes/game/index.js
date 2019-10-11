@@ -87,7 +87,8 @@ export default class Game extends Component {
 			sessionLength: 0,
 			gameStarted: false,
 			playMsg: 'Tap to Play now!',
-			previewed: false
+			previewed: false,
+			showIntro: true
 		};
 
 		this.doGameStarted = this.doGameStarted.bind(this);
@@ -169,10 +170,16 @@ export default class Game extends Component {
 		}
 
 		let url = gamesList[selectedGame].url;
-		//let intro = gamesList[selectedGame].intro;
+		let intro = gamesList[selectedGame].intro;
 
 		return (
+
 			<div id="home" class={style.dash}>
+				{!state.gameStarted &&state.showIntro && <div className={style.bonusMsg}>
+					{intro}
+				</div>
+				}
+
 				{!state.snooze &&
 				<div>
 					{!state.tooLate && <Countdown afterAction={this.timedOut}  game={selectedGame} gamestarted={state.gameStarted} />}

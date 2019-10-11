@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" createDate="<%=new Date().toISOString() %>">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
@@ -10,8 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="draftCards">
     <meta name="application-name" content="Progressive Web Application">
-    <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>assets/icons/apple-touch-icon.png">
     <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>manifest.json">
+    <!-- createDate="<%=new Date().toISOString() %>" -->
     <% if (htmlWebpackPlugin.options.manifest.theme_color) { %>
     <meta name="theme-color" content="<%= htmlWebpackPlugin.options.manifest.theme_color %>">
     <% } %>
@@ -27,9 +28,11 @@
     <% } %>
     <script>
         // Force opted out users off the page before anything else happens
-        if (localStorage.getItem('explicitOptOut') === 'true') {
-			document.location.href = 'https://metropcs.mobi';
-		}
+        if(!document.location.href.indexOf('optin') !== -1) {
+			if (localStorage.getItem('explicitOptOut') === 'true') {
+				document.location.href = 'https://metropcs.mobi';
+			}
+        }
     </script>
 </head>
 <body>

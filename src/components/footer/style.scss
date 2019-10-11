@@ -27,8 +27,7 @@ $icon_size: 40px;
     }
     50% {
       background-color: #CCF;
-      letter-spacing: 0px;
-
+      letter-spacing: 0;
     }
   }
 
@@ -62,8 +61,8 @@ $icon_size: 40px;
   color: white !important;
   font: bold 12px Comfortaa, sans-serif;
   text-transform: lowercase;
-  margin: 0px 25px;
-  padding:0px 15px;
+  margin: 0 25px;
+  padding:0 15px;
   position:relative;
   vertical-align:top;
 }
@@ -88,7 +87,7 @@ $icon_size: 40px;
 .tiny {
   color: #777;
   font: Bold 10px 'Orbitron', sans-serif;
-  padding-top: 0px;
+  padding-top: 0;
   width: 100%;
   text-align: center;
 }

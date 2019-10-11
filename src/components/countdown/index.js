@@ -116,12 +116,12 @@ export default class Countdown extends Component {
 	}
 
 	render(props, state) {
+
 		if (props.gamestarted) {
 			this.onComplete();
 		}
 		return (
 			<div>
-
 				{state.showCountdown && !state.complete &&
 					<div className={style.loader}>
 						<div className={style.warn}>

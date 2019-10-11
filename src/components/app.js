@@ -30,7 +30,7 @@ export default class App extends Component {
 					this.setState({
 						currentUrl: e.url
 					});
-				}, 0);
+				}, 10);
 			}
 		}
 	};
