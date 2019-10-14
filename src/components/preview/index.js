@@ -1,6 +1,6 @@
 import { Component } from 'preact';
 import Progress from 'preact-progress';
-import style from './style';
+import style from './style.scss';
 import { route } from 'preact-router';
 
 export default class Preview extends Component {
@@ -34,7 +34,7 @@ export default class Preview extends Component {
 	onComplete = () => {
 
 		this.setState({
-			complete: true,
+			complete: true
 		});
 
 
@@ -52,7 +52,7 @@ export default class Preview extends Component {
 		super(props);
 
 		let optedIn = false;
-		;
+
 
 		if (typeof window !== 'undefined') {
 			optedIn = localStorage.getItem('explicitOptIn') === 'true';

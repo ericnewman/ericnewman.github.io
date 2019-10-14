@@ -1,12 +1,10 @@
 import { Component } from 'preact';
-import Survey1 from '../../components/survey';
 import Typed from 'react-typed';
 import Img from 'react-image';
 import SignUpButton from '../../components/signup';
 import ReactGA from 'react-ga';
 
-import style from './style';
-import gamesList from '../../gamesList';
+import style from './style.scss';
 
 
 export default class Optin extends Component {
@@ -99,7 +97,7 @@ export default class Optin extends Component {
 						/>
 					</div>
 					<div class={style.image}>
-						<Img src={'../../../assets/img/' + state.images[state.rand3]} class={style.image}/>
+						<Img src={'../../../assets/img/' + state.images[state.rand3]} class={style.image} />
 					</div>
 
 					<div className={style.offers}>
@@ -109,7 +107,7 @@ export default class Optin extends Component {
 						/>
 					</div>
 					<SignUpButton scenario={state.experiment} experiment={state.rand5} />
-					<div class={style.noThanks} onclick={this.nothanks}>No Thanks</div>
+					<div class={style.noThanks} onClick={this.nothanks}>No Thanks</div>
 				</div>
 			</div>
 		);

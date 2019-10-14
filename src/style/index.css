@@ -179,12 +179,12 @@ header {
 }
 
 .cardHeader {
-    padding: 0px;
+    padding: 0;
 
 }
 
 .cardBody {
-    padding: 0px;
+    padding: 0;
 }
 
 .newpage {
@@ -313,7 +313,7 @@ header {
 
 @media only screen and (max-width: 360px) {
     html, body, #app {
-        width: 360px;
+        width: 360px !important;
     }
 
     .beta {

@@ -1,15 +1,15 @@
 import { Component } from 'preact';
 import { Container, Row, Col } from 'reactstrap';
-import style from './style';
+import style from './style.scss';
 import Img from 'react-image';
 import { route } from 'preact-router';
 
 export default class Portal extends Component {
 
 
-	gotoPacman(addr) {
+	gotoPacman() {
 
-		document.location.href = "https://ericnewman.github.io/pacman-pwa/index.html";
+		document.location.href = 'https://ericnewman.github.io/pacman-pwa/index.html';
 	}
 	linkTo = path => () => {
 		route(path);
@@ -17,10 +17,10 @@ export default class Portal extends Component {
 
 	goHome = this.linkTo('/');
 	goPuzzle () {
-		document.location.href = "http://whitelabel.marketjs.com/category/puzzle?preview=5033219829268480"
+		document.location.href = 'http://whitelabel.marketjs.com/category/puzzle?preview=5033219829268480';
 	}
 	goFamily () {
-		document.location.href = "http://whitelabel.marketjs.com/category/family?preview=5033219829268480"
+		document.location.href = 'http://whitelabel.marketjs.com/category/family?preview=5033219829268480';
 	}
 
 	constructor(props) {
@@ -44,13 +44,13 @@ export default class Portal extends Component {
 						<Col xs="6" className={style.box} onclick={this.goHome}>
 							<div class={style.tile}>
 								<div class={style.tiletitle}>Quickies</div>
-								<Img src={'../../assets/img/crazyballs.png'} class={style.image}/>
+								<Img src={'../../assets/img/crazyballs.png'} class={style.image} />
 							</div>
 						</Col>
 						<Col xs="6" className={style.box} onclick={this.gotoPacman}>
 							<div className={style.tile}>
 								<div className={style.tiletitle}>Arcade</div>
-								<Img src={'../../assets/img/frogger.gif'} class={style.image}/>
+								<Img src={'../../assets/img/frogger.gif'} class={style.image} />
 
 							</div>
 						</Col>
@@ -59,14 +59,14 @@ export default class Portal extends Component {
 						<Col xs="6" className={style.box} onclick={this.goPuzzle}>
 							<div className={style.tile}>
 								<div className={style.tiletitle}>Puzzles</div>
-								<Img src={'../../assets/img/puzzle.png'} class={style.image}/>
+								<Img src={'../../assets/img/puzzle.png'} class={style.image} />
 
 							</div>
 						</Col>
 						<Col xs="6" className={style.box}>
 							<div className={style.tile}>
 								<div className={style.tiletitle}>Hidden Objects</div>
-								<Img src={'../../assets/img/hidden.jpg'} class={style.image}/>
+								<Img src={'../../assets/img/hidden.jpg'} class={style.image} />
 
 							</div>
 						</Col>
@@ -75,14 +75,14 @@ export default class Portal extends Component {
 						<Col xs="6" className={style.box}>
 							<div className={style.tile}>
 								<div className={style.tiletitle}>Cards</div>
-								<Img src={'../../assets/img/cards.png'} class={style.image}/>
+								<Img src={'../../assets/img/cards.png'} class={style.image} />
 
 							</div>
 						</Col>
 						<Col xs="6" className={style.box}>
 							<div className={style.tile}>
 								<div className={style.tiletitle}>Casino</div>
-								<Img src={'../../assets/img/casino.jpg'} class={style.image}/>
+								<Img src={'../../assets/img/casino.jpg'} class={style.image} />
 
 							</div>
 						</Col>
@@ -91,14 +91,14 @@ export default class Portal extends Component {
 						<Col xs="6" className={style.box}>
 							<div className={style.tile}>
 								<div className={style.tiletitle}>Family Games</div>
-								<Img src={'../../assets/img/casual-games.jpg'} class={style.image}/>
+								<Img src={'../../assets/img/casual-games.jpg'} class={style.image} />
 
 							</div>
 						</Col>
 						<Col xs="6" className={style.box}>
 							<div className={style.tile}>
 								<div className={style.tiletitle}>Brain Puzzles</div>
-								<Img src={'../../assets/img/brain.jpeg'} class={style.image}/>
+								<Img src={'../../assets/img/brain.jpeg'} class={style.image} />
 
 							</div>
 						</Col>
