@@ -78,7 +78,6 @@ export default class App extends Component {
 			<div id="app">
 				<Notifications options={{ zIndex: 200, top: '180px', wrapperId: 'toastBox' }} />
 				{showHeader && <Menu selectedRoute={state.currentUrl} />}
-
 				<Router onChange={this.handleRoute}>
 					<Game path="/"  selectedGame={gameNum} />
 					<Game path="/game" selectedGame={gameNum} />

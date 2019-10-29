@@ -3,7 +3,7 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended", "eslint:synacor"],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -23,4 +23,4 @@ module.exports = {
         "react/jsx-no-bind": 0,
         "no-useless-escape": 0
     }
-};
+}
