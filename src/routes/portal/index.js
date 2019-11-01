@@ -33,17 +33,16 @@ export default class Portal extends Component {
 	}
 	render(props, state) {
 		return (
-			<div id="home" class={style.home}>
+			<div id="home" className={style.home}>
 				<div>
-					<div class={style.home}>Select one of the exciting game categories below
+					<div className={style.home}>Select one of the exciting game categories below
 					</div>
-					<br />
 				</div>
 				<Container>
 					<Row>
 						<Col xs="6" className={style.box} onclick={this.goHome}>
-							<div class={style.tile}>
-								<div class={style.tiletitle}>Quickies</div>
+							<div className={style.tile}>
+								<div className={style.tiletitle}>Quickies</div>
 								<Img src={'../../assets/img/crazyballs.png'} class={style.image} />
 							</div>
 						</Col>
