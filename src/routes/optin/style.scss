@@ -14,8 +14,8 @@
   font: bold 20px Geneva, sans-serif;
   color:#ef7d16;
   height:65px;
-
 }
+
 .offers {
   text-align:center;
   padding:10px;
@@ -27,7 +27,6 @@
   text-align:center;
   padding:10px;
   font: 22px Comfortaa, sans-serif;
-
 }
 .image {
   padding: 10px;
@@ -35,3 +34,30 @@
   max-width:300px;
   margin:auto;
 }
+
+@media only screen and (max-width: 360px) {
+  .home {
+    padding: 10px;
+  }
+  .titles {
+    font: 19px Comfortaa, sans-serif;
+    padding: 5px;
+  }
+  .prompt {
+    font: bold 17px Geneva, sans-serif;
+    padding: 5px;
+  }
+  .offers {
+    font: bold 17px Comfortaa, sans-serif;
+    padding: 5px;
+  }
+  .image {
+    padding: 5px;
+    max-height: 280px;
+    max-width: 280px;
+  }
+  .signup {
+    padding:5px;
+  }
+}
+

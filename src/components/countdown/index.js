@@ -1,4 +1,4 @@
-import { Component } from 'preact';
+import {Component} from 'preact';
 import Progress from 'preact-progress';
 import style from './style.scss';
 import ReactGA from 'react-ga';
@@ -12,17 +12,17 @@ export default class Countdown extends Component {
 			case 100:
 			case 99:
 				this.props.message = 'Start the game before it\'s too late!!!';
-				this.props.color = '#0F0';
+				//this.props.color = '#0F0';
 				break;
-			case 95:
-				this.props.color = '#0B0';
-				break;
+			//case 95:
+				//this.props.color = '#0B0';
+				//break;
 			case 45:
-				this.props.color = '#FC0';
+				//this.props.color = '#FC0';
 				this.props.message = 'Time\'s almost up!';
 				break;
 			case 20:
-				this.props.color = '#F00';
+				//this.props.color = '#F00';
 				break;
 			case 1:
 			case 0:
@@ -76,7 +76,7 @@ export default class Countdown extends Component {
 			countedDown: false,
 			showCountdown
 		};
-
+		this.props.color = '#45196F';
 
 		this.onChange.bind(this);
 		this.onComplete.bind(this);

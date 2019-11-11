@@ -1,17 +1,17 @@
-.mdc-theme--dark .mdc-card {
-  color: white !important;;
-}
+//.mdc-theme--dark .mdc-card {
+//  color: white !important;;
+//}
 
 .warn {
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-name: colorz;
-  color: black;
-  font: Bold 16px/0px 'Orbitron', sans-serif;
+  color: white;
+  font: Bold 17px/0 'Orbitron', sans-serif;
   left: 10px;
   position: relative;
-  text-shadow: 1px 1px 5px white, 1px 1px 5px white, 1px 1px 5px white;
-  top: 18px;
+  text-shadow: 1px 1px 3px black, 1px 1px 3px black, 1px 1px 3px black;
+  top: 15px;
   z-index: 3;
 }
 
@@ -35,6 +35,8 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   font: normal 20px/22px Comfortaa, sans-serif;
+  height:34px;
+
 }
 
 .loader {
@@ -42,14 +44,13 @@
   animation-iteration-count: infinite;
   animation-name: colorz;
   background-color: #000;
-  height:32px;
 }
 
 @keyframes colorz {
   0%, 100% {
-    background-color: #800;
+    background-color: #000;
   }
   50% {
-    background-color: #000;
+    background-color: #EF7D16;
   }
 }

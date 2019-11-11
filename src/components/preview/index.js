@@ -1,7 +1,7 @@
-import { Component } from 'preact';
+import {Component} from 'preact';
 import Progress from 'preact-progress';
 import style from './style.scss';
-import { route } from 'preact-router';
+import {route} from 'preact-router';
 
 export default class Preview extends Component {
 
@@ -12,14 +12,14 @@ export default class Preview extends Component {
 			case 100:
 			case 99:
 				this.props.message = 'You\'re playing one of our FREE daily fun games';
-				this.props.color = '#0FF';
+				//this.props.color = '#FF008C';
 				break;
 			case 45:
-				this.props.color = '#3FF';
+				// this.props.color = '#FF008C';
 				this.props.message = 'Sign Up, and get free games every day';
 				break;
 			case 20:
-				this.props.color = '#6FF';
+				// this.props.color = '#FF008C';
 				this.props.message = 'No apps to install - it\'s easy!';
 
 				break;
@@ -65,7 +65,7 @@ export default class Preview extends Component {
 			complete: optedIn,
 			showPreview
 		};
-
+		this.props.color = '#FF008C';
 
 		this.onChange.bind(this);
 		this.onComplete.bind(this);
